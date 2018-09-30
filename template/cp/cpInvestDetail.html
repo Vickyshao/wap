@@ -1,0 +1,342 @@
+<div class="wrap pb3 newhand-wrapper cp-wrapper headerTop" ng-controller='controllerInvestDrtail' ng-init="!isShowRule">
+    <div class="common-head blue-head" ><i ng-click="toback()"></i>
+        <p>{{cp.info.fullName}}</p>
+        <!--安心签去掉协议-->
+        <span class="right" ng-if="cfcaSwitchFlag != undefined && !cfcaSwitchFlag"><!--<a href="https://hushenlc.cn/loan" class="xieyi">协议</a>--></span>
+    </div>
+    <div class="container find-wrapper" ng-show="mainbox">
+        <div class="invest-info-box">
+            <div class="cpinvest-header">
+                <p>历史年化收益率</p>
+                <div class="rate">
+                    <p>
+                        {{cp.info.rate| wisNumber3}}%
+                        <span class="activity-rate" ng-if="cp.info.activityRate>0 && !isshuangdan">
+                            +{{cp.info.activityRate}}%
+                            <i ng-if="isshuangdan && (specialRate>0 || cp.info.activityRate>0)">+{{specialRate+cp.info.activityRate}}%</i>
+                        </span>
+                    </p>
+                </div>
+                <!--安心签去掉优惠券展示-->
+               <!-- <div class="coupon" ng-if="cp.info.type == 2 && cp.info.atid == undefined">
+                    <span ng-if="cp.info.isCash==1&&!cp.info.atid">红包</span>
+                    <span ng-if="cp.info.isInterest==1">加息券</span>
+                    <span ng-if="cp.info.isDouble==1&&!cp.info.atid">翻倍券</span>
+                </div>-->
+                <div class="desc">
+                    <span ng-if="cp.info.type == 1"><img src="/images/newhand/detail_pro_icon.png" alt="">{{cp.info.deadline}}天</span>
+                    <span ng-if="cp.info.type == 2"><img src="/images/newhand/detail_pro_icon.png" alt="">{{cp.info.deadline}}天</span>
+                    <span><img src="/images/newhand/detail_pro_icon.png" alt="">{{interestmode}}</span>
+                    <span><img src="/images/newhand/detail_pro_icon.png" alt=""><i ng-bind="{1:'到期还本付息',2: '按月付息到期还本',3:'等本等息 按周回款',4:'等本等息 按月回款',5:'其他'}[cp.info.repayType]"></i></span>
+                </div>
+            </div>
+            <div class="tiexi-module" ng-if="hot">
+                <span class="left"><img src="/images/newhand/tiexi-icon.png" alt="" class="left-special-icon"></span>
+                <a href="{{hot.url}}" class="right">
+                    <span  >{{hot.desc}}<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                </a>
+            </div>
+            <div class="div-block" style="background: #f2f2f2;"></div>
+            <!--安心签去掉进度条-->
+            <!--<div class="progress">
+                <div style="width: {{cp.info.pert | setProgress}}%;"></div>
+            </div>-->
+
+            <!--安心签-优选理财-当前活动-->
+            <!--<ul class="list-wrap" ng-if="cp.info.type == 2">
+                <li>
+                    <span class="left"><img src="/images/newhand/activity-icon.png" alt="" style="width: 7rem;vertical-align: top;margin-top: 0.4rem;"></span>
+                    <span class="right"><i class="red-text">贴息活动，提升160%</i><img src="images/find/icon_rightto.png" alt="" class="right-icon" style="margin-left: 0.32rem;"></span>
+                </li>
+            </ul>
+            <div class="div-block" style="background: #f2f2f2;height: 1px;"></div>-->
+
+            <div class="money">
+                <div class="con">
+                    <p class="tit2">项目总额(元)</p>
+                    <p class="money2" ng-class="{true:'grey',false:''}[cp.info.status != 5]" ng-if="cp.info.type == 1">{{cp.info.amount | isNumber}}</p>
+                    <p class="money2" ng-class="{true:'grey',false:''}[cp.info.status != 5]" ng-if="cp.info.type != 1">{{cp.info.amount | number}}</p>
+                </div>
+                <div class="line"></div>
+                <div class="con">
+                    <p class="tit2">剩余可投(元)</p>
+                    <p class="money2 red-text" ng-if="cp.info.type == 1">{{cp.info.surplusAmount | isNumber}}</p>
+                    <p class="money2 red-text" ng-if="cp.info.type != 1">{{cp.info.surplusAmount | number}}</p>
+                </div>
+            </div>
+            <div class="info-wrap find-wrapper">
+                <!--<div class="line" ng-if="cp.status != 5"></div>-->
+                <div class="input-box" ng-show="cp.info.status == 5">
+                    <div class="input-wrap">
+                        <label>金额(元)</label>
+                        <input type="number" placeholder="{{cp.info.leastaAmount}}元起购买，{{cp.info.increasAmount}}元递增" ng-model="amount" ng-change="onChange()"/>
+                    </div>
+                </div>
+                <div class="input-box" ng-if="cp.info.status != 5">
+                    <div class="input-wrap grey-input-wrap">
+                        <label>金额(元)</label>
+                        <input type="number" placeholder="项目额度已募集结束" disabled>
+                    </div>
+                </div>
+                <div class="div-block" ng-if="cp.info.status!=5"></div>
+
+                <!--新手标-->
+                <ul class="list-wrap" ng-if="cp.info.type == 1">
+                    <!--预估总收益-->
+                    <li ng-if="cp.info.status==5">
+                        <span class="left">
+                            预计总收益(元) :
+                            <i class="red">{{expect}}<span class="big" ng-if="cpCoupon && cpCoupon.type!=0">+{{shouyiYhq}}</span><span class="black" ng-bind="{1:'返现',2:'加息',4:'翻倍'}[cpCoupon.type]"></span></i>
+                        </span>
+                    </li>
+
+                    <!--产品描述-->
+                    <li ng-if="cp.info.status==5" ui-sref="newhand({pid:cp.info.id,wap:true})">
+                        <span class="left"><img src="/images/newhand/detail_pro_activity.png" alt="" class="left-icon">产品描述</span>
+                        <span class="right"><img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                    </li>
+                    <!--优惠券-->
+                    <li ng-if="cp.info.status==5 && cop.length > 0" ng-click="useCoupon()">
+                        <span class="left"><img src="/images/newhand/detail_pro_redcard.png" alt="" class="left-icon">优惠券 <i ng-if="cop.length > 0">({{cop.length}})</i></span>
+                        <span class="right" ng-if="cop.length > 0">投资满5000元可用红包<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                        <!--无可用优惠券-->
+                        <span class="right no-ticket" ng-if="cop.length < 1 || userInfo.register == false">无可用优惠券<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                    </li>
+                    <!--未登录优惠券-->
+                    <li ng-if="userInfo.register == false" ng-click="toDl()">
+                        <span class="left"><img src="/images/newhand/detail_pro_redcard.png" alt="" class="left-icon">优惠券</span>
+                        <span class="right">投资满5000元可用红包<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                    </li>
+                </ul>
+
+                <!--优选理财-->
+                <ul class="list-wrap" ng-if="cp.info.type == 2 && cp.info.atid == undefined">
+                    <!--预估总收益-->
+                    <li ng-if="cp.info.status==5 && isShow" >
+                        <span class="left">
+                            预计总收益(元) :
+                            <!--返现券-->
+                            <i class="red">{{expect}}
+                                <span class="big" ng-if="cpCoupon && cpCoupon.type!=0">+{{shouyiYhq}}</span>
+                                <span class="black" ng-bind="{1:'红包',2:'加息',4:'翻倍'}[cpCoupon.type]"></span>
+                                <span ng-if="tixie && tixieIncome != 0">+&nbsp;{{tixieIncome}}<b class="black">&nbsp;{{tixie.typeName}}</b></span>
+                            </i>
+                            <!--加息券-->
+                            <!--<i class="red" ng-if="cpCoupon.type==2">{{expect}}<span class="big">+{{shouyiYhq}}</span><span class="black">(加息收益)</span></i>-->
+                            <!--翻倍券-->
+                            <!--<i class="red" ng-if="cpCoupon.type==4">{{expect}}<span class="big">+{{shouyiYhq}}</span><span class="black">(翻倍收益)</span></i>-->
+
+
+
+                            <!--
+                            &lt;!&ndash; 返现券 &ndash;&gt;
+                            &lt;!&ndash; 产品活动利率大于0时 加活动利率 &ndash;&gt;
+                            <i class="red" ng-if="cpCoupon.type==1">
+                                <t ng-if="cp.info.surplusAmount >= amount && cp.isOldUser">{{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.specialRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}}+<span class="big">{{cpCoupon.amount}}</span><span class="black">(返现优惠券)</span></t>
+                        <t ng-if="cp.info.surplusAmount >= amount && !cp.isOldUser">{{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}}+<span class="big">{{cpCoupon.amount}}</span><span class="black">(返现优惠券)</span></t>
+                            </i>
+
+                            &lt;!&ndash; 加息券 &ndash;&gt;
+                            &lt;!&ndash; 产品活动利率大于0时 加活动利率 &ndash;&gt;
+                            <i class="red" ng-if="cpCoupon.type==2">
+                                <t ng-if="cp.info.surplusAmount >= amount && cp.isOldUser">{{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.specialRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}}+<span class="big">{{(cpCoupon.raisedRates/100 / 360 * amount * cp.info.deadline | wisNumber2)| wisNumber2}}<span class="black">(加息收益)</span></span> </t>
+                                <t ng-if="cp.info.surplusAmount >= amount && !cp.isOldUser">{{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}}+<span class="big">{{(cpCoupon.raisedRates/100 / 360 * amount * cp.info.deadline)| wisNumber2}}<span class="black">(加息收益)</span></span></t>
+                            </i>
+                            &lt;!&ndash; type==0 &ndash;&gt;
+                            <i ng-if="cpCoupon.type==0 && cp.info.type!=1" class="red">
+                                <t ng-if="noHBshouyi&&cp.info.surplusAmount >= amount && cp.isOldUser">{{((amount*cp.info.rate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.info.activityRate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.specialRate/100 /360 * cp.info.deadline | wisNumber2))| wisNumber2}} </t>
+                                <t ng-if="noHBshouyi&&cp.info.surplusAmount >= amount && !cp.isOldUser">{{((amount*cp.info.rate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.info.activityRate/100 /360 * cp.info.deadline | wisNumber2))| wisNumber2 }} </t>
+                            </i>
+                            <i ng-if="cpCoupon.type==0 && cp.info.type==1" class="red">
+                                <t ng-if="noHBshouyi && cp.isOldUser">{{((amount*cp.info.rate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.info.activityRate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.specialRate/100 /360 * cp.info.deadline | wisNumber2))| wisNumber2 }} </t>
+                                <t ng-if="noHBshouyi && !cp.isOldUser">{{((amount*cp.info.rate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.info.activityRate/100 /360 * cp.info.deadline | wisNumber2))| wisNumber2 }} </t>
+                            </i>
+                            &lt;!&ndash; 翻倍券 &ndash;&gt;
+                            <i ng-if="cpCoupon.type==4"  class="red">
+                                &lt;!&ndash; 产品活动利率大于0时 加活动利率 &ndash;&gt;
+                                <t ng-if="cp.info.surplusAmount >= amount && cp.isOldUser">{{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.specialRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}}+<span class="big">{{(amount * cp.info.rate*(cpCoupon.multiple-1)/100 / 360 * cp.info.deadline) | wisNumber2}}<span class="black">(翻倍收益)</span></span> </t>
+                                <t ng-if="cp.info.surplusAmount >= amount && !cp.isOldUser">{{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}}+<span class="big">{{(amount * cp.info.rate*(cpCoupon.multiple-1)/100 / 360 * cp.info.deadline) | wisNumber2}}<span class="black">(翻倍收益)</span></span> </t>
+                            </i>
+                            <p class="red" ng-if="!cpCoupon && cp.isOldUser"><t> {{((cp.info.rate/100 / 360 * amount * cp.info.deadline | wisNumber2) + (cp.specialRate/100 / 360 * amount * cp.info.deadline | wisNumber2) + (cp.info.activityRate/100 / 360 * amount * cp.info.deadline | wisNumber2))| wisNumber2}} </t></p>
+                            <i class="red" ng-if="!cpCoupon && !cp.isOldUser"><t> {{((cp.info.rate/100 / 360 * amount * cp.info.deadline | wisNumber2) + (cp.info.activityRate/100 / 360 * amount * cp.info.deadline | wisNumber2))| wisNumber2}} </t>
+                            </i>-->
+                        </span>
+                    </li>
+
+
+                    <!--优惠券-->
+                    <li ng-show="cp.info.status==5 && cop.length > 0" ng-click="useCoupon()">
+                        <span class="left"><img src="/images/newhand/detail_pro_redcard1.png" class="left-icon">优惠券 <i ng-if="cop.length > 0">({{cop.length}})</i></span>
+                        <span class="right">
+                            <b ng-if="cpCoupon.type == 0">请选择优惠券</b>
+                            <b ng-if="cpCoupon.type == 1">{{cpCoupon.amount}}(返现优惠券)</b>
+                            <b ng-if="cpCoupon.type == 2">{{cpCoupon.raisedRates | wisNumber3}}%(加息收益)</b>
+                            <b ng-if="cpCoupon.type == 4">{{cpCoupon.multiple | wisNumber3}}(翻倍收益)</b>
+                            <img src="images/find/icon_rightto.png" class="right-icon">
+                        </span>
+                    </li>
+                    <!--无可用优惠券-->
+                    <li ng-show="cp.info.status==5 && (cop.length < 1 || userInfo.register == false)">
+                        <span class="left"><img src="/images/newhand/detail_pro_redcard1.png" class="left-icon">优惠券 <i ng-if="cop.length > 0">({{cop.length}})</i></span>
+                        <span class="right no-ticket">无可用优惠券<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                    </li>
+
+                    <!--尾标奖-->
+                    <li ng-click="toweibiao()" ng-if="cp.info.type != 1 && !cp.info.atid && !isNoNormal && cp.info.status==5">
+                        <span class="left"><img src="/images/newhand/weibiao-icon1.png" alt="" class="left-icon">尾标奖</span>
+                        <span class="right"><i >50</i>元现金奖励封顶<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                    </li>
+                    <li  ui-sref="tailawardDetail" ng-if="cp.info.type != 1 && !cp.info.atid && !isNoNormal && cp.info.status!=5 && cp.info.luckyman != undefined">
+                        <span class="left"><img src="/images/newhand/weibiao-icon1.png" alt="" class="left-icon">尾标奖</span>
+                        <span class="right">恭喜<i class="red-text">{{cp.info.luckyman}}</i>用户获<i class="red-text">{{cp.info.bountry}}</i>元<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                    </li>
+                    <li ng-if="riskname">
+                        <span class="left"><img src="/images/newhand/yaoqiu-icon.png" class="left-icon">投资要求</span>
+                        <span class="right">风险评测等级"{{cp.info.riskname}}"以上</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- 头 -->
+
+    </div>
+    <!-- 未认证 ?pid={{cp.id}}-->
+    <!-- <div class="sign_box_bottom newhand-btn" ng-if="(a|isRegister).register && map.realVerify==0" ui-sref="certification">
+                充值
+    </div> -->
+    <!--<div class="sign_box_bottom newhand-btn" ng-click="toInvest()" ng-if="(a|isRegister).register && cp.status==5">
+        立即投资
+    </div>-->
+    <!--<div class="sign_box_bottom newhand-btn" style="z-index: 999" ng-if="!(a|isRegister).register" ng-click="gologin()">
+        立即登录
+    </div>-->
+    <div class="toinfo" ng-click="toXq()"><img src="/images/newhand/gotop.png" alt="">点击查看详情</div>
+    <div class="footer-btn-wrap">
+      <!--  <p class="xieyi" ng-if="cfcaSwitchFlag != undefined && !cfcaSwitchFlag"><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}"></i>我已阅读并同意<a ui-sref="riskCommitment">《风险提示书与承诺书》</a></p>-->
+        <div class="new-blue-btn" ng-click="toInvest()" ng-if="(a|isRegister).register && cp.info.status==5 && agree">立即抢购</div>
+        <div class="new-blue-btn grey-btn" ng-if="(a|isRegister).register && cp.info.status==5 && !agree">立即抢购</div>
+        <div class="new-blue-btn" ng-if="!(a|isRegister).register" ng-click="gologin()">请登录后抢购</div>
+        <!--<div class="toinfo" ui-sref="cpInvestInfo({pid:cp.info.id})"><img src="/images/newhand/gotop.png" alt="">点击查看详情</div>-->
+    </div>
+
+    <div class="footer-btn-wrap" ng-if="cp.info.status!=5">
+        <div class="new-blue-btn grey-btn" ng-class="{'newhand-btn-default':true,all:!yuebiao.isReservation}" ng-bind="{6:'抢光了',7:'募集失败',8:'待还款',9:'已还款'}[cp.info.status]"></div>
+        <div class="new-blue-btn" ng-click="goyuebiao()" ng-if="yuebiao.isReservation">立即预约下期</div>
+        <!--<div class="toinfo" ui-sref="cpInvestInfo({pid:cp.info.id})"><img src="/images/newhand/gotop.png" alt="">点击查看详情</div>-->
+    </div>
+    <div class="mask" ng-show="showBigImg" ng-click="showBigImg = false">
+        <div class="check-img-wrap"><img src="{{bigImgSrc}}"></div>
+    </div>
+
+
+    <!-- 补标规则弹框 -->
+    <!--  <div class="bb-mask" ng-show="isShowRule">
+        <div class="bb-check-img-wrap">
+            <img src="../../images/BBRule.png">
+            <span class="new-blue-btn" ui-sref="CP117({wap:true})"></span>
+            <p class="icon icon_close" ng-click="onClick('closeRule')"></p>
+        </div>
+    </div> -->
+
+
+    <!-- 补标弹框 -->
+    <!-- <div  ng-show="isShowRule" class="maskErrorBB ng-cloak" >
+        <div class="maskErrorBB-box">
+            <p>本产品目前已激活补标奖励，成功补标将获得XXXX!</p>
+            <a ng-click="isShowRule=false" class="close">关闭</a>
+            <a ui-sref="CP117({wap:true})" ng-click="isShowRule=false" class="rule">补标规则</a>
+        </div>
+    </div> -->
+    <div class="zjd">
+        <div class="zjd-box1">
+            <img src="images/activity/zjd/zjdtext.png" class="zjdtext" />
+            <img src="images/activity/zjd/zjdico1.png" class="zjdico1" />
+            <img src="images/activity/zjd/zjdico2.png" class="zjdico2" />
+            <img src="images/activity/zjd/zjdico3.png" class="zjdico3" />
+            <i class="zjdclose" ng-click="closeEgg()"></i>
+            <div class="zjd-box">
+                <div style="height:4rem;"></div>
+                <div class="quan">
+                    <div class="quanleft">
+                        <p>+
+                            <font>{{eggs.oldActivityCoupon.raisedRates}}</font>%</p>
+                        <span>{{eggs.oldActivityCoupon.fullName}}</span>
+                    </div>
+                    <div class="quanright">
+                        加<br>息<br>券
+                    </div>
+                </div>
+                <button class="zjd-btn red" ui-sref="investment" ng-click="closeEgg()">立即使用</button>
+                <button class="zjd-btn green" ng-click="share($event)">分享再砸一次</button>
+                <div class="zjdsm">
+                    <h3>────────────────────────────────────────────────────────────────<span>活动说明</span></h3>
+                    <p>1. 活动期间，指定标的可享受砸金蛋加息福利；</p>
+                    <p>2. 砸金蛋所得加息券只可用于当前标的，标的满标后，加息券即作废</p>
+                    <p>3. 砸金蛋所得加息券过期后，砸蛋机会恢复可继续参与砸蛋加息。</p>
+                </div>
+            </div>
+        </div>
+        <div class="zjd-box2" ng-click="closethis($event)"></div>
+        <div class="zjd-box3">
+            <img src="images/activity/zjd/zjdtext2.png" class="zjdtext" />
+            <div class="zjd-trans">
+                <img src="images/activity/zjd/dizuo.png" class="eggbg" />
+                <img src="images/activity/zjd/light.png" class="light" />
+                <img src="images/activity/zjd/eggbg2.png" class="eggbg2" />
+                <img src="images/activity/zjd/egg.png" class="egg" ng-click="zajindan($event)" />
+                <div class="chuizi"></div>
+            </div>
+        </div>
+        <div class="zjd-box4">
+            <img src="images/activity/zjd/zjdtext.png" class="zjdtext" />
+            <img src="images/activity/zjd/zjdico1.png" class="zjdico1" />
+            <img src="images/activity/zjd/zjdico2.png" class="zjdico2" />
+            <img src="images/activity/zjd/zjdico3.png" class="zjdico3" />
+            <i class="zjdclose" ng-click="closeEgg()"></i>
+            <div class="zjd-box">
+                <div style="height:4rem;"></div>
+                <div class="quan">
+                    <div class="quanleft">
+                        <p>+
+                            <font>{{eggs.newActivityCoupon.raisedRates}}</font>%</p>
+                        <span>{{eggs.newActivityCoupon.fullName}}</span>
+                    </div>
+                    <div class="quanright">
+                        加<br>息<br>券
+                    </div>
+                </div>
+                <p class="line">─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+                    ─ ─ ─ ─ ─ ─ ─</p>
+                <div class="quan zuofei">
+                    <img src="images/activity/zjd/quanx.png" class="zuofeibg" />
+                    <div class="quanleft">
+                        <p>+
+                            <font>{{eggs.oldActivityCoupon.raisedRates}}</font>%</p>
+                        <span>{{eggs.oldActivityCoupon.fullName}}</span>
+                    </div>
+                    <div class="quanright">
+                        加<br>息<br>券
+                    </div>
+                </div>
+                <button class="zjd-btn red" ui-sref="investment">立即使用</button>
+                <div class="zjdsm">
+                    <h3>────────────────────────────────────────────────────────────────<span>活动说明</span></h3>
+                    <p>1. 活动期间，指定标的可享受砸金蛋加息福利；</p>
+                    <p>2. 每个标的最多砸2次金蛋，只保留收益率最高的加息券；</p>
+                    <p>3. 砸金蛋所得加息券只可用于当前标的，标的满标后，加息券即作废。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="yuebiao-success yuebiao-renzheng" ng-if="isRealverify">
+        <div class="yuebiao-success-box">
+            <img src="images/activity/yuebiao/close.png" class="close" ng-click="closeRealverify()" />
+            <img src="images/activity/yuebiao/user.png" />
+            <h2>请先实名认证<br/>即可参与预约</h2>
+            <button ui-sref="certification">立即前往</button>
+        </div>
+    </div>
+</div>

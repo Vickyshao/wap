@@ -1,0 +1,180 @@
+.risk {
+  padding: rem-calc(40px 0,750);
+  .knowType {
+    text-align: right;
+    color: $common-blue;
+    padding-right: rem-calc(40px,750);
+    font-size: rem-calc(28px,750);
+    
+    i {
+      @include inline-block(-3px);
+      width: rem-calc(30px,750);
+      height: rem-calc(30px,750);
+      margin-right: rem-calc(5px,750);
+      background: url("/images/myaccount/wenhao_small.png") no-repeat top center/contain;
+    }
+  }
+  .main {
+    padding: rem-calc(40px,750);
+    &.riskCommite {
+      padding: rem-calc(0 40px,750);
+      .content {
+        font-size: rem-calc(28px,750);
+        padding: rem-calc(0 0 20px,750);
+        font-weight: lighter;
+      }
+    }
+    .bg {
+      box-sizing: border-box;
+      width: rem-calc(400px,750);
+      height: rem-calc(348px,750);
+      background: url("/images/myaccount/pingheng.png") no-repeat top center/contain;
+      margin: 0 auto;
+      padding-top: rem-calc(215px,750);
+      font-size: rem-calc(38px,750);
+      color: #076ea7;
+      text-align: center;
+    }
+    .desc {
+      width: 100%;
+      text-align: center;
+      color: #666;
+      font-size: rem-calc(32px,750);
+    }
+    .content {
+      font-size: rem-calc(30px,750);
+      color: #000;
+      text-align: justify;
+      padding: rem-calc(30px 0 20px,750);
+      line-height: rem-calc(46px,750);
+    }
+    .tip {
+      font-size: rem-calc(26px,750);
+      color: $common-blue;
+      padding-bottom: rem-calc(60px,750);
+    }
+    .btn {
+      @include inline-block(top);
+      width: 100%;
+      padding: rem-calc(15px 0,750);
+      text-align: center;
+      color: #fff;
+      border-radius: rem-calc(6px,750);
+      background: $common-blue;
+      font-size: rem-calc(34px,750);
+    }
+    .friendTip {
+      padding: rem-calc(20px 0 30px,750);
+      color: #e89639;
+      text-align: justify;
+      font-size: rem-calc(24px,750);
+    }
+    .newEvaluation {
+      width: 100%;
+      text-align: center;
+      a {
+        @include inline-block(top);
+        color: $common-blue;
+        font-size: rem-calc(26px,750);
+      }
+    }
+    .text1 {
+      font-size: rem-calc(34px,750);
+      color: #333;
+    }
+    .block {
+      padding: rem-calc(0 0 60px,750);
+    }
+    .blue-txt {
+      padding-top: rem-calc(10px,750);
+      font-size: rem-calc(34px,750);
+      color: $common-blue;
+    }
+    .text2 {
+      font-size: rem-calc(30px,750);
+      color: #666;
+    }
+    .title {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+      font-size: rem-calc(30px,750);
+      color: #000;
+      padding-bottom: rem-calc(40px,750);
+    }
+    .tit1 {
+      font-weight: 700;
+      text-align: justify;
+      font-size: rem-calc(28px,750);
+      color: #000;
+      padding-bottom: rem-calc(20px,750);
+    }
+    &.test {
+      padding: rem-calc(80px 60px,750);
+      .test-block {
+        position: relative;
+        padding: rem-calc(40px,750);
+        background: #fff;
+        border-radius: rem-calc(24px,640);
+        box-shadow: 0 0 10px 5px #e4e4e4;
+        .number {
+          position: absolute;
+          top: rem-calc(-2.4px,640);
+          left: rem-calc(-2.4px,640);
+          z-index: 9;
+          width: rem-calc(120px,750);
+          height: rem-calc(120px,750);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          background-image: url("/images/risk/1.png");
+          span {
+            @include inline-block(top);
+            padding: rem-calc(20px 0 0 13px,640);
+            color: #fff;
+            font-size: rem-calc(26px,640);
+          }
+        }
+        .qustioin {
+          color: #333;
+          font-size: rem-calc(34px,750);
+          padding: rem-calc(80px 0 40px,750);
+        }
+        .radius-btn {
+          border-radius: rem-calc(60px,750);
+          border: 1px solid #bfbfbf;
+          padding: rem-calc(25px 0,750);
+          text-align: center;
+          font-size: rem-calc(30px,750);
+          &.active {
+            color: #fff;
+            background: $common-blue;
+            border-color: $common-blue;
+          }
+        }
+        .awser {
+          padding-bottom: rem-calc(80px,750);
+          li {
+            margin-bottom: rem-calc(30px,750);
+            &.radius-btn {
+              width: 100%;
+              color: #000;
+            }
+            &.active {
+              color: #fff;
+            }
+          }
+        }
+        .previous {
+            text-align: center;
+          .radius-btn {
+            @include inline-block(top);
+            width: rem-calc(240px,750);
+            color: #bfbfbf;
+          }
+        }
+      }
+
+    }
+  }
+}

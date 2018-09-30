@@ -1,0 +1,22 @@
+<div class="reimbursement-record-wrap headerTop" ng-controller="reimbursementRecordCtrl">
+    <div class="common-head"><i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="reimbursement-record">
+        <div class="head">
+            <span class="first">回款金额（元）</span>
+            <span class="second">回款日期</span>
+            <span class="last">状态</span>
+        </div>
+        <ul>
+            <li ng-repeat="item in result">
+                <div class="first">
+                    <p class="money">{{item.shouldPrincipal | number:2}}+{{item.shouldInterest | number:2}}</p>
+                    <p>{{item.index | translatechinese}}期本金+收益</p>
+                </div>
+                <div class="second">{{item.date}}</div>
+                <div class="last" ng-bind="{0:'待回款',1:'已还款'}[item.status]"></div>
+            </li>
+        </ul>
+    </div>
+</div>

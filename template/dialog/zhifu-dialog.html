@@ -1,0 +1,14 @@
+<!--支付弹窗-->
+<div class="bankList zhifu">
+	<div class="bankList-title">
+		<h2>支付方式</h2>
+		<div class="ngdialog-close"></div>
+	</div>
+	<div class="bankList-content">
+		<p class="sm-text">账户余额支付(账户余额：{{balance | currency:''}} )</p>
+		<p class="xy-text">点击按钮即同意<a ui-sref="riskCommitment" style="text-decoration: underline;">《风险提示书与承诺书》</a><a href="https://hushenlc.cn/loan" style="text-decoration: underline;">《借款协议》</a><i ng-if="cfcaSwitchFlag">沪深平台电子合同已被CFCA认证</i></p>
+		<a class="new-blue-btn" ng-if="isBalanceSufficient" ng-click="zhifu()">去支付</a>
+		<a class="new-blue-btn" ng-if="!isBalanceSufficient" ui-sref="recharge({amount:amount})">余额不足，立即充值</a>
+	</div>
+</div>
+

@@ -1,0 +1,94 @@
+<div class="pb3 myassets-wrapper newhand-wrapper headerTop" ng-controller="myAssetsCtrl">
+	
+	<div class="common-head">
+		<i ng-click="toback()"></i>
+		<div class="tab-wrap">
+			<span ng-class="{ active:isShowLeft }" ng-click="isShowLeft = !isShowLeft">总资产</span>
+			<span ng-class="{ active:!isShowLeft }" ng-click="isShowLeft = !isShowLeft">累计收益</span>
+		</div>
+		<span class="right" ui-sref="myAssetsDetail">明细</span>
+	</div>
+	<div class="banner">
+		<div ng-show="isShowLeft">
+			<p class="txt">我的资产(元)</p>
+			<p class="money">{{(funds.balance + funds.wprincipal + funds.winterest) | currency:''}}</p>
+		</div>
+		<div ng-show="!isShowLeft">
+			<p class="txt">累计收益(元)</p>
+			<p class="money">{{AccumulatedIncome | currency:''}}</p>
+		</div>
+	</div>
+	<div class="content find-wrapper color-black">
+		<ul class="list-wrap" ng-show="isShowLeft">
+			<li class="font-small">
+				<span class="left">资金明细</span>
+				<span class="right">金额(元)</span>
+			</li>
+			<li>
+				<span class="left"><i class="yellow circle"></i>平台可用余额</span>
+				<span class="right" style="font-size: 1.1rem;">{{funds.balance | currency:''}}</span>
+			</li>
+			<li>
+				<span class="left"><i class="red circle"></i>待收本金</span>
+				<span class="right" style="font-size: 1.1rem;">{{funds.wprincipal | currency:''}}</span>
+			</li>
+			<li>
+				<span class="left"><i class="green circle"></i>待收收益</span>
+				<span class="right" style="font-size: 1.1rem;">{{funds.winterest | currency:''}}</span>
+			</li>
+		</ul>
+		<div class="income-list" ng-show="!isShowLeft">
+			<ul class="list-wrap">
+				<li class="font-small">
+					<span class="left">类型/日期</span>
+					<span class="right">金额(元)</span>
+				</li>
+				<li class="content-li">
+					<ul>
+						<li class="income-li" ng-repeat="item in list" infinite-scroll='loadMore()' infinite-scroll-immediate-check = false >
+							<div class="left">
+								<p class="name">{{item.remark}}</p>
+								<p class="time">{{item.addTime | date:"yyyy-MM-dd HH:mm:ss"}}</p>
+							</div>
+							<span class="right">{{item.amount | wisNumber3}}</span>
+						</li>
+						<li class="last">
+							<div class="load-end" ng-if="total == list.length">全部加载完毕</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--<div class="all">
+		<i></i>
+		<div class="mod">
+			<div>累计投资金额</div>
+			<p>{{user.investAmount | currency:''}}</p>
+		</div>
+		<div class="mod">
+			<div>累计收益金额</div>
+			<p>{{user.investProfit+user.spreadProfit | currency:''}}</p>
+		</div>
+	</div>-->
+	<!--<div class="assets-box">
+		<div class="title">我的资产</div>
+		<ul>
+			<li><span class="stitle">可用余额(元)</span><span class="amount">{{user.balance | currency:''}}</span></li>
+			<li><span class="stitle">冻结金额(元)</span><span class="amount">{{user.freeze | currency:''}}</span></li>
+			<li><span class="stitle">待收本金(元)</span><span class="amount">{{user.wprincipal | currency:''}}</span></li>
+			<li><span class="stitle">资产总额(元)</span><span class="amount allassets">{{user.balance + user.freeze + user.wprincipal| currency:''}}</span></li>
+		</ul>
+	</div>-->
+	<!--<div class="assets-wrap">
+		<div class="assets-bot">
+			<div><span><i></i></span></div>
+			<p>（资产总额=可用余额+冻结金额+待收本金）</p>
+		</div>
+	</div>-->
+</div>
+<style>
+	html,body{
+		background: #fff;
+	}
+</style>

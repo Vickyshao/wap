@@ -1,0 +1,34 @@
+<div class="redBag" ng-controller="investStartCtrl">
+    <div class="banner">
+        <img ng-if="isMyself" class="bag" src="/images/activity/investShare/banner1.png" />
+        <img ng-if="!isMyself" class="bag" src="/images/activity/investShare/banner2.png" />
+        <h2>{{shareInfo.amount}}<span>元</span></h2>
+        <h3>体验金已放入<span>{{shareInfo.mobilePhone}}</span>的账户</h3>
+    </div>
+    <div class="main">
+        <div class="btn-group">
+            <div class="btn active" ui-sref="dl">立即使用</div>
+        </div>
+        <div class="header"><span>体验金获取明细</span></div>
+        <ul class="redBag-list">
+            <li ng-repeat="item in awardDetail">
+                <div class="left">
+                    <p class="tit">{{item.partnerMobilePhone}}</p>
+                    <p class="time">{{item.handselTime | date: 'MM-dd HH:mm'}}</p>
+                </div>
+                <h2 class="center">{{item.label}}</h2>
+                <h2 class="right">{{item.amount}}元</h2>
+            </li>
+        </ul>
+        <div class="header"><span>活动规则</span></div>
+        <ul class="txt-list">
+            <li>1 每天首次分享成功后即可获得2000元体验金；</li>
+            <li>2 好友通过分享页成功注册后将获得随机体验金，同时分享者也将获得好友领取的同等体验金；</li>
+            <li>3 分享者体验金奖励可以多次叠加，每个分享链接最多可以被10位好友领取，封顶88万体验金；</li>
+            <li>4 本活动最终解释权归沪深理财所有，如有疑问请咨询客服：400-031-9909</li>
+        </ul>
+        <div class="btn-group">
+            <div class="btn active"><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">下载APP领取更多奖励</a></div>
+        </div>
+    </div>
+</div>

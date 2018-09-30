@@ -1,0 +1,12 @@
+<div class="company-honor headerTop" ng-controller="riskManageCtrl" >
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="honor">
+        <div ng-repeat="item in riskManage" ng-bind-html="item.content | asHtml"></div>
+        <!--<img ng-src="{{riskManage[0].litpic}}" alt="">-->
+        <!--<img src="../..//images/find/abouths/honor1.png" alt="">-->
+        <!--<img src="../..//images/find/abouths/honor2.png" alt="">-->
+    </div>
+
+</div>

@@ -1,0 +1,26 @@
+<div class="myinvest-wrapper actList headerTop" style="padding-top: 0;">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="div-block"></div>
+    <div class="myMission">
+        <div class="myMissionItem" ng-repeat="item in datalist">
+            <a href="{{item.appUrl}}?wap=true">
+                <img ng-if="item.isTop==1&&item.status==1" src="images/myaccount/hot-icon.png" style="width:3rem;position:absolute;top:0.5rem;left:0.5rem;">
+                <img ng-src="{{item.appPic}}" class="banner-img">
+            </a>
+            <!--<img src="images/myaccount/misson.png?date={{date}}" width="100%" ng-click="statego(item)" ng-if="item.periods<=1" />-->
+            <div class="text">
+                <span>{{item.title}}</span>
+                <span>{{item.activityDate}}</span>
+            </div>
+            <!--<h3>{{item.title}}</h3>
+            <p>活动时间：{{item.updateTime | date:"yy-MM-dd"}}</p>-->
+            <!--<div class="qishu"><img src="images/activity/firend/qishu.png" /><span>{{item.periods}}</span></div>-->
+            <div class="over" ng-if="item.status==2">
+                <p><img src="/images/find/find_huodong_end.png" alt=""></p>
+            </div>
+        </div>
+    </div>
+
+</div>

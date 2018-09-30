@@ -1,0 +1,90 @@
+<div class="wrap recharge-wrapper recharge-suc newhand-wrapper headerTop" ng-controller="rechargesucController">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>
+
+    <div class="recharge-wrap">
+        <div class="content">
+            <p class="icon">
+                <img src="images/recharge/rechangesuccess-icon.png" alt="">
+                充值成功
+            </p>
+            <p class="yue">账户可用余额：{{balance | currency:''}} </p>
+        </div>
+    </div>
+
+    <!--<div class="tips-text"  style="text-indent: 1.2rem;">请确认您的投资信息</div>-->
+    <ul class="list">
+        <li>
+            <div class="left">产品名称</div>
+            <div class="right">{{cp.info.fullName}}</div>
+        </li>
+        <li>
+            <div class="left">历史年化收益率</div>
+            <div class="right">
+                {{cp.info.rate}}%
+                <span ng-if="cp.info.activityRate>0 && !isshuangdan">+{{cp.info.activityRate}}%</span>
+                <span ng-if="isshuangdan && (specialRate>0 || cp.info.activityRate>0)">+{{specialRate+cp.info.activityRate}}%</span>
+            </div>
+        </li>
+        <li>
+            <div class="left">预计收益</div>
+            <div class="right" ng-if="cpCoupon.type==0 || !cpCoupon ||cpCoupon.type==5">
+                <i>{{amount * cp.info.rate / 100 / 360 * cp.info.deadline | isNumber2}}</i>
+                <i ng-if="cp.info.activityRate>0">
+                    +{{amount * (cp.info.activityRate/100) / 360 * cp.info.deadline | isNumber2}}
+                </i>
+            </div>
+            <div class="right" ng-if="cpCoupon.type==1">
+                <i>{{amount * cp.info.rate / 100 / 360 * cp.info.deadline | isNumber2}}</i>
+                <!-- 返现券 -->
+                <i ng-if="cp.info.activityRate>0">
+                    +{{amount * (cp.info.activityRate/100) / 360 * cp.info.deadline | isNumber2}}
+                </i>
+                (返现{{cpCoupon.amount}}元)
+            </div>
+            <div class="right" ng-if="cpCoupon.type==2">
+                <i>{{amount * cp.info.rate / 100 / 360 * cp.info.deadline | isNumber2}}</i>
+                <!-- 加息券 -->
+                <i ng-if="cp.info.activityRate>0">
+                    +{{(amount * ( cp.info.activityRate/100) / 360 * cp.info.deadline) + (cpCoupon.raisedRates/100 / 360 * amount * cp.info.deadline) | isNumber2}}
+                </i>
+                (加息优惠券)
+            </div>
+            <div class="right" ng-if="cpCoupon.type==4">
+                <i>{{amount * cp.info.rate*cpCoupon.multiple / 100 / 360 * cp.info.deadline | isNumber2}}</i>
+                <!-- 翻倍券 -->
+                <i ng-if="cp.info.activityRate>0">
+                    +{{(amount * ( cp.info.activityRate/100) / 360 * cp.info.deadline) | isNumber2}}
+                </i>
+                (翻倍优惠券)
+            </div>
+        </li>
+        <li>
+            <div class="left">项目期限</div>
+            <div class="right">{{cp.info.deadline}}天</div>
+        </li>
+    </ul>
+   <!-- <div class="info-list">
+        <table class="list-table">
+            <tbody>
+                <tr class="ng-scope">
+                    <td class="list-title">
+                        <input type="text" ng-focus="changeType($event)" ng-pattern="/^\d{6}$/" maxlength="6" style="margin-left: 1.3rem;width: 100%;" ng-model="userTypes.passWord" placeholder="请输入交易密码" id="myPwd" class="ng-pristine ng-untouched ng-valid ng-valid-pattern ng-valid-maxlength">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>-->
+
+  <!--  <div class="money">实际付款金额<i>{{amount | currency:''}}</i>元</div>
+    <div class="footer-btn" ng-click="tobuy()">确认投资</div>
+-->
+    <div class="footer-btn-wrap">
+        <p class="pay-money">
+            实际付款金额<i>{{amount | currency:''}}</i>元
+        </p>
+        <div class="new-blue-btn" ng-click="toInvest()">确认投资</div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="newhand-wrapper bingCard headerTop" style="background: #f2f2f2;" ng-controller="investAuthenticationCtrl">
+    <div class="common-head" ><i ng-click="toback()"></i><p>{{title}}</p><span class="right" ng-click="kefu()"><img src="/images/recharge/fourpart_service.png" alt="" class="kefu"></span></div>
+
+    <div class="wap-smrz-box authRecharge find-wrapper">
+        <div class="div-block"></div>
+        <ul class="list-wrap">
+            <li>
+                <span class="left">产品名称</span>
+                <span class="right">{{cp.fullName}}</span>
+            </li>
+            <li>
+                <span class="left">历史年化收益率</span>
+                <span class="right">
+                    {{cp.rate}}%
+                    <span ng-if="cp.activityRate>0 && !isshuangdan">
+                        +{{cp.activityRate}}%
+                        <span ng-if="isshuangdan && (specialRate>0 || cp.activityRate>0)">+{{specialRate+cp.activityRate}}%</span>
+                    </span>
+                </span>
+            </li>
+            <li>
+                <span class="left">预计收益</span>
+                <span class="right"> <i class="red">{{expect}}<span class="big" ng-if="cpCoupon && cpCoupon.type!=0">+{{shouyiYhq}}</span><span style="color: #222;" ng-bind="{1:'(返现优惠券)',2:'(加息收益)',4:'(翻倍收益)'}[cpCoupon.type]"></span></i></span>
+            </li>
+            <li>
+                <span class="left">项目期限</span>
+                <span class="right">{{cp.deadline}}天</span>
+            </li>
+        </ul>
+        <div class="div-block"></div>
+        <div class="pay-money">实际付款金额<span class="red">{{amount | currency2}}</span>元</div>
+        <div class="text1">为了确保您的资金安全，您需要在首次投资前进行实名认证！</div>
+        <form name='smrzForm'>
+            <div class="block">
+                <div class="item">
+                    <label class="title">持卡人姓名</label>
+                    <input type="text" name='name' ng-model="smrFrom.realName"  placeholder="请输入持卡人姓名" required />
+                </div>
+                <div class="item">
+                    <label class="title">身份证号</label>
+                    <input type="text" name='idCade' ng-model="smrFrom.idCards" minlength="18" maxlength="18" placeholder="请输入身份证号码" required />
+                </div>
+            </div>
+            <div class="block">
+                <div class="item" ng-click="choeseBank()">
+                    <label class="title">选择银行</label>
+                    <input type="text" name="bankName" ng-model="smrFrom.bankName" placeholder="请选择银行" required disabled ng-class="{checked:smrFrom.bankid}" />
+                    <i class="bankimg" ng-if="smrFrom.bankid"><img src="/images/bank/{{smrFrom.bankid}}.png"/></i>
+                    <b class="caret"></b>
+                </div>
+                <div class="item">
+                    <label class="title">输入卡号</label>
+                    <input type="text"  name='bankCade'  ng-model="smrFrom.bankNum1" ng-pattern="/\d/" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" placeholder="请输入本人储蓄卡号" required />
+                </div>
+                <div class="item">
+                    <label class="title">银行预留手机号</label>
+                    <input type="text" name='phone' ng-model="smrFrom.phone" ng-pattern="/^1[3|4|5|6|7|8|9][0-9]{9}$/" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" placeholder="请输入手机号码" minlength="11" maxlength="11" required />
+                </div>
+                <div class="item">
+                    <label class="title">短信验证码</label>
+                    <input type="text" ng-model="smrFrom.smsCode"  placeholder="请留意手机" maxlength="4" minlength="4" required />
+                    <div ng-if="smrzForm" class="msg-btn" ng-click="sendMsg(smrzForm)">{{nowTimer}}</div>
+                    <!--<div ng-if="smrzForm" class="msg-btn" ng-click="toSub('信息认证')">{{nowTimer}}</div>-->
+                </div>
+            </div>
+        </form>
+
+        <div class="submit-btn">
+            <div class="btn" ng-click="toSub('实名认证')">立即认证</div>
+            <p>点击立即认证代表您已阅读并同意 <a href="https://hushenlc.cn/pay">《认证支付协议》</a></p>
+        </div>
+
+        <!--<a class="sign_box_bottom newhand-btn" ng-if="smrzForm.$invalid" style="background: #b3b3b3;" >立即认证</a>
+        <a class="sign_box_bottom newhand-btn" ng-if="!smrzForm.$invalid" ng-click="toSub('实名认证')">立即认证</a>-->
+    </div>
+</div>

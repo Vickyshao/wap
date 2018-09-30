@@ -1,0 +1,82 @@
+<style>
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog .courter-wrap{
+        width: 21rem;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog .courter-wrap .row .right{
+        width: 11rem;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog .courter-wrap .row .right .input-box{
+        width: 10.6rem;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog .courter-wrap .row .right .entry{
+        width: 10.6rem;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog{
+        height: 20.5rem;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog .courter-wrap .row label{
+        color: #755632;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog .tips{
+        border: 1px dashed #caae76;
+        border-radius: 6px;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog{
+        background: #fef4e0;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog{
+        top: 10rem;
+    }
+    .ngdialog.ngdialog-theme-default.chunjie-couter-wrap .chunjie-dialog .courter-wrap .row .right .entry1{
+        height: 1.56444rem;
+        padding-right: 1.70667rem;
+        box-sizing: border-box;
+        margin-top: 0.35556rem;
+        text-align: right;
+        color: #444;
+        vertical-align: top;
+        width: 10.6rem;
+    }
+</style>
+<div class="dialog chunjie-dialog thirdInvitation-dialog">
+    <h2 class="h2" style="background-color: #ac8553;">佣金计算器</h2>
+    <div class="courter-close" ng-click="closeDialog()">
+        <img src="/images/thirdInvitation/calc-close.png" alt="">
+    </div>
+    <div class="courter-wrap">
+        <div class="row">
+            <label>一级好友投资金额</label>
+            <div class="right">
+                <div class="input-box"  ng-click="hideBox1()">
+                    <input type="number" class="entry1" ng-model="amount1" disabled ng-pattern="/[\d]/g" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" placeholder="不小于5000">
+                </div>
+                <!--<div class="box" ng-if="isShowInput">1000元</div>-->
+                <i class="yuan">元</i>
+            </div>
+        </div>
+        <div class="row">
+            <label>二级好友投资金额</label>
+            <div class="right">
+                <div  class="input-box" ng-click="hideBox()">
+                    <input type="number" class="entry" ng-model="amount2" disabled ng-pattern="/[\d]/g" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" placeholder="不小于5000">
+                </div>
+                <!--<div class="box" ng-if="isShowInput">1000元</div>-->
+                <i class="yuan">元</i>
+            </div>
+        </div>
+        <div class="row">
+            <label style="text-indent: 16px;">您获得佣金奖励</label>
+            <div class="right" style="text-align: left;">
+                <!--<i class="money">{{amount1*0.2%+amount2*0.1% | numfloor}}</i>元-->
+                <i class="money" style="color:#ffa509;font-weight: bold;">{{(amount1*0.2/100 + amount2*0.1/100)| currency: '￥'}}</i>
+            </div>
+        </div>
+    </div>
+    <dl class="tips">
+        <!--<p style="color:#755632;">*&nbsp;您获得佣金=一级好友投资金额x<span>0.2%</span>+二级好友投资金额x<span>0.1%</span></p>-->
+        <dd>*</dd>
+        <dt>
+            您获得佣金=一级好友投资金额x<span>0.2%</span>+二级好友投资金额x<span>0.1%</span>
+        </dt>
+    </dl>
+</div>

@@ -1,0 +1,47 @@
+<div ng-view class="wrap recharge-wrapper cash-wrapper" ng-controller="appGetcashCtrl">
+    <div class="recharge-wrap">
+        <form name="cashForm" ng-submit="submitForm(cashForm.$valid)" novalidate>
+            <div class="card-box">
+                <img src="images/recharge/{{cash.bankCodeFuiou}}.png" />
+                <div class="card-info">
+                    <div class="card-name">尾号 {{cash.bankNumFuiou}}</div>
+                    <div class="card-tip">单笔限额 500,000 元</div>
+                </div>
+            </div>
+            <div class="rest-box">
+                <p class="name">存管账户余额</p>
+                <p class="count">{{cash.fuiou_balance | currency:'':0}} 元</p>
+            </div>
+            <div class="input-box cash-box">
+                <!--<input class="text" type="text" class="cash" ng-model="cash.amount" name="cash" placeholder="请输入提现金额" value="" onkeyup="this.value=this.value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" required autocomplete="off" ng-blur="setAmount($event)" ng-pattern="/^[0-9]+([.]{1}[0-9]+){0,1}$/" morethan withdrawlimit maxlimit ng-if="cash.isChargeFlag == 0"/>-->
+                <!--<input class="text" type="text" class="cash" ng-model="cash.amount" name="cash" placeholder="请输入提现金额" value="" onkeyup="this.value=this.value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" required autocomplete="off" ng-blur="setAmount($event)" ng-pattern="/^[0-9]+([.]{1}[0-9]+){0,1}$/" morethan3 withdrawlimit maxlimit ng-if="cash.isChargeFlag == 1"/>-->
+                <input class="text" type="text" class="cash" ng-model="cash.amount" name="cash" placeholder="请输入提现金额" value="" onkeyup="this.value=this.value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" required autocomplete="off" ng-pattern="/^[0-9]+([.]{1}[0-9]+){0,1}$/" ng-blur="setAmount($event)" maxlength="10">
+                <span class="dw">元</span>
+                <div class="all"><span ng-click="setAll()" class="circlebtn"><i></i></span>全部</div>
+            </div>
+
+            <div class="cash-info">
+                <table>
+                    <tr>
+                        <td>
+                            <p class="cost">提现费用 {{cash.cost}}.00 元</p>
+                            <p ng-if="cash.amount - cash.cost < 0" class="myrest">预估到账金额 0.00 元</p>
+                            <p ng-if="cash.amount - cash.cost >= 0">预估到账金额 <span>{{(cash.amount - cash.cost) | isNumber2}}</span> 元</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="sxf-tips">
+                <p>手续费：每位用户每月可享受2次免费提现，超出后提现手续费为2元/笔，手续费将从您的账户余额中扣除。</p>
+            </div>
+            <div class="sub-box"><input type="submit" value="确认提现" class="sub-btn sub" ng-disabled="cashForm.$invalid"/></div>
+            <div class="bot-tips">
+                <span>友情提醒：<i></i></span>
+                <p style="padding-bottom:0;"><i></i>沪深理财使用的是银行资金存管模式，网贷客户交易结算资金账户是完全属于您个人的独立账户，实现完全的资金隔离，沪深理财会根据您的授权划拨资金给借款人，除此之外无权动用，从而保障资金安全；</p>
+                <p style="padding-bottom:0;"><i></i>提现到账时间取决于银行，目前为T+1个工作日；</p>
+                <p style="padding-bottom:0;"><i></i>返现或体验金收益需完成一次真实投资后才可提现；</p>
+                <p style="padding-bottom:0;"><i></i>若提现过程中遇到任何问题，请及时联系我们 400-031-9909。</p>
+            </div>
+        </form>
+    </div>
+</div>

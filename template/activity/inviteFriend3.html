@@ -1,0 +1,206 @@
+<div class="activity-firend inviteFriend3">
+    <div class="activity-firend-box1">
+        <img src="images/activity/firend/firend-bg1.png" class="bg" />
+        <div class="box-content">
+            <div class="qishu"><img src="images/activity/firend/qishu3.png" /></div>
+            <div class="firend-status">
+                <a href="{{androidUrl}}" ng-if="!wap&&data.jsActivityFriend.status!=2"><img class="firend-btn1"  src="images/activity/firend/friend-btn.png" /></a>
+                <img class="firend-btn1" ng-if="wap&&data.jsActivityFriend.status!=2" ng-click="lijiyaoqing()" src="images/activity/firend/friend-btn.png" />
+                <div class="firend-text">
+                    <div class="firend-text-bg"></div>
+                    <div class="firend-text-cont">
+                        <span ng-if="data.jsActivityFriend.status==1">进行中</span><span ng-if="data.jsActivityFriend.status==2">已结束</span>活动时间：{{data.jsActivityFriend.startDate|date:'yyyy.MM.dd'}}-{{data.jsActivityFriend.endDate|date:'yyyy.MM.dd'}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="activity-firend-box2">
+        <img src="images/activity/firend/firend-bg2.png?date={{date}}" class="bg" style="background:#fef1ad" />
+        <div class="box-content">
+            <p style="text-align: left;padding-left:3.5rem;">     邀请好友注册并投资，你将获得好友首投金额最高<span>2%</span>返利邀请好友越多，返利越多！好友投资越多，返利越多！</p>
+            <div class="jisuanqi"><img ng-click="jisuanqi()" src="images/activity/firend/jisuanqi.png" class="firend-btn2" /><span>返现计算器</span></div>
+            <table cellpadding="0" cellspacing="1" border="0" class="myfuli">
+                <thead>
+                    <tr>
+                        <th colspan="2">好友首次投资</th>
+                        <th>我的返现</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4">
+                            电脑/微信<br />首投
+                        </td>
+                    </tr>
+                    <tr ng-repeat="item in data.detailList">
+                        <td>{{item.days}}天期限产品</td>
+                        <td style="background: #fff;">立返{{item.amount| percent}}</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">
+                            APP首投
+                        </td>
+                    </tr>
+                    <tr ng-repeat="item in data.detailList">
+                        <td>{{item.days}}天期限产品</td>
+                    <td style="background: #fff;">立返{{item.amount|percent}}<span>+{{item.appReward-item.amount |number:1|percent}}</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" style="padding:0 1rem;position: relative;"><span style="color:red;font-size:0.8rem;">*活动期间好友首投180天产品后每次投资180天产品都有返现</span>
+                        <img src="images/activity/firend/icon-1.png" class="two" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center;position:relative;">
+            <img src="images/activity/firend/firend-text2.png" width="78%" />
+            <img src="images/activity/firend/downloadapp.png" class="downloadapp" ng-click="downloadclick()" style="position:absolute;bottom:2%;left: 50%;margin-left: -17.5%;" ng-if="wap" />
+            </div>
+        </div>
+    </div>
+    <div class="activity-firend-box3" ng-show="uid">
+        <img style="background: #fef1ad;" src="images/activity/firend/firend-bg31.png" class="bgtop" />
+        <img style="background: #fef1ad;" src="images/activity/firend/firend-bg32.png" class="bgbottom" />
+        <div class="box-content">
+            <div class="hongbao">
+                <img src="images/activity/firend/firend-hongbao.png" />
+                <img src="images/activity/firend/firend-hongbao2.png" />
+            </div>
+            <p style="color: #fd553c;font-size:0.8rem;text-align: center;text-decoration:underline;"><a style="color: #fd553c;" ng-if="wap" ui-sref="newcomer({wap:true})">点击可查看好友福利详情</a>
+                <a style="color: #fd553c;" ng-if="!wap" ui-sref="newcomer">点击可查看好友福利详情</a></p>
+            <p style="font-size: 1rem;text-align: center;margin:1rem 0;">您共邀请了
+                <font color="red">{{firendList.friendTotal}}</font>位好友，本期有
+                <font color="red">{{firendList.firstTotal}}</font>位完成首投</p>
+            <table cellspacing="0" cellpadding="0" class="otherfuli">
+                <thead>
+                    <tr>
+                        <th width="35%">我的好友/注册</th>
+                        <th width="35%">首投金额（元）</th>
+                        <th width="30%">返现奖金（元）</th>
+                    </tr>
+                </thead>
+                
+            </table>
+            <div style="max-height: 13rem;overflow-y: auto; padding:0 5%;">
+            <table cellspacing="0" cellpadding="0" class="otherfuli">
+                <tbody>
+                    <tr ng-if="firendList.page&&firendList.page.total>0&&firendList.page.rows[0]" ng-repeat="item in firendList.page.rows track by $index">
+                        <td width="35%">{{item.realName}}
+                            <br>{{item.regDate|date:'yyyy-MM-dd'}}</td>
+                        <td width="35%">{{item.investAmount |currency2:''}}<span style="font-size: 0.85rem;" ng-if="item.deadline==180&&item.isRepeat==1"><br />180天复投</span></td>
+                        <td width="30%">{{item.amount|currency2:''}}
+                            <span class="red" ng-if="item.status==0"><br>未领取</span><span class="gray" ng-if="item.status==1"><br>已领取</span></td>
+                    </tr>
+                    <tr ng-if="!firendList.page||firendList.page.total<=0||!firendList.page.rows[0]">
+                        <td colspan="3">暂无邀请好友</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="activity-firend-box3x" ng-show="!uid">
+        <div>
+            <img src="images/activity/firend/firend-bg31x.png" class="bg" />
+            <div class="box-content first">
+                <div class="hongbao">
+                    <img src="images/activity/firend/firend-hongbao.png" />
+                    <img src="images/activity/firend/firend-hongbao2.png" />
+                </div>
+                <p style="color: #fd553c;font-size:0.8rem;text-align: center;text-decoration:underline;">
+                <a style="color: #fd553c;" ng-if="wap" ui-sref="newcomer({wap:true})">点击可查看好友福利详情</a>
+                <a style="color: #fd553c;" ng-if="!wap" ui-sref="newcomer">点击可查看好友福利详情</a>
+                </p>
+            </div>
+        </div>
+        <div>
+            <img src="images/activity/firend/firend-bg32x.png" class="bg" />
+            <div class="box-content second">
+                <p>将邀请函转发给好友，好友注册并投资
+                    <br>满足返利规则即可获得返利奖金。</p>
+                <img src="images/activity/firend/friend-phone.png" width="10%" />
+                <img ng-if="wap" src="images/activity/firend/friend-btn3.png" width="50%" ui-sref="dl" />
+                <a href="jsmp://page=4?" ng-if="!wap"><img src="images/activity/firend/friend-btn3.png" width="50%" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="activity-firend-box4">
+        <img src="images/activity/firend/firend-bg4.png?date={{date}}" class="bg" />
+        <div class="box-content">
+            <p>1. 活动时间：{{data.jsActivityFriend.startDate|date:'MM月dd日'}}~{{data.jsActivityFriend.endDate|date:'MM月dd日'}}。</p>
+            <p>2. 活动对象：沪深理财所有注册用户。</p>
+            <p>3. 您邀请的好友在本活动期间内完成首投（在平台第一次投资定期标），即可获得返现奖励，超过活动期限返现将失效。</p>
+            <p>4. 返现只针对好友首次投资的小胜30天、中胜60天、180天期限的标的，投新手标或其他活动标则无返现。</p>
+            <p style="font-size: 0.8rem;">（额外福利：若您邀请的好友在活动期间投资180天标的，每次投资180天标的您都可获得返现）</p>
+            <p>5. 当您的好友完成首次投资后，系统将自动发放对应额度的返利奖金至您的平台账户中，奖金可继续投资或直接提现。</p>
+            <!--<p class="info">* 本活动最终解释权归沪深理财所有。</p>-->
+        </div>
+    </div>
+    <div style="background: #69ccd2;height: 6rem;"></div>
+    <div class="activity-firend-box5" ng-show="uid">
+        <button ng-if="firendList.unclaimed>0" ng-click="lingqu()">马上领取</button>
+        <button ng-if="firendList.unclaimed<=0&&wap" ng-click="lijiyaoqing()">立即邀请</button>
+        <a href="{{androidUrl}}" style="float: right;" ng-if="!wap"><button ng-if="firendList.unclaimed<=0">立即邀请</button></a>
+        <p>累计任务奖金：{{firendList.rewards}}元
+            <br>未领取奖金 :
+            <font color="red">{{firendList.unclaimed}}元</font>
+        </p>
+    </div>
+    <div class="activity-firend-fixed" ng-show="fixedshow">
+        <div class="firend-fixedbox">
+            <div class="firend-fix">
+                <div class="firend-fix-head">理财计算器<i ng-click="closefixed()">x</i></div>
+                <div class="firend-fix-body">
+                    <dl>
+                        <dt>投资金额：</dt>
+                        <dd><input type="number" ng-model="money" placeholder="请输入100的倍数" /> 元</dd>
+                    </dl>
+                    <dl>
+                        <dt>产品期限：</dt>
+                        <dd><span ng-click="xuanze(1)" ng-class="{active:active.code==1}">30天</span><span ng-click="xuanze(2)" ng-class="{active:active.code==2}">60天</span><span ng-click="xuanze(3)" ng-class="{active:active.code==3}">180天</span></dd>
+                    </dl>
+                    <dl>
+                        <dt>返现率：</dt>
+                        <dd>
+                            <span class="active" ng-if="!typerate">{{active.text}}</span>
+                            <span class="active" ng-if="typerate">{{typerate.text}}</span>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>投资端：</dt>
+                        <dd><span ng-class="{active:investType=='pc'}" ng-click="selecttype('pc')">电脑/微信</span><span ng-class="{active:investType=='app'}" ng-click="selecttype('app')">App</span></dd>
+                    </dl>
+                    <div style="width: 100%;height: 0;border-top: 1px solid #dcdcdc;"></div>
+                    <button ng-click="jisuan()">开始计算</button>
+                    <p>总收益：{{sumAcount}}元</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="activity-firend-boxh5" ng-click="closeshareh5()">
+    	<div class="h5share" ng-click="default($event)">
+    		<p>复制以下网址，发送给您的好友注册并投资</p>
+    		<textarea id="shareurl" ng-model="shareUrl" class="shareurl">{{shareUrl}}</textarea>
+    		<a ng-click="copyShare()" ng-show="!isCopy">复制链接</a>
+    		<a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+    	</div>
+    </div>
+    <div class="activity-firend-boxweixin" ng-click="closeshareweixin()">
+    	<img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+    <div class="activity-firend-hongbao">
+        <div class="hongbaobg">
+            <img src="images/activity/firend/hongbao.png" />
+            <div class="hongbaotext">
+                <p class="money">领取了奖金<br />{{hongbao.amount}}元</p>
+                <p class="text">奖金已转入您的账户请及时查收</p>
+                <a class="sharebtn" ng-if="!wap" href="{{androidUrl}}">分享赚更多</a>
+                <a class="sharebtn" ng-click="lijiyaoqing()" ng-if="wap">分享赚更多</a>
+                <a class="cancel" ng-click="closehongbao()">放弃机会</a>
+            </div>
+        </div>
+    </div>
+    <div class="share-ios"><img ng-click="closethis()" src="images/share-ios.png" /></div>
+    <div class="share-android"><img ng-click="closethis()" src="images/share-android.png" /></div>
+</div>

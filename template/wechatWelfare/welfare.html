@@ -1,0 +1,20 @@
+<div class="welfare headerTop" ng-controller="welfareCtrl">
+    <div class="topbox">
+        <div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i><p>微信福利</p><span class="right" ui-sref="toWelfare">往期福利</span></div>
+    </div>
+    <div class="content">
+        <div class="img">
+            <img src="/images/wechatWelfare/banner.png" alt="">
+            <img src="/images/wechatWelfare/banner-bottom.png" alt="">
+        </div>
+        <div class="activity">
+            <h3>
+                <span>砍价高手</span>
+            </h3>
+            <p class="text">活动时间：即日起~4月20日</p>
+            <p class="text">关注微信公众号，回复“砍价”，可参与一次【砍价高手】活动，随机挑选想要的红包，砍到0元就是你的哦！</p>
+        </div>
+        <div class="open-wechat" ng-click="openWechat()">打开微信</div>
+        <p class="follow-way" ng-click="goFollow()">告诉我如何关注</p>
+    </div>
+</div>

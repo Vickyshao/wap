@@ -1,0 +1,14 @@
+<!--砸金蛋第一次分享弹窗-->
+<div class="dropEggWrap">
+	<div class="header">
+		<div class="ngdialog-close"></div>
+		<h2>恭喜你砸到<span>{{drAwardMemberLog.drAward.awardName}}</span></h2>
+		<p><img src="{{drAwardMemberLog.drAward.picUrl}}"/></p>
+	</div>
+	<div class="content">
+		<p>领取条件：单笔投资定期标满{{drAwardMemberLog.drAward.useCondition}}元（新手标，活动标除外）</p>
+		<p>有效期限：次日00:00</p>
+		<div class="common-btn inverst-btn" ng-click="toInvest(drAwardMemberLog)">投资领取</div>
+		<div ng-show="!hasShared" class="common-btn share-btn" ng-click="share(1)">分享再砸一次</div>
+	</div>
+</div>

@@ -1,0 +1,113 @@
+.creditRating{
+    width:100%;
+    background:#fff;
+    font-size:1rem;
+    color:#333;
+    img{
+      @include inline-block(top);
+      width:100%;
+    }
+    .icon{
+        position:relative;
+        width:93%;
+        padding:rem-calc(80 40 100);
+        background: #f2f4f7;
+        .icon0{
+          width:rem-calc(30);
+          height:rem-calc(24);
+          position:absolute;
+        }
+        .icon1{
+          left: rem-calc(40);
+          top: rem-calc(40);
+        }
+        .icon2{
+          right: rem-calc(40);
+          bottom:rem-calc(60);
+        }
+        .iconzi{ 
+          line-height: rem-calc(70);
+          p{
+            margin-bottom:rem-calc(20);
+            text-align: justify;
+          }
+        }
+    }
+    .wate{
+      .title {
+        padding-top: rem-calc(100);
+      }
+      .wenzi{
+        text-align:center;
+        margin:rem-calc(40 0 70 0);
+      }
+      .watepic{
+        margin-bottom:rem-calc(30);
+      }
+    }
+    .weaa{
+      margin:rem-calc(84) 0;
+    }
+    .trust{
+      .wenzi1{
+        width:93%;
+        margin:rem-calc(25 auto 60);
+        line-height: rem-calc(70);
+        text-align: justify;
+        span{
+          font-weight:700;
+        }
+      }
+      .trust1{
+        width: 80%;
+        margin: 0 auto;
+        position:relative;
+        .swiper {
+          padding: rem-calc(0 40);
+
+          .swiper-container {
+            padding: rem-calc(40 0 120);
+            height: auto !important;
+            overflow:hidden;
+            .swiper-slide {
+              height: 100%;
+            }
+            .swiper-pagination-bullet-active {
+              background: #09abfe !important;
+            }
+            .swiper-pagination-bullet {
+              width: 12px !important;
+              height: 12px !important;
+              background: #f1f4f7;
+              opacity: 1;
+            }
+          }
+          img {
+            width: 100%;
+          }
+        }
+        .angle{
+          width:rem-calc(68);
+          height:rem-calc(34);
+          position:absolute;
+          left:50%;
+          bottom:rem-calc(-34);
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+        }
+      }
+
+      .wenzi2{
+        margin:0 auto;
+        color:#3d6890;
+        line-height:rem-calc(70);
+        background: #f1f4f7;
+        text-align: justify;
+        padding:rem-calc(120 40 52);
+      }
+    }
+    .footer img{
+      display:block;
+    }
+    
+}

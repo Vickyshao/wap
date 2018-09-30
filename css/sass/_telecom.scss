@@ -1,0 +1,210 @@
+.telecom-wrapper{
+	background: #22b5e8;
+	.banner{
+		position: relative;
+	}
+	.duorong{
+		margin-top: rem-calc(-66);
+		.box{
+			width: rem-calc(918);
+			border: 2px solid #91daf4;
+			border-radius: 4px;
+			margin: 0 auto;
+			p{
+				font-size: rem-calc(42);
+				color: #fff;
+				padding: rem-calc(132 40 40);
+				line-height: rem-calc(72);
+				text-indent: 2em;
+			}
+		}
+	}
+	.bg{
+		img{
+			display: block;
+			width: 100%;
+		}
+	}
+	.login-wrap{
+		overflow: hidden;
+		background: linear-gradient(top,#39d2c9,#22b5e8);
+		.login{
+			margin-top: rem-calc(74);
+			margin-bottom: rem-calc(0);
+			background: linear-gradient(top,#fd8789,#ec4e6c);
+			.title{
+				@include rem-sprite("telecom/*.png", title,$spacing:5px);
+				top: rem-calc(-40);
+				color: #ff5f27;
+			}
+			input{
+				margin-bottom: rem-calc(25);
+				background: #fffce7;
+				border-color: #ec4e6b;
+			}
+			.login-msm-box span{
+				@include rem-sprite("telecom/*.png", btndisabled,$spacing:5px);
+				margin-bottom: rem-calc(25);
+				border: none;
+				color: #fef0cf;
+				font-size: rem-calc(48);
+				&:hover{
+					@include rem-sprite("telecom/*.png", btnhover,$spacing:5px);
+				}
+			}
+			.login-msm-box input{
+				width: rem-calc(488);
+			}
+		}
+	}
+	.mode-wrap{
+		width: 100%;
+		background: #fff;
+		padding-top: rem-calc(40);
+		.mode-bg{
+			width: 100%;
+			background: linear-gradient(top,#fff,#22b5e8);
+		}
+		.mode{
+			background: #fffff0;
+			border-color: #fe8d8b;
+			margin-bottom: rem-calc(94);
+			.modebg{
+				@include rem-sprite("telecom/*.png", otitle,$spacing:5px);
+			}
+			&.gift{
+				margin-bottom: 0;
+				padding-bottom: rem-calc(74);
+			}
+			&.gift .title{
+				border-color: #ff5f27;
+			}
+			&.gift .title span{
+				background: #fffff0;
+				color: #ff5f27;
+			}
+			&.gift .giftbox .con .yibai,
+			&.gift .giftbox .con div{
+				color: #ff5f27;
+				&.qx{
+					line-height: rem-calc(70);
+					color: #b45c00;
+					padding: 0;
+					text-align: center;
+					padding-top: rem-calc(70);
+					span{
+						color: #ff5f27;
+						b{
+							font-size: rem-calc(80);
+							font-weight: bold;
+						}
+					}
+				}
+			}
+			ul{
+				width: rem-calc(880);
+				margin: rem-calc(-40 auto 0);
+				font-size: rem-calc(36);
+				color: #b45c00;
+				line-height: rem-calc(60);
+				li{
+					padding: rem-calc(0 0 26 44);
+					position: relative;
+					i{
+						position: absolute;
+						width: rem-calc(12);
+						height: rem-calc(12);
+						background: #b45c00;
+						border-radius: rem-calc(60);
+						background: #b45c00;
+						left: 0;
+						top: rem-calc(26);
+					}
+				}
+			}
+			.tbtn{
+				width: rem-calc(910);
+				height: rem-calc(156);
+				background: linear-gradient(top,#ff8c94,#ff7d95);
+				color: #ffe5e7;
+				border-radius: rem-calc(23);
+				margin-top: rem-calc(40);
+			}
+			.detail-box{
+				text-align: center;
+				// margin-bottom: rem-calc(-80);
+				a{
+					color: #007dd5;
+					text-decoration: underline;
+					font-size: rem-calc(40);
+					display: inline;
+					background: none;
+				}
+			}
+		}
+	}
+	.download-box{
+		background: none;
+		height: auto;
+		.download{
+			width: 100%;
+			max-width: 750px;
+		}
+	}
+	.rules-bg{
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		background: rgba(0,0,0,.6);
+		left: 0;
+		top: 0;
+		z-index: 15;
+	}
+	.rules-wrap{
+		width: rem-calc(886);
+		position: fixed;
+		z-index: 16;
+		left: 50%;
+		margin-left: rem-calc(-443);
+		padding: rem-calc(166 0 106);
+		top: 50%;
+		margin-top: rem-calc(-410);
+		background: #fffbf6;
+		border-radius: rem-calc(10);
+		overflow: hidden;
+		.title{
+			position: absolute;
+			left: 0;
+			top: 0;
+			@include rem-sprite("telecom/*.png",rules-title,$spacing:5px);
+		}
+		.bot{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			@include rem-sprite("telecom/*.png",rule-bg,$spacing:5px);
+			padding: 0;
+		}
+		ul{
+			width: rem-calc(830);
+			margin: 0 auto;
+			li{
+				line-height: rem-calc(55);
+				font-size: rem-calc(42);
+				color: #ba8650;
+				padding-bottom: rem-calc(34);
+				position: relative;
+				padding-left: rem-calc(26);
+				i{
+					position: absolute;
+					width: rem-calc(9);
+					height: rem-calc(9);
+					border-radius: rem-calc(20);
+					background: #ba8650;
+					left: 0;
+					top: rem-calc(24);
+				}
+			}
+		}
+	}
+}

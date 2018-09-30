@@ -1,0 +1,13 @@
+<div class="winning-wrap">
+    <div class="close" ng-click="closeDialog()">
+        <img src="/images/memberWelfare/close.png" alt="">
+    </div>
+    <h3>恭喜您获得</h3>
+    <div class="content">
+        <div class="award">
+            <img src="{{awardInfo.picUrl}}" alt="">
+            <!--<img src="http://101.132.87.22/upload/awardPic/2018-03/17/20180330a5ab1222-124d-486f-8702-fde6ca783ff8.png" alt="">-->
+        </div>
+        <div class="info" ng-click="toInvestIng(awardInfo)">单笔投资≥{{awardInfo.useCondition}}元即可领取</div>
+    </div>
+</div>

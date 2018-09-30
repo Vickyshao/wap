@@ -1,0 +1,118 @@
+<div class="tjs dropEgg" ng-controller="dropEggCtrl">
+    <div class="banner">
+        <a href="/main/home" class="logo"></a>
+        <img src="/images/activity/egg/banner.png">
+        <!--分享按钮-->
+        <!--<img class="share-button" ng-if="wap" ng-click="share()" src="images/activity/tjs/share-icon.png">-->
+        <!--<a ng-if="!wap" href="jsmp://page=200?"><img class="share-button" src="images/activity/tjs/share-icon.png"></a>-->
+        <p>您今天还有<span>{{count}}</span>次机会砸蛋 </p>
+        <img ng-click="showRule()" class="rule-icon" src="images/activity/egg/rule-icon.png">
+    </div>
+
+    <!--砸蛋专区-->
+    <ul class="danbox">
+        <li ng-repeat="item in lotteryRecord">
+            <div class="p2-egg p2-egg-hover">
+                <img ng-click="dropEgg(item)" ng-class="{false:'normal',true:'game-over'}[item.isDroped]" src="{{item.drAward.picUrl}}">
+                <p ng-show="item.isDroped" ng-click="toReceive(item)">
+                    <span class="big">{{item.drAward.awardName}}</span>
+                    <span class="receive" ng-if="item.status == '0'">点击领取</span>
+                    <span class="receive" ng-if="item.status == '1'">已领取</span>
+                </p>
+            </div>
+        </li>
+    </ul>
+    <!--奖品区域-->
+    <div class="gifts">
+        <img src="/images/activity/egg/gift.png" />
+    </div>
+    <p class="tips">温馨提示：奖品仅限当日有效，请抓紧领取哦~ <br>砸蛋奖励需通过此页面激活才能领取哦~</p>
+    <!--中奖专区-->
+    <div class="list-box">
+        <header>当前参加人数<span>{{size}}</span>人</header>
+        <div class="code-list">
+            <div class="title-list">
+                <table>
+                    <tr>
+                        <th width="30%">中奖用户</th>
+                        <th width="25%">抽中奖品</th>
+                        <th width="45%">获奖时间</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list">
+                <table class="data-table">
+                    <tr ng-if="investList.length > 0" ng-repeat="item in investList">
+                        <td width="30%">{{item.mobilePhone | limitTo :3}} **** {{item.mobilePhone | limitTo :-4}}</td>
+                        <td width="25%">{{item.awardName }}</td>
+                        <td width="45%">{{item.orderTime | date:"MM月dd日 HH:mm:ss"}}</td>
+                    </tr>
+                    <tr ng-if="investList.length == 0">
+                        <td width="30%">-</td>
+                        <td width="30%">-</td>
+                        <td width="40%">-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <img class="totop" ng-click="gotop()" src="images/activity/newhandreg/top.png">
+    <!--活动规则内容-->
+    <div class="rule-box">
+        <div class="content">
+            <div>
+                <h1>活动规则<img ng-click="closeRule()" src="images/activity/tjs/close-icon.png"></h1>
+                <ul class="block">
+                    <li>1.每日均能免费获得1次砸蛋机会，同时分享后能增加1次免费砸蛋机会，当天首次任意投资后可以再次获得免费砸蛋机会，当天最高3次免费砸蛋。</li>
+                    <li>2.砸蛋奖励包含话费（最高100元）、京东卡（最高500元）、小米耳机（价值129元）、小米电饭煲（价值999元）、iphoneX（价值8388元）、加息券。</li>
+                    <li>3.砸蛋100%获得奖励，其中部分奖励需满足一定激活条件后即能获得，激活奖励需单次达到对应提示条件，累积投资无效。以实际获得奖励和提示为准。</li>
+                    <li>4.砸蛋获得的奖励若未激活领取，次日0点将消失。</li>
+                    <li class="orange-font">5.实物和话费奖励在活动结束后的10个工作日内发放，获得实物奖励需填写详细地址信息。详细步骤如下:</li>
+                    <li class="orange-font pl20">a.打开微信添加"沪深金融官微"，公众号: hushenlicai</li>
+                    <li class="orange-font pl20">b.选择“活动专区”--“礼品领取”，根据页面输入详细信息。</li>
+                    <li class="orange-font pl20">c.若活动结束后的15个工作日内仍未填写地址信息，且无法联系上。则视为自动放弃奖励。</li>
+                    <li>6.本活动不与合作渠道的投资活动共享，若通过合作渠道注册的用户投资仅享受渠道活动福利，渠道活动参加后可继续参加本活动！</li>
+                    <li>7.奖励中的iphoneX与苹果公司活动无关。</li>
+                    <li>8.活动最终解释权归沪深理财所有，如有疑问请拨打客服。热线：400-031-9909</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/dropEgg?source=egg&allowDL=true</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+    <!--icp备案号-->
+    <div class="footer"><img src="/images/activity/promote/pullnew_07.png"></div>
+    <div class="download-box">
+        <div class="download">
+            <dl>
+                <dt></dt>
+                <dd>
+                    <p>打开沪深理财APP</p>
+                    <p>砸蛋100%送豪礼</p>
+                </dd>
+            </dl>
+            <!--<a target="_bank" href="/html/2weimaActivity.html">立即下载</a>-->
+            <a target="_bank" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">立即下载</a>
+        </div>
+    </div>
+
+    <!--已下线-->
+    <div class="deline">
+        <div class="delineDialog">
+            <p>砸蛋活动已结束</p>
+            <p>敬请留意其它活动</p>
+        </div>
+    </div>
+</div>

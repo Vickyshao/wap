@@ -1,0 +1,62 @@
+<div class="my-invitation-wrapper" ng-controller="invitationRecordCtrl">
+	<div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i>
+		<p>邀请记录</p>
+		<span class="float-menu" ui-sref="inviRaiders">攻略</span>
+	</div>
+	<div class="total">
+		<b></b>
+		<div class="mod">
+			<p><span>邀请人数：</span>{{inviteNumbers}} 人</p>
+		</div>
+		<div class="mod">
+			<p><span>获得奖励 : </span>{{totalAmount}} 元</p>
+		</div>
+	</div>
+	<table class="list">
+		<tr>
+			<th width="30%">我的好友</th>
+			<th width="30%">获得奖励（元）</th>
+			<th width="40%">是否首投<p style="font-size: 0.6rem;color:red;">(新手标，体验标除外)</p></th>
+		</tr>
+	</table>
+	<div class="recordList" ng-repeat="item in recordList" ng-if="recordList&&recordList.length>0">
+		<h2 ng-if="item.showyear">{{item.month}}</h2>
+		<ul class="recordLists" ng-repeat="item2 in item.monthList" ng-if="item.monthList&&item.monthList.length>0">
+			<li>
+				<p class="left">{{item2.mobile}} <br/> <span style="color: #999;">{{item2.regdate | date:"yy-MM-dd"}}</span></p>
+				<p class="center">{{item2.amount}}</p>
+				<p class="right">{{item2.isInvest == '0'? '否':'是'}}</p>
+			</li>
+		</ul>
+	</div>
+	<div class="recordList" ng-if="!recordList||recordList.length<=0">
+		<p class="imgPd"><img src="/images/activity/inviteFriend/norecord.png" alt=""></p>
+	</div>
+	<div class="btn-bot record-bot" ng-click="invitation()">立即邀请</div>
+	<!--领取奖金后弹框-->
+	<div class="activity-firend-hongbao">
+		<div class="hongbaobg">
+			<img src="images/activity/firend/hongbao.png" />
+			<div class="hongbaotext">
+				<p class="money">领取了奖金<br />{{hongbaoAmount}}元</p>
+				<p class="text">奖金已转入您的账户请及时查收</p>
+				<a class="sharebtn" ng-click="share()">分享赚更多</a>
+				<a class="cancel" ng-click="closehongbao()">放弃机会</a>
+			</div>
+		</div>
+	</div>
+	<!--分享弹框-->
+	<div class="activity-tjs-boxh5" ng-click="closeshare()">
+		<div class="h5share" ng-click="default($event)">
+			<p>复制以下网址，发送给您的好友注册并投资</p>
+			<!--正式环境分享链接-->
+			<textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/welcom?recommCode={{userOBJ.user.member.recommCodes}}&mobilePhone={{userOBJ.user.member.mobilephone| limitTo :3}}****{{userOBJ.user.member.mobilephone| limitTo :-4}}&realName={{userOBJ.user.realName | limitTo :-1}}</textarea>
+			<a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+			<a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+		</div>
+	</div>
+	<!--微信中点击分享弹出浮层-->
+	<div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+		<img src="images/activity/firend/sharetext.png" class="sharetext" />
+	</div>
+</div>

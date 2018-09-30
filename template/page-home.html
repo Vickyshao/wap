@@ -1,0 +1,27 @@
+<!-- 内容 -->
+<div ng-cloak class="ng-scope ng-cloak" ui-view=""></div>
+<!-- 底部 -->
+<div ng-controller="pageHomeCtrl" class="sign_box_1 sign_box_bottom" ng-class="{true:'newyearIcon'}[isInDoubleEggActivity]">
+   	<div ui-sref="main.home" class="button" ng-click="actived($event)" ng-class="{1:'current'}[activeMenu]" data-active="1">
+    	<i class="ico_home"></i>
+        <!-- <a href="" class="button">首页</a> -->
+    </div>
+    <div ui-sref="main.bankBillList" class="button" ng-click="actived($event)" ng-class="{2:'current'}[activeMenu]" data-active="2">
+    	<i class="ico_fund"></i>
+        <!-- <a href="main/canPin" class="button">我要投资</a> -->
+    </div>
+    <div ng-if="exclusiveUser" ui-sref="main.exclusiveList" class="button" ng-click="actived($event)" ng-class="{5:'current'}[activeMenu]" data-active="5">
+        <i class="ico_exclusived"></i>
+    </div>
+    <div ng-if="enfuUser" ui-sref="main.enfuinvest" class="button" ng-click="actived($event)" ng-class="{6:'current'}[activeMenu]" data-active="6">
+        <i class="ico_enfuuser"></i>
+    </div>
+    <div ui-sref="main.find" class="button" ng-click="actived($event)" ng-class="{4:'current'}[activeMenu]" data-active="4">
+    	<i class="ico_more"></i>
+        <!-- <a href="more" >更多</a> -->
+    </div>
+    <div ui-sref="main.myaccountHome" class="button" ng-click="actived($event)" ng-class="{3:'current'}[activeMenu]" data-active="3">
+        <i class="ico_account"></i>
+        <!-- <a href="register" class="button">我的账户</a> -->
+    </div>
+</div>

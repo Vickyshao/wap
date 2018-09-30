@@ -1,0 +1,32 @@
+<div class="wrap recharge-wrapper actinvest-succ" ng-controller="cashProcessingSucc">
+    <div class="common-recharge-suc">
+        <div class="left">恭喜你， <br>提现处理中!</div>
+        <div class="right">
+            <img src="/images/recharge/cashin_end_icon.png" alt="">
+        </div>
+    </div>
+    <div class="recharge-wrap">
+        <div class="status">
+            <div class="status-img">
+                <img src="/images/recharge/cashProcessing-img1.png" alt="">
+            </div>
+            <div class="text">
+                <p class="title" style="color: #0095e5;">提现{{rechargeInfo.amount}}元</p>
+                <p class="time">{{rechargeInfo.withdrawalsTime|date:"yyyy-MM-dd HH:mm:ss"}}</p>
+                <p class="title" style="color: #0095e5;">银行处理中</p>
+                <p class="time" ng-if="rechargeInfo.confirmTime">{{rechargeInfo.confirmTime|date:"yyyy-MM-dd HH:mm:ss"}}</p>
+                <p class="time" ng-if="!rechargeInfo.confirmTime">预计1个工作日到账，如遇节假日顺延</p>
+                <p class="title" style="color: #a0a0a0;">提现成功</p>
+                <p class="time">{{rechargeInfo.withdrawalsSuccessTime|date:"yyyy-MM-dd HH:mm:ss"}}</p>
+            </div>
+        </div>
+        <div class="btn" style="justify-content: center;">
+            <button class="first back-my" ui-sref="main.myaccountHome">返回账户</button>
+        </div>
+    </div>
+</div>
+<style>
+    body{
+        background: #fff;
+    }
+</style>

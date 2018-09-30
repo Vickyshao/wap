@@ -1,0 +1,819 @@
+$newyearred: #ba1a1f;
+$newyearborder: #e69460;
+//$maintxt: #c81e18;
+
+.chunjie2018 {
+  position: relative;
+  background: $newyearred;
+  .common-head{
+    .float-menu{
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2.5rem;
+      text-align: right;
+      font-size: 1.04167rem;
+      padding: 0.91667rem;
+    }
+  }
+
+  .banner {
+    width: 100%;
+    height: rem-calc(560px,640);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('/images/activity/newYear2018/activity/banner.png');
+  }
+  .rule-text,.calculator {
+    position: absolute;
+    right: 0;
+    z-index: 7;
+  }
+  .rule-text {
+    width: rem-calc(144px,640);
+    height: rem-calc(50px,640);
+    line-height: rem-calc(58px,640);
+    top: rem-calc(60px,640);
+    right: rem-calc(-25px,640);
+    color: #fff;
+    padding-left: rem-calc(30px,640);
+    border-top-left-radius: rem-calc(60px,640);
+    border-bottom-left-radius: rem-calc(60px,640);
+    font-size: rem-calc(26px,750);
+    background: $orange;
+  }
+  .calculator {
+    position: fixed;
+    top: rem-calc(600px,750);
+    width: rem-calc(140px,750);
+    height: rem-calc(140px,750);
+    background: url("/images/activity/newYear2018/activity/jisuanqi.png") no-repeat center/contain;
+  }
+  .main {
+    padding: rem-calc(0 24px 60px,640);
+    .common-login-box {
+      margin-top: rem-calc(20px,640);
+      padding: rem-calc(35px,640);
+      border: 7px solid $newyearborder;
+      background: #fff1e0;
+      //height: rem-calc(300px,640);
+      text-align: center;
+      .desc {
+        font-size: rem-calc(26px,750);
+        color: #333;
+      }
+      .tip {
+        font-size: rem-calc(26px,750);
+        color: #666;
+        padding-bottom: rem-calc(10px,640);
+      }
+      .num {
+        padding: rem-calc(30px,640);
+        font-size: rem-calc(34px,750);
+        color: $newyearred;
+      }
+      .invest {
+        @include inline-block(top);
+        width: rem-calc(408px,640);
+        height: rem-calc(72px,640);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        background-image: url("/images/activity/newYear2018/activity/invest-btn.png");
+      }
+    }
+    .notice{
+      height: rem-calc(50px,640);
+      line-height: rem-calc(50px,640);
+      margin: rem-calc(20px 0 0 0,640);
+      overflow: hidden;
+      table{
+        width: 100%;
+        font-size: rem-calc(26px,750);
+        td{
+          color: $yellow;
+          font-weight: bold;
+          text-align: center;
+          i {
+            @include inline-block(middle);
+            width: rem-calc(35px,750);
+            height: rem-calc(35px,750);
+            margin-right: rem-calc(15px,640);
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url('/images/activity/newYear2018/activity/laba.png');
+          }
+        }
+      }
+    }
+    .block {
+      padding: rem-calc(40px 0 0,750);
+      .common-header {
+        width: 100%;
+        height: rem-calc(72px,640);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        &.header1 {
+          background-image: url('/images/activity/newYear2018/activity/header1.png');
+        }
+        &.header2 {
+          background-image: url('/images/activity/newYear2018/activity/header2.png');
+        }
+      }
+      .desc {
+        padding-top: rem-calc(30px,750);
+        font-size: rem-calc(26px,750);
+        color: #f9e3ca;
+        width: 100%;
+        text-align: center;
+        span {
+          color: $yellow;
+        }
+        &.lowTop {
+          padding-top: rem-calc(5px,750);
+        }
+      }
+      .prize {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-top: rem-calc(40px,640);
+        width: 100%;
+        height: rem-calc(663px,640);
+        padding: rem-calc(20px 15px,640);
+        background-position: top left;
+        background-repeat: repeat;
+        background-size: cover;
+        background-image: url('/images/activity/newYear2018/activity/wards.png');
+        .prize-progress {
+          padding: rem-calc(28.32px 3.6px 28.32px 9.6px,640);
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          justify-items: center;
+          justify-content: space-between;
+          li {
+            position: relative;
+            @include box-sizing(border-box);
+            width: rem-calc(173px,640);
+            height: rem-calc(228px,640);
+            padding: rem-calc(15px 0 10px,640);
+            margin: rem-calc(0 0 20px 0,640);
+            text-align: center;
+            .jiantou {
+              position: absolute;
+              right: rem-calc(-33.6px,640);
+              top: 41%;
+              z-index: 6;
+              width: rem-calc(48px,640);
+              height: rem-calc(60px,640);
+              background: url('/images/activity/newYear2018/activity/jiantou.png') no-repeat top center/contain;
+            }
+            .out-txt {
+              position:  absolute;
+              bottom: rem-calc(33.6px,640);
+              left: rem-calc(60px,640);
+              z-index: 2;
+              @include border-radius(1rem);
+              width: rem-calc(43px,640);
+              height: rem-calc(43px,640);
+              line-height: rem-calc(43px,640);
+              background: #999;
+              font-size: rem-calc(19px,640);
+              color: #fff;
+            }
+            .out {
+              position: absolute;
+              top: 0;
+              left: rem-calc(-2.4px,640);
+              z-index: 4;
+              width: 101%;
+              height: 100%;
+              @include border-radius(6px);
+              background: rgba(0,0,0,.4);
+              label {
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 5;
+                @include inline-block(top);
+                width: rem-calc(60px,640);
+                height: rem-calc(60px,640);
+                background: url("/images/activity/newYear2018/activity/ed.png") no-repeat top right/contain;
+
+              }
+            }
+            .img-wrap {
+              position: relative;
+              margin: 0 auto;
+              width: 50%;
+              min-height: rem-calc(100px,750);
+              img {
+                position:  absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 3;
+                max-width: 100%;
+              }
+            }
+            h2 {
+              padding: rem-calc(10px 0 0,640);
+              color: $newyearred;
+              font-size: rem-calc(20px,750);
+              font-weight: bolder;
+              line-height: rem-calc(24px,640);
+              &.pt16 {
+                padding-top: rem-calc(16px,640);
+              }
+            }
+            &.xfj {
+              .jiantou {
+                bottom: rem-calc(-45.6px,640);
+                top: auto;
+                left: 32%;
+                right: auto;
+                transform: rotate(90deg);
+              }
+            }
+            &.mmj {
+              .jiantou {
+                display: none;
+              }
+            }
+            &.jbj {
+              .jiantou {
+                transform: rotate(180deg);
+                right: rem-calc(-28.8px,640);
+                top: 36%;
+              }
+            }
+            &.zcj {
+              .jiantou {
+                transform: rotate(180deg);
+                right: rem-calc(-28.8px,640);
+                top: 36%;
+              }
+            }
+          }
+        }
+      }
+      .prize-list {
+        margin-top: rem-calc(40px,640);
+        border: 7px solid $newyearborder;
+        padding: rem-calc(30px 10px 0,640);
+        background: #fff1e0;
+        .top-list {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          justify-items: center;
+          justify-content: space-between;
+          li {
+            position: relative;
+            @include box-sizing(border-box);
+            width: rem-calc(180px,640);
+            height: rem-calc(324px,640);
+            padding-top: rem-calc(140px,640);
+            text-align: center;
+            background-position: top left;
+            background-repeat: no-repeat;
+            background-size: contain;
+            .nin {
+              position: absolute;
+              z-index: 5;
+              font-size: rem-calc(22px,750);
+              color: $newyearred;
+              &.nin1 {
+                bottom: rem-calc(-2.4px,640);
+                left: rem-calc(22px,640);
+              }
+              &.nin2 {
+                bottom: rem-calc(30.2px,640);
+                left: rem-calc(31.2px,640);
+              }
+              &.nin3 {
+                bottom: rem-calc(32.2px,640);
+                left: rem-calc(31.2px,640);
+              }
+            }
+            &.top1 {
+              margin-top: rem-calc(30px,640);
+              background-image: url('/images/activity/newYear2018/activity/top2.png');
+            }
+            &.top2 {
+              padding-top: rem-calc(108px,640);
+              background-image: url('/images/activity/newYear2018/activity/top1.png');
+            }
+            &.top3 {
+              padding-top: rem-calc(105px,640);
+              margin-top: rem-calc(60px,640);
+              background-image: url('/images/activity/newYear2018/activity/top3.png');
+            }
+            .no-login {
+              color: #fff;
+              font-size: rem-calc(24px,750);
+              padding-top: rem-calc(24px,640);
+            }
+            .logined {
+              .name {
+                font-size: rem-calc(18px,750);
+                color: #fff4e9;
+              }
+              .jine {
+                font-size: rem-calc(22px,750);
+                color: #fed90d;
+                padding-bottom: rem-calc(10px,640);
+              }
+              h3 {
+                margin: rem-calc(0 15px,750);
+                border-top: 1px solid rgba(255,255,255,.8);
+                span {
+                  @include inline-block(top);
+                  margin: rem-calc(-10px auto 0,640);
+                  font-size: rem-calc(18px,750);
+                  background: #ff2a2f;
+                  color: #fff4e9;
+                }
+              }
+            }
+          }
+
+        }
+        .prize-table {
+          width: 100%;
+          margin-bottom: rem-calc(40px,640);
+          border-collapse: collapse;
+          border-spacing:0;
+          border-bottom: 1px solid #f9e3c9;
+          thead {
+            tr {
+                background: #ffc268;
+              th {
+                color: #333;
+                padding: rem-calc(15px 0,750);
+                font-size: rem-calc(22px,750);
+                text-align: center;
+              }
+            }
+          }
+          tbody {
+            tr {
+              &.red {
+                td {
+                  color: $newyearred;
+                  b,span {
+                    color: $newyearred;
+                  }
+                }
+              }
+              td {
+                position: relative;
+                text-align: center;
+                height: rem-calc(24px,640);
+                line-height: rem-calc(24px,640);
+                padding: rem-calc(15px 0,750);
+                color: #333;
+                font-size: rem-calc(22px,750);
+                b {
+                  position: absolute;
+                  top: rem-calc(17px,750);
+                  left: 0;
+                  z-index: 6;
+                  color: #fff;
+                  font-size: rem-calc(22px,750);
+                }
+                span {
+                  @include inline-block(top);
+                  @include border-radius(50%);
+                  width: rem-calc(35px,640);
+                  height: rem-calc(35px,640);
+                  line-height: rem-calc(35px,640);
+                  color: #fff;
+                  font-size: rem-calc(22px,750);
+                  background: #fea129;
+                }
+              }
+              &:nth-child(2n) {
+                background: #f9e3c9;
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+  .footer-bottom{
+    img{
+      @include inline-block(top);
+      width: 100%;
+    }
+  }
+}
+.chunjie2018-prize-wrap{
+  .div-block{
+    background: #eeeeee;
+  }
+  .prize-wrap{
+    display: flex;
+    width: 100%;
+    height: rem-calc(264px,750);
+    //justify-content: space-between;
+    padding: rem-calc(44px,750) rem-calc(42px,750);
+    box-sizing: border-box;
+    border-top: 1px solid #eee;
+    .left{
+      width: rem-calc(222px,750);
+      height: rem-calc(173px,750);
+      line-height: rem-calc(173px,750);
+      border: 1px solid #ebebeb;
+      text-align: center;
+      img{
+        max-width:  75%;
+        vertical-align: middle;
+      }
+    }
+    .right{
+      padding-left: rem-calc(87px,750);
+    }
+    .prize{
+      font-size: rem-calc(36px,750);
+      color: #333333;
+      line-height: rem-calc(103px,750);
+    }
+    .time{
+      font-size: rem-calc(24px,750);
+      color: #999999;
+    }
+  }
+}
+.chunjie-rule-content {
+  position: relative;
+  width: 100%;
+  height: rem-calc(1058px,750);
+  border-radius: rem-calc(16px,640);
+  padding-top: rem-calc(180px,750);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('/images/activity/newYear2018/activity/chunjie-rule-bg.png');
+  overflow: hidden;
+  .chunjie-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    width: rem-calc(73px,750);
+    height: rem-calc(73px,750);
+    /* background-position: 0 42.22143%; */
+  }
+  .header {
+    width: 80%;
+    margin: 0 auto;
+    height: rem-calc(50px,750);
+    font-size: 1.28rem;
+    color: #ba1a1f;
+    text-align: center;
+    font-weight: bold;
+    border-top: 1px solid #ba1a1f;
+    line-height: 0;
+    span{
+      padding: 0 1rem;
+      background: #ffe8cd;
+    }
+  }
+  .rule-list {
+    width: 100%;
+    padding: rem-calc(0 40px,640);
+    height: rem-calc(770px,750);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    ul {
+      li {
+        display: flex;
+        padding-bottom: rem-calc(5px,640);
+        line-height: rem-calc(50px,750);
+        //text-align: justify;
+        span {
+          width: rem-calc(55px,640);
+          height: rem-calc(50px,640);
+          line-height: rem-calc(50px,750);
+          text-align: center;
+          background: url("/images/zudui/myteam/rule_icon.png") no-repeat left center/contain;
+          color: #fff;
+        }
+        b {
+          flex: 1;
+          text-align: justify;
+          font-size: rem-calc(24px,640);
+          line-height: rem-calc(50px,640);
+          color: $txtColor;
+        }
+
+      }
+    }
+  }
+}
+.ngdialog.ngdialog-theme-default.chunjie-couter-wrap{
+  .ngdialog-content{
+    position: fixed;
+    background: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100% !important;
+  }
+  .chunjie-dialog{
+    position: absolute;
+    top: 4rem;
+    /*right: 0;
+    bottom: 0;*/
+    left: 50%;
+    margin: auto;
+    width: rem-calc(647px,750);
+    margin-left: rem-calc(-324px,750);
+    max-width: rem-calc(647px,750) !important;
+    height: rem-calc(788px,750);
+    border-radius: 10px;
+    overflow-x: hidden;
+    background: #fff;
+    .h2{
+      width: 100%;
+      height: rem-calc(92px,750);
+      background: #fe9e0e;
+      color: #fff;
+      font-size: rem-calc(36px,750);
+      font-weight: bold;
+      text-align: center;
+      line-height: rem-calc(92px,750);
+    }
+    .courter-close{
+      position: absolute;
+      right: rem-calc(18px,750);
+      top: rem-calc(27px,750);
+      width: rem-calc(35px,750);
+      height: rem-calc(35px,750);
+      img{
+        width: 100%;
+      }
+    }
+    .courter-wrap{
+      width: rem-calc(504px,750);
+      height: auto;
+      margin: 0 auto;
+      padding-top: 0.4rem;
+      .row{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: rem-calc(105px,750);
+        line-height: rem-calc(105px,750);
+        lable{
+          width: rem-calc(152px,750);
+          font-size: rem-calc(28px,750);
+          color: #3e3e3e;
+        }
+        .right{
+          position: relative;
+          width: rem-calc(352px,750);
+          color: #2a2a2a;
+          font-size: rem-calc(28px,750);
+          text-align: center;
+          .yuan{
+            position: absolute;
+            right: rem-calc(14px,750);
+            top: 0.15rem;
+          }
+          &.time{
+            display: flex;
+            justify-content: space-between;
+            &.time30{
+              span:first-child{
+                border: 1px solid #fe9e0e;
+                border-radius: 2px;
+                background: url("/images/activity/newYear2018/activity/time-bg.png") no-repeat;
+                background-size: 100% 100%;
+              }
+            }
+            &.time60{
+              span:nth-child(2){
+                border: 1px solid #fe9e0e;
+                border-radius: 2px;
+                background: url("/images/activity/newYear2018/activity/time-bg.png") no-repeat;
+                background-size: 100% 100%;
+              }
+            }
+            &.time90{
+              span:last-child{
+                border: 1px solid #fe9e0e;
+                border-radius: 2px;
+                background: url("/images/activity/newYear2018/activity/time-bg.png") no-repeat;
+                background-size: 100% 100%;
+              }
+            }
+            span{
+              width: rem-calc(102px,750);
+              height: rem-calc(64px,750);
+              line-height: rem-calc(64px,750);
+              border: 1px solid #dbdbdb;
+              margin-top: rem-calc(16px,750);
+              text-align: center;
+            }
+          }
+          .box{
+            position: absolute;
+            left: 0;
+            top: rem-calc(23px,750);
+            width: rem-calc(355px,750);
+            height: rem-calc(64px,750);
+            line-height: rem-calc(64px,750);
+            //background: red;
+            text-align: right;
+            padding-right: rem-calc(14px,750);
+            box-sizing: border-box;
+          }
+          .input-box{
+            display: inline-block;
+            width: rem-calc(355px,750);
+            height: rem-calc(64px,750);
+            vertical-align: middle;
+            border: 1px solid #dbdbdb;
+            box-sizing: border-box;
+            text-align: right;
+          }
+          .entry{
+            width: rem-calc(350px,750);
+            height: rem-calc(44px,750);
+            //line-height: rem-calc(14px,750);
+            //vertical-align: middle;
+            //border: 1px solid #dbdbdb;
+            padding-right: rem-calc(48px,750);
+            box-sizing: border-box;
+            margin-top: rem-calc(10px,750);
+            text-align: right;
+            color: #444;
+            vertical-align: top;
+            &:disabled{
+              color: #444;
+            }
+          }
+          .money{
+            color: #cf0c0c;
+          }
+        }
+      }
+      .btn{
+        width: 100%;
+        height: rem-calc(75px,750);
+        line-height: rem-calc(75px,750);
+        background: #fe9e0e;
+        border-radius: 5px;
+        font-size: rem-calc(34px,750);
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    .tips{
+      width: rem-calc(577px,750);
+      //height: rem-calc(207px,750);
+      border: 1px dashed #e5e5e5;
+      margin: rem-calc(40px,750) auto;
+      padding: 0 rem-calc(18px,750);
+      box-sizing: border-box;
+      color: #666666;
+      font-size: rem-calc(22px,750);
+      h3{
+        line-height: rem-calc(65px,750);
+        border-bottom: 1px dashed #e5e5e5;
+      }
+      .line{
+        width: rem-calc(500px,750);
+        margin: 0 auto;
+      }
+      p{
+        line-height: rem-calc(40px,750);
+        padding: rem-calc(10px,750) 0;
+        box-sizing: border-box;
+        span{
+          color: #d90b0b;
+        }
+      }
+    }
+  }
+}
+.ngdialog.ngdialog-theme-default.chunjie-prize-wrap{
+  .ngdialog-content{
+    position: fixed;
+    background: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100% !important;
+  }
+  .chunjie-prize-dialog{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: rem-calc(647px,750);
+    max-width: rem-calc(647px,750) !important;
+    height: rem-calc(763px,750);
+    border-radius: 10px;
+    overflow-x: hidden;
+    padding-top: rem-calc(125px,750);
+    //box-sizing: border-box;
+    .prize-wrap{
+      width: 90%;
+      margin: 0 auto;
+      height: rem-calc(638px,750);
+      background: url("/images/activity/newYear2018/activity/chunjie-prize-bg.png") no-repeat;
+      background-size: 100% 100%;
+      padding-top: rem-calc(60px,750);
+      box-sizing: border-box;
+    }
+    .h2{
+      width: 100%;
+      height: rem-calc(68px,750);
+      color: #fff;
+      font-size: 1.28rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: rem-calc(73px,750);
+      //margin-top: 2.3rem;
+    }
+    .courter-close{
+      position: absolute;
+      right: rem-calc(18px,640);
+      top: 0;
+      width: rem-calc(66px,750);
+      //height: rem-calc(35px,750);
+      .btn{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: rem-calc(66px,750);
+        height: rem-calc(66px,750);
+      }
+      img{
+        width: 100%;
+      }
+    }
+    .img{
+      width: 100%;
+      height: rem-calc(284px,750);
+      line-height: rem-calc(284px,750);
+      text-align: center;
+      img{
+        width: rem-calc(184px,750);
+        vertical-align: middle;
+      }
+    }
+    .chunjie-prize-txt{
+      text-align: center;
+      font-size: rem-calc(36px,750);
+    }
+    .to-invest{
+      width: rem-calc(422px,750);
+      height: rem-calc(92px,750);
+      margin: rem-calc(24px,750) auto;
+    }
+  }
+}
+//周排行计算器弹窗
+.ngdialog.ngdialog-theme-default.week-rink{
+  .chunjie-dialog{
+    .courter-wrap{
+      .row{
+        .right{
+          width: rem-calc(229,750);
+          &.amount{
+            padding-right: rem-calc(20,750);
+            text-align: right;
+          }
+          .input-box{
+            width: 100%;
+            .entry{
+              width: 100%;
+              //height: rem-calc(63,750);
+              border-radius: 3px;
+              padding-right: rem-calc(20,750);
+              opacity: 1;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}

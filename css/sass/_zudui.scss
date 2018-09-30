@@ -1,0 +1,1097 @@
+//我的战队活动
+$txtColor: #7e3a04;
+$mainOrange: #e28902;
+.myTeam {
+  position: relative;
+  background-image: linear-gradient(to bottom, $mainOrange 20%, #e89608 100%);
+  .float-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: rem-calc(60px,640);
+    text-align: right;
+    font-size: rem-calc(25px,640);
+    padding: rem-calc(22px,640);
+  }
+  .banner{
+    width: 100%;
+    display: block;
+  }
+  .logo {
+    @include inline-block(top);
+    width: rem-calc(200px,640);
+    height: rem-calc(80px,640);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 6;
+  }
+  .header {
+    padding: rem-calc(10px 20px,640);
+    background: #9b5405;
+    color: rgba(255,255,255,.8);
+    font-size: rem-calc(26px,640);
+    font-weight: normal;
+    h2 {
+      width: 100%;
+      height: rem-calc(60px,640);
+      line-height: rem-calc(60px,640);
+      .icon {
+        @include  inline-block(top);
+        width: rem-calc(60px,640);
+        height: rem-calc(60px,640);
+        margin-right: rem-calc(10px,640);
+        background: url("/images/zudui/myteam/myTeam.png") no-repeat center/contain;
+      }
+      span {
+        float: right;
+      }
+    }
+  }
+  .commonTeam-box {
+    position: relative;
+    border: 10px solid #f2c684;
+    background: #ffd9a1;
+    margin-top: rem-calc(60px,640);
+    .caret {
+      position: absolute;
+      width: rem-calc(72px,640);
+      height: rem-calc(80px,640);
+      z-index: 6;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .caret1 {
+      top: 0;
+      left: 0;
+      background-image: url("/images/zudui/myteam/caret1.png");
+    }
+    .caret2 {
+      top: 0;
+      right: 0;
+      background-image: url("/images/zudui/myteam/caret2.png");
+    }
+    .caret3 {
+      bottom: 0;
+      left: 0;
+      background-image: url("/images/zudui/myteam/caret3.png");
+    }
+    .caret4 {
+      bottom: 0;
+      right: 0;
+      background-image: url("/images/zudui/myteam/caret4.png");
+    }
+    &.detail {
+      .mark {
+        width: rem-calc(250px,640);
+        height: rem-calc(140px,640);
+        margin: rem-calc(10px auto,640);
+        //background: url("/images/zudui/myteam/tearmLeader.png") no-repeat center/contain;
+        text-align: center;
+        img{
+          width: 8rem;
+        }
+      }
+      .markNumber {
+        width: 100%;
+        text-align: center;
+        font-size: rem-calc(24px,640);
+        color: $txtColor;
+        padding: rem-calc(0 0 10px,640);
+      }
+      .myTeam-list {
+        width: 80%;
+        margin: rem-calc(0 auto 10px,640);
+        &-header {
+          width: 100%;
+          text-align: center;
+          color: rgba(255,255,255,.8);
+          border: 1px solid #c86f06;
+          font-size: rem-calc(26px,640);
+          padding: rem-calc(15px 0,640);
+          background: $mainOrange;
+          span {
+            font-size: rem-calc(24px,640);
+          }
+        }
+        &-con {
+          width: 100%;
+          height: rem-calc(280px,640);
+          border: 1px solid #c86f06;
+          border-top: none;
+          overflow-x: hidden;
+          overflow-y: scroll;
+          span {
+            font-size: rem-calc(24px,640);
+          }
+        }
+        &-con {
+          width: 100%;
+          height: rem-calc(280px,640);
+          border: 1px solid #c86f06;
+          border-top: none;
+          overflow-x: hidden;
+          overflow-y: auto;
+          //滚动条样式
+          &::-webkit-scrollbar {
+            width: rem-calc(10px,640);
+          }
+          &::-webkit-scrollbar-button:vertical:start:increment,
+          &::-webkit-scrollbar-button:vertical:end:decrement{
+            display: none;
+          }
+          &::-webkit-scrollbar-thumb:vertical {
+            background-color: #c86f06;
+            border-radius: rem-calc(5px,640);
+          }
+          &::-webkit-scrollbar-track:vertical {
+            background-color: transparent;
+            border-radius: rem-calc(5px,640);
+          }
+          &::-webkit-scrollbar-track-piece {
+            background-color: transparent;
+            border-radius: rem-calc(5px,640);
+          }
+          .content-list {
+            &-item {
+              display: flex;
+              -webkit-display: flex;
+              justify-content: center;
+              justify-items: center;
+              align-items: center;
+              height: rem-calc(70px,640);
+              line-height: rem-calc(70px,640);
+              background: #ffd9a1;
+              &:nth-child(2n+1) {
+                background: #f2c684;
+              }
+              &.captain {
+                .name {
+                  i {
+                    width: rem-calc(72px,640);
+                    background-image: url("/images/zudui/myteam/tearmLeader.png");
+                  }
+                }
+              }
+              .name {
+                flex: 2;
+                text-align: center;
+                i {
+                  @include inline-block(middle);
+                  width: rem-calc(48px,640);
+                  height: rem-calc(60px,640);
+                  background-size: contain;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  background-image: url("/images/zudui/myteam/icon-team.png");
+                }
+              }
+              .number {
+                flex: 3;
+                text-align: center;
+                font-size: rem-calc(24px,640);
+                color: $txtColor;
+              }
+            }
+
+          }
+        }
+        .checkDetail {
+          width: 100%;
+          font-size: rem-calc(24px,640);
+          color: $txtColor;
+          text-align: center;
+          padding: rem-calc(10px 0 20px,640);
+        }
+      }
+    }
+  }
+  .title {
+    width: 100%;
+    text-align: center;
+    font-size: rem-calc(24px,640);
+    color: rgba(255,255,255,.8);
+    padding-top: rem-calc(40px,640);
+  }
+  .btn-group {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-around;
+    padding: rem-calc(20px,640);
+    background: rgba(0,0,0,.5);
+    h2 {
+      width: rem-calc(264px,640);
+      height: rem-calc(72px,640);
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      &.continue {
+        background-image: url('/images/zudui/btn1.png');
+      }
+      &.investment {
+        background-image: url('/images/zudui/btn2.png');
+      }
+      &.btn1 {
+        background-image: url('/images/zudui/btn3.png');
+      }
+      &.btn2 {
+        background-image: url('/images/zudui/btn6.png');
+      }
+
+    }
+  }
+  .main {
+    padding: rem-calc(0 20px,640);
+    .ranker-list {
+      padding: rem-calc(20px 0,640);
+      &-item {
+        font-size: rem-calc(24px,640);
+        margin-top: rem-calc(17px,640);
+        background: #f8b047;
+        color: $txtColor;
+        border-radius: rem-calc(60px,640);
+        border: 7px solid #db840a;
+        span {
+          @include inline-block(top);
+          line-height: rem-calc(100px);
+        }
+        .num {
+          width: rem-calc(216px,640);
+          float: right;
+        }
+        .icon {
+          @include inline-block(middle);
+          width: rem-calc(60px,640);
+          height: rem-calc(60px,640);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          &.icon1 {
+            background-image: url("/images/zudui/myteam/ticon1.png");
+          }
+          &.icon2 {
+            background-image: url("/images/zudui/myteam/ticon2.png");
+          }
+          &.icon3 {
+            background-image: url("/images/zudui/myteam/ticon3.png");
+          }
+          &.icon4 {
+            background-image: url("/images/zudui/myteam/ticon4.png");
+          }
+        }
+
+      }
+    }
+  }
+  @at-root {
+    .ngdialog.ngdialog-theme-default.rule-dialog-wrap {
+      padding-bottom: rem-calc(80px,640);
+      padding-top: rem-calc(80px,640);
+      overflow: hidden;
+      &.low {
+        padding-bottom: rem-calc(100px,640);
+        padding-top: rem-calc(100px,640);
+        box-sizing: content-box;
+      }
+    }
+    .rule-dialog .special-close {
+      position: absolute;
+      right: rem-calc(-24px,640);
+      top: rem-calc(-48px,640);
+    }
+    .ngdialog.ngdialog-theme-default.rule-dialog-wrap  .ngdialog-close,
+    .ngdialog.ngdialog-theme-default.rule-dialog-wrap  .ngdialog-close:before {
+      color: rgba(255,255,255,.8);
+      font-size: rem-calc(30px,640);
+      right: rem-calc(10px,640);
+      top: rem-calc(15px,640);
+    }
+    .rule-content {
+      width: 100%;
+      height: rem-calc(864px,640);
+      border-radius: rem-calc(16px,640);
+      padding-top: rem-calc(40px,640);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url('/images/zudui/myteam/rule_bg.png');
+      .header {
+        width: 85%;
+        margin: 0 auto;
+        height: rem-calc(60px,640);
+        background: url("/images/zudui/myteam/rule_header.png") no-repeat center/contain;
+      }
+      .rule-list {
+        width: 100%;
+        padding: rem-calc(0 40px,640);
+        height: rem-calc(720px,640);
+        overflow-x: hidden;
+        overflow-y: scroll;
+        ul {
+          li {
+            display: flex;
+            padding-bottom: rem-calc(5px,640);
+            span {
+              width: rem-calc(55px,640);
+              height: rem-calc(50px,640);
+              line-height: rem-calc(50px,640);
+              text-align: center;
+              background: url("/images/zudui/myteam/rule_icon.png") no-repeat left center/contain;
+              color: #fff;
+            }
+            b {
+              flex: 1;
+              text-align: justify;
+              font-size: rem-calc(24px,640);
+              line-height: rem-calc(50px,640);
+              color: $txtColor;
+            }
+
+          }
+        }
+      }
+    }
+    .myTeam-dialog {
+      .header {
+        background: #e2a141;
+        padding: rem-calc(30px,640);
+        text-align:  center;
+        color: rgba(255,255,255,.9);
+        font-weight: 700;
+        font-size: rem-calc(36px,640);
+        border-top-left-radius: rem-calc(16px,640);
+        border-top-right-radius: rem-calc(16px,640);
+      }
+      .myTeam-content {
+        padding: rem-calc(0 20px,640);
+        background: #fff5e5;
+        border-bottom-left-radius: rem-calc(16px,640);
+        border-bottom-right-radius: rem-calc(16px,640);
+        .header-tab {
+          display: flex;
+          justify-items: center;
+          justify-content: space-between;
+          align-items: center;
+          color: $mainOrange;
+          padding: rem-calc(20px 30px 0,640);
+          font-size: rem-calc(30px,640);
+          border-bottom: 1px solid #f3c786;
+          li {
+            padding: rem-calc(15px 0,640);
+            &.active {
+              border-bottom: 2px solid #c16702;
+            }
+          }
+        }
+        .content {
+          width: 100%;
+          height: rem-calc(480px,640);
+          .person-box {
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            //滚动条样式
+            &::-webkit-scrollbar {
+              width: rem-calc(10px,640);
+            }
+            &::-webkit-scrollbar-button:vertical:start:increment,
+            &::-webkit-scrollbar-button:vertical:end:decrement{
+              display: none;
+            }
+            &::-webkit-scrollbar-thumb:vertical {
+              background-color: #e2a141;
+              border-radius: rem-calc(5px,640);
+            }
+            &::-webkit-scrollbar-track:vertical {
+              background-color: transparent;
+              border-radius: rem-calc(5px,640);
+            }
+            &::-webkit-scrollbar-track-piece {
+              background-color: transparent;
+              border-radius: rem-calc(5px,640);
+            }
+            .person-list {
+              li {
+                border-bottom: 1px solid #f3c786;
+                table {
+                  width: 100%;
+                  tbody {
+                    tr {
+                      td {
+                        padding: rem-calc(15px,640);
+                        font-size: rem-calc(24px,640);
+                        &.td1 {
+                          width: 22%;
+                          text-align: center;
+                        }
+                        &.td2 {
+                          width: 53%;
+                          color: #7e3a04;
+                          .red {
+                            color: #c13d03;
+                            padding-bottom: rem-calc(5px,640);
+                          }
+                        }
+                        &.td3 {
+                          width: 25%;
+                          color: #c13d03;
+                        }
+                        img {
+                          width: rem-calc(60px,640);
+                          //height: rem-calc(60px,640);
+                          &.duizhang {
+                            width: 2.5rem;
+                            vertical-align: middle;
+                          }
+                        }
+
+                      }
+                    }
+                  }
+
+                }
+              }
+            }
+          }
+          .tab1 {
+            display: none;
+            .person-box {
+              height: rem-calc(360px,640);
+            }
+            .no-more {
+              width: 100%;
+              text-align: center;
+              color: #f3c786;
+              padding: rem-calc(30px,640);
+              font-size: rem-calc(26px,640);
+            }
+          }
+          .tab2 {
+            display: none;
+            height: 100%;
+            .no-person {
+              padding: rem-calc(30px,640);
+              text-align: center;
+              span {
+                @include inline-block(top);
+                width: rem-calc(168px,640);
+                height: rem-calc(168px,640);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url("/images/zudui/no-person.png");
+              }
+            }
+            .person-box {
+              height: rem-calc(290px,640);
+              margin-bottom: rem-calc(50px,640);
+            }
+            .btn {
+              width: 85%;
+              height: rem-calc(80px,640);
+              margin: 0 auto;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-image: url("/images/zudui/btn7.png");
+            }
+          }
+        }
+      }
+    }
+    //投资后分享的弹窗
+    .investShare-dialog {
+      background: transparent;
+      .investShare-close {
+        position: absolute;
+        right: rem-calc(5px,640);
+        top: rem-calc(5px,640);
+        width: rem-calc(60px,750);
+        height: rem-calc(60px,750);
+        background: url("/images/activity/investShare/close.png") no-repeat center/contain;
+      }
+      .investShare-content {
+        .header {
+          width: 90%;
+          height: rem-calc(180px,640);
+          background: url("/images/activity/investShare/jinbi.png") no-repeat center/contain;
+        }
+        .main {
+          width: 80%;
+          min-height: rem-calc(600px,750);
+          padding-top: rem-calc(540px,750);
+          margin: rem-calc(-100px auto 0,750);
+          background: url("/images/activity/investShare/1000.png") no-repeat top left/contain;
+          .wap {
+            width: 100%;
+            //height: rem-calc(240px,640);
+            border-bottom-left-radius: rem-calc(16px,640);
+            border-bottom-right-radius: rem-calc(16px,640);
+            background: #ed2b33;
+            padding: rem-calc(20px 30px,640);
+            box-sizing: border-box;
+            .btn {
+              width: 100%;
+              height: rem-calc(90px,640);
+              background: url("/images/activity/investShare/button3.png") no-repeat top left/contain;
+            }
+            h2 {
+              width: 100%;
+              text-align: center;
+              font-size: rem-calc(24px,750);
+              padding: rem-calc(15px 0 25px,750);
+              color: #fff;
+              background-position: bottom center;
+              background-repeat: no-repeat;
+              background-size: 8%;
+              background-image: url("/images/activity/investShare/caret.png");
+            }
+            .rule-txt {
+              font-size: rem-calc(22px,750);
+              line-height: rem-calc(40px,640);
+              text-align: justify;
+              color: #fff;
+            }
+
+          }
+        }
+      }
+
+    }
+  }
+
+  //组队活动
+  &.zd-activity {
+    position: relative;
+    background: #e38a03;
+    .ruleIcon {
+      position: absolute;
+      top: 0.6rem;
+      right: 0;
+      z-index: 6;
+      width: rem-calc(144px,640);
+      height: rem-calc(58px,640);
+    }
+    .toujisong {
+      padding-bottom: rem-calc(40px,640);
+      .huafei {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: space-between;
+        padding: rem-calc(40px 20px,640);
+        li {
+          width: rem-calc(288px,640);
+          height: rem-calc(264px,640);
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+          &:first-child {
+            background-image: url("/images/zudui/activity/huafei1.png");
+          }
+          &:last-child {
+            background-image: url("/images/zudui/activity/huafei2.png");
+          }
+        }
+      }
+      .btn {
+        margin: 0 auto;
+        width: rem-calc(312px,640);
+        height: rem-calc(96px,640);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("/images/zudui/btn5.png");
+        &.btn1 {
+          margin-top: rem-calc(40px,640);
+          background-image: url("/images/zudui/btn3.png");
+        }
+      }
+    }
+    .zhuigan {
+      border-top: 15px solid #f8ad01;
+      background: #f09f2e;
+      padding: rem-calc(40px 0 60px,640);
+      .btn {
+        margin: 0 auto;
+        width: rem-calc(312px,640);
+        height: rem-calc(96px,640);
+        background: url("/images/zudui/btn2.png") no-repeat center/contain;
+      }
+    }
+    .notice {
+      background: #f8ad01;
+      font-size: rem-calc(24px,640);
+      padding: rem-calc(20px,640);
+    }
+    .ranking-list {
+      .isSign {
+        padding: rem-calc(36px 20px 0 20px,640);
+        .commonTeam-box {
+          min-height: rem-calc(200px,640);
+          margin-top: rem-calc(0,640);
+          padding-bottom: rem-calc(20px,640);
+          h2 {
+            position: absolute;
+            top: 3.2rem;
+            left: 50%;
+            z-index: 4;
+            width: rem-calc(240px,640);
+            height: rem-calc(120px,640);
+            margin-left: rem-calc(-120px,640);
+            margin-top: rem-calc(-60px,640);
+            font-size: rem-calc(60px,750);
+            color: $mainOrange;
+            background: none;
+            text-align: center;
+            &.noLogin {
+              top: 1rem;
+              left: 30%;
+              width: rem-calc(480px,640);
+              margin-top: rem-calc(60px,640);
+              font-weight: bold;
+              font-size: rem-calc(36px,640);
+            }
+            img{
+              width: 7rem;
+            }
+          }
+        }
+      }
+      .btn-group {
+        padding: rem-calc(40px 0,640);
+        background: none;
+      }
+    }
+
+  }
+}
+@-webkit-keyframes marquee {
+  0% { left: 80%; }
+  100% { left: -100%; }
+}
+@-moz-keyframes marquee {
+  0% { left: 80%; }
+  100% { left: -100%; }
+}
+@-ms-keyframes marquee {
+  0% { left: 80%; }
+  100% { left: -100%; }
+}
+@-o-keyframes marquee {
+  0% { left: 80%; }
+  100% { left: -100%; }
+}
+@keyframes marquee {
+  0%{left:80%;}
+  100%{left: -100%}
+}
+*{
+  -webkit-overflow-scrolling: touch;
+}
+//组队分享
+.zd-share.myTeam {
+  background: #e89608;
+  main{
+    .register-box{
+      background: none!important;
+      .promote-box{
+        .input-item{
+          .input-box.sendCode{
+            background: #099ee3;
+            border-color: #099ee3;
+          }
+          p{
+            color: #6a2c03;
+            a{
+              color: #be3b07;
+            }
+            .checkbox{
+              background: url(/images/zudui/share/zdshare-check.png) no-repeat center center/contain;
+              &.checked{
+                background: url(/images/zudui/share/zdshare-checked.png) no-repeat center center/contain;
+              }
+            }
+          }
+          .btn{
+            margin-bottom: 0;
+            margin-top: 0.4rem;
+            background: url(/images/zudui/share/zd-step2-btn.png) no-repeat center center/contain;
+            &:disabled{
+              background: url(/images/zudui/share/zd-btn-grey.png) no-repeat center center/contain;
+            }
+            &.step1-btn{
+              background: url("/images/zudui/share/zdshare-btn.png") no-repeat center/contain;
+            }
+          }
+        }
+      }
+    }
+  }
+  .notice {
+    position: relative;
+    width: 100%;
+    height: rem-calc(70px, 640);
+    line-height: rem-calc(70px, 640);
+    background: #f7d4a3;
+    color: #7e3a04;
+    //font-size: rem-calc(24px, 640);
+    margin-top: -1px;
+    font-size: 0;
+    overflow: hidden;
+    -webkit-overflow-scrolling: auto;
+    img {
+      position: absolute;
+      left: 1rem;
+      top: 1.8rem;
+      width: 1.2rem;
+      margin: 0 0.2rem 0 1rem;
+      vertical-align: middle;
+    }
+    .notice-list{
+      padding-left: 3rem;
+      width: 100%;
+      height: 100%;
+      marquee{
+        line-height: 3rem;
+      }
+      .marquee {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        font-size: 1rem;
+      }
+
+      .marquee div {
+        display: block;
+        width: 100%;
+        //height: 100%;
+        line-height: 3rem;
+        position: absolute;
+        overflow: hidden;
+        -webkit-animation: marquee 10s linear infinite;
+        -moz-animation: marquee 10s linear infinite;
+        -ms-animation: marquee 10s linear infinite;
+        -o-animation: marquee 10s linear infinite;
+        animation: marquee 10s linear infinite;
+        span{
+          display: block;
+          line-height: rem-calc(70px, 640);
+          width: 100%;
+          //height: 100%;
+        }
+      }
+      span{
+        display: block;
+        font-size: 1rem;
+      }
+    }
+  }
+  .banner {
+    position: relative;
+    width: 100%;
+    .logo {
+      @include inline-block(top);
+      width: rem-calc(200px,640);
+      height: rem-calc(80px,640);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 6;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .jianbian{  background-image: linear-gradient(to bottom, #cf6d04 0%, #e79507 100%);}
+  .ranking-list {
+    .title {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .rule-text {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 2rem;
+    text-align: right;
+    color: #a5200a;
+    font-size: rem-calc(26px, 640);
+    text-decoration: underline;
+    padding-bottom: 1rem;
+  }
+  .rule {
+    width: 100%;
+    max-width: 750px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 99;
+    .rule-content {
+      position: absolute;
+      top: 14%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 88%;
+      height: 35rem;
+      background: url(/images/zudui/share/zd-rulebg.png) no-repeat;
+      background-size: 100% 100%;
+      overflow: hidden;
+      margin-left: 2rem;
+      color: #955c06;
+      font-size: 1.1rem;
+      line-height: 2rem;
+      padding: 6rem 1.7rem 2rem 1rem;
+      box-sizing: border-box;
+      overflow-y: auto;
+      .rule-list {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+      }
+      p {
+        position: relative;
+        padding-left: 2rem;
+      }
+      .num {
+        position: absolute;
+        left: 0.2rem;
+        top: 0.2rem;
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: url(/images/zudui/share/zd-rule-num.png) no-repeat;
+        background-size: 100% 100%;
+        text-align: center;
+        line-height: 1.5rem;
+        color: #fff;
+        font-size: 0.8rem;
+      }
+    }
+    .close {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      right: 0.5rem;
+      top: 0.5rem;
+    }
+  }
+  .img {
+    width: 100%;
+    font-size: 0;
+    img {
+      width: 100%;
+    }
+  }
+  .uploadApp {
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 3rem;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    img {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
+.ranking-list{
+  background: #e79407;
+  &.ranking-activity-list {
+    background: #e38c03;
+    .commonTeam-box {
+      margin-top: rem-calc(36px,640);
+    }
+  }
+  .text{
+    width: 100%;
+    line-height: 2rem;
+    text-align: center;
+    color: #642f02;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .info{
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 1.6rem;
+    padding-top: 1rem;
+    color: #653702;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    padding-bottom: 1rem;
+  }
+  .zd-table-wrap{
+    width: 100%;
+    //height: rem-calc(600px,750);
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0.5rem 0 3rem;
+    &>div{
+      width: 100%;
+      height: 100%;
+    }
+    table{
+      width: 100%;
+      text-align: center;
+      color: #653702;
+      font-size: rem-calc(24px,640);
+      transition: all 0.5s;
+      tr{
+        height: 3rem;
+        &.highLightShow{
+          td{
+            color: #c53614;
+            font-weight: 700;
+          }
+        }
+        &:nth-child(even){
+          background: url("/images/zudui/share/zd-table-oddbg.png") no-repeat;
+          background-size: 100% 100%;
+        }
+        &:nth-child(odd){
+          background: #ffd9a1;
+        }
+        th{
+          text-align: center;
+          display: inline-block;
+          vertical-align: bottom;
+          font-size: 0.9rem;
+          padding-top: 0.4rem;
+        }
+        td{
+          text-align: center;
+          display: inline-block;
+          line-height: 3rem;
+          .num1{
+            display: inline-block;
+            width: 1.7rem;
+            height: 1.7rem;
+            border-radius: 50%;
+            background: url(/images/zudui/share/zd-table-one.png) no-repeat;
+            background-size: 100% 100%;
+            color: #fff;
+            margin-right: 0.4rem;
+            text-align: center;
+            line-height: 1.7rem;
+            font-size: 0;
+            vertical-align: middle;
+          }
+          .num2{
+            display: inline-block;
+            width: 1.7rem;
+            height: 1.7rem;
+            border-radius: 50%;
+            background: url(/images/zudui/share/zd-table-two.png) no-repeat;
+            background-size: 100% 100%;
+            color: #fff;
+            margin-right: 0.4rem;
+            text-align: center;
+            line-height: 1.7rem;
+            font-size: 0;
+            vertical-align: middle;
+          }
+          .num3{
+            display: inline-block;
+            width: 1.7rem;
+            height: 1.7rem;
+            border-radius: 50%;
+            background: url(/images/zudui/share/zd-table-three.png) no-repeat;
+            background-size: 100% 100%;
+            color: #fff;
+            margin-right: 0.4rem;
+            text-align: center;
+            line-height: 1.7rem;
+            font-size: 0;
+            vertical-align: middle;
+          }
+          .num{
+            display: inline-block;
+            width: 1.7rem;
+            height: 1.7rem;
+            border-radius: 50%;
+            background: #e38b03;
+            color: #fff;
+            margin-right: 0.4rem;
+            text-align: center;
+            line-height: 1.7rem;
+            vertical-align: middle;
+
+          }
+        }
+        td:nth-child(1),th:nth-child(1){
+          width: 38%;
+        }
+        td:nth-child(2),th:nth-child(2){
+          width: 22%;
+        }
+        td:nth-child(3),th:nth-child(3){
+          width: 20%;
+        }
+        td:nth-child(4),th:nth-child(4){
+          width: 20%;
+        }
+      }
+
+    }
+    .more,.shouhui{
+      color: #c53514;
+      font-size: rem-calc(26px,640);
+      text-align: center;
+      position: relative;
+      margin-top: 1rem;
+      &:after{
+        content: "";
+        position: absolute;
+        top: 1.8rem;
+        left: 50%;
+        width: 1.5rem;
+        height: 1.2rem;
+        background: url(/images/zudui/share/zd-more-icon.png) no-repeat;
+        background-size: 100% 100%;
+        margin-left: -0.75rem;
+      }
+    }
+    .shouhui{
+      &:after{
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+.zd-leader.myTeam {
+  background: #fff;
+  .img {
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    img {
+      width: 10.5rem;
+    }
+  }
+  p.text {
+    text-align: center;
+    color: #ca6206;
+    font-size: rem-calc(32px, 640);
+  }
+  .upload {
+    text-align: center;
+    margin-top: 2rem;
+    img{
+      width: 80%;
+    }
+  }
+}

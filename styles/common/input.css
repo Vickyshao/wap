@@ -1,0 +1,72 @@
+.button-info {
+  background: #ff9900;
+  border-radius: 10px;
+  line-height: 2.67em;
+  color: #ffffff;
+  text-align: center;
+}
+input.button-info {
+  width: 100%;
+  border: none;
+}
+a.button-info {
+  display: block;
+}
+.control-group {
+  position: relative;
+}
+.control-group.danger {
+  border: #e84b4b 1px solid;
+  color: #e84b4b;
+  border-radius: 10px;
+}
+.control-group label {
+  position: absolute;
+  left: .5em;
+  color: #bfbfbf;
+  top: .15em;
+  font-size: 1.4em;
+}
+.control-group label.icon-mobile-phone {
+  top: 0;
+  font-size: 1.7em;
+}
+.control-group label.icon-pop {
+  left: .65em;
+  top: .55em;
+  font-size: 1.7em;
+}
+.control-group input {
+  line-height: 2.67em;
+  width: 100%;
+  border: #d8d8d8 1px solid;
+  border-radius: 10px;
+  text-indent: 2.5em;
+}
+.identify {
+  border: #d8d8d8 1px solid;
+  border-radius: 10px;
+  position: relative;
+}
+.identify label {
+  position: absolute;
+  left: 1.15em;
+  top: .75em;
+}
+.identify input {
+  border: none;
+  outline: none;
+  width: 72%;
+  line-height: 2.67em;
+  border-radius: 10px 0 0 10px;
+  text-indent: 2.5em;
+}
+.identify span {
+  line-height: 2.67em;
+  width: 28%;
+  display: inline-block;
+  border-radius: 0 10px 10px 0;
+  background: #ff9900;
+  color: #ffffff;
+  text-align: center;
+}

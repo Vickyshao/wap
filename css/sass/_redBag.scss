@@ -1,0 +1,218 @@
+$mainRed : #d44246;
+$bgColor : #fff0df;
+$darkTxt : #bf9679;
+$lightTxt : #e4d3c6;
+//html,body {
+//  height: 100%;
+//  width: 100%;
+//}
+.redBag {
+  padding: rem-calc(0 0 20px 0,750);
+  background: $bgColor;
+  .banner {
+    position: relative;
+    padding: rem-calc(60px 0,750);
+    h2 {
+      position: absolute;
+      bottom: rem-calc(130px,750);
+      right: rem-calc(94px,750);
+      z-index: 7;
+      width: rem-calc(480px,750);
+      text-align: center;
+      color: $mainRed;
+      font-size: rem-calc(60px,750);
+      font-weight: bolder;
+      span {
+        font-size: rem-calc(28px,750);
+      }
+    }
+    h3 {
+      position: absolute;
+      bottom: rem-calc(85px,750);
+      right: rem-calc(60px,750);
+      z-index: 7;
+      color: $darkTxt;
+      font-size: rem-calc(28px,750);
+      width: rem-calc(480px,750);
+      span {
+        color: $mainRed;
+      }
+    }
+    .bag {
+      display: block;
+      width: 95%;
+      margin: 0 auto;
+    }
+    .no-bag {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+  .main {
+    padding: rem-calc(0 40px,750);
+
+  }
+  .btn-group {
+    padding: rem-calc(0 30px 40px,750);
+    text-align: center;
+    .btn {
+      width: 100%;
+      margin-bottom: rem-calc(30px,750);
+      padding: rem-calc(15px 0,750);
+      background: transparent;
+      border: 1px solid $darkTxt;
+      border-radius: rem-calc(60px,750);
+      color: $common-red;
+      font-size: rem-calc(40px,750);
+      a {
+        color: $common-red;
+        font-size: rem-calc(40px,750);
+      }
+      &.active {
+        background: $mainRed;
+        border-color: $mainRed;
+        color: #fff;
+        a {
+          color: #fff;
+        }
+      }
+
+    }
+  }
+  .header {
+    text-align: center;
+    border-top: 1px solid $darkTxt;
+    height: rem-calc(20px,750);
+    span {
+      @include inline-block(top);
+      background: $bgColor;
+      color: $darkTxt;
+      font-size: rem-calc(32px,750);
+      padding: rem-calc(0 20px,750);
+      margin-top: rem-calc(-22px,750);
+    }
+  }
+  &-list {
+    padding: rem-calc(10px 0 50px,750);
+    li {
+      display: flex;
+      padding: rem-calc(10px 0,750);
+      border-bottom: 1px solid $lightTxt;
+      .left {
+        flex: 1;
+        .tit {
+          font-size: rem-calc(34px,750);
+          color: $darkTxt;
+        }
+        .time {
+          color: $lightTxt;
+          font-size: rem-calc(26px,750);
+        }
+      }
+      .center {
+        width: rem-calc(270px,750);
+        font-size: rem-calc(34px,750);
+        color: $darkTxt;
+        line-height: rem-calc(72px,750);
+
+      }
+      .right {
+        min-width: rem-calc(120px,750);
+        color: $mainRed;
+        line-height: rem-calc(72px,750);
+        font-size: rem-calc(34px,750);
+        span {
+          font-size: rem-calc(26px,750);
+        }
+      }
+    }
+}
+  .txt-list {
+    padding: rem-calc(20px 0 40px,750);
+    li {
+      color: $darkTxt;
+      font-size: rem-calc(24px,750);
+      line-height: rem-calc(36px,750);
+      text-align: justify;
+    }
+  }
+}
+.redBagzhuce {
+  height: 100%;
+  padding: rem-calc(160px 0 0,750);
+  text-align: center;
+  background: #e6303f url("/images/activity/investShare/bg.png") no-repeat top/contain;
+  box-sizing: border-box;
+  .logologo {
+    @include inline-block(top);
+    width: rem-calc(280px,750);
+    height: rem-calc(80px,750);
+    img {
+      width: 100%;
+    }
+  }
+  .desc {
+    font-size: rem-calc(30px,750);
+    color: rgba(255,255,255,.9);
+    padding: rem-calc(60px,750);
+  }
+  .register-box {
+    &.redBagBox {
+      padding-bottom: 0;
+      .promote-box {
+        .input-item {
+          .input-box.sendCode {
+            background: #fde658;
+            border-color: #fde658;
+            color: $mainRed;
+          }
+          p {
+            color: #fff;
+            .checkbox {
+              background-image: url(/images/activity/investShare/check.png);
+              &.checked {
+                background-image: url(/images/activity/investShare/checked.png);
+              }
+            }
+            a {
+              color: #fde658;
+            }
+          }
+          .btn {
+            background-color: #fed43d;
+            box-shadow: 0 5px 1px #ef9400;
+            color: $mainRed;
+            border-radius: rem-calc(40px,750);
+            font-weight: 700;
+            &.disabled {
+              background-color: #e0e0e0;
+              box-shadow: 0 5px 1px #cacaca;
+              color: #fff;
+            }
+          }
+        }
+        .wap-login-box {
+          .chai-box {
+            padding: rem-calc(120px 0 200px,750);
+            background: url("/images/activity/investShare/line.png") no-repeat 0 40%/contain;
+            .chai-btn {
+              @include inline-block(top);
+              width: rem-calc(250px,750);
+              height: rem-calc(250px,750);
+              background: url("/images/activity/investShare/chai.png") no-repeat center/contain;
+            }
+          }
+          .img {
+            @include inline-block(top);
+            width: 100%;
+          }
+        }
+      }
+
+    }
+  }
+
+
+
+}

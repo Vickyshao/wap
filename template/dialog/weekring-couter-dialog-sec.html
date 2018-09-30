@@ -1,0 +1,38 @@
+<div class="dialog chunjie-dialog">
+    <h2 class="h2">年化计算器</h2>
+    <div class="courter-close" ng-click="closeDialog()">
+        <img src="/images/activity/newYear2018/activity/courter-close.png" alt="">
+    </div>
+    <div class="courter-wrap">
+        <div class="row">
+            <label>投资金额（元）</label>
+            <div class="right">
+                <div ng-click="hideBox()" class="input-box">
+                    <input type="number" class="entry" ng-model="amount" disabled>
+                </div>
+                <!--<div class="box" ng-if="isShowInput">1000元</div>-->
+                <!--<i class="yuan">元</i>-->
+            </div>
+        </div>
+        <div class="row">
+            <label>投资期限</label>
+            <div class="right time" ng-class="timeClass">
+                <span ng-click="changeTime(30)">30天</span>
+                <span ng-click="changeTime(60)">60天</span>
+                <!--<span ng-click="changeTime(90)">90天</span>-->
+            </div>
+        </div>
+        <div class="row">
+            <label>年化投资额（元）</label>
+            <div class="right amount">
+                <i class="money">{{amount/360*time | numfloor}}</i>
+            </div>
+        </div>
+        <div class="btn" ng-click="toInvestIng()">立即投资</div>
+    </div>
+    <div class="tips">
+        <h3>计算方式：年化投资额=单次投资额/360*投资天数</h3>
+        <div class="line"></div>
+        <p>举个栗子：2018.3.23-2018.3.29期间，小沪投资了两笔：60天的标10万元和30天的标20万元，累计年化投资额=<span>100000/360*60+200000/360*30=33333元</span></p>
+    </div>
+</div>

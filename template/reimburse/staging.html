@@ -1,0 +1,62 @@
+<div class="reimburse headerTop staging" ng-controller="stagingCtrl">
+    <div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>
+
+    <!--当前进度-->
+    <div class="currentReimburse">
+        <div class="GaugeMeter"
+             data-percent data-append="元" data-size="200" data-text
+             data-theme="blue" data-width="7" data-animate_gauge_colors="1"
+             data-animate_text_colors="1" data-label="已报销" data-style="Arch" data-label_color="black"></div>
+        <h2>当前进度</h2>
+    </div>
+
+
+    <!--报销任务-->
+    <div class="reimburseTask" ng-if="latestActiveNotReimbursedRecord != null || latestActiveNotReimbursedRecord != undefined">
+        <div class="block task1">
+            <div class="left">
+                <h2 ng-bind="latestActiveNotReimbursedRecord.amount"></h2>
+                <p>元</p>
+            </div>
+            <div class="content">
+                <div class="txt">
+                    <h3 ng-bind="latestActiveNotReimbursedRecord.title"></h3>
+                    <h2>本期报销{{latestActiveNotReimbursedRecord.amount}}元，报销后即可提现</h2>
+                    <p>报销金额已发放至账户余额</p>
+                </div>
+                <div class="button" ng-if="latestActiveNotReimbursedRecord.status == 1"><a class="btn grey-btn">未开始</a></div>
+                <div class="button" ng-if="latestActiveNotReimbursedRecord.status == 2"><a ng-click="toReimburse()" class="btn btn2 invert">立即报销</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!--报销计划-->
+    <div class="common-title">报销计划</div>
+    <div class="table content" id="wrapper">
+        <div class="scroll">
+            <table>
+                <thead>
+                <tr>
+                    <th width="25%">事项</th>
+                    <th width="25%">金额</th>
+                    <th width="25%">报销时间</th>
+                    <th width="25%">状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in infos">
+                    <td>{{item.title}}</td>
+                    <td>{{item.amount}}元</td>
+                    <td ng-class="{1:'grey'}[item.status]">{{item.planReimburseTime | date:'yyyy.MM.dd'}}</td>
+                    <td ng-bind="{1:'未开始',2:'未领取 ',3:'已领取 '}[item.status]" ng-class="{1:'grey',2:'red',3:'green'}[item.status]"></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="more" ng-click="loadMore()"><i class="pull_icon"></i><span>没有更多了</span></div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,86 @@
+<div class="newhand-wrapper cp-wrapper " style="padding:0;margin-bottom:1rem;">
+    <div class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="xutou-box1">
+        <h1>请选择想要领取的现金金额</h1>
+        <div ng-swiper="swiper" ng-swiper-conf="conf" style="height: 16rem;margin:1.5rem 0;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-click="clickitem(item,$index)" ng-repeat="item in rewardList track by $index">
+                    <img src="images/newhand/hongbaobg2.png" />
+                    <p>续投<span>{{item.deadline}}</span>天</p>
+                    <p class="hongbaotext">{{item.amount}}元
+                        <br /><span>现金红包</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="xutoulist">
+            <img src="images/newhand/box.png" />
+            <div class="xutoulist-box">
+                <div style="height: 100%;overflow: hidden;">
+                    <ul>
+                        <li ng-repeat="item in parcelList track by $index">{{item.mobilePhone}} 领取{{item.amount}}元</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="xutou-box2">
+        <dl>
+            <dt>新手标到期后继续投资<span class="black">{{activeData.deadline}}</span>天产品，即可领取<span class="red">{{activeData.amount}}</span>元</dt>
+            <dd>新手标到期投资金额<span>{{activeData.investAmount}}元</span></dd>
+            <dd>投资期限<span>{{activeData.deadline}}天</span></dd>
+            <dd>年化收益<span ng-if="activeData.activityRate>0">+<font>{{activeData.activityRate}}</font>%</span><span><font>{{activeData.rate}}</font>%</span></dd>
+            <dd>预计收益<span><font>{{activeData.profitAmount}}</font>元</span></dd>
+            <dd>现金红包<span><font>{{activeData.amount}}</font>元</span></dd>
+        </dl>
+    </div>
+    <div class="xutou-box3">
+        <div class="wenxintishi">
+            <h2><img src="images/newhand/icon-dengpao.png" />温馨提示：</h2>
+            <ul>
+                <li>续投所获奖励不可与其他福利同时享受。</li>
+                <li>投资金额即1天新手标到期后的投资本金，续投时不可修改金额。</li>
+                <li>续投申请成功即视为您同意续投方案,不可取消,若有疑问请拨打400-031-9909。</li>
+            </ul>
+        </div>
+        <p class="tishiclick" ng-click="tishiclick()"><img src="images/newhand/icon-jt.png" />温馨提示</p>
+        <button ng-click="lijilingqu()">立即领取</button>
+        <p><a ng-click="fangqi()">放弃机会</a></p>
+    </div>
+    <div class="fixed-box" ng-show="sureShow">
+        <div class="lingqu">
+            <img src="images/newhand/close.png" class="close" ng-click="sureShow=false"/>
+            <p>1天新手标到期后<br />自动续投<span>{{activeData.deadline}}天产品</span></p>
+            <div class="huadong-box">
+                <div class="huadong" style="left:{{left}}px" ng-touchstart="huadongstart($event)" ng-touchmove="huadongmove($event)" ng-touchend="huadongend($event)" ng-touchcancel="huadongcancel($event)"><img src="images/newhand/yuan.png" /></div>
+                <div class="jtbox">
+                    <img src="images/newhand/huadongjtc.png" />
+                    <div class="huadongjt"><img src="images/newhand/huadongjt.png" /></div>
+                </div>
+                <img src="images/newhand/huadong.png" class="yuan" />
+            </div>
+            <p class="tishi" style="color:#777;">滑动同意自动续投</p>
+            <button class="querenxutou" style="display: none" ng-click="subxutou()">确认</button>
+            <p><span><font>*续投申请成功即视为您同意续投方案，不可取消</font></span></p>
+        </div>
+    </div>
+    <div class="fixed-box" ng-show="cancelShow">
+        <div class="fangqi">
+            <p>领奖机会仅一次，确定放弃？</p>
+            <div>
+                <button class="btn-fangqi" ui-sref="main.myaccountHome">放弃机会</button>
+                <button class="btn-cancel" ng-click="closethink()">我再想想</button>
+            </div>
+        </div>
+    </div>
+    <div class="fixed-box"  ng-show="successShow">
+        <div class="success">
+            <h2>续投成功!</h2>
+            <p>{{activeData.amount}}元现金已躺在您的账户中！</p>
+            <div>
+                <button class="btn-cancel" ui-sref="minxi">立即查看</button>
+            </div>
+        </div>
+    </div>
+</div>

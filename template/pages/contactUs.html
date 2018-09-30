@@ -1,0 +1,28 @@
+<div class="contact-us headerTop" ng-controller="contactUsCtrl" >
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="map">
+        <div ng-repeat="item in contactInfo" ng-bind-html="item.content |asHtml"></div>
+        <!--<img ng-src="{{contactInfo[0].litpic}}" alt="">-->
+    </div>
+    <!--<div class="detail-info">-->
+        <!--<div class="address">-->
+            <!--<div class="clearfix">-->
+                <!--<img src="../../images/find/split.png" alt="">-->
+                <!--<p>-->
+                    <!--深圳前海云轩互联网金融服务有限公司-->
+                <!--</p>-->
+                <!--<p>公司地址：上海市 黄浦区人民路292号外滩SOHO  C座9楼903<br>邮编：200010</p>-->
+            <!--</div>-->
+            <!--<div class="clearfix">-->
+                <!--<img src="../../images/find/split.png" alt="">-->
+                <!--<p>-->
+                    <!--深圳前海云轩互联网金融服务有限公司-->
+                <!--</p>-->
+                <!--<p>公司地址：上海市 黄浦区人民路292号外滩SOHO  C座9楼903<br>邮编：200010</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+</div>

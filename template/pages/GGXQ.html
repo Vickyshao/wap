@@ -1,0 +1,13 @@
+<div class="wrap wap-more-box" ng-controller="GGXQCtrl">
+	<div class="common-head" ng-click="toback()" ng-if="!fromNative"><i></i><p>{{title}}</p></div>
+	<div ng-show="from!='kfr'" class="ggxq-content">
+        <h2>{{ggxq.title}}</h2>
+        <h3>{{ggxq.createTime | date:'yyyy-MM-dd'}}</h3>
+        <div ng-bind-html="ggxq.content | asHtml"></div>
+    </div>
+    <div ng-show="from=='kfr'" class="hdxq-content">
+        <h2>{{ggxq.title}}</h2>
+        <h3>发布日期：{{ggxq.createTime | date:'yyyy-MM-dd'}}</h3>
+        <div ng-bind-html="ggxq.content | asHtml"></div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="news-list headerTop" ng-controller="newsListCtrl">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+
+    <div class="div-block"></div>
+
+    <div class="down">
+        <ul class="list">
+            <li ng-repeat="item in datalist" infinite-scroll='loadMore(item)' infinite-scroll-immediate-check = false>
+                <h3 ng-click="slideToggle($event)">
+                    <i ng-click="slideToggle($event)"></i>
+                    <span>{{item.title}}</span>
+                    <span>{{item.addTime | date:"yy-MM-dd"}}</span>
+                </h3>
+
+                <p class="last">{{item.content}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="loadmore">上拉加载更多</div>
+
+</div>

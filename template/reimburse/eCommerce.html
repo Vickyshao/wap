@@ -1,0 +1,87 @@
+<div class="eCommerce" ng-controller="eCommerceCtrl">
+    <div class="banner"><a href="/main/home" class="logo"></a></div>
+    <div class="eCommerce-login">
+        <form class="eCommerceForm" name="eCommerceForm" novalidate>
+            <div ng-show="form" class="step1">
+                <div class="common-box">
+                    <span><i class="icon1"></i></span>
+                    <div class="input-box">
+                        <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入11位手机号" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-change="checkMobile(eCommerceForm,login.mobilephone)" minlength="11" maxlength="11" required class="input">
+                    </div>
+                    <div class="tips" ng-show="eCommerceForm.mobilephone.$dirty && eCommerceForm.mobilephone.$invalid">请输入正确的手机号</div>
+                </div>
+                <div class="common-box">
+                    <span><i class="icon2"></i></span>
+                    <div class="input-box">
+                        <input autocomplete="off" type="text"  placeholder="请输入电商码" ng-model="login.ecCode" name="ecCode" class="input" ng-change="checkEccode(eCommerceForm,login.ecCode)" minlength="8" maxlength="8" ng-pattern="/[A-Za-z0-9]{8}/" required/>
+                    </div>
+                    <div class="tips" ng-show="eCommerceForm.ecCode.$dirty && eCommerceForm.ecCode.$invalid">请输入正确的电商码</div>
+                </div>
+            </div>
+            <div ng-show="!form" class="step2">
+                <p class="tit">短信验证码已发送至{{login.mobilephone}}，注意查收 <a ng-click="changeCode()">更换号码</a></p>
+                <div class="common-box">
+                    <span><i class="icon3"></i></span>
+                    <div class="input-box smsCode">
+                        <input name="smsCode" ng-model="login.smsCode"  type="text"  placeholder="请输入验证码" maxlength="4" minlength="4" required class="input">
+                    </div>
+                    <span class="sendBtn" ng-click="getyzm(eCommerceForm)" style="color:#fff;">{{nowTimer}}</span>
+                    <div class="tips" ng-show="eCommerceForm.smsCode.$invalid && eCommerceForm.smsCode.$dirty">请输入正确的验证码</div>
+                </div>
+                <div class="common-box">
+                    <span><i class="icon4"></i></span>
+                    <div class="input-box">
+                        <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" minlength="6" maxlength="16" ng-model="login.passWord" name="passWord" required class="input" />
+                    </div>
+                    <div class="tips" ng-show="eCommerceForm.passWord.$invalid && eCommerceForm.passWord.$dirty">请输入6-16位字母数字混合密码</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="pic-wap">
+        <div ng-show="form" class="btn btn1" ng-click="next(eCommerceForm)"></div>
+        <div ng-show="!form" class="btn btn2" ng-click="zuce(eCommerceForm)"></div>
+        <p class="toLogin">我已注册 <a href="/dl?eCommerce=true">立即登录</a></p>
+    </div>
+    <!--五秒上移滚动-->
+    <div class="eCommerce-grade">
+        <h2>已有 <span>{{total}}</span> 位购物狂成功报销</h2>
+        <div class="eCommerce-grade-box">
+            <img src="/images/activity/eCommerce/bg1.png">
+            <!--<div class="listBg">-->
+                <!--<div class="list reimburseList">-->
+                    <!--<div class="item" ng-repeat="item in list"><span>{{item.realName}} 获得{{item.title}}资金 {{item.amount}}元 </span>{{item.reimburseTime | date:'HH:mm'}}</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <div class="data-list" ng-class="{true: 'short-list'}[list.length < 4]">
+                <table class="data-table">
+                    <tr ng-repeat="item in list" repeat-finish="background()">
+                        <td width="70%">{{item.realName}} 获得{{item.title}}资金 {{item.amount}}元 </td>
+                        <td width="30%">{{item.reimburseTime | date:'HH:mm'}}</td>
+                    </tr>
+                    <tr ng-if="list.length == 0">
+                        <td width="50%">-</td>
+                        <td width="50%">-</td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <img src="/images/activity/eCommerce/bg3.png">
+        </div>
+    </div>
+    <!--左右滚动-->
+    <div class="img-group">
+        <img src="/images/activity/eCommerce/ta.png">
+    </div>
+    <div class="swiper">
+        <my-banner banner="banner" seconds="5000"></my-banner>
+    </div>
+    <div class="toTop">
+        <div class="clickme"><a ng-click="toTop()"></a></div>
+    </div>
+    <div class="img-group"><img src="/images/common/footer.png"></div>
+
+    <float-menu></float-menu>
+</div>

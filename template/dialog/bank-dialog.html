@@ -1,0 +1,25 @@
+<!--银行卡列表-->
+<div class="bankList bankList-list">
+	<div class="bankList-title">
+		<div class="ngdialog-close" ng-click="done()"><img src="/images/list/icon_close1.png" alt=""></div>
+		<h3>
+			<span style="text-align: left;">银行</span>
+			<span style="text-align: right;padding-right: 1rem;">单笔/单日限额(元)</span>
+		</h3>
+		<!--<span ng-click="done()">完成</span>-->
+	</div>
+	<div class="bankList-content">
+		<ul class="list">
+			<li ng-repeat="item in bankList" ng-click="chooeseItem($event,this)" ng-class="{'checked':'selected'}[item.checked]">
+				<span><img src="/images/bank/{{item.id}}.png"/></span>
+				<h2>{{item.bankName}}</h2>
+				<h2 class="yuan">
+					<span>{{item.singleQuota/10000 | wisNumber3}}万/{{item.dayQuota/10000 | wisNumber3}}万</span>
+					<b class="checked"></b>
+				</h2>
+
+			</li>
+		</ul>
+	</div>
+</div>
+

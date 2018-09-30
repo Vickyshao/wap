@@ -1,0 +1,24 @@
+<div class="chunjie2018-prize-wrap headerTop" ng-controller="chunjiePrizeCtrl">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div ng-repeat="item in list" class="item">
+        <div class="div-block" ng-if="$index != 0"></div>
+        <ul class="prize-wrap">
+            <li class="left">
+                <img src="{{item.picUrl}}" alt="" class="img">
+                <!--<img src="/images/find/logo_default.png" alt="" class="logo-img" ng-if="!item.appPictureUrlA">-->
+            </li>
+            <li class="right">
+                <p class="prize">{{item.awardName}}</p>
+                <p class="time">获得时间：{{item.awardTime | date: "yyyy-MM-dd"}}</p>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>

@@ -1,0 +1,87 @@
+<div class="newhand-wrapper cp-wrapper myTyj myassets-wrapper headerTop">
+    <div class="common-head blue-head" ><i ng-click="toback()"></i><p>{{title}}</p></div>
+    <!--<div class='wap-body headerTop'>
+        <ul class="nav nav-pills mb1 my-coupon" >
+            <li role="presentation" style="width: 33%" ng-class="{0:'active',1:'',2:''}[active]" ng-click="onClick(0)"><a href="">未使用</a></li>
+            <li role="presentation" style="width: 33%" ng-class="{0:'',1:'active',2:''}[active]" ng-click="onClick(1)"><a href="">已使用</a></li>
+            <li role="presentation" style="width: 33%" ng-class="{0:'',1:'',2:'active'}[active]" ng-click="onClick(2)"><a href="">已失效</a></li>
+        </ul>
+        <div class="h5-coupon" ng-class="{0:'myTyj-coupon',1:'used-coupon',2:'invalid-coupon'}[active]">
+            <div class="coupon-card" ng-repeat="coupon in coupons">
+                <div class="card-name">
+                    <p>体验金</p>
+                    <b><span>￥</span>{{coupon.amount}}</b>
+                </div>
+                <div class="info">
+                    <p ng-class="{1:'fanxian'}[coupon.type]">使用说明</p>
+                    <ul>
+                        <li ng-if="coupon.source!=100 && coupon.source!=99">投资期限：{{coupon.productDeadline}}天以上（含{{coupon.productDeadline}}天）</li>
+                        <li ng-if="coupon.source==100 || coupon.source==100">投资条件：投资≥5000元</li>
+                        <li>有效期至：{{coupon.expireDate | date:'yyyy.MM.dd'}}</li>
+                        <li>体验金类型：<span ng-if="coupon.source==100 || coupon.source==99">新手体验金(除新手标)</span><span ng-if="coupon.source!=100 && coupon.source!=99">普通体验金(除新手标)</span></li>
+                    </ul>
+                    <a ui-sref="tyjdetail" ng-if="coupon.source!=100 && realVerify == 1"></a>
+                    <a ui-sref="main.bankBillList" ng-if="active==0&&coupon.source!=100  && realVerify == 0">
+                    <a ui-sref="main.bankBillList" ng-if="active==0&&coupon.source==100"></a>
+
+                    <span ng-if="coupon.source!=100 && realVerify == 0" ui-sref="main.bankBillList" class="showa">立即使用</span>
+                    <span ng-if="coupon.source!=100 && realVerify == 1" ui-sref="tyjdetail" class="showa">立即使用</span>
+                    <span ng-if="coupon.source==100" ui-sref="main.bankBillList" class="showa">立即激活</span>
+                    &lt;!&ndash;<span ng-if="coupon.source==100" on-click="" ui-sref="certification" class="showa">立即激活</span>&ndash;&gt;
+                </div>
+                <div class="used" ng-if="active == 1"></div>
+                <div class="invalid" ng-if="active == 2"></div>
+            </div>
+        </div>
+    </div>-->
+    <div class="tyj-banner banner">
+        <div>
+            <p class="txt">累计获得体验金(元)<img src="/images/myaccount/me_wenhao.png" alt="" class="wenhao" ui-sref="TYJ"></p>
+            <p class="money large-money">{{amountSum | number:0}}</p>
+        </div>
+    </div>
+    <div class="tyj-content" ng-if="coupons.length>0">
+        <div class="item"  ng-repeat="coupon in coupons">
+            <ul class="tit">
+                <li class="img">
+                    <img src="/images/myaccount/tiyan_xiaohongbao.png" alt="">
+                </li>
+                <li class="jine">体验金{{coupon.amount | number:0}}</li>
+                <li class="status">
+                    <button ng-if="coupon.status == 0" ui-sref="tyjdetail" class="blue">立即使用</button>
+                    <button ng-if="coupon.status != 0" class="guoqi" ng-bind="{0:'立即使用',1:'已使用',2:'已过期'}[coupon.status]"></button>
+                </li>
+            </ul>
+            <ul class="info">
+                <li>类型：<span ng-if="coupon.source==100 || coupon.source==99">新手体验金</span><span ng-if="coupon.source!=100 && coupon.source!=99">普通体验金</span></li>
+                <li class="time">{{coupon.addtime | date:"yyyy-MM-dd"}} 获得</li>
+            </ul>
+        </div>
+    </div>
+    <div class="tyj-content" ng-if="coupons.length == 0" style="background: #fff;">
+        <div class="no-coupon">
+            <img src="/images/myaccount/tiyanjin_hasnot.png" alt="">
+            <p>暂无可用体验金</p>
+        </div>
+    </div>
+    <div class="tyj-footer">
+        <button class="grey-bg" ng-if="coupons.length == 0 || blueBtn == false">立即变现</button>
+        <button ng-if="coupons.length != 0 && blueBtn == true" ui-sref="tyjdetail">立即变现</button>
+    </div>
+
+    <!-- <div class="download" ng-show="showDownload == true">
+        <i class="close" ng-click="showDownload = false">×</i>
+        <div class="btn">
+            <a ng-click="downloadapp()" class="download-btn"></a>
+        </div>
+        <div class="logo">
+            <span class="download-logo"></span>
+            <div>
+                <span>沪深理财</span>
+                <p>国企控股平台</p>
+            </div>
+        </div>
+    </div>
+    <div class="share-ios"><img ng-click="closethis()" src="images/share-ios.png" /></div>
+    <div class="share-android"><img ng-click="closethis()" src="images/share-android.png" /></div> -->
+</div>

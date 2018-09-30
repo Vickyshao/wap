@@ -1,0 +1,28 @@
+.wap-error-dl{
+	background: #fff;
+	color:#000;
+	padding: 1em;
+	// min-width:rem-calc(400);
+	width:rem-calc(600);
+	h1{
+		padding:rem-calc(14);
+		font-size:rem-calc(50);
+		color:#ed3334;
+	}
+	border-radius: rem-calc(6px,640);
+	a{
+		color: #999;
+	}
+	div{
+		background: #ed3334;
+		padding:rem-calc(14);
+		font-size:rem-calc(50);
+		color:#fff;
+		text-align: center;
+		margin-top: rem-calc(14);
+	}
+	p{
+		font-size:rem-calc(40);
+
+	}
+}

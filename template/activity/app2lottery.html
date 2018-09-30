@@ -1,0 +1,138 @@
+<div class="app2lottery">
+    <img src="images/activity/app2lottery/banner.png" class="banner">
+    <img src="images/activity/app2lottery/rule-icon.png" ng-click="showRule()" class="rule-icon">
+    <div class="lottery-box">
+        <img src="images/activity/app2lottery/main-bg.png" class="lottery-bg">
+        <main>
+            <header><img src="images/activity/app2lottery/main-header.png"></header>
+            <div class="lottery-zone">
+                <div ng-click="showPrize(1)" class="lottery-card"><img src="images/activity/app2lottery/card.png"><div class="lottery-button"></div><footer></footer></div>
+                <div ng-click="showPrize(2)" class="lottery-card"><img src="images/activity/app2lottery/card.png"><div class="lottery-button"></div><footer></footer></div>
+                <div ng-click="showPrize(3)" class="lottery-card"><img src="images/activity/app2lottery/card.png"><div class="lottery-button"></div><footer></footer></div>
+                <div ng-click="showPrize(4)" class="lottery-card"><img src="images/activity/app2lottery/card.png"><div class="lottery-button"></div><footer></footer></div>
+                <div ng-click="showPrize(5)" class="lottery-card"><img src="images/activity/app2lottery/card.png"><div class="lottery-button"></div><footer></footer></div>
+                <div ng-click="showPrize(6)" class="lottery-card"><img src="images/activity/app2lottery/card.png"><div class="lottery-button"></div><footer></footer></div>
+            </div>
+        </main>
+    </div>
+    <div class="record-box">
+        <header><img src="images/activity/app2lottery/record-header.png"></header>
+        <div class="code-list">
+            <div class="title-list">
+                <table>
+                    <tr>
+                        <th width="33%">用户</th>
+                        <th width="33%">领取时间</th>
+                        <th width="33%">获得礼是</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list">
+                <table class="data-table">
+                    <tr ng-if="dataList.length > 0" ng-repeat="item in dataList">
+                        <td width="33%">{{item.mobilePhone}}</td>
+                        <td width="33%">{{item.addTime | date:'HH:mm:ss'}}</td>
+                        <td width="33%">{{item.name}}</td>
+                    </tr>
+                    <tr ng-if="!(dataList.length > 0)">
+                        <td width="33%">-</td>
+                        <td width="33%">-</td>
+                        <td width="33%">-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <img src="images/activity/app2lottery/prize.png" class="prize-icon">
+    <!--奖品-->
+    <div class="prize">
+        <div ng-if="prizeType==1 || prizeType==2" class="prize-box-fail">
+            <div class="close">
+                <img ng-click="closePrize()" src="images/activity/app2lottery/close-icon-prize.png">
+                <div class="line"></div>
+            </div>
+            <div ng-if="prizeType==1" class="prize-common prize-a">
+                <img src="images/activity/app2lottery/prize-bg-a.png" class="prize-bg">
+                <img ng-click="downloadclick()" src="images/activity/app2lottery/prize-button-a.png" class="prize-button">
+            </div>
+            <div ng-if="prizeType==2" class="prize-common prize-b">
+                <img ng-if="failType==1" src="images/activity/app2lottery/nochance.png" class="prize-bg">
+                <img ng-if="failType==2" src="images/activity/app2lottery/noprize.png" class="prize-bg">
+            </div>
+        </div>
+        <div ng-if="prizeType==3" class="prize-box-success">
+            <div class="close">
+                <img ng-click="closePrize()" src="images/activity/app2lottery/close-icon-prize.png">
+                <div class="line"></div>
+            </div>
+            <div class="prize-c">
+                <img src="images/activity/app2lottery/prize-bg-b.png" class="prize-bg">
+                <main ng-if="couponType==1">
+                    <h1 style="color:#F92D4F;">送您{{couponNum}}元红包</h1>
+                    <div class="coupon">
+                        <img src="images/activity/app2lottery/coupon-bg-a.png" class="coupon-bg">
+                        <p><span>￥</span>{{couponNum}}</p>
+                    </div>
+                    <p>获得的奖励、可登录我的帐户中查看</p>
+                    <img ng-if="wap" ui-sref="main.myaccountHome" src="images/activity/app2lottery/prize-button-b.png" class="prize-button">
+                    <a ng-if="!wap" href="jsmp://page=11?"><img src="images/activity/app2lottery/prize-button-b.png" class="prize-button"></a>
+                </main>
+                <main ng-if="couponType==2">
+                    <h1 style="color:#FB3241;">送您{{couponNum}}加息券</h1>
+                    <div class="coupon">
+                        <img src="images/activity/app2lottery/coupon-bg-b.png" class="coupon-bg">
+                        <p>{{couponNum}}<span>%</span></p>
+                    </div>
+                    <p>获得的奖励、可登录我的帐户中查看</p>
+                    <img ng-if="wap" ui-sref="main.myaccountHome" src="images/activity/app2lottery/prize-button-b.png" class="prize-button">
+                    <a ng-if="!wap" href="jsmp://page=11?"><img src="images/activity/app2lottery/prize-button-b.png" class="prize-button"></a>
+                </main>
+                <main ng-if="couponType==3">
+                    <h1 style="color:#C57905;">送您{{couponNum}}元体验金</h1>
+                    <div class="coupon">
+                        <img src="images/activity/app2lottery/coupon-bg-c.png" class="coupon-bg">
+                        <p><span>￥</span>{{couponNum | number:0}}</p>
+                    </div>
+                    <p>获得的奖励、可登录我的帐户中查看</p>
+                    <img ng-if="wap" ui-sref="main.myaccountHome" src="images/activity/app2lottery/prize-button-b.png" class="prize-button">
+                    <a ng-if="!wap" href="jsmp://page=11?"><img src="images/activity/app2lottery/prize-button-b.png" class="prize-button"></a>
+                </main>
+                <main ng-if="couponType==4">
+                    <h1 style="color:#4993F1;">送您{{couponNum}}翻倍券</h1>
+                    <div class="coupon">
+                        <img src="images/activity/app2lottery/coupon-bg-d.png" class="coupon-bg">
+                        <p>{{couponNum}}<span>倍</span></p>
+                    </div>
+                    <p>获得的奖励、可登录我的帐户中查看</p>
+                    <img ng-if="wap" ui-sref="main.myaccountHome" src="images/activity/app2lottery/prize-button-b.png" class="prize-button">
+                    <a ng-if="!wap" href="jsmp://page=11?"><img src="images/activity/app2lottery/prize-button-b.png" class="prize-button"></a>
+                </main>
+            </div>
+        </div>
+    </div>
+    <!--活动规则-->
+    <div class="rule">
+        <div class="rule-content">
+            <header>活动规则<img ng-click="closeRule()" src="images/activity/app2lottery/close-icon.png"></header>
+            <main>
+                <p>1、本活动只限新版APP2.0平台可以参与。</p>
+                <p>2、每天登录APP可翻牌一次，每个用户每天只有一次机会。</p>
+                <p>3、首次分享本次活动到朋友圈或单个好友，可再获得一次翻牌机会，每个用户只限赠送一次。</p>
+                <p>4、获得的奖励、可登录我的账户中查看。</p>
+                <p>5、奖励只可使用于 35、60、180天期限产品（每次投资只能使用1种奖励，不可同时使用），有效期7天。</p>
+                <p>6、活动时间：2017年4月28日——2017年5月6日</p>
+                <p>7、本活动由沪深理财发起并就活动内容作出解释和说明。</p>
+            </main>
+        </div>
+    </div>
+    <!--下载-->
+    <div ng-if="wap" class="download-bar">
+        <h1>下载沪深理财APP2.0，</h1>
+        <p>即可参与翻牌有礼，豪礼送不停！</p>
+        <img ng-click="downloadclick()" src="images/activity/app2lottery/download-button.png">
+    </div>
+    <!--icp备案号-->
+    <div class="icpba" style="background-color:#330358;color:#9F9E9E;">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司  v1.2.3</div>
+</div>
+<div class="share-ios"><img ng-click="closethis()" src="images/share-ios.png" /></div>
+<div class="share-android"><img ng-click="closethis()" src="images/share-android.png" /></div>

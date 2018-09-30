@@ -1,0 +1,19 @@
+<div class="myinvest-wrapper">
+	<div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+	<div class="trigger-wrap">
+		<p ng-click="changeMode(0)"><span ng-class="{0:'active'}[active]">全部</span></p>
+		<p ng-click="changeMode(1)"><span ng-class="{1:'active'}[active]">进行中</span></p>
+		<p ng-click="changeMode(2)"><span ng-class="{2:'active'}[active]">已结束</span></p>
+	</div>
+	<div class="myMission">
+		<div class="myMissionItem" ng-repeat="item in datalist.rows">
+			<img src="images/myaccount/misson2.png?date={{date}}" width="100%" ng-click="statego(item)" ng-if="item.periods>1" />
+			<img src="images/myaccount/misson.png?date={{date}}" width="100%" ng-click="statego(item)" ng-if="item.periods<=1" />
+			<p>{{item.name}}</p>
+			<div class="qishu"><img src="images/activity/firend/qishu.png" /><span>{{item.periods}}</span></div>
+			<div class="over" ng-if="item.status==2" ng-click="statego(item)">
+				<p>活动结束</p>
+			</div>
+		</div>
+	</div>
+</div>

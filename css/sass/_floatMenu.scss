@@ -1,0 +1,140 @@
+.float-window {
+  position: fixed;
+  top: 30%;
+  right: 0;
+  z-index: 1001;
+  width: 60px;
+  height: auto;
+
+  .list {
+    overflow: hidden;
+    .item {
+      width: 100%;
+      height: 60px;
+      text-align: center;
+      &.activity1 {
+        background: url("/images/activity/eCommerce/activity.png") no-repeat top center/cover;
+      }
+      &.activity2 {
+        background: url("/images/activity/eCommerce/away.png") no-repeat top center/cover;
+      }
+    }
+  }
+
+}
+
+.activity-rule {
+  .block {
+    margin: rem-calc(0 auto 0);
+    h2 {
+      text-align: center;
+      height: rem-calc(180);
+      line-height: rem-calc(180);
+      font-size: 1.6rem;
+      color: #fff;
+      background: url("/images/activity/eCommerce/header.png") no-repeat top center/cover;
+    }
+    p {
+      text-align: justify;
+      line-height: 24px;
+      font-size: 1rem;
+      color: #666;
+      padding: rem-calc(60);
+      background: #fff;
+      border-bottom-left-radius: rem-calc(30);
+      border-bottom-right-radius: rem-calc(30);
+    }
+  }
+}
+
+
+.eCommerceDialog {
+  padding-bottom: 160px;
+  padding-top: 160px;
+  .ngdialog-content {
+    width: 90%;
+    -webkit-animation: ngdialog-flyin .5s;
+    animation: ngdialog-flyin .5s;
+    background: transparent;
+    border-radius: 5px;
+    color: #444;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+    position: relative;
+  }
+  .ngdialog-close {
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: rem-calc(40);
+    font-size: 2.4rem;
+    color: #fff;
+    opacity: 0.6;
+
+  }
+}
+
+
+.GaugeMeter{
+  Position:				Relative;
+  Text-Align:			Center;
+  Overflow:				Hidden;
+  Cursor:				Default;
+  margin: 0 auto;
+}
+
+.GaugeMeter SPAN,
+.GaugeMeter B{
+  Margin:				0 23%;
+  Width:				54%;
+  Position:				Absolute;
+  Text-Align:			Center;
+  Display:				Inline-Block;
+  Color:				RGBa(0,0,0,.8);
+  Font-Weight:			500;
+  Font-Family:			"Open Sans", Arial;
+  Overflow:				Hidden;
+  White-Space:			NoWrap;
+  Text-Overflow:		Ellipsis;
+  line-height: 182px !important;
+  font-size: 38px !important;
+}
+.GaugeMeter[data-style="Semi"] B{
+  Margin:				0 10%;
+  Width:					80%;
+}
+
+.GaugeMeter S,
+.GaugeMeter U{
+  Text-Decoration:	None;
+  Font-Size:			.40em;
+  Font-Weight:			500;
+}
+
+.GaugeMeter B{
+  Font-Weight:			200;
+  Opacity:				.8;
+  line-height: 240px !important;
+  color: #666 !important;
+  font-size: 15px !important;
+}
+@-moz-keyframes BluePrint{
+  0%					{Background-Position: 0 0;}
+  100%					{Background-Position: 1100% 100%;}
+}
+
+@-webkit-keyframes BluePrint{
+  0%					{Background-Position: 0 0;}
+  100%					{Background-Position: 1100% 100%;}
+}
+
+@keyframes BluePrint{
+  0%					{Background-Position: 0 0;}
+  100%					{Background-Position: -100% 100%;}
+}
+

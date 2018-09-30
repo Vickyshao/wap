@@ -1,0 +1,28 @@
+<div class="wrap wap-more-box giftyy">
+	<div class="common-head" ng-if="wap=='true'" ng-click="toback()"><i></i><p>礼品预约</p></div>
+	<div class="giftyy-content">
+		<header>
+			<img src="{{prize.h5ImgUrlH}}" style="width:100%;display:block;">
+			<h2>{{prize.name}}</h2>
+			<h3>{{prize.simpleName}}</h3>
+		</header>
+		<div>
+			<p>投资金额<span class="right"><span>{{prize.amount}}</span> 元</span></p>
+			<p ng-if="prize.rate>0 && (!prize.activityRate || prize.activityRate<=0)">预计收益<span class="right"><span>{{(prize.rate)/100 / 360 * prize.amount * prize.deadline | isNumber2}}</span> 元</span></p>
+			<p ng-if="prize.rate>0 && prize.activityRate>0">预计收益<span class="right"><span>{{(prize.rate+prize.activityRate)/100 / 360 * prize.amount * prize.deadline | isNumber2}}</span> 元</span></p>
+			<p ng-if="!prize.rate || prize.rate<=0">预计收益<span class="right"><span>{{(8.5+3)/100 / 360 * prize.amount * 90 | isNumber2}}</span> 元</span></p>
+			<section>预约后您的专属客服将会在下期活动上线时通知您</section>
+		</div>
+        <button ng-click="showyy()">确认预约</button>
+    </div>
+	<div class="yy-box">
+		<div class="yy">
+			<h1>确认预约</h1>
+			<p>您的专属客服会在2个工作日内联系您</p>
+			<footer>
+				<span ng-click="closeyy()">取消</span>
+				<span class="special" ng-click="confirm()">确认</span>
+			</footer>
+		</div>
+	</div>
+</div>

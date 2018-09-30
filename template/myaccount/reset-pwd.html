@@ -1,0 +1,33 @@
+<div class="tradepwd-wrapper" ng-controller="pwdCtrl">
+	<div class="common-head" ><i ng-click="toback()"></i><p>{{title}}</p></div>
+	<div class="div-block-grey"></div>
+	<form name="pwdSetForm" novalidate ng-submit="submitForm(pwdSetForm)" autocomplete="off">
+		<div class="pwd-box" ng-if="!userOBJ.register">
+        	<input id="mobilephone"  name="mobilephone" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号" ng-model="mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')"  minlength="11" maxlength="11" required>
+		</div>
+		<input style="display:none">
+        <input type="password" style="display:none">
+		<div class="pwd-box code-box">
+
+			<a ng-click="getCode()" ng-if="isGetCode == false" class="right">获取验证码</a>
+			<span class="right" ng-if="isGetCode == true">发送（{{times}}秒）</span>
+			<input type="text" class="text" placeholder="请输入短信验证码" name="code" ng-model="pwd.code" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" maxlength="6" required>
+		</div>
+		<div class="pwd-box" ng-show="showCode == false">
+			<a href="" class="eye right" ng-click="showCode = true"></a>
+			<input type="password"  name="pwd" class="text" placeholder="请输入登录密码" required ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" ng-model="pwd.pwd" autocomplete="off" maxlength="16">
+		</div>
+		<div class="pwd-box" ng-show="showCode == true">
+			<a href="" class="eye right act" ng-click="showCode = false"></a><input type="text" name="repwd" class="text" placeholder="请输入登录密码" required ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" ng-model="pwd.pwd" autocomplete="off" maxlength="16">
+		</div>
+		<div class="little-tip">登录密码为6-16位数字与字母组合</div>
+		<!--<div class="sub-box" ng-if="forget == false" ><input type="submit" value="修改" class="sub" ng-disabled="pwdSetForm.$invalid"></div>-->
+		<div class="sub-box"><input type="submit" value="完成" class="sub"></div>
+
+	</form>
+</div>
+<style>
+	html,body{
+		background: #fff;
+	}
+</style>

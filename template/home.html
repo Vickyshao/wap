@@ -1,0 +1,270 @@
+<div class="wrap pb3 home-wrapper wrapper-mode" ng-controller='controllerHome' style="margin-bottom: 4rem;">
+    <!--<div class="logo">
+        <p class="enter" ng-if="!isLogin"><a class="color-blue" href="/dl">登录</a><span>|</span><a class="color-blue" href="/zhuce">注册</a></p>
+        <p class="info" ng-if="isLogin" ui-sref="main.myaccountHome">{{realInfo}}</p><img src="images/logo.png"></div>
+    <div class="login" ng-show="showLogin">
+        <span ng-click="tomyaccount()">
+            <img src="images/common/user1.png">我的账户</span>
+        <span>{{phone}}</span>
+    </div>-->
+    <!-- banner -->
+    <div class="home-banner">
+        <!-- <div class="banner-img">
+    			<img src="images/vbanner.png">
+    		</div> -->
+        <div class="banner-img">
+            <my-banner banner="banner" seconds="2500"></my-banner>
+            <div class="trigger-wrap">
+                <div class="trigger-box"></div>
+            </div>
+        </div>
+    </div>
+    <!--滚动公告-->
+    <div class="notice-box" ng-if="gglist && (gglist.length > 0)">
+        <img src="images/index/ico_trumpet.png">
+        <div homescroll-text></div>
+    </div>
+    <section class="marT2">
+        <span class="mod" ui-sref="aqbz">
+            <img src="images/index/home_safe.png"/>
+            <i class="color-gray">安全保障</i>
+        </span>
+        <span class="mod" ui-sref="actList">
+            <img src="images/index/home_activity.png"/>
+            <i class="color-gray">热门活动</i>
+        </span>
+    </section>
+    <!-- 视频
+    	<div class="conference-box" style="width:100%;padding:0 0.7rem;box-sizing:border-box;margin-bottom:0.9rem;">
+        <img ng-click="playvideo()" style="width:48.5%;float:left;" src="images/index/conferencea.png">
+        <img ui-sref="actList({wap:true,active:3})" style="width:48.5%;float:right;" src="images/index/conferenceb.png">
+        <p style="clear:both;"></p>
+    </div>-->
+    <!-- <section class="newhand-wrap">
+        <div class="marT hot">
+            <img class="tzbs" src="images/index/tzbs.png" />
+            <img src="images/cs90/iphone7.png" />
+            <div class="percent color-orange">
+                <h3>{{index.activity.fullName}}</h3>
+                <p><span>{{index.activity.rate}}</span>%
+                    <span ng-if="index.activity.activityRate>0">
+                        +{{index.activity.activityRate}}%
+                    </span>
+                </p>
+            </div>
+            <div class="pre_list">
+                <span>期限{{index.activity.deadline}}天<i></i></span>
+                <span class="color-gray"><i></i>起投{{index.activity.leastaAmount}}元</span>
+                <span class="noborder">次日计息</span>
+            </div>
+            <div class="percentage-box">
+                <i>{{index.activity.pert|setProgress}}%</i>
+                <div class="percentage" style="width:90%"><span ng-attr-style="width: {{index.activity.pert | setProgress}}%"></span></div>
+            </div>
+            <a href="/cpDetail?pid={{index.activity.id}}&wap=true" ng-if="!index.isReservation&&index.activity.pert<100" class="btn">立即抢购</a>
+            <a href="/cpDetail?pid={{index.activity.id}}&wap=true" ng-if="!index.isReservation&&index.activity.pert>=100" class="btn default">募集结束</a>
+            <a ui-sref="cpDetail({pid:index.activity.id,wap:true})" ng-if="index.isReservation" class="btn">预约下期</a>
+        </div>
+        <div ng-if="index.investSendPrize" class="marT hot">
+            <img class="righttop" src="images/activity/tjs/righttop-icon.png">
+            <img src="images/activity/tjs/gift-box.png" style="width:3rem;">
+            <div class="percent color-orange">
+                <h3>{{index.investSendPrize.name}}</h3>
+                <p>
+                    <span>{{index.investSendPrize.rate}}%</span>
+                    <span ng-if="index.investSendPrize.activityRate>0">+{{index.investSendPrize.activityRate}}%</span>
+                </p>
+            </div>
+            <div class="pre_list-tjs">
+                <span>期限{{index.investSendPrize.deadLine}}天<i></i></span>
+                <span class="noborder">次日计息</span>
+            </div>
+            <a href="/tjs?wap=true" class="btn">投资免费领</a>
+        </div>
+    </section> -->
+    <div class="home-cplist">
+        <!--iphone7标的-->
+        <!-- <div class="home-cpbox-a" ui-sref="special({wap:true})">
+            <header>{{index.activity.fullName}}</header>
+            <main>
+                <div class="part-a"><img src="{{index.activity.iphonePicUrl}}"></div>
+                <div class="part-b">
+                    <span>{{index.activity.iphoneLabel}}</span>
+                    <p>
+                        {{index.activity.rate}}<span>%</span>
+                        <sup ng-if="index.activity.activityRate>0">+{{index.activity.activityRate}}<span>%</span></sup>
+                    </p>
+                </div>
+                <div class="part-c">
+                    <p>{{index.activity.deadline}}<span> 天</span></p>
+                </div>
+                <footer></footer>
+            </main>
+        </div> -->
+        <!--投即送标的-->
+        <!-- <div class="home-cpbox-a" ui-sref="tjs({wap:true})">
+            <header>{{index.investSendPrize.name}}</header>
+            <main>
+                <div class="part-a"><img src="{{index.investSendPrize.investSendPicUrl}}"></div>
+                <div class="part-b">
+                    <span>{{index.investSendPrize.investSendLabel}}</span>
+                    <p>
+                        {{index.investSendPrize.rate | number:1}}<span>%</span>
+                        <sup ng-if="index.investSendPrize.activityRate>0">+{{index.investSendPrize.activityRate}}<span>%</span></sup>
+                    </p>
+                </div>
+                <div class="part-c">
+                    <p>{{index.investSendPrize.deadLine}}<span> 天</span></p>
+                </div>
+                <footer></footer>
+            </main>
+        </div> -->
+        <!--新手福利-->
+        <div class="home-cplist-newhand" ng-if="!isInvestedCommonBidder">
+            <header>新人福利三连送</header>
+            <div class="welfareList-line">
+                <p class="line"></p>
+                <ul class="welfareList">
+                    <li ng-click="toRegister()">
+                        <p ng-class="{'true': 'title2','false':'title'}[isLogin]">注册即送</p>
+                        <i ng-class="{'0': 'progessing','1':'progessing','2':'progessed'}[loginClass]">
+                            <span ng-bind="{'0': '1','1':'1','2':''}[loginClass]"></span>
+                        </i>
+                        <h2 ng-class="{'true': 'grey','false':'desc'}[isLogin]"><span>288元</span>红包</h2>
+                        <a class="btn" ng-class="{'true': 'grey-btn','false':'red-btn'}[isLogin]">去注册</a>
+                    </li>
+                    <li ng-click="toBindCard()">
+                        <p ng-class="{'true': 'title2','false':'title'}[realVerity]">绑卡即送</p>
+                        <i ng-class="{'0': 'progess','1':'progessing','2':'progessed'}[cardClass]">
+                            <span ng-bind="{'0': '2','1':'2','2':''}[cardClass]"></span>
+                        </i>
+                        <h2 ng-class="{'true': 'grey','false':'desc'}[realVerity]"><span>8888元</span>体验金</h2>
+                        <a class="btn" ng-class="{'true': 'grey-btn','false':'red-btn'}[realVerity]">去绑卡</a>
+                    </li>
+                    <li ng-click="toFirstInvest()">
+                        <p ng-class="{'true': 'title2','false':'title'}[isInvestedCommonBidder]">首投≥30天送</p>
+                        <i ng-class="{'0': 'progess','1':'progessing','2':'progessed'}[vestClass]">
+                            <span ng-bind="{'0': '3','1':'3','2':''}[vestClass]"></span>
+                        </i>
+                        <h2 ng-class="{'true': 'grey','false':'desc'}[isInvestedCommonBidder]"><span>2%</span>加息券</h2>
+                        <a class="btn" ng-class="{'true': 'grey-btn','false':'red-btn'}[isInvestedCommonBidder]" ng-click="activeMenu(e)">去投资</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 新手标专享 有新手标而且用户没有投过-->
+        <div class="home-cplist-newhand" ng-if="newHandShow && !(index.newHandInvested)">
+            <header>新手专享标 <span> 每位限投一次</span></header>
+            <section ui-sref="cpInvestDetail({ pid: newHand.id,wap:true })">
+                <ul class="list">
+                    <li class="item1"><h2>{{newHand.rate}} <span>%</span></h2><p>历史年化收益率</p></li>
+                    <li class="item1"><h2>{{newHand.deadline}}<span>天</span></h2><p>投资期限</p></li>
+                    <li class="gif"><img src="/images/common/newhand.gif" alt=""></li>
+                </ul>
+                <button type="button" class="common-btn">立即抢购</button>
+                <p class="count">累计投资人数{{index.newHandInvestNum}}人</p>
+
+            </section>
+        </div>
+        <!--聚划算-->
+        <div ng-if="index.periodPro.status==2 || index.periodPro.status==3" class="home-cpbox-b" ui-sref="jhscplist">
+            <header><img src="images/index/ju-icon.png" alt="聚划算">聚划算<span>等本等息</span></header>
+            <main>
+                <div class="part-a" ng-if="index.periodPro.minRate!=index.periodPro.maxRate">
+                    {{index.periodPro.minRate | number:1}}<span>%</span>{{index.periodPro.maxRate | number:1}}<span>%</span>
+                </div>
+                <div class="part-a" ng-if="index.periodPro.minRate==index.periodPro.maxRate">
+                    {{index.periodPro.minRate | number:1}}<span>%</span>
+                </div>
+                <div class="part-b">{{index.periodPro.minDeadline}}<span ng-if="index.periodPro.minRate!=index.periodPro.maxRate"> 天起</span><span ng-if="index.periodPro.minRate==index.periodPro.maxRate"> 天</span></div>
+                <div class="part-c">抢购中</div>
+            </main>
+        </div>
+        <!--优选理财-->
+        <div ui-sref="normalcplist" class="home-cpbox-b" style="margin-bottom:0;">
+            <header>
+                <img src="images/index/youicon.png" alt="优选产品">
+                <!--{{index.preferredInvest.preferredName}}-->优选产品
+                <div class="tickets" ng-if="index.preferredInvest.isCash==1 || index.preferredInvest.isInterest==1 || index.preferredInvest.isDouble==1">
+                    <i ng-if="index.preferredInvest.isCash==1" class="new">红包</i>
+                    <i ng-if="index.preferredInvest.isInterest==1" class="new"><strong ng-if="index.preferredInvest.isCash==1">·</strong>加息券</i>
+                    <i ng-if="index.preferredInvest.isDouble==1" class="new"><strong ng-if="index.preferredInvest.isCash==1 || index.preferredInvest.isInterest==1">·</strong>翻倍券</i>
+                </div>
+            </header>
+            <main>
+                <div class="part-a">
+                    {{index.preferredInvest.minRate | number:1}}<span>%~</span>{{index.preferredInvest.maxRate | number:1}}<span>%</span>
+                </div>
+                <div class="part-b"><span><em>{{index.preferredInvest.minDeadline}}</em></span> 天起</span>
+                </div>
+                <div class="part-c">抢购中</div>
+            </main>
+        </div>
+    </div>
+    <div class="footer-adv">
+        <div>
+            <img src="images/index/footer-icon-a.png" alt="">
+            <div>
+                <p>严格甄选</p>
+                <p>优质产品</p>
+            </div>
+        </div>
+        <div>
+            <img src="images/index/footer-icon-b.png" alt="">
+            <div>
+                <p>3大还款</p>
+                <p>来源保障</p>
+            </div>
+        </div>
+        <div style="width:36%;">
+            <img src="images/index/footer-icon-c.png" alt="">
+            <div>
+                <p>两大知名律师</p>
+                <p>事务所支持</p>
+            </div>
+        </div>
+    </div>
+    <!-- 统计数据 -->
+    <div class="statistics">
+        <p class="one">沪深理财累计投资金额（元）</p>
+        <p class="special hide">{{investCumulative | number:0}}</p>
+        <p class="two" >
+            155,978,675
+        </p>
+    </div>
+
+    <!-- 砸蛋活动 -->
+    <!--<a class="hitEgg" egg-drag href="/dropEgg?source=egg&allowDL=false"><img  src="images/activity/egggif.gif"></a>-->
+    <!-- 组队活动 -->
+    <!--<a class="hitEgg" egg-drag href="/zdActivity"><img src="images/activity/teamIcon.png"></a>-->
+    <!-- 组春节活动 -->
+    <!--<a class="hitEgg" egg-drag ui-sref="chunjie2018"><img src="/images/activity/chunjie-index-icon.png" style="width: 5rem;"></a>-->
+    <!-- 新手活动-->
+    <div class="shuangdan-box" ng-if="newhandBox">
+        <div class="shuangdan-center">
+            <div>
+                <a ui-sref="receiveSuccess"><img class="main" src="/images/index/activityImage.png"></a>
+                <img class="close" src="images/index/closesd.png" ng-click="closeshuangdan()">
+            </div>
+        </div>
+    </div>
+    <!-- 元旦2018活动-->
+    <div class="shuangdan-box yuandan-box" ng-if="isAlert || yuandanIsAlert">
+        <div class="shuangdan-center">
+            <div>
+                <a ng-click="toYuandan()"><img class="main" src="/images/activity/newYear2018/newYear.png" style="margin-left: 1.5rem;"></a>
+                <span class="close-ny" ng-click="closeyuandan()"></span>
+            </div>
+        </div>
+    </div>
+    <!-- A轮融资弹框-->
+    <div class="shuangdan-box yuandan-box" ng-if="isAlertRongzi">
+        <div class="shuangdan-center">
+            <div>
+                <img class="main" src="/images/activity/rongzi-bg.png">
+                <span class="close-rongzi" ng-click="closerongzi()"></span>
+                <span class="toCoupon" ng-click="toCouponList()"></span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="risk headerTop" ng-controller="riskEvaluationCtrl">
+	<div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i><p>风险评测</p></div>
+	<h2 class="knowType" ng-click="knowType()"><i></i>了解评测类型</h2>
+	<div class="main">
+		<h3 class="bg">{{riskContent.type}}</h3>
+		<p class="content">{{riskContent.describle}}</p>
+		<p class="tip">注：以上建议仅供参考，不构成任何收益保证。</p>
+
+		<a ng-if="!showFirst" class="btn" ng-click="chongxinpingce()">重新评测</a>
+
+		<div ng-if="showFirst">
+			<a class="btn" ng-click="toInvest()">立即投资</a>
+			<p class="friendTip">温馨提示：在我的页面可以看到风险承受能力结果</p>
+			<p class="newEvaluation"><a ng-click="chongxinpingce()">重新评测</a></p>
+		</div>
+	</div>
+	<!--风险评测红包-->
+	<div class="red-packet-transparent " ng-show="showRedPacket">
+		<p>
+			<span>翻倍券已放入您的账户</span>
+		</p>
+	</div>
+</div>

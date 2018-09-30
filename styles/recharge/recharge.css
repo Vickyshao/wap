@@ -1,0 +1,100 @@
+/* 充值 */
+.recharge-wrap{padding: 0 1.51em 2em;color: #696969;background: #fff;}
+.recharge-info{padding: 0.6em 0 0.7em 0.6em;border-bottom: 0.06em solid #e5e5e5;}
+.input-box{padding: 1em 0.6em 1.5em;border-bottom: 0.06em solid #e5e5e5;}
+.input-box .name{display: block;padding-bottom: 0.4em;}
+.input-mod{clear: both;zoom: 1;overflow: hidden;height: 2.3em;position: relative;}
+.input-mod .dw{position: absolute;height: 3.15em;font-size: 0.73em;right: 0.6em;top: 0;line-height: 3.15em;color: #9a9a9a;}
+.input-mod .text{height: 3.15em;font-size: 0.73em;border-radius: 0.3em;width: 100%;border: 0.08em solid #d9d9d9;text-align: center;line-height: 3.15em;color: #696969;}
+.input-box .tip{color: #9a9a9a;font-size: 0.3em;padding-top: 0.5em;margin-bottom: -0.5em;}
+#code{float: left;width: 17em;margin-right: -0.08em;border-radius: 0.3em 0 0 0.3em;}
+.get-code{background: #ffa32c;float: left;color: #fff;font-size: 0.73em;width: 8.13em;border: 0.06em solid #b9b9b9;border-radius: 0 0.3em 0.3em 0;height: 3.15em;line-height: 3.15em;text-align: center;}
+.get-code:hover{background: #ff9915;text-decoration: none;}
+.detail-info{font-size: 0.73em;color: #9a9a9a;padding-top: 0.5em;margin-bottom: -0.5em;}
+.ocolor{color: #ff9000;}
+.last-box{border: none;}
+.sub-box{padding: 0 0.6em;}
+.sub-btn{height: 2em;font-size: 1.09em;line-height: 2em;width: 100%;border: none;background: #ffa32c;color: #fff;border-radius: 0.25em;}
+.sub-btn:hover{background: #ff9915;}
+.tips{padding: 1em 0.6em;font-size: 0.72em;color: #9a9a9a;}
+.card-box{height: 4.6em;border: 0.06em solid #d9d9d9;border-radius: 0.3em;}
+.card-box img{width: 2.54em;height: 2.54em;float: left;margin: 1.06em 0.727em 0 0.727em;border: none;}
+.card-box .card-info{float: left;}
+.card-box .card-name{padding-top: 0.8em;}
+.card-box .card-tip{font-size: 0.78em;color: #9a9a9a;}
+
+/* 提现 */
+.cash-box{padding: 1em 0.6em 0;border: none;}
+.money{padding: 0 0.5em;}
+.cash-num{font-size: 1.7em;color: #ff9000;}
+.cash-num span{font-size: 0.43em;margin-left: 0.5em;}
+.cash-sub-btn{background: #4cbab9;}
+.cash-sub-btn:hover{background: #3fc6c5;}
+.bank-mod{height: 3.15em;font-size: 0.73em;border-radius: 0.3em;position: relative;width: 100%;border: 0.08em solid #d9d9d9;line-height: 3.15em;overflow: hidden;}
+.bank-mod:after,
+.bank-mod:before,
+.select-box .input-mod ul:after,
+.select-box .input-mod ul:before{content: '';width: 0;height: 0;position: absolute;border: 0.5em solid transparent;border-top: 0.47em solid #9a9a9a;right: 1em;top: 1.4em;}
+.bank-mod:before,
+.select-box .input-mod ul:before{border-top: 0.47em solid #fff;top: 1.33em;z-index: 5;}
+.bank-mod .choose-bank li{height: 3.15em;padding-left: 1em;}
+.select-box .input-mod ul:before{top: 1em;}
+.select-box .input-mod ul:after{top: 1.07em;}
+
+/* 新增银行卡弹窗 */
+.wrap{position: relative;}
+.mask{width: 100%;height: 100%;background: rgba(0,0,0,.5);position: absolute;left: 0;top: 0;z-index: 10;}
+.dialog{position: absolute;left: 50%;top: 0;background: #fff;width: 20.9em;margin-left: -10.45em;top: 1.2em;border-radius: 0.3em;color: #666;z-index: 11;}
+.close{position: absolute;right: 0.8em;top: 0.5em;cursor: pointer;font-family: tahoma;color: #bfbfbf;border-radius: 0.18em;font-size: 1.2em;}
+.close .up:after,
+.close .up:before{content: '';width: 0;height: 0;position: absolute;border: 0.5em solid transparent;border-top: 0.5em solid #bfbfbf;top: 0.15em;right: 0;border-radius: 0.18em;overflow: hidden;}
+.close .up:before{border-top: 0.5em solid #fff;top: 0;z-index: 5;}
+.close .down:after,
+.close .down:before{content: '';width: 0;height: 0;position: absolute;border: 0.5em solid transparent;border-bottom: 0.5em solid #bfbfbf;top: 0;right: 0;border-radius: 0.18em;overflow: hidden;}
+.close .down:before{border-bottom: 0.5em solid #fff;top: 0.15em;z-index: 5;}
+.dialog .title{text-align: center;color: #666;padding: 0.7em 0 1.35em;}
+.dialog-box{padding: 0 1em;}
+.cash-info{overflow: hidden;border-bottom: 0.06em solid #e5e5e5;padding: 0 0 0.3em 0.8em;}
+.cash-info .info-box{font-size: 0.73em;float: left;margin-right: 1.5em;}
+.cash-info .info-box span{float: left;}
+.cash-info .info-box p{float: left;margin-left: 0.5em;}
+.card-name-box{text-align: center;padding-top: 0.5em;}
+.card-name-box a{color: #4cbab9;}
+
+.select-box .input-mod{height: 2.3em;line-height: 2.3em;border-radius: 0.3em;width: 100%;border: 0.06em solid #d9d9d9;color: #696969;}
+.select-box .input-mod p{float: left;line-height: 2.3em;padding-left: 0.5em;width: 6.27em;}
+.select-box .input-mod span{float: left;margin-right: 0.5em;}
+.select-box .input-mod ul{float: left;text-align: center;width: 9.6em;color: #9a9a9a;}
+
+.cash-box #code{width: 16em;}
+.dialog-sub{padding: 2em 0.6em 1.5em;}
+
+/* 修改银行卡信息 */
+.dialog-card-box{border: none;padding-left: 1em;}
+.dialog-card-box .card-num{color: #666;}
+.change-cash-info{border-top: 0.06em solid #e5e5e5;border-bottom: none;padding: 0.3em 0 0 0.8em}
+.change-cash-info .id-box{float: right;}
+
+.change-card-info-mask{z-index: 12;}
+.change-card-info{z-index: 13;}
+.change-phone-mask{z-index: 14;}
+.change-phone{z-index: 15;}
+
+/* 修改手机号 */
+.special-box{position: relative;}
+.special-box .name{position: absolute;left: 1.6em;z-index: 10;width: 4em;padding: 0;line-height: 2.3em;}
+.special-box .text{padding-left: 7em;text-align: left;}
+
+/* 提现成功 */
+.success{overflow: hidden;background: #e6e6e6;}
+.success-wrap{width: 100%;margin: 1em auto;padding: 1em 0.6em 0.6em 0.6em;background: #fff;border: 0.08em solid #ccc;border-radius: 0.3em;}
+.success-wrap .ok-wrap{width: 2.85em;height: 2.85em;margin: 0 auto;line-height: 2.85em;text-align: center;display: block;border-radius: 50%;color: #00ccff;border: 0.1em solid #00ccff;}
+.success-wrap .icon-ok{font-size: 2em;font-weight: normal;}
+
+.success-wrap .success-tip{text-align: center;color: #01c3f3;padding-top: 0.4em;}
+.success-wrap .cash-info{border: none;padding-left: 0;}
+.success-wrap .cash-info li{padding: 0.7em 0 0 1.6em;position: relative;font-size: 0.73em;}
+.success-wrap .cash-info span{float: left;margin-right: 1.5em;}
+.success-wrap .cash-info li:before{content: '';width: 0.6em;height: 0.6em;position: absolute;left: 0.3em;top: 1.2em;border-radius: 1em;background: #00ccff;}
+.success .sub-btn{display: block;text-align: center;}
+.success .sub-btn:hover{text-decoration: none;}

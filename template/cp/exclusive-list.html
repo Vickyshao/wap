@@ -1,0 +1,42 @@
+<div class="wrap list-wrapper headerTop" ng-controller="exclusiveListCtrl">
+	<div class="common-head" >
+		<p>专属产品</p>
+	</div>
+	<div class="div-block"></div>
+	<div class="cplist-content" ng-repeat="item in cpList" ng-class="item.status!=5?'finish':''">
+		<div ui-sref="cpInvestDetail({pid:item.id})" class="detail-typea detail-zx" ng-class="item.status!=5?'finish':''">
+			<h2><i class="exclusiveicon"></i>{{item.fullName}}
+				<div class="new" ng-if="item.isCash==1 || item.isInterest==1 || item.isDouble==1">
+					<i ng-if="item.isCash==1">红包</i>
+					<i ng-if="item.isInterest==1"><strong ng-if="item.isCash==1">·</strong>加息券</i>
+					<i ng-if="item.isDouble==1"><strong ng-if="item.isCash==1 || item.isInterest==1">·</strong>翻倍券</i>
+				</div>
+			</h2>
+			<main>
+				<div class="part-a">
+					<div class="tit1">历史年化收益率</div>
+					<div class="text">{{item.rate | number:1}}<span>%</span><sup ng-if="item.activityRate>0">+{{item.activityRate | number:1}}<span>%</span></sup></div>
+				</div>
+				<div class="part-b">
+					<div class="tit2">期限</div>
+					<div class="text">{{item.deadline}}<span> 天</span></div>
+				</div>
+				<div class="part-c">
+					<div data-progress="{{item.pert}}" progress-circle></div>
+					<p ng-if="item.status==5" style="color:#048eed;">去抢购</p>
+					<p ng-if="item.status==6">抢完了</p>
+					<p ng-if="item.status==8">待还款</p>
+					<p ng-if="item.status==9">已回款</p>
+				</div>
+			</main>
+			<div class="info" ng-class="{true: 'black'}[item.status == 5]">
+				<span>{{item.leastaAmount}}元起投</span>
+				<span>次日计息</span>
+				<span>多重保障</span>
+			</div>
+		</div>
+		<div class="div-block" style="background: #f2f2f2;"></div>
+	</div>
+	<div class="rem-rule"></div>
+	<div class="exclusive-tips">专属标不参加其他活动哦</div>
+</div>

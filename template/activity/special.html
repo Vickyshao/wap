@@ -1,0 +1,147 @@
+<div class="special-activity-wrapper" ng-controller="specialCtrl">
+	<div class="logo" ui-sref="main.home" ng-if="wap">
+		<img src="../../images/special/logo.png">
+	</div>
+	<div class="logo" ng-if="!wap">
+		<img src="../../images/special/logo.png">
+	</div>
+	<div class="banner">
+		<img src="{{bannerUrl}}">
+	</div>
+	<div class="lucky-wrap">
+		<p class="text">每期送1台iphone7，每投1000元，即可获得1个抽奖码！</p>
+		<div class="special-lucky-code" ng-if="isLogin">
+			<p>您当前有<span>{{luckAmount}}</span>个幸运码</p>
+			<a href="" ng-click="alertCode()">立即查看</a>
+		</div>
+		<div class="special-lucky-code" ng-if="!isLogin">
+			<p>赶紧来领您的幸运码</p>
+			<a href="/dl" ng-if="wap">登录</a><!--  ng-click="goLogin()" -->
+			<a href="jsmp://page=4?" ng-if="!wap">登录</a>
+		</div>
+	</div>
+	<div class="lottery-wrap">
+		<div class="title"><i></i>开奖专区<a ng-if="wap" ui-sref="iphonelist({wap:true})">更多></a><a ng-if="!wap" ui-sref="iphonelist">更多></a></div>
+		<div class="lottery-info">
+			<div style="width: 240%;margin-left:-70%">
+		        <div ng-swiper="swiper" ng-swiper-conf="conf" style="height: 9rem;width:100%;">
+		            <div class="swiper-wrapper">
+		                <div class="swiper-slide" ng-repeat="item in history">
+							<div class="mode">
+								<dl ng-click="gotoDetail(item.pid)">
+									<dt><img ng-if="!item.prizeHeadPhoto" src="../../images/special/head.png"><img ng-if="item.prizeHeadPhoto" src="{{item.prizeHeadPhoto}}">
+									<p>第{{item.activityPeriods}}期中奖用户</p>
+									</dt>
+									<dd>
+									<p><span>TA说：</span></p>
+									<p class="say">{{item.prizeContent|stringsub:40}}</p>
+									</dd>
+								</dl>
+							</div>
+						</div>
+		            </div>
+		        </div>
+	        </div>
+        </div>
+		<div class="img-box">
+			<div class="img">
+				<a href="{{videolink}}" target="_blank">
+					<span>第 {{activityPeriods}} 期</span>
+					<img src="images/special/specialVideo.png">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="bill-wrap">
+		<div class="title">{{product.fullName}}<span>拼人品，抽iPhone7</span></div>
+		<div class="bill-box">
+			<table class="bill-table">
+				<tr class="top">
+					<td>历史年化收益率</td>
+					<td>期限</td>
+					<td class="" rowspan="3">
+						<div class="percentage-box">
+							<i>{{product.pert | setProgress}}%</i>
+							<div class="percentage"><span ng-attr-style="width: {{product.pert | setProgress}}%"></span></div>
+						</div>
+					</td>
+				</tr>
+				<tr class="center">
+					<td><p>{{product.rate}}%<span ng-if="product.activityRate>0">+{{product.activityRate}}%</span></p></td>
+					<td><p>{{product.deadline}}天</p></td>
+				</tr>
+				<tr class="bot">
+					<td>产品总额{{product.amount}}元</td>
+					<td>{{product.leastaAmount}}元起投</td>
+				</tr>
+			</table>
+		</div>
+		<div class="godetail">
+			<a href="" class="btn" ui-sref="cpDetail({pid: product.id})" ng-if="wap && product.pert != 100 && isLogin&&!yuebiao.isReservation">立即抢购</a>
+			<a href="jsmp://page=9?pid={{product.id}}&ptype={{product.type}}&atid=1" class="btn" ng-if="!wap && product.pert != 100 && isLogin&&!yuebiao.isReservation">立即抢购</a>
+			<input class="btn" ng-if="product.pert == 100&&!yuebiao.isReservation" ng-disabled="product.pert == 100" value="募集结束">
+			<a href="/dl" class="btn" ng-if="!isLogin && product.pert != 100 && wap&&!yuebiao.isReservation" >立即抢购</a><!-- ng-click="goLogin()" -->
+			<a href="jsmp://page=4?" class="btn" ng-if="!isLogin && product.pert != 100 && !wap&&!yuebiao.isReservation">立即抢购</a>
+			<a class="btn" ng-click="goyuebiao()" ng-if="wap&&yuebiao.isReservation">预约下期</a>
+			<a class="btn" href="jsmp://page=9?pid={{product.id}}&ptype={{product.type}}&atid=1" ng-if="isLogin&&!wap&&yuebiao.isReservation">预约下期</a><a class="btn" href="jsmp://page=4?" ng-if="!isLogin&&!wap&&yuebiao.isReservation">预约下期</a>
+		</div>
+		<div class="total">已有<span>{{investTotal}}</span>人参与</div>
+	</div>
+	
+	<div class="code-list">
+		<div class="title-list">
+			<table>
+				<tr>
+					<th width="30%">用户名</th>
+					<th width="26%">抢7金额（元）</th>
+					<th width="24%">抢7时间</th>
+					<th width="20%">幸运码</th>
+				</tr>
+			</table>
+		</div>
+		<div class="data-list" ng-class="{true: 'short-list'}[investList.length < 4]">
+			<table class="data-table">
+				<tr ng-repeat="item in investList">
+					<td width="30%">{{item.mobilePhone}}</td>
+					<td width="26%">{{item.amount}}</td>
+					<td width="24%">{{item.investTime | date:'yyyy.MM.dd'}}</td>
+					<td width="20%">{{item.luckCodes}}</td>
+				</tr>
+				<tr ng-if="investList.length == 0">
+					<td width="30%">-</td>
+					<td width="26%">-</td>
+					<td width="24%">-</td>
+					<td width="20%">-</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="step-wrap">
+		<div class="special-step"></div>
+		<div class="con">
+			<div class="title">开奖流程</div>
+			<ul>
+				<li>投资活动专享标  获得幸运抽奖码</li>
+				<li>每期标满后  即开启抽奖</li>
+				<li>直播平台:一直播  直播ID:110699367</li>
+				<li>送出大奖iPhone 7  128G 颜色可自选</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="rules-wrap">
+		<div class="title">活动规则</div>
+		<ul>
+			<li>1、本活动售出的财胜标为活动标，可获得8.5%基础历史年化收益率+平台3%贴息，贴息时间以平台贴息规则为准，期限90天，产品总额30万；</li>
+			<li>2、每位参与本活动的用户，均有机会抽取iPhone7 128G一台（价值6188元），每期送1台iPhone7；</li>
+			<li>3、参加本活动的购买金额为1000元起，每购买1000元将会获得一个字母+数字组合的随机号码作为抽奖幸运号码，每期300个号码，例如AJ101— AJ400，可以一次性购买也可以分开多次认购可获得多个幸运码；</li>
+			<li>4、活动开启时间：2017年3月1日开启；</li>
+			<li>5、开奖方式及中奖结果：本活动将遵循公开公平公正的原则，每期财胜标满标后5个工作日内进行开奖，每周三下午视频直播开奖全程。</li>
+			<li>6、用户只可通过首页或本活动页面入口购买，方可生效本次抢购活动。此活动标不享受红包等优惠福利，同时参与此活动的用户不得同时享受其他任何返利等福利；</li>
+			<li>7、如有任何疑问请联系客服电话：400-031-9909；</li>
+			<li>8、本活动由沪深理财发起并就活动内容作出解释和说明。</li>
+		</ul>
+	</div>
+</div>

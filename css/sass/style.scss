@@ -1,0 +1,268 @@
+$reset:true; // 是否开启样式重置,默认false
+$rem-base: 1080px; 
+$Response:true;
+
+@import "compass", "mobile-mixin";
+
+// @import "compass/reset";
+// @import "compass/CSS3";
+// @import "compass/typography/lists";
+// @import "compass/utilities/sprites";
+// @import "compass/utilities/general/clearfix";
+@import "common";
+@import "home";
+@import "newhand";
+@import "list";
+@import "login";
+@import "myaccount";
+@import "recharge";
+@import "coupon";
+@import "minXiLee";
+@import "smrzLee";
+@import "my";
+@import "dlog";
+@import "weixinLogin";
+@import "triple";
+@import "downloadApp";
+@import "CP080";
+@import "spider";
+@import "rechargegift";
+@import "invite";
+@import "sendmask";
+@import "cp117";
+@import "telecom";
+@import "aqbz";
+@import "newcomer";
+@import "flwhz";
+@import "mycashed";
+@import "special";
+@import "activity";
+@import "activity2";
+@import "appdownload";
+@import "carReg";
+@import "floatMenu";
+@import "more";
+@import "eCommerce";
+@import "reimburse";
+@import "creditRating";
+@import "dropEgg";
+@import "redBag";
+@import "zudui";
+@import "enfu";
+@import "welfare";
+@import "serviceCenter";
+@import "abouths";
+@import "chunjie";
+@import "riskEvaluation";
+@import "weekRanking";
+@import "listData";
+@import "memberWelfare";
+@import "unbingding";
+@import "interestSubsidy";
+@import "thirdInvitation";
+body{
+	width: 100%;
+	margin: 0 auto;
+	font: 12px/1.5 "Microsoft Yahei",arial,tahoma,"Hiragino Sans GB",\5b8b\4f53;
+	color: #323232;
+	background: #f2f2f2;
+	box-sizing: border-box;
+	max-width: 100%;
+	overflow-x: hidden;
+	overflow-x: hidden;
+}
+
+.sign_box_bottom{
+	display: flex;
+	-webkit-display: flex;
+	flex-wrap: nowrap;
+	justify-items: center;
+	justify-content: space-between;
+	align-items: center;
+	background: #fff;
+	//border-top: 1px solid #d2d2d2;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	z-index: 9;
+	max-width: 750px;
+	@include clearfix;
+	.button{
+		flex:1;
+		height: rem-calc(128);
+		padding: rem-calc(15 0 10);
+		i{
+			display: block;
+			margin: 0 auto;
+			&.ico_home{
+				@include rem-sprite("nav/default/*.png", ico_home);
+			}
+			&.ico_account{
+				@include rem-sprite("nav/default/*.png", ico_account);
+			}
+			&.ico_exclusived{
+				@include rem-sprite("nav/default/*.png", ico_exclusived);
+			}
+			&.ico_enfuuser{
+				@include rem-sprite("nav/default/*.png", ico_enfuuser);
+			}
+			&.ico_fund{
+				@include rem-sprite("nav/default/*.png", ico_fund);
+			}
+			&.ico_more{
+				@include rem-sprite("nav/default/*.png", ico_more);
+			}
+		}
+		&.current {
+			i{
+				&.ico_home{
+					@include rem-sprite("nav/big/*.png", ico_home);
+				}
+				&.ico_account{
+					@include rem-sprite("nav/big/*.png", ico_account);
+				}
+				&.ico_exclusived{
+					@include rem-sprite("nav/big/*.png", ico_exclusived);
+				}
+				&.ico_enfuuser{
+					@include rem-sprite("nav/big/*.png", ico_enfuuser);
+				}
+				&.ico_fund{
+					@include rem-sprite("nav/big/*.png", ico_fund);
+				}
+				&.ico_more{
+					@include rem-sprite("nav/big/*.png", ico_more);
+				}
+			}
+		}
+		&.selected{
+			i{
+				&.ico_home{
+					@include rem-sprite("nav/selected/*.png", ico_home);
+				}
+				&.ico_account{
+					@include rem-sprite("nav/selected/*.png", ico_account);
+				}
+				&.ico_fund{
+					@include rem-sprite("nav/selected/*.png", ico_fund);
+				}
+				&.ico_more{
+					@include rem-sprite("nav/selected/*.png", ico_more);
+				}
+			}
+		}
+	}
+}
+.newyearIcon{
+	.button{
+		i{
+			&.ico_home{
+				@include rem-sprite("nav/newyear1/*.png", ico_home);
+			}
+			&.ico_account{
+				@include rem-sprite("nav/newyear1/*.png", ico_account);
+			}
+			&.ico_exclusived{
+				@include rem-sprite("nav/newyear1/*.png", ico_exclusived);
+			}
+			&.ico_enfuuser{
+				@include rem-sprite("nav/newyear1/*.png", ico_enfuuser);
+			}
+			&.ico_fund{
+				@include rem-sprite("nav/newyear1/*.png", ico_fund);
+			}
+			&.ico_more{
+				@include rem-sprite("nav/newyear1/*.png", ico_more);
+			}
+		}
+		&.current {
+			i{
+				&.ico_home{
+					@include rem-sprite("nav/newyear2/*.png", ico_home);
+				}
+				&.ico_account{
+					@include rem-sprite("nav/newyear2/*.png", ico_account);
+				}
+				&.ico_exclusived{
+					@include rem-sprite("nav/newyear2/*.png", ico_exclusived);
+				}
+				&.ico_enfuuser{
+					@include rem-sprite("nav/newyear2/*.png", ico_enfuuser);
+				}
+				&.ico_fund{
+					@include rem-sprite("nav/newyear2/*.png", ico_fund);
+				}
+				&.ico_more{
+					@include rem-sprite("nav/newyear2/*.png", ico_more);
+				}
+			}
+		}
+	}
+}
+.sign_box_top{
+	background: #fff;
+	border-top: 0px solid #d2d2d2;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	max-width: 750px;
+	@include clearfix;
+	.button{
+		width: 25%;
+		float: left;
+		height: rem-calc(128);
+		padding: rem-calc(10 0 0);
+		i{
+			display: block;
+			margin: 0 auto;
+			&.ico_home{
+				@include rem-sprite("nav/default/*.png", ico_home);
+			}
+			&.ico_account{
+				@include rem-sprite("nav/default/*.png", ico_account);
+			}
+			&.ico_fund{
+				@include rem-sprite("nav/default/*.png", ico_fund);
+			}
+			&.ico_more{
+				@include rem-sprite("nav/default/*.png", ico_more);
+			}
+		}
+		&:hover{
+			i{
+				&.ico_home{
+					@include rem-sprite("nav/big/*.png", ico_home);
+				}
+				&.ico_account{
+					@include rem-sprite("nav/big/*.png", ico_account);
+				}
+				&.ico_fund{
+					@include rem-sprite("nav/big/*.png", ico_fund);
+				}
+				&.ico_more{
+					@include rem-sprite("nav/big/*.png", ico_more);
+				}
+			}
+		}
+		&.selected{
+			i{
+				&.ico_home{
+					@include rem-sprite("nav/selected/*.png", ico_home);
+				}
+				&.ico_account{
+					@include rem-sprite("nav/selected/*.png", ico_account);
+				}
+				&.ico_fund{
+					@include rem-sprite("nav/selected/*.png", ico_fund);
+				}
+				&.ico_more{
+					@include rem-sprite("nav/selected/*.png", ico_more);
+				}
+			}
+		}
+	}
+}
+#scratch{ position: relative;}
+#cover{ position: absolute; top:0; left:0;}
+#card{ -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;}

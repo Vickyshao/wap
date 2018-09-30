@@ -1,0 +1,20 @@
+<div class="report headerTop" ng-controller="reportCtrl" >
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="runReport">
+        <!--<img src="../..//images/find/abouths/honor1.png" alt="">-->
+        <!--<img src="../..//images/find/abouths/honor2.png" alt="">-->
+        <!--<img ng-src="{{content.content}}" alt="">-->
+        <div ng-bind-html="content.content | asHtml"></div>
+    </div>
+</div>
+<style>
+    .runReport img{
+        display:block;
+        width:100%;
+        height:auto;
+        border:0;
+        outline:none;
+    }
+</style>

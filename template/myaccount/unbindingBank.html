@@ -1,0 +1,124 @@
+<div class="unbingding-wrap headerTop" ng-controller="unbindingBankCtrl">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="ub-text">您需要提交材料，审核通过后可再次绑卡</div>
+    <div class="content">
+        <form id="addSysBannerForm" name="unbindingFrom" enctype="multipart/form-data" method="post" novalidate>
+            <!--身份证信息-->
+            <div class="info">
+                <h2>身份证信息（必填）</h2>
+                <ul class="box">
+                    <li ng-class="{'true': 'hasimg','false':''}[showInputImg1]">
+                        <div class="text" ng-show="!showInputImg1">
+                            <div class="jia">
+                                <img src="/images/common/jiahao.png" alt="">
+                            </div>
+                            <p>添加正面</p>
+                        </div>
+                        <div class="close" ng-show="showInputImg1" ng-click="img_del(1)">
+                            <img src="/images/common/unbinding-close.png" alt="">
+                        </div>
+                        <input type="file" name="idCardFrontImage" class="input" accept="image/*" file-model="images" onchange="angular.element(this).scope().img_upload(this,1)" required ng-show="!showInputImg1"/>
+                        <img src="" alt="" class="input-img" ng-show="showInputImg1" ng-click="enlarge($event, 1)">
+                    </li>
+                    <li ng-class="{'true': 'hasimg','false':''}[showInputImg2]">
+                        <div class="text" ng-show="!showInputImg2">
+                            <div class="jia">
+                                <img src="/images/common/jiahao.png" alt="">
+                            </div>
+                            <p>添加反面</p>
+                        </div>
+                        <div class="close" ng-show="showInputImg2" ng-click="img_del(2)">
+                            <img src="/images/common/unbinding-close.png" alt="">
+                        </div>
+                        <input type="file" class="input" name="idCardBehindImage" accept="image/*" file-model="images" onchange="angular.element(this).scope().img_upload(this,2)" required ng-show="!showInputImg2"/>
+                        <img src="" alt="" class="input-img" ng-show="showInputImg2" ng-click="enlarge($event, 2)">
+                    </li>
+                </ul>
+            </div>
+
+            <!--新银行卡信息-->
+            <div class="info">
+                <h2>新银行卡信息（必填）</h2>
+                <ul class="box">
+                    <li ng-class="{'true': 'hasimg','false':''}[showInputImg3]">
+                        <div class="text" ng-show="!showInputImg3">
+                            <div class="jia">
+                                <img src="/images/common/jiahao.png" alt="">
+                            </div>
+                            <p>添加正面</p>
+                        </div>
+                        <div class="close" ng-show="showInputImg3" ng-click="img_del(3)">
+                            <img src="/images/common/unbinding-close.png" alt="">
+                        </div>
+                        <input type="file" class="input" name="bankCardFrontImage" accept="image/*" file-model="images" onchange="angular.element(this).scope().img_upload(this,3)" required ng-show="!showInputImg3"/>
+                        <img src="" alt="" class="input-img" ng-show="showInputImg3" ng-click="enlarge($event, 3)">
+                    </li>
+                    <li ng-class="{'true': 'hasimg','false':''}[showInputImg4]">
+                        <div class="text" ng-show="!showInputImg4">
+                            <div class="jia">
+                                <img src="/images/common/jiahao.png" alt="">
+                            </div>
+                            <p>添加反面</p>
+                        </div>
+                        <div class="close" ng-show="showInputImg4" ng-click="img_del(4)">
+                            <img src="/images/common/unbinding-close.png" alt="">
+                        </div>
+                        <input type="file" class="input" name="bankCardBehindImage" accept="image/*" file-model="images" onchange="angular.element(this).scope().img_upload(this,4)" required ng-show="!showInputImg4"/>
+                        <img src="" alt="" class="input-img" ng-show="showInputImg4" ng-click="enlarge($event, 4)">
+                    </li>
+                </ul>
+            </div>
+
+            <!--遗失挂失注销证明-->
+            <div class="info">
+                <h2>遗失挂失注销证明（必填）</h2>
+                <ul class="box">
+                    <li ng-class="{'true': 'hasimg','false':''}[showInputImg5]">
+                        <div class="text" ng-show="!showInputImg5">
+                            <div class="jia">
+                                <img src="/images/common/jiahao.png" alt="">
+                            </div>
+                            <p>添加</p>
+                        </div>
+                        <div class="close" ng-show="showInputImg5" ng-click="img_del(5)">
+                            <img src="/images/common/unbinding-close.png" alt="">
+                        </div>
+                        <input type="file" class="input" name="lostImage" accept="image/*" file-model="images" onchange="angular.element(this).scope().img_upload(this,5)" required ng-show="!showInputImg5"/>
+                        <img src="" alt="" class="input-img" ng-show="showInputImg5" ng-click="enlarge($event, 5)">
+                    </li>
+                </ul>
+            </div>
+
+            <!--其他-->
+            <div class="info">
+                <h2>其他</h2>
+                <ul class="box">
+                    <li ng-class="{'true': 'hasimg','false':''}[showInputImg6]">
+                        <div class="text" ng-show="!showInputImg6">
+                            <div class="jia">
+                                <img src="/images/common/jiahao.png" alt="">
+                            </div>
+                            <p>添加</p>
+                        </div>
+                        <div class="close" ng-show="showInputImg6" ng-click="img_del(6)">
+                            <img src="/images/common/unbinding-close.png" alt="">
+                        </div>
+                        <input type="file" id="one-input" class="input" name="otherImage" accept="image/*" file-model="images" onchange="angular.element(this).scope().img_upload(this,6)" ng-show="!showInputImg6"/>
+                        <img src="" alt="" class="input-img" ng-show="showInputImg6" ng-click="enlarge($event, 6)">
+                    </li>
+                </ul>
+            </div>
+            <button type="submit" class="btn ok" ng-click="submit()" ng-if="submitBtn">提交</button>
+            <button type="submit" class="btn" ng-click="submit()" ng-if="!submitBtn">提交</button>
+        </form>
+    </div>
+    <div class="enlarge-wrap" ng-show="showLarge" ng-click="narrow()">
+        <div class="img">
+            <!--<img src="" alt="">-->
+            <canvas id="canvas" style="width: 100%;height: 100%;"></canvas>
+        </div>
+    </div>
+</div>

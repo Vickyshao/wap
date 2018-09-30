@@ -1,0 +1,181 @@
+<!-- <div class="cp-head"><span style=""><</span>{{title}}</div> -->
+<div class="wrap pb3 newhand-wrapper cp-wrapper tjsdetail">
+    <div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+    <div class="container" ng-init="moremsg=false">
+        <!-- 头 -->
+        <div class="handbox marT info-box">
+            <h2>{{cp.fullName}}<img ng-if="prize.isNot==1" src="images/activity/tjs/finish-icon.png" style="width:3rem;height:1.5rem;float:initial;margin-left:1rem;margin-top:0;position:relative;top:0.3rem;"></h2>
+            <table>
+                <tr>
+                    <td width="100%" class="noleft" style="border-right:none;text-align:center;">
+                        <div class="mod">
+                            <span>历史年化收益率</span>
+                            <p><i>{{cp.rate}}%</i>
+                                <i ng-if="cp.activityRate>0">+{{cp.activityRate}}%</i>
+                                <!--<span class="shuangdan" ng-if="cp.activityRate>0">
+                                    <span class="rate-box">
+                                        <img src="images/activity/shuangdan/detail-icon.png">
+                                        <span>+{{cp.activityRate}}%</span>
+                                    </span>
+                                </span>-->
+                                <!--<span class="icon_jiaxi" ng-if="cp.activityRate>0" style='vertical-align: top;line-height: 0.9rem;font-size: 0.4rem;'>+{{cp.activityRate}}%</span>-->
+                            </p>
+                            <p class="modinfo">期限{{cp.deadline}}天 | 次日计息</p>
+                            <div class="percentage-box" style="width:100%;">
+                                <i>{{cp.pert | setProgress}}%</i>
+                                <div class="percentage" style="width:90%"><span ng-attr-style="width: {{cp.pert | setProgress}}%"></span></div>
+                            </div>
+                        </div>
+                        <div class="eggs" ng-class="{eggsx:cp.isEgg==2}" ng-if="cp.maxActivityCoupon" ng-click="cancelza($event)">
+                            <span ng-if="cp.isEgg==1">最高{{cp.maxActivityCoupon}}%加息</span>
+                            <span ng-if="cp.isEgg==2">满标后作废哦</span>
+                            <div ng-click="zaEgg($event,cp)" ng-class="{eggimg:cp.isEgg==1}">
+                                <font ng-if="cp.isEgg==2">&nbsp;+{{cp.maxActivityCoupon}}%&nbsp;</font>
+                            </div>
+                            <div class="chuizi"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bot">
+                        <div class="mod">
+                            <p class="left"><span>剩余可投（元）</span>{{cp.surplusAmount | number}}</p>
+                            <p class="right"><span>剩余期限</span>{{nowTimer}}</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-list">
+            <table class="list-table">
+                <tr>
+                    <td class="list-title">
+                        <div>还款方式<img src="images/newhand/ico_coin_2.png"></div>
+                    </td>
+                    <td class="list-con">
+                        <div ng-bind="{1:'到期一次还本付息',2: '按月付息到期还本',3:'等额本金',4:'等额本息',5:'其他'}[cp.repayType]"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="prize-box">
+            <h3 class="prize-title">投资免费领</h3>
+            <main> 
+                <img src="{{prize.h5ImgUrlH}}">
+            </main>
+            <img class="free" src="images/activity/tjs/free.png">
+            <div>
+                <h2>{{prize.name}}</h2>
+                <h3>{{prize.simpleName}}</h3>
+                <p>原价 <span>￥{{prize.price | number:2}}</span></p>
+                <img ui-sref="prizedetail({wap:true})" src="images/activity/tjs/prizedetail-icon.png">
+            </div>
+            <footer></footer>
+        </div>
+        <img ng-if="moremsg==false" ng-click="showmore()" src="images/activity/tjs/detail-more.png" style="width:100%;">
+        <div ng-if="moremsg==true" id="moredetail">
+            <!-- tab -->
+            <ul class="nav nav-pills mb1" style="margin-top:0;">
+                <li role="presentation" ng-class="{0:'active'}[active]" ng-click="active=0"><a href="">项目介绍</a></li>
+                <li role="presentation" ng-class="{2:'active'}[active]" ng-click="active=2"><a href="">安全保障</a></li>
+                <li role="presentation" ng-class="{1:'active'}[active]" ng-click="active=1"><a href="">投资记录</a></li>
+            </ul>
+            <!-- tab 0 -->
+            <div class="panel panel-default" ng-if="active==0">
+                <!-- <div class="panel-heading"><div>债务人概况<i ng-click="setAction(panel1)"></i></div></div>
+                <div class="panel-body" ng-if="panel1.isAction==1">
+                    <p>{{cp.borrower}}</p>
+                </div>
+                
+                <div class="panel-heading"><div>承兑方概况<i ng-click="setAction(panel2)"></i></div></div>
+                <div class="panel-body" ng-if="panel2.isAction==1"><p>{{cp.introduce}}</p></div> -->
+
+                <div class="panel-heading" ng-if="extendInfos&&extendInfos.length>0">
+                    <div>产品说明</div>
+                </div>
+                <div class="panel-body" ng-if="extendInfos&&extendInfos.length>0">
+                    <ul class="panel-body-list">
+                        <li ng-repeat="item in extendInfos track by $index">
+                            <h3>{{item.title}}<i ng-click="slideToggle($event)"></i></h3>
+                            <p style="padding-left:10px;">{{item.content}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-heading" ng-if="picList&&picList.length>0">
+                    <div>产品资料情况</div>
+                </div>
+                <!-- List group -->
+                <ul class="list-group" ng-if="picList&&picList.length>0">
+                    <li class="list-group-item" ng-repeat="pic in picList">
+                        <div>
+                            <img ng-click="showImg($event)" src="{{pic.bigUrl}}">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel panel-default" ng-if="active==2">
+                <div class="detail_aqbz">
+                    <img src="images/AQBZ/aqbza.png" />
+                    <img src="images/AQBZ/aqbzb.png" />
+                    <img src="images/AQBZ/aqbzc.png" />
+                    <img src="images/AQBZ/aqbzd.png" />
+                    <img src="images/AQBZ/aqbze.png" />
+                    <img src="images/AQBZ/aqbzf.png" />
+                    <img src="images/AQBZ/aqbzg.png" />
+                    <img src="images/AQBZ/aqbzh.png" />
+                    <img src="images/AQBZ/aqbzj.png" />
+                    <img src="images/AQBZ/aqbzk.png" />
+                    <img src="images/AQBZ/aqbzl.png" />
+                </div>
+            </div>
+            <!-- tab1 -->
+            <div class="panel panel-default" ng-if="active==1">
+                <table class="table cp-tab">
+                    <thead>
+                        <tr>
+                            <th width="33%">投资人</th>
+                            <th width="33%">投资金额</th>
+                            <th width="34%" class="date">投资时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="invest in investList">
+                            <td>{{invest.realName | limitTo:1}}{{invest.sex | sex}}</td>
+                            <td>{{invest.amount|currency:''}}元</td>
+                            <td class="date">{{invest.investTime|date:'yyyy-MM-dd'}}<br>{{invest.investTime|date:'HH:mm:ss'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <!-- 未认证 ?pid={{cp.id}}-->
+    <!-- <div class="sign_box_bottom newhand-btn" ng-if="(a|isRegister).register && map.realVerify==0" ui-sref="certification">
+                充值
+    </div> -->
+    <div class="sign_box_bottom newhand-btn" ng-if="(a|isRegister).register && prize.isNot==0" ui-sref="tjsinvestment({wap:true,pid:cp.id})">
+        投资免费领
+    </div>
+    <div class="sign_box_bottom newhand-btn" style="z-index: 999" ng-if="!(a|isRegister).register" ng-click="gologin()">
+        立即登录
+    </div>
+
+    <div class="sign_box_bottom newhand-btn" ng-if="(a|isRegister).register && prize.isNot==1" ui-sref="giftyy({wap:true,id:prize.id,backUrl:'tjsdetail?wap=true&pid='+cp.id})">
+        标的余额不足，请预约
+    </div>
+    <div class="mask" ng-show="showBigImg" ng-click="showBigImg = false">
+        <div class="check-img-wrap"><img src="{{bigImgSrc}}"></div>
+    </div>
+
+    <div class="yuebiao-success yuebiao-renzheng" ng-if="isRealverify">
+        <div class="yuebiao-success-box">
+            <img src="images/activity/yuebiao/close.png" class="close" ng-click="closeRealverify()" />
+            <img src="images/activity/yuebiao/user.png" />
+            <h2>请先实名认证<br/>即可参与预约</h2>
+            <button ui-sref="certification">立即前往</button>
+        </div>
+    </div>
+</div>

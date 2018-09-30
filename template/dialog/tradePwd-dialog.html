@@ -1,0 +1,81 @@
+<!--支付弹窗-->
+<div class="bankList zhifu">
+	<div class="bankList-title">
+		<h2>请输入交易密码</h2>
+		<div class="ngdialog-close"></div>
+	</div>
+	<!--未设置过交易密码-->
+	<div class="bankList-content trade-content" ng-if="!pwdFlag">
+		<!--首次设置交易密码-->
+		<div  ng-if="!firstSetPwd">
+			<ul class="setPwdIcon">
+				<li class="active">
+					<i>1</i>
+					<p>设置交易密码</p>
+				</li>
+				<p class="line" ></p>
+				<li>
+					<i>2</i>
+					<p>设置交易密码</p>
+				</li>
+			</ul>
+			<div class="tradePwd">
+				<input type="number" id="tradePwd" ng-keyup="enterPassword(1)" ng-model="userTypes.passWord1" maxlength="6" autofocus/>
+				<ul class="pwd">
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+				</ul>
+			</div>
+			<p class="restPwd"><span ng-click="toRetPwd()">忘记密码？</span></p>
+		</div>
+		<!--确认交易密码-->
+		<div ng-if="firstSetPwd">
+			<ul class="setPwdIcon">
+				<li class="active">
+					<i>√</i>
+					<p>设置交易密码</p>
+				</li>
+				<p class="line active"></p>
+				<li class="active">
+					<i>2</i>
+					<p>设置交易密码</p>
+				</li>
+			</ul>
+			<div class="tradePwd">
+				<input type="number" id="tradePwd" ng-keyup="enterPassword(1)" ng-model="userTypes.passWord1" maxlength="6" autofocus/>
+				<ul class="pwd">
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+					<li><i>●</i></li>
+				</ul>
+			</div>
+			<p class="restPwd"><span ng-click="toRetPwd()">忘记密码？</span></p>
+		</div>
+	</div>
+	<!--已设置过交易密码-->
+	<div class="bankList-content trade-content" ng-if="pwdFlag">
+		<p class="sm-text" ng-if="!isTiXian">投资金额(元)</p>
+		<p class="sm-text" ng-if="isTiXian">提现(元)</p>
+		<p class="xl-text">{{amount}}</p>
+		<div class="tradePwd">
+			<input type="number" id="tradePwd" ng-keyup="enterPassword(2)" ng-model="userTypes.passWord1" maxlength="6" autofocus/>
+			<ul class="pwd">
+				<li><i>●</i></li>
+				<li><i>●</i></li>
+				<li><i>●</i></li>
+				<li><i>●</i></li>
+				<li><i>●</i></li>
+				<li><i>●</i></li>
+			</ul>
+		</div>
+		<p class="restPwd"><span ng-click="toRetPwd()">忘记密码？</span></p>
+	</div>
+</div>
+

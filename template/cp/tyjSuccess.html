@@ -1,0 +1,34 @@
+<div class="newhand-wrapper cp-wrapper tyjSuccess" style="padding:0;margin-bottom:1rem;">
+    <div class="common-head"><p></p><span class="right" ui-sref="main.myaccountHome">关闭</span></div>
+    <div class="investSuccess">
+        <div class="investSuccess-info" style="padding-bottom: 2rem;">
+            <img src="/images/newhand/success.png" />
+            <h2 style="margin-bottom:3rem;">恭喜您成功投资{{data.amount}}元</h2>
+            <dl>
+                <dt><!--新手体验专享标--></dt>
+                <dd>投资项目<span>体验金专享标</span></dd>
+                <dd>投资期限<span>1天</span></dd>
+                <dd>历史年化收益率
+                    <span>{{data.rate | wisNumber3}}%
+                        <span ng-if="data.activityRate>0">+{{data.activityRate}}%</span>
+                    </span>
+                    
+                </dd>
+                <dd>待收收益<span>{{data.shouyi | number:2}}元</span></dd>
+            </dl>
+            <p class="message" ng-if="data.isFuiou==1&&data.redTotal>0">您还有{{data.redTotal}}个红包未使用，激活即可变现哦！</p>
+            <!--<p class="message" ng-if="data.realverify==0">绑卡即可再领<span>10000元</span>体验金+<span>200元</span>红包</p>-->
+        </div>
+        <div class="btn">
+            <button class="first" ui-sref="myInvest">查看我的投资</button>
+            <button ui-sref="main.bankBillList">更多精选</button>
+        </div>
+        <!--<img ng-if="data.realverify==0" ui-sref="certification" class="bottom-btn" src="images/activity/tyj/success-lingqu.png">-->
+        <img ng-if="data.isFuiou==1&&data.redTotal>0" ui-sref="myCoupon" class="bottom-btn" src="images/activity/tyj/success-bianxian.png">
+    </div>
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>

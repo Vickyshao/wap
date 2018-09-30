@@ -1,0 +1,60 @@
+<style>
+    @keyframes myfirst{
+        0% {
+            -webkit-transform: scale(0.25);
+            -moz-transform: scale(0.25);
+            -o-transform: scale(0.25);
+            transform: scale(0.25);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    @-webkit-keyframes myfirst{
+        0% {
+            -webkit-transform: scale(0.25);
+            -moz-transform: scale(0.25);
+            -o-transform: scale(0.25);
+            transform: scale(0.25);
+        }
+        100% {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    .ngdialog.ngdialog-theme-default .ngdialog-content{
+        background-color: transparent!important;
+        animation:myfirst 1s linear;
+        -webkit-animation:myfirst 1s linear;
+    }
+    /*.teamleader-dialog .img{*/
+        /*padding-top: 0;*/
+    /*}*/
+    .teamleader-dialog .img img:last-child{
+        width: 20rem;
+        display: inline-block;
+        padding-top: 2rem;
+    }
+    .ngdialog-overlay{
+        background: rgba(0, 0, 0, 0.6);
+    }
+</style>
+<div class="dialog special-dialog teamleader-dialog card-pop-dialog">
+    <i class="close" ng-click="closeDialog()"></i>
+    <div class="contain">
+        <div class="img" >
+            <img src="/images/interestSubsidy/pop-title.png" alt="">
+            <!--根据用户显示不同卡片-->
+            <img ng-src="{{cardPop}}" alt="">
+        </div>
+        <p class="text">快去试试吧~</p>
+        <div class="upload">
+            <img src="/images/interestSubsidy/firstInvest-use.png" alt="" ng-click="popupTovest()">
+        </div>
+    </div>
+</div>

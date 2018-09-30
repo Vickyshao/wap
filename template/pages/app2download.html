@@ -1,0 +1,26 @@
+<div class="app2download">
+	<img ng-if="status==1" src="images/app2download/content-a.png">
+    <img ng-if="status==2" src="images/app2download/content-f.png">
+
+    <img src="images/app2download/content-b.png">
+    <img src="images/app2download/content-c.png">
+    <img src="images/app2download/content-d.png">
+    <img src="images/app2download/content-e.png">
+    <div class="content">
+        <div ng-if="status==1" class="status-a">
+            <img src="images/app2download/status-a-title.png">
+            <div ng-click="downloadclick()" class="button">立即参与</div>
+            <p>加入沪深理财，我们不做平凡人</p>
+            <!--<footer class="shenhe">iOS审核中,敬请期待...</footer>-->
+        </div>
+        <div ng-if="status==2" class="status-b">
+            <p>加入沪深理财，我们不做平凡人</p>
+            <div ng-click="downloadclick()" class="button">立即参与</div>
+        </div>
+    </div>
+</div>
+<!--icp备案号-->
+<div style="background-color:#2D2D2D;" class="icpba">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司  v1.2.3</div>
+
+<div class="share-ios"><img ng-click="closethis()" src="images/share-ios.png" /></div>
+<div class="share-android"><img ng-click="closethis()" src="images/share-android.png" /></div>

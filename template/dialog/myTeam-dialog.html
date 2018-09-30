@@ -1,0 +1,69 @@
+<div class="dialog commonLogin myTeam-dialog">
+	<div class="header">我的战队</div>
+	<div class="myTeam-content">
+		<ul class="header-tab">
+			<li class="header1 active" ng-click="tab(this,$event)">全部队员（{{ myTeamMembers.length }}）</li>
+			<li class="header2" ng-click="tab(this,$event)">我邀请的（{{myInvites.length}}）</li>
+		</ul>
+		<div class="content">
+			<div class="tab1" style="display: block;">
+				<div class="person-box">
+					<div class="person-list">
+						<ul class="person-list">
+							<li ng-repeat="item in myTeamMembers">
+								<table>
+									<tbody>
+									<tr>
+										<td class="td1" ng-if="item.isCaptain == 1">
+											<img class="duizhang" src="/images/zudui/myteam/tearmLeader.png" style="width: 3rem;"/>
+										</td>
+										<td class="td1" ng-if="item.isCaptain == 0">
+											<img class="duizhang" src="/images/zudui/myteam/icon-team.png"/>
+										</td>
+										<td class="td2">
+											<p class="red" ng-if="item.realName == '未实名'">{{item.realName}}</p>
+											<p class="red" ng-if="item.realName != '未实名'">{{item.realName}}</p>
+											<p>{{item.inviteTel}}</p>
+										</td>
+										<td class="td3">
+											<span ng-if="item.realName != '未实名'">{{item.investedStatus}}</span>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</li>
+						</ul>
+						<p class="no-more">没有更多了</p>
+					</div>
+				</div>
+			</div>
+			<div class="tab2">
+				<!--没有邀请人数时-->
+				<div class="no-person" ng-if="myInvites.length == 0">
+					<span></span>
+				</div>
+				<!--有邀请人-->
+				<div class="person-box" ng-if="myInvites.length > 0">
+					<ul class="person-list">
+						<li ng-repeat="item in myInvites">
+							<table>
+								<tbody>
+									<tr>
+										<td class="td1"><img src="/images/zudui/myteam/icon-team.png" /></td>
+										<td class="td2">
+											<p class="red">{{item.realName}}</p>
+											<p>{{item.inviteTel}}</p>
+										</td>
+										<td class="td3">{{item.income}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</li>
+
+					</ul>
+				</div>
+				<div class="btn" ng-click="joinFriend()"></div>
+			</div>
+		</div>
+	</div>
+</div>

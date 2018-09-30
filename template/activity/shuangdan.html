@@ -1,0 +1,121 @@
+<div class="shuangdan" ng-init="showRules1=false;showRules2=false">
+    <!-- test xue -->
+    <div style="position:absolute;top:0;left:-30vw;z-index:10;height:45vh;overflow:hidden;">
+        <canvas class="snow-canvas" speed="1" interaction="false" size="2" count="180" opacity="0.00001" start-color="rgba(253,252,251,1)"
+            end-color="rgba(251,252,253,0.3)" wind-power="0" image="false" width="1228" height="1416"></canvas>
+    </div>
+    <div class="khq-box">
+        <img class="bg" src="images/activity/shuangdan/khq.png">
+        <img src="images/activity/shuangdan/olduser-icon.png" style="position:absolute;top:-0.3%;left:3%;width:15%;">
+        <div class="float">
+            <div class="dl-box">
+                <div>
+                    <img ui-sref="dl({returnurl: 'shuangdan'})" ng-if="!user && wap" src="images/activity/shuangdan/dl.png">
+                    <a href="jsmp://page=4?" ng-if="!user && !wap"><img src="images/activity/shuangdan/dl.png"></a>
+                    <img ng-if="user" src="images/activity/shuangdan/dlbg.png">
+                    <section ng-if="user">
+                        <p>您有<span> {{pullCount}} </span>次</p>
+                        <p>拆钱袋机会</p>
+                    </section>
+                </div>
+                <div class="scroll">
+                    <ul scroll-left></ul>
+                </div>
+                <div ng-click="openBox()" class="open-button"></div>
+                <a ng-if="!user&&!wap" class="open-button" href="jsmp://page=4?" style="display:block;"></a>
+            </div>
+        </div>
+        <p ng-click="showRules1=!showRules1" class="rule rule1"><span>活动规则</span><span ng-show="showRules1==true"> ∧</span><span ng-show="showRules1==false"> ∨</span></p>
+        <ol ng-show="showRules1==true">
+            <li>1、老用户投资60天、180天标的任意金额即可享受加息，同时单笔投资金额满1000元，还可获得拆钱袋机会，100%得现金；</li>
+            <li>2、投资区间与奖励区间一一对应，不同投资金额的奖励不相同。投资额越大，所获奖励也越大；</li>
+            <li>3、拆钱袋奖励以现金的形式发放，1个工作日充值到账户，由用户自由支配。</li>
+            <p>&nbsp;&nbsp;* 新用户需先投资定期标成为老用户，同时单笔投资相应的加息标不少于1000元方可参加活动。</p>
+        </ol>
+    </div>
+    <div class="jxq-box" id="jxq">
+        <img class="bg" src="images/activity/shuangdan/jxq.png">
+        <ul>
+            <li ng-repeat="product in productList">
+                <h3>{{product.fullName}}</h3>
+                <div class="bottom-box">
+                    <div class="left">
+                        <p>
+                            <span><span>{{product.rate}}</span>% + <span>{{(product.deadline==60?activity60:activity180)}}</span>%</span>
+                            <span>{{product.deadline}}天</span>
+                            <span>{{product.amount/10000}}万可投</span>
+                        </p>
+                        <div class="progress-box">
+                            <div class="progress">
+                                <div style="width:{{product.pert}}%;"></div>
+                            </div>
+                            <div class="percent">{{product.pert}}%</div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <span ng-if="wap" ui-sref="cpDetail({pid:product.id})">立即投资</span>
+                        <a ng-if="!wap" href="jsmp://page=9?pid={{product.id}}&ptype={{product.type}}"><span>立即投资</span></a>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+        <p ng-click="showRules2=!showRules2" class="rule rule2"><span>活动规则</span><span ng-show="showRules2==true"> ∧</span><span ng-show="showRules2==false"> ∨</span></p>
+        <ol ng-show="showRules2==true">
+            <li>1、本次全场活动针对老用户，即投资过定期标的用户（新手标、体验标除外）；新用户需先投资定期标成为老用户，方可参加活动；</li>
+            <li>2、活动只针对投资60天、180天有收益“+0.5%”、“+1%”标识的项目；</li>
+            <li>3、活动期间原砸金蛋活动暂停。</li>
+        </ol>
+    </div>
+    <div class="lpq-box" id="lpq">
+        <img class="bg" src="images/activity/shuangdan/lpq.png">
+    </div>
+
+    <div class="open-box" ng-if="boxOpen==true">
+        <div class="center-box">
+            <div class="relative-box" ng-if="boxType=='error'">
+                <img src="images/activity/shuangdan/open-error.png" class="bg">
+                <div ng-click="closeBox()" class="close-button"></div>
+            </div>
+            <div class="relative-box" ng-if="boxType=='new'">
+                <img src="images/activity/shuangdan/open-new.png" class="bg">
+                <img ng-click="closeBox()" class="close-icon" src="images/activity/shuangdan/close.png">
+                <div ng-if="wap" ng-click="toLists()" class="close-button"></div>
+                <a ng-if="!wap" style="display:block;" href="jsmp://page=2?" class="close-button"></a>
+            </div>
+            <div class="relative-box" ng-if="boxType=='none'">
+                <img src="images/activity/shuangdan/open-none.png" class="bg">
+                <img ng-click="closeBox()" class="close-icon" src="images/activity/shuangdan/close.png">
+                <div ng-click="tojxq()" class="close-button"></div>
+            </div>
+            <div class="relative-box" ng-if="boxType=='share' && wap=='true' && weixin==false">
+                <img src="images/activity/shuangdan/open-share1.png" class="bg">
+                <img ng-click="closeBox()" class="close-icon" src="images/activity/shuangdan/close.png">
+                <div class="detail">
+                    <h2>{{prizeName}}</h2>
+                    <p>恭喜您获得<span> {{amount}} </span>元奖励！</p>
+                </div>
+                <div class="copy">
+                    <input type="text" value="https://hushenlc.cn/shuangdanshare?wap=true&uid={{user.uid}}">
+                    <p>长按文字全选复制链接</p>
+                </div>
+                <div ng-click="tolpq()" class="hdgz"></div>
+            </div>
+            <div class="relative-box" ng-if="boxType=='share' && (wap!='true' || weixin==true)">
+                <img src="images/activity/shuangdan/open-share2.png" class="bg">
+                <img ng-click="closeBox()" class="close-icon" src="images/activity/shuangdan/close.png">
+                <div class="detail">
+                    <h2>{{prizeName}}</h2>
+                    <p>恭喜您获得<span> {{amount}} </span>元奖励！</p>
+                </div>
+                <a ng-if="!wap" class="weixinshare" href="jsmp://page=101?giftmoney={{amount}}"></a>
+                <a ng-if="weixin==true" class="weixinshare" ng-click="share()"></a>
+                <div ng-click="tolpq()" class="hdgz"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="activity-firend-boxweixin" ng-click="closeshareweixin()">
+    <img src="images/activity/firend/sharetext.png" class="sharetext" />
+</div>

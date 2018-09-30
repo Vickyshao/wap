@@ -1,0 +1,89 @@
+<div class="invite-wrapper" ng-controller="inviteCtrl">
+	<div class="banner"><img src="../../images/inviteapp/banner.png"></div>
+	<div class="invite-btn"><a href="jump://page=17?" class="btn" ng-if="isLogin && wap!='true' && upgrade==false"><span>立即邀请</span></a><a href="/myInvitation" class="btn" ng-if="isLogin && wap=='true' && upgrade==false"><span>立即邀请</span></a><a href="jump://page=4?" class="btn" ng-if="!isLogin && wap!='true' && upgrade==false"><span>立即登录</span></a><a href="/dl" class="btn" ng-if="!isLogin && wap=='true' && upgrade==false"><span>立即登录</span></a><a href="http://www.duorongcf.com/html/activity/2weima.html" class="btn upgrade" ng-if="upgrade == true"><span>请更新版本</span></a></div>
+	<div class="invite-mode">
+		<div class="titlebg"><img src="../../images/inviteapp/titlebg.png"></div>
+		<div class="box">
+			<div class="title">我的邀请</div>
+			<div class="list">
+				<table>
+					<tr>
+						<th>好友ID</th>
+						<th>投资时间</th>
+						<th>邀请收益</th>
+					</tr>
+					<tr ng-repeat="item in list">
+						<td>{{item.mobilephone}}</td>
+						<td>{{item.investTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+						<td>{{item.rebate}}元</td>
+					</tr>
+				</table>
+				<div class="nolist" ng-if="nolist==true && isLogin==true">你暂无投资奖励，赶紧邀请好友</div>
+				<div class="nologin" ng-if="isLogin==false">您尚未登录，<a href="jump://page=4?" ng-if="wap!='true'">立即登录</a><a href="/dl" ng-if="wap=='true'">立即登录</a>查看</div>
+			</div>
+			<div class="more-wrap">
+				<a href="jump://page=17?" class="more" ng-if="isLogin==true && nolist!=true && wap!='true'">查看更多</a>
+				<a href="/myInvitation" class="more" ng-if="isLogin==true && nolist!=true && wap=='true'">查看更多</a>
+			</div>
+		</div>
+	</div>
+	<div class="rule-btn">
+		<a href="/invite-rules" class="rule">活动规则 ＞</a>
+	</div>
+	<div class="invite-mode">
+		<div class="titlebg"><img src="../../images/inviteapp/titlebg.png"></div>
+		<div class="box">
+			<div class="title">为什么选择沪深</div>
+			<div class="why">
+				<table>
+					<tr>
+						<td class="icon"><div class="gzkg"></div></td>
+						<td>
+							<span>国企控股</span>
+							<p>大型国企中商投控股</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="icon"><div class="guarantee"></div></td>
+						<td>
+							<span>资金安全保障</span>
+							<p>历史到期产品100%本息兑付<br>安全可靠</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="icon"><div class="pjlc"></div></td>
+						<td>
+							<span>票据100%承兑</span>
+							<p>所有票据来源于银行与大型国企<br>100%无条件承兑</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="icon"><div class="zyls"></div></td>
+						<td>
+							<span>专业律所全程支持</span>
+							<p>专业律所全程合规支持</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="code-wrapper">
+		<div class="code">
+			<div class="tel">
+				<table class="number">
+					<tr>
+						<td>
+							<i class="boat-phone-icon"></i>
+							<div>
+								<span>4006-293-993</span>
+								<p>服务时间 工作日9:00-21:00；休息日为9:00-18:00</p>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

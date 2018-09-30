@@ -1,0 +1,89 @@
+<div class="serviceCenter headerTop" ng-controller="serviceCenterCtrl">
+    <div ng-if="!fromNative" class="common-head blue-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="up clearfix">
+        <div class="left"><img src="images/find/servicegirl.png"></div>
+        <div class="right">
+            <p>沪深在线客服，竭诚为您服务</p>
+            <p>人工客服时间：</p>
+            <p>工作日：09:00~18:00</p>
+            <div class="btn">
+                <button class="one" ng-click="toYJFK()">意见反馈</button>
+                <button ng-click="toDial()">电话客服</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="middle">
+        <div class="title">常见问题分类</div>
+        <table>
+            <tbody>
+                <tr>
+                    <td width="33%" ui-sref="rzzcPage">
+                        <img src="images/find/service01.png">
+                        <p>认证注册</p>
+                    </td>
+                    <td width="33%" ui-sref="aqbzPage">
+                        <img src="images/find/service02.png">
+                        <p>安全保障</p>
+                    </td>
+                    <td width="33%" ui-sref="cztxPage">
+                        <img src="images/find/service03.png">
+                        <p>充值提现</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="33%"  ui-sref="tzflPage">
+                        <img src="images/find/service04.png">
+                        <p>投资福利</p>
+                    </td>
+                    <td width="33%" ui-sref="cpjsPage">
+                        <img src="images/find/service05.png">
+                        <p>产品介绍</p>
+                    </td>
+                    <td width="33%" ui-sref="qtwtPage">
+                        <img src="images/find/service06.png">
+                        <p>其他问题</p>
+                    </td>  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="div-block" style="background: #f2f2f2;"></div>
+
+    <div class="down">
+        <div class="title">热门问题</div>
+        <ul class="list">
+            <li>
+                <h3 ng-click="slideToggle($event)">如何注册成为沪深理财的会员？<i></i></h3>
+                <p class="first">1.请登录http://www.hushenlc.cn，然后点击右上角的“注册”，根据 指引一步步操作即可。</p>
+                <p>2.关注微信公众号“沪深理财官微”，进行注册也可以。</p>
+                <p class="last">3.请到appstore 或者应用宝上直接搜索“沪深理财”，下载手机应用进行注册也可以。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">平台是否有第三方托管？<i></i></h3>
+                <p class="one">沪深理财是由金运通支付托管，金运通是山东金升集团投资控股设立的一家互联网第三方支付服务企业。 金运通支付于2014年7月10日获得中国人民银行颁发的互联网第三方支付牌照(许可证编号：Z2026437000017)，是国内首家建立在实体批发市场基础上的互联网支付公司。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">如何充值？<i></i></h3>
+                <p class="one">答：进入“我的账户”，点击【充值】按钮，进入充值页面，选择支付方式，并输入相应的信息进行充值。投资者充值免费，沪深理财不收取手续费。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">注册是否有红包？<i></i></h3>
+                <p class="one">成功送注册领288红包。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">投标前需要注意什么？<i></i></h3>
+                <p class="one">投标前请认真分析所投资标的详细信息（起投金额，年化利率，投资期限等），以确定您所要投的标符合您的风险承受能力和所要求的投资回报率。</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<style>
+    html,body{
+        background: #0193e8;
+    }
+</style>

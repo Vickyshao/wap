@@ -1,0 +1,27 @@
+<div class="wrap wap-more-box">
+	<div class="common-head" ng-click="gohistory()"><i></i><p>优选产品</p></div>
+	<div class="yuebiao">
+		<p style="padding: 1rem 0 1rem 1rem;">{{name}}</p>
+		<div class="input" style="position: relative;border-top: 1px solid #d7d7d7;border-bottom: 1px solid #d7d7d7;background: #fff;height: 3rem;">
+			<span style="position: absolute;left: 1rem;top: 0;line-height: 3rem;">投资金额（元）</span>
+			<input type="number" max="1000000000" ng-model="amount" placeholder="需为1200的倍数" style="width: 100%;box-sizing: border-box;padding-left: 12rem;padding: 1rem 0 0.9rem 12rem;font-size: 1rem;" />
+		</div>
+		<p style="padding: 1rem;font-size: 0.9rem;color: #ed3334;">预约后我们会在下一期活动上线前由您的专属客服电话通知您</p>
+		<button ng-click="yuebiaoFn()" style="position: fixed;width: 100%;height: 3rem;left: 0;bottom: 0;    line-height: 3rem;background: #ed3334;color: #fff;">确定预约</button>
+	</div>
+	<div class="yuebiao-success" ng-if="isSuccess" ng-click="gohistory()">
+		<div class="yuebiao-success-box">
+			<img src="images/activity/yuebiao/close.png" class="close" />
+			<img src="images/activity/yuebiao/right.png" />
+			<h2>恭喜 预约成功！</h2>
+			<p>新一期即将上线，敬请期待！</p>
+		</div>
+	</div>
+	<div class="yuebiao-success" ng-if="isOver" ng-click="closeOver()">
+		<div class="yuebiao-success-box">
+			<img src="images/activity/yuebiao/close.png" class="close" />
+			<img src="images/activity/yuebiao/end.png" />
+			<h2>预约已结束<br />请等待新一期活动</h2>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<div class="wrap" ng-controller='indexCtrl'>
+    <div class="img-container">
+        <img src="img/index/banner1.jpg">
+    </div>
+    <section ng-click='onclick()' class="marT">
+        <h2>{{product.productName}}</h2>
+        <div class="precent color-orange">
+            <span>{{product.rate}}</span>%
+        </div>
+        <div class="pre_list">
+            <span>周期<q class="color-orange">5天</q></span>
+            <span class="color-gray">历史年化</span>
+            <span><q class="color-orange">{{product.minAmount}}元</q>起投</span>
+        </div>
+    </section>
+    <section class="marT qidai">
+        <div class="color-gray">敬请期待1</div>
+    </section>
+
+</div>

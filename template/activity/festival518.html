@@ -1,0 +1,115 @@
+<div class="festival518">
+    <img src="images/activity/festival518/banner.png" class="banner">
+    <div class="dl-box">
+        <div ng-if="isLog==false" class="dl-a">我的累计投资金额：<a ng-if="wap" ui-sref="dl({returnurl:'festival518'})">登录</a><a ng-if="!wap" href="jsmp://page=4?">登录</a>后查看</div>
+        <div ng-if="isLog==true && amount>0" class="dl-b">我的累计投资金额：<span>{{amount}}</span> 元</div>
+        <div ng-if="isLog==true && amount==0" class="dl-c">
+            <h2>我的累计投资金额：<span>{{amount}}</span> 元</h2>
+            <p>现金红包等待您的召唤，还不快行动！</p>
+        </div>
+        <img src="images/activity/festival518/dl-left.png" class="dl-left">
+        <img src="images/activity/festival518/dl-footer.png" class="dl-footer">
+        <img src="images/activity/festival518/dl-right.png" class="dl-right">
+    </div>
+    <div class="parta">
+        <div>
+            <h3>已有 <span>{{count}}</span> 个用户获得奖励</h3>
+            <div class="data-list">
+                <table class="data-table">
+                    <tr ng-repeat="item in investList">
+                        <td width="18%">{{item.name}}</td>
+                        <td width="82%">累计投资金额{{item.amount | number:0}}可获<span>{{item.fxAmount}}</span>元奖励！</td>
+                    </tr>
+                </table>
+            </div>
+            <hr>
+            <h1>活动期间累计投资金额满足以下条件，即可领取现金奖励</h1>
+            <div class="rule-table">
+                <table>
+                    <tr>
+                        <th>累计投资金额（元）</th>
+                        <th>奖励金额（元）</th>
+                    </tr>
+                    <tr>
+                        <td>1.2万≤累计投资金额＜3.8万</td>
+                        <td><img src="images/activity/festival518/prize-icon.png"> 奖励<span>100</span>元现金</td>
+                    </tr>
+                    <tr>
+                        <td>3.8万 ≤累计投资金额＜6.2万</td>
+                        <td><img src="images/activity/festival518/prize-icon.png"> 奖励<span>300</span>元现金</td>
+                    </tr>
+                    <tr>
+                        <td>6.2万≤累计投资金额＜12万 </td>
+                        <td><img src="images/activity/festival518/prize-icon.png"> 奖励<span>500</span>元现金</td>
+                    </tr>
+                    <tr>
+                        <td>12万≤累计投资金额＜35万</td>
+                        <td><img src="images/activity/festival518/prize-icon.png"> 奖励<span>1000</span>元现金</td>
+                    </tr>
+                    <tr>
+                        <td>累计投资金额≥35万</td>
+                        <td><img src="images/activity/festival518/prize-icon.png"> 奖励<span>3000</span>元现金</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="reminder">
+        <h1>温馨提示</h1>
+        <ul>
+            <li>本活动不享受平台返现、红包、加息券等平台其他任何福利，使用红包等福利的投资额将不计算本次活动内。</li>
+            <li>以活动结束后用户累计最高投资额送出相应的现金奖励，现金奖励不重复获得。</li>
+        </ul>
+    </div>
+    <div class="partb">
+        <img src="images/activity/festival518/partb-right.png" class="partb-right">
+        <div>
+            <h1>投资以下产品参与活动</h1>
+            <div class="cpa">
+                <h2>{{detaila.fullName}}</h2>
+                <div class="content-left">
+                    <h3>
+                        <p><span>{{detaila.rate}}</span>% + <span ng-if="detaila.activityRate>0">{{detaila.activityRate}}</span>%</p>
+                        <span>{{detaila.deadline}}天</span>
+                    </h3>
+                    <footer>
+                        <div class="progress"><div ng-attr-style="width: {{detaila.pert | setProgress}}%"></div></div>
+                        <p>{{detaila.pert | setProgress}}%</p>
+                    </footer>
+                </div>
+                <div class="content-right">
+                    <div ui-sref="cpDetail({pid:detaila.id})" class="button" ng-if="wap">立即投资</div>
+                    <a href="jsmp://page=9?pid={{detaila.id}}&ptype={{detaila.type}}" ng-if="!wap"><div class="button">立即投资</div></a>
+                </div>
+            </div>
+            <div class="cpb">
+                <h2>{{detailb.fullName}}</h2>
+                <div class="content-left">
+                    <h3>
+                        <p><span>{{detailb.rate}}</span>% + <span ng-if="detailb.activityRate>0">{{detailb.activityRate}}</span>%</p>
+                        <span>{{detailb.deadline}}天</span>
+                    </h3>
+                    <footer>
+                        <div class="progress"><div ng-attr-style="width: {{detailb.pert | setProgress}}%"></div></div>
+                        <p>{{detailb.pert | setProgress}}%</p>
+                    </footer>
+                </div>
+                <div class="content-right">
+                    <div ui-sref="cpDetail({pid:detailb.id})" class="button" ng-if="wap">立即投资</div>
+                    <a href="jsmp://page=9?pid={{detailb.id}}&ptype={{detailb.type}}" ng-if="!wap"><div class="button">立即投资</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rule">
+        <h1>活动规则</h1>
+        <p><span>1</span> 仅限投资期限60或180天以上的产品<mark>（35天标、活动标除外）</mark>；</p>
+        <p><span>2</span> 本活动不享受平台返现、红包、加息券等平台其他任何福利，使用红包等福利的投资额将不计算本次活动内；</p>
+        <p><span>3</span> 以活动结束后用户累计最高投资额送出相应的现金奖励，现金奖励不重复获得；</p>
+        <p><span>4</span> 活动结束后2个工作日，系统将自动发放现金奖励至您的平台账户中，返现奖励可继续投资或者直接提现；</p>
+        <p><span>5</span> 活动时间：2017年5月12日—2017年5月19日；</p>
+        <p><span>6</span> 本活动由沪深理财发起并就活动内容作出解释和说明。</p>
+    </div>
+    <!--icp备案号-->
+    <div class="icpba" style="background:none;">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司 v1.2.3</div>
+</div>

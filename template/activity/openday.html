@@ -1,0 +1,78 @@
+<div class="openday headerTop">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+	<div class="myMission kfr">
+		<img class="kfr-banner" ng-src="{{content.h5TopBanner}}">
+		<div class="enrol-box">
+			<div ng-if="wap&&content.isAppointment==true&&content.openDayId" ui-sref="kfrEnrol({wap:true,openDayId:content.openDayId})" class="enrol-button">我要报名</div>
+			<a ng-if="!wap&&content.isAppointment==true&&content.openDayId" href="jsmp://page=42?openDayId={{content.openDayId}}">
+				<div class="enrol-button">我要报名</div>
+			</a>
+			<img ng-if="content.isAppointment!=true || !content.openDayId" src="images/actList/wait.png">
+		</div>
+		<div class="content-box">
+			<h1>{{content.title}}</h1>
+			<p ng-bind-html="content.context | asHtml"></p>
+		</div>
+		<div class="act-live">
+			<header>活动现场</header>
+			<div class="slider">
+				<div class="img-box swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" ng-repeat="item in content.jsSpecialPic">
+							<img ng-src="{{item.imgUrl}}" style="width:100%;display:block;">
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination swiper-pagination-h"></div>
+			</div>
+		</div>
+		<div ng-if="opendayList.length>0" class="log-list">
+			<header>往期回顾</header>
+			<ul ng-if="showMore==false&&wap">
+				<li ng-repeat="item in opendayList | limitTo:2:0" ui-sref="GGXQ({wap:true,artiId:item.id,from:'kfr'})">
+					<div><img ng-src="{{item.imgUrl}}"></div>
+					<div>
+						<h1>{{item.openDayName}}</h1>
+						<p>{{item.openDayDate | date:'yyyy-MM-dd'}}</p>
+					</div>
+					<footer></footer>
+				</li>
+			</ul>
+			<ul ng-if="showMore==false&&!wap">
+				<a ng-repeat="item in opendayList | limitTo:2:0" href="jsmp://page=43?artiId={{item.id}}&from='kfr'">
+					<li>
+						<div><img ng-src="{{item.imgUrl}}"></div>
+						<div>
+							<h1>{{item.openDayName}}</h1>
+							<p>{{item.openDayDate | date:'yyyy-MM-dd'}}</p>
+						</div>
+						<footer></footer>
+					</li>
+				</a>
+			</ul>
+			<ul ng-if="showMore==true&&wap">
+				<li ng-repeat="item in opendayList" ui-sref="GGXQ({wap:true,artiId:item.id,from:'kfr'})" infinite-scroll='loadMore(item)' infinite-scroll-distance='1'>
+					<div><img ng-src="{{item.imgUrl}}"></div>
+					<div>
+						<h1>{{item.openDayName}}</h1>
+						<p>{{item.openDayDate | date:'yyyy-MM-dd'}}</p>
+					</div>
+					<footer></footer>
+				</li>
+			</ul>
+			<ul ng-if="showMore==true&&!wap">
+				<a ng-repeat="item in opendayList" href="jsmp://page=43?artiId={{item.id}}&from='kfr'" infinite-scroll='loadMore(item)' infinite-scroll-distance='1'>
+					<li>
+						<div><img ng-src="{{item.imgUrl}}"></div>
+						<div>
+							<h1>{{item.openDayName}}</h1>
+							<p>{{item.openDayDate | date:'yyyy-MM-dd'}}</p>
+						</div>
+						<footer></footer>
+					</li>
+				</a>
+			</ul>
+			<div ng-click="showMore=!showMore;" class="more"><img src="images/actList/up-icon.png"> 查看更多</div>
+		</div>
+	</div>
+</div>

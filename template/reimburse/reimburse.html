@@ -1,0 +1,102 @@
+<div class="reimburse headerTop" ng-controller="reimburseCtrl">
+    <div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i>
+        <p>{{title}}</p>
+        <span class="float-menu" ui-sref="eleStrategy">攻略</span>
+    </div>
+
+    <!--<div class="common-title">我要报销</div>-->
+    <ul class="myReimburse">
+        <li>
+            <p>报销总额</p>
+            <h2><span>{{reimburse.totalReimburseAmount}}</span>元</h2>
+        </li>
+        <li>
+            <p>已报销金额</p>
+            <h2><span>{{reimburse.reimbursedAmount}}</span>元</h2>
+        </li>
+        <li>
+            <p>剩余报销金额</p>
+            <h2><span class="red">{{reimburse.remainReimburseAmount}}</span>元</h2>
+        </li>
+    </ul>
+    <div class="common-title">报销任务</div>
+    <!--去提现-->
+    <div ng-if="!isUserCarried" class="reimburseTask">
+        <div class="block task1">
+            <div class="left">
+                <h2 ng-if="reimburse.type == 1" ng-bind="10"></h2>
+                <h2 ng-if="reimburse.type == 2" ng-bind="50"></h2>
+                <h2 ng-if="reimburse.type == 3" ng-bind="100"></h2>
+                <p>元</p>
+            </div>
+            <div class="content">
+                <div class="txt">
+                    <h3>任务一 : 首笔报销</h3>
+                    <h2>
+                        <span ng-if="reimburse.type == 1" ng-bind="10"></span>
+                        <span ng-if="reimburse.type == 2" ng-bind="50"></span>
+                        <span ng-if="reimburse.type == 3" ng-bind="100"></span>
+                        元已发放，可提现。</h2>
+                    <p>报销金额已发放至账户余额</p>
+                </div>
+                <div class="button"><a ng-click="toWithdraw()" class="btn btn2">去提现</a></div>
+            </div>
+        </div>
+        <div class="block task2">
+            <div class="left">
+                <h2 ng-if="reimburse.type == 1" ng-bind="40"></h2>
+                <h2 ng-if="reimburse.type == 2" ng-bind="450"></h2>
+                <h2 ng-if="reimburse.type == 3" ng-bind="4900"></h2>
+                <p>元</p></div>
+            <div class="content">
+                <div class="txt">
+                    <h3>任务二 : 分期报销 <span ng-show="isProcessing">进行中</span></h3>
+                    <h2>每7天可领一次，完成即可提现。</h2>
+                    <p>完成分期任务后立马发放至账户余额</p>
+                </div>
+                <div class="button"><a ng-click="toReimburse()" class="btn">去报销</a></div>
+            </div>
+        </div>
+
+    </div>
+    <!--已报销-->
+    <div ng-if="isUserCarried" class="reimburseTask">
+        <div class="block task2">
+            <div class="left">
+                <h2 ng-if="reimburse.type == 1" ng-bind="40"></h2>
+                <h2 ng-if="reimburse.type == 2" ng-bind="450"></h2>
+                <h2 ng-if="reimburse.type == 3" ng-bind="4900"></h2>
+                <p>元</p></div>
+            <div class="content">
+                <div class="txt">
+                    <h3>任务二 : 分期报销 <span ng-show="isProcessing">进行中</span></h3>
+                    <h2>每7天可领一次，完成即可提现。</h2>
+                    <p>完成分期任务后立马发放至账户余额</p>
+                </div>
+                <div class="button"><a ng-click="toReimburse()" class="btn">去报销</a></div>
+            </div>
+        </div>
+        <div class="block task1">
+            <div class="left">
+                <h2 ng-if="reimburse.type == 1" ng-bind="10"></h2>
+                <h2 ng-if="reimburse.type == 2" ng-bind="50"></h2>
+                <h2 ng-if="reimburse.type == 3" ng-bind="100"></h2>
+                <p>元</p>
+            </div>
+            <div class="content">
+                <div class="txt">
+                    <h3>任务一 : 首笔报销</h3>
+                    <h2>
+                        <span ng-if="reimburse.type == 1" ng-bind="10"></span>
+                        <span ng-if="reimburse.type == 2" ng-bind="50"></span>
+                        <span ng-if="reimburse.type == 3" ng-bind="100"></span>
+                        元已发放，可提现。</h2>
+                    <p>报销金额已发放至账户余额</p>
+                </div>
+                <div class="button"><img src="/images/activity/eCommerce/reimbursed.png" alt=""></div>
+            </div>
+        </div>
+
+    </div>
+    <p class="tips">每位用户仅可报销一次哦</p>
+</div>

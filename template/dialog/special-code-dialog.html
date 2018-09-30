@@ -1,0 +1,22 @@
+<div class="special-code-dialog special-dialog">
+	<div class="nocode" ng-show="!luckCodes">
+		<p>当前还没有抽奖码</p>
+		<div class="btnGroup">
+			<a ng-if="!fromNative" class="mr20" target="_bank" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">下载APP查看</a>
+			<a ng-click="toInvest()">立即抢购</a>
+		</div>
+	</div>
+	<div class="mycode" ng-show="luckCodes">
+		<div class="header">{{curLotteryInfo.fullName}}</div>
+		<p>抽奖码</p>
+		<div class="codebox">
+			<ul>
+			<!--<li class="blueBg" ng-repeat="item in luckCodesList track by $index">{{item}}</li>-->
+				<li class="redBg" ng-repeat="item in luckCodesList">{{item}}</li>
+			</ul>
+		</div>
+		<div class="btnGroup">
+			<a class="goinvest" target="_bank" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">下载APP查看往期抽奖码</a>
+		</div>
+	</div>
+</div>

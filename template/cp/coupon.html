@@ -1,0 +1,77 @@
+﻿<div ng-controller="couponController">
+	<div class="common-head" ng-click="onClick('')">
+        <i></i><p>选择优惠券</p>
+    </div>
+    
+    <div class="couponCnt mycoupon-list-wrap" style="background: #fff;padding-top: 0.1rem;padding-bottom: 3rem;">
+   	 <!--<div ng-class="{true:'h5-coupon new-coupon',false:'h5-coupon used-coupon'}[coupon.enableAmount <= amt || amt == null]"  ng-repeat="coupon in coupons">
+        &lt;!&ndash; <div class="used-coupon" ng-repeat="coupon in coupons" ng-click="onClick(coupon)"> &ndash;&gt;
+        	
+        <div class="coupon-card" ng-click="onClick(coupon)">
+            <div class="card-name">
+                <p ng-bind="{1:'返现券',2:'加息券',3:'体验金',4:'翻倍券'}[coupon.type]"></p>
+                <b ng-if="coupon.type==1"><span>￥</span>{{coupon.amount}}</b>
+                <b ng-if="coupon.type==2">{{coupon.raisedRates}}<span>%</span></b>
+                <b ng-if="coupon.type==3"><span>￥</span>{{coupon.amount}}</b>
+                <b ng-if="coupon.type==4">{{coupon.multiple}}倍</b>
+            </div>
+            <div class="info">
+                <p ng-class="{1:'fanxian'}[coupon.type]">使用说明</p>
+                <ul>
+                    <li>投资金额：单笔满<span>{{coupon.enableAmount}}</span>元</li>
+                    <li ng-if="coupon.type==1">投资期限：≥{{coupon.productDeadline}}天（活动标除外）</li>
+                    <li ng-if="coupon.type==1">有效期至：{{coupon.expireDate | date:'y-M-d'}}</li>
+                    <li ng-if="coupon.type==1">红包来源：{{coupon. }}</li>
+
+                    <li ng-if="coupon.type==2&&!coupon.pid">投资期限：≥{{coupon.productDeadline}}天（活动标除外）</li>
+                    <li ng-if="coupon.type==2&&!coupon.pid">有效期至：{{coupon.expireDate | date:'y-M-d'}}</li>
+                    <li ng-if="coupon.type==2&&!coupon.pid">加息券来源：{{coupon.remark}}</li>
+                    
+                    <li ng-if="coupon.type==2&&coupon.pid">限用标的：{{coupon.fullName}}</li>
+                    <li ng-if="coupon.type==2&&coupon.pid">有效期至：满标过期</li>
+                    <li ng-if="coupon.type==2&&coupon.pid">加息券来源：{{coupon.remark}}</li>
+                    &lt;!&ndash; <li ng-if="coupon.type!=3"><i></i> 有效日期：至<span>{{coupon.expireDate | date:'y-M-d'}}</span></li>
+                    <li ng-if="coupon.type==3">仅限新手标</li>
+                    <li ng-if="coupon.type==1"><i></i> 红包作用：投资成功返现</li>
+                    <li ng-if="coupon.type==2"><i></i> 红包作用：增加投资利息</li>
+                    <li ng-if="coupon.type==3"><i></i> 红包作用：增加投资本金</li>
+                    <li ng-if="coupon.type==4"><i></i> 红包作用：增加投资收益</li>
+                    <li><i></i> 投资金额：≥<span>{{coupon.enableAmount}}</span>元</li>
+                    <li ng-if="coupon.type==1"><i></i> 使用条件：产品期限≥{{coupon.productDeadline}}天且产品可用现金券</li>
+                    <li ng-if="coupon.type==2"><i></i> 使用条件：产品期限≥{{coupon.productDeadline}}天且产品可用加息券</li>
+                    <li ng-if="coupon.type==3"><i></i> 使用条件：产品期限≥{{coupon.productDeadline}}天且产品可用体验金</li>
+                    <li ng-if="coupon.type==4"><i></i> 使用条件：产品期限≥{{coupon.productDeadline}}天且产品可用翻倍券</li> &ndash;&gt;
+                    <li ng-if="coupon.type==4">投资期限：≥{{coupon.productDeadline}}天（活动标除外）</li>
+                    <li ng-if="coupon.type==4">有效期至：{{coupon.addtime | date:'y.M.d'}}-{{coupon.expireDate | date:'y.M.d'}}</li>
+                    <li ng-if="coupon.type==4">作用描述：基础利率翻倍</li>
+                </ul>
+                <p class="type1-tip" ng-if="coupon.type==1">满足以上条件红包即刻激活至账户</p>
+
+                <span class="showa" ng-if="myId != coupon.id">点击使用</span>
+                <span class="showa" ng-if="myId == coupon.id">已选择</span>
+            </div>
+            <div class="used" ng-if="active == 1"></div>
+            <div class="invalid" ng-if="active == 2"></div>
+        </div>
+    </div>-->
+        <div class="coupon-list" ng-class="{1:'fx-coupon',4:'fb-coupon',2:'jx-coupon'}[coupon.type]" ng-repeat="coupon in coupons" ng-if="coupon.status == 0"  ng-click="onClick(coupon)">
+            <div style="display: flex;" ng-class="{true:'new-coupon',false:'used-coupon'}[coupon.enableAmount <= amt || amt == null]">
+                <div class="left" ng-class="{1:'fx-coupon',4:'fb-coupon',2:'jx-coupon'}[coupon.type]">
+                    <p class="money" ng-if="coupon.type==1">¥<span>{{coupon.amount}}</span></p>
+                    <!--<p class="money" ng-if="coupon.type==2">￥<span>{{coupon.amount}}</span></p>-->
+                    <p class="money" ng-if="coupon.type==2"><span>{{coupon.raisedRates}}</span>%</p>
+                    <p class="money" ng-if="coupon.type==4"><span>{{coupon.multiple}}</span>倍</p>
+                    <p class="name" ng-bind="{1:'红包',2:'加息券',3:'体验金',4:'翻倍券'}[coupon.type]"></p>
+                </div>
+                <div class="middle" ng-class="{1:'fx-coupon',4:'fb-coupon',2:'jx-coupon'}[coupon.type]">
+                    <p>单笔满{{coupon.enableAmount}}元</p>
+                    <p>期限满{{coupon.productDeadline}}天（活动标除外）</p>
+                    <p class="time">有效期至：{{coupon.expireDate | date:'yyyy-MM-dd'}}</p>
+                </div>
+                <div class="right" ng-class="{1:'fx-coupon',4:'fb-coupon',2:'jx-coupon'}[coupon.type]">
+                    立即使用
+                </div>
+            </div>
+        </div>
+	</div>
+</div>

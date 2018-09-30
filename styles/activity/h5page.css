@@ -1,0 +1,47 @@
+.h5-aqbz-c{
+	width: 100%;
+	/*height: 1000px;*/
+  /*min-height: 71rem;*/
+	height: 80rem;
+  overflow-x: hidden;
+	color: #b47719;
+  overflow: hidden;
+	background: -webkit-linear-gradient(#fff, #565557); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#fff, #565557); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#fff, #565557); /* Firefox 3.6 - 15 */
+  background: linear-gradient(#fff, #565557); /* 标准的语法（必须放在最后） */
+}
+.h5-aqbz-c h1{
+  	font-family: "微软雅黑";
+  	font-weight: bold;
+  	font-size: 2.5rem;
+  	margin-left:3rem; 
+  	letter-spacing: .1rem;
+}
+.h5-aqbz-c div{
+  	/*background:#fff; */
+}
+.h5-aqbz-zwbody{
+  	color:#000; 
+  	font-size:2rem; 
+  	padding: 1rem; 
+  	/*text-align: center;*/
+}
+.h5-aqbz-zwbody div{
+  margin-bottom:3rem;
+}
+.h5-aqbz-jb{
+	opacity:0.2;
+	filter:Alpha(opacity=50); /* IE8 以及更早的浏览器 */
+  /*position:fixed;*/
+  bottom:0;
+
+}
+.h5-aqbz-jb img{
+  width: 20rem;
+  bottom:0;
+  /*display:box;
+  box-align:end;*/
+  float: right;
+  margin-right: 3rem;
+}

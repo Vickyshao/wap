@@ -1,0 +1,252 @@
+<div class="operationData headerTop " ng-controller="operationCtrl">
+    <h2 ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </h2>
+    <!--平台实时数据-->
+    <div class="real-time-data clearfix" >
+        <div class="title">
+            <p class="title-head">【平台数据】</p>
+            <p class="title-tip">（数据每隔两小时更新一次）</p>
+        </div>
+        <div class="content clearfix" >
+            <div  class="detail">
+                <img src="images/showInfo/realTime/loan-sum.png">
+                <p>累计出借金额(元)</p>
+                <p class="hide show">{{dataList1.list1[0].sumAmount | number: 0}}</p>
+                <p class="counter" data-counter-time="1000" data-counter-delay="10">99999999</p>
+            </div>
+            <div  class="detail">
+                <img src="images/showInfo/realTime/loan-count.png">
+                <p>累计出借笔数(笔)</p>
+                <p class="hide show">{{dataList1.list1[0].countAmount}}</p>
+                <p  class="counter" data-counter-time="1000" data-counter-delay="10">45555</p>
+            </div>
+            <div   class="detail">
+                <img src="images/showInfo/realTime/income-sum.png">
+                <p>累计收益金额(元)</p>
+                <p class="hide show">{{dataList2.profitCumulative | number: 0}}</p>
+                <!--<p class="hide show">2222</p>-->
+                <p  class="counter" data-counter-time="1000" data-counter-delay="10">8888</p>
+            </div>
+            <div   class="detail">
+                <img src="images/showInfo/realTime/loan-person-count.png">
+                <P>累计出借人数量(人)</P>
+                <p class="hide show">{{dataList1.list3[0].countUid}}</p>
+                <!--<p class="hide show">11111</p>-->
+                <p  class="counter" data-counter-time="1000" data-counter-delay="10">8888</p>
+            </div>
+            <div  class="detail">
+                <img src="images/showInfo/realTime/current-loan-person-count.png">
+                <P>当期出借人数量(人)</P>
+                <p class="hide show">{{dataList1.list4[0].dpirUid}}</p>
+                <!--<p class="hide show">1111</p>-->
+                <p  class="counter" data-counter-time="1000" data-counter-delay="10">8888</p>
+            </div>
+            <div  class="detail">
+                <img src="images/showInfo/realTime/platform-users.png">
+                <P>平台用户数(人)</P>
+                <p class="hide show">{{dataList2.regCount}}</p>
+                <p  class="counter" data-counter-time="1000" data-counter-delay="10">8888</p>
+            </div>
+        </div>
+    </div>
+    <!--借款人数据（暂时不做）-->
+    <!--<div class="loan-data clearfix">-->
+        <!--<div class="title">-->
+            <!--<p class="title-head">【借款人数据】</p>-->
+            <!--<p class="title-tip">（以下数据截止至2017年12月31日）</p>-->
+        <!--</div>-->
+       <!--<div class="content clearfix">-->
+           <!--<div   class="detail">-->
+               <!--<img src="images/showInfo/loanData/loan-person-count.png">-->
+               <!--<p>借贷余额(元)</p>-->
+               <!--<p>8888</p>-->
+           <!--</div>-->
+           <!--<div   class="detail">-->
+               <!--<img src="images/showInfo/loanData/current-loan-person-count.png">-->
+               <!--<p>借贷余额笔数(笔)</p>-->
+               <!--<p>888</p>-->
+           <!--</div>-->
+           <!--<div   class="detail">-->
+               <!--<img src="images/showInfo/loanData/borrowingBalance.png">-->
+               <!--<p>累计借款人数量(元)</p>-->
+               <!--<p>8888</p>-->
+           <!--</div>-->
+           <!--<div   class="detail">-->
+               <!--<img src="images/showInfo/loanData/borrowingBalanceCount.png">-->
+               <!--<P>当期借款人数量(人)</P>-->
+               <!--<p>2222</p>-->
+           <!--</div>-->
+           <!--<div   class="special" >-->
+               <!--<p>前十大借款人待还金额占比10%</p>-->
+               <!--<p>关联关系借款余额0元</p>-->
+           <!--</div>-->
+           <!--<div   class="special">-->
+               <!--<P>最大单一借款人待还金额占比10%</P>-->
+               <!--<P>关联关系借款笔数0元</P>-->
+           <!--</div>-->
+       <!--</div>-->
+    <!--</div>-->
+
+    <!--风险控制-->
+    <div class="loan-data clearfix">
+        <div class="title">
+            <p class="title-head">【风险控制】</p>
+            <p class="title-tip">（以下数据截止至2017年12月31日）</p>
+        </div>
+        <div class="content clearfix">
+            <div   class="detail">
+                <img src="images/showInfo/riskCtrl/1.png">
+                <p>逾期金额(元)</p>
+                <p  >0</p>
+            </div>
+            <div   class="detail">
+                <img src="images/showInfo/riskCtrl/2.png">
+                <p>逾期笔数(笔)</p>
+                <p   >0</p>
+            </div>
+            <div   class="detail">
+                <img src="images/showInfo/riskCtrl/3.png">
+                <p>累计代偿金额(元)</p>
+                <p  >0</p>
+            </div>
+            <div   class="detail">
+                <img src="images/showInfo/riskCtrl/4.png">
+                <P>累计代偿笔数(人)</P>
+                <p   >0</p>
+            </div>
+        </div>
+    </div>
+    <!--逾期金额-->
+    <div class="loan-data clearfix" >
+        <div class="title" style="border: none; color: #666;">
+            <p class="title-head special" >逾期金额</p>
+        </div>
+        <div class="mode" >
+            <ul class="overdueSum">
+                <li >
+                    <div class="left">
+                        <p>逾期金额</p>
+                    </div>
+                    <div class="right">￥0.00</div>
+                </li>
+            </ul>
+            <div class="block"></div>
+            <ul class="overdueSum">
+                <li >
+                    <div class="left">
+                        <p>1~90天逾期金额</p>
+                    </div>
+                    <div class="right">￥0.00</div>
+                </li>
+            </ul>
+            <div class="block"></div>
+            <ul class="overdueSum">
+                <li >
+                    <div class="left">
+                        <p>91~180天逾期金额</p>
+                    </div>
+                    <div class="right">￥0.00</div>
+                </li>
+            </ul>
+            </ul>
+            <div class="block"></div>
+            <ul class="overdueSum">
+                <li >
+                    <div class="left">
+                        <p>181天以上逾期金额</p>
+                    </div>
+                    <div class="right">￥0.00</div>
+                </li>
+            </ul>
+            </ul>
+            <div class="block"></div>
+        </div>
+    </div>
+    <!--逾期笔数-->
+    <div class="loan-data" >
+        <div class="title" style="border: none; color: #666;">
+            <p class="title-head special" >逾期笔数</p>
+        </div>
+        <div class="mode" >
+            <ul class="overdueSum">
+                <li >
+                    <div class="left">
+                        <p>逾期笔数</p>
+                    </div>
+                    <div class="right">￥0.00</div>
+                </li>
+            </ul>
+            <div class="block"></div>
+            <ul class="overdueSum">
+                <li >
+                    <div class="left">
+                        <p>1~90天逾期笔数</p>
+                    </div>
+                    <div class="right">￥0.00</div>
+                </li>
+            </ul>
+            <div class="block"></div>
+            <ul class="overdueSum">
+                <li >
+                    <div class="left">
+                        <p>91~180天逾期笔数</p>
+                    </div>
+                    <div class="right">￥0.00</div>
+                </li>
+            </ul>
+            </ul>
+            <div class="block"></div>
+            <ul class="overdueSum">
+                <li >
+                    <div class="left">
+                        <p>181天以上逾期笔数</p>
+                    </div>
+                    <div class="right">￥0.00</div>
+                </li>
+            </ul>
+            </ul>
+            <div class="block"></div>
+        </div>
+    </div>
+    <!--运营报告-->
+    <div class="operation-reports" >
+        <div class="title" style="border: none; color: #666;">
+            <p class="title-head" style="color: #666;">【运营报告】</p>
+        </div>
+        <div class="content clearfix">
+            <div class="mode modepad" >
+                <ul class="tapsub clearfix">
+                    <li ng-click="changesub(2)" ><a href="" ng-class="{2:'active'}[tapsub]">2018</a></li>
+                    <li ng-click="changesub(1)" ><a href="" ng-class="{1:'active'}[tapsub]">2017</a></li>
+                </ul>
+                <!--2018-->
+                <div class="submode" ng-if="tapsub==2">
+                    <div class="switch">
+                        <div class="swiper">
+                            <my-banner banner="banner1" seconds="5000"></my-banner>
+                        </div>
+                    </div>
+
+                </div>
+                <!--2017-->
+                <div class="submode" ng-if="tapsub==1">
+                    <div class="switch">
+                        <div class="swiper">
+                            <my-banner banner="banner2" seconds="5000"></my-banner>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--收费标准-->
+    <div class="loan-data" >
+        <div class="title" style="border: none; color: #666;">
+            <p class="title-head" style="color: #666;">【收费标准】</p>
+        </div>
+        <div class="content standard" >
+            <div ng-bind-html="incomeRegulation | asHtml"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,230 @@
+<div class="pullNewWrap w-pullNewWrap billGift" ng-controller="commonSemCtrl">
+    <main>
+        <img style="width: 100%;display: inline-block;vertical-align: top;" src="/images/activity/promote/pullnew-w/pullnew-w-banner.jpg">
+        <a href="/main/home" class="logo"></a>
+        <div class="register-box">
+            <div class="promote-box">
+                <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                    <div class="step1" ng-show="form">
+                        <div class="input-item">
+                            <img src="/images/activity/tyj/ico-1.png" style="left:0.7rem;" />
+                            <div class="input-box">
+                                <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号码" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step2" ng-show="!form">
+                        <div class="input-item" ng-show="isShowPicCode">
+                            <img src="/images/activity/tyj/ico-2.png" style="left:0.6rem;"/>
+                            <div class="input-box" style="width:57%;margin-right:3%;float:left;">
+                                <input id="imgcode" class="input" type="text" placeholder="请输入图形验证码" ng-model="login.picCode" name="picCode" minlength="4" maxlength="4" autocomplete="off" />
+                            </div>
+                            <div style="width:40%;float:right;">
+                                <span class="img-box"><img ng-click="clickInput($event)" src="login/validateCode2.dos"></span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/tyj/ico-3.png" />
+                            <div class="input-box" style="width:57%;margin-right:3%;float:left;">
+                                <input name="smsCode" ng-model="login.smsCode"  type="text"  placeholder="请输入短信验证码" maxlength="4" required class="input">
+                            </div>
+                            <div class="input-box" style="width:40%;float:left;border:1px solid #fba104;color:#fff;box-sizing:border-box;background:#fba104;">
+                                <span ng-click="getyzm(myForm)" style="color:#fff;">{{nowTimer}}</span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/tyj/ico-4.png" />
+                            <div class="input-box">
+                                <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/" maxlength="16" ng-model="login.passWord" name="passWord" required class="input" />
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc">《沪深理财注册协议》</a></p>
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <button class="btn"  ng-show="form" ng-click="next(myForm)" ng-disabled="!agree">立即注册&nbsp;&nbsp;&nbsp;享288元新手红包</button>
+                        <button class="btn"  ng-show="!form" ng-click="zuce(myForm)" ng-disabled="!agree">立即注册</button>
+                         <p class="toLogin" style="text-align: center;color: #fff;padding-top: 20px"><a style="color: #fff;">我已注册？<span ng-click="toLogin()" style="text-decoration:underline;color:#fdc00a;">立即登录</span></a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+   <!-- <div class="w-pull-link" ng-show="form">
+        <a class="w-pull-toreg">已有账号？</a>
+        <a class="w-pull-tologin" href="/dl">立即登录</a>
+    </div>-->
+    <div class="w-pull-active-info">
+        <ul>
+            <li class="li">
+                <div class="icon">
+                    <img src="/images/activity/promote/pullnew-w/w-pull-icon1.png" alt="">
+                </div>
+                <p class="title">实力雄厚</p>
+                <div class="text">
+                    实缴1亿注册资金
+                </div>
+            </li>
+            <li class="li">
+                <div class="icon">
+                    <img src="/images/activity/promote/pullnew-w/w-pull-icon2.png" alt="">
+                </div>
+                <p class="title">风险保障</p>
+                <div class="text">
+                    精确风控优先垫付
+                </div>
+            </li>
+            <li class="li">
+                <div class="icon">
+                    <img src="/images/activity/promote/pullnew-w/w-pull-icon4.png" alt="">
+                </div>
+                <p class="title">银行存管</p>
+                <div class="text">
+                    正式签约存管协议
+                </div>
+            </li>
+            <li class="li">
+                <div class="icon">
+                    <img src="/images/activity/promote/pullnew-w/w-pull-icon3.png" alt="">
+                </div>
+                <p class="title">合规经营</p>
+                <div class="text">
+                    专业级律所法律支持
+                </div>
+            </li>
+        </ul>
+        <div class="gift gift1">
+            <div class="name">
+                <img src="/images/activity/promote/pullnew-w/w-pull-gift1.png" alt="">
+            </div>
+            <h2>新手福利 壕礼多多</h2>
+            <div class="img">
+                <img src="/images/activity/promote/pullnew-w/w-pull-hbbg.png" alt="" ng-click="gotop()">
+            </div>
+            <p class="text">他们都在领红包</p>
+            <p class="table-title">
+                <span>用户</span>
+                <span>领取时间</span>
+            </p>
+            <div class="table-wrap">
+                <table class="get-table">
+                    <tr ng-repeat="item in peopleList">
+                        <td>{{item.mobilePhone}}</td>
+                        <td>{{item.regdate}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="gift gift2">
+            <div class="name">
+                <img src="/images/activity/promote/pullnew-w/w-pull-gift2-icon.png" alt="">
+            </div>
+            <h2>
+                新手专享标
+                <span class="mess">100元起投，每位用户仅限投一次新手标，机不可失</span>
+            </h2>
+            <div class="img">
+                <img src="/images/activity/promote/pullnew-w/w-pull-gift2.png" alt="">
+            </div>
+            <div class="btn">
+                <a href="" ng-click="gotop()" >
+                    <img src="/images/activity/promote/pullnew-w/w-pull-qg.png" alt="">
+                </a>
+            </div>
+            <p class="mess">偷偷告诉你，只要未投资过新手标，老用户也能投哦</p>
+        </div>
+        <div class="gift gift3">
+            <div class="name">
+                <img src="/images/activity/promote/pullnew-w/w-pull-gift3.png" alt="">
+            </div>
+            <h2>
+                超值好礼 投即送
+            </h2>
+            <div class="jdcard">
+                <img src="/images/activity/promote/pullnew-w/w-pull-jd1.png" alt="">
+            </div>
+            <div class="jdcard">
+                <img src="/images/activity/promote/pullnew-w/w-pull-jd2.png" alt="">
+            </div>
+            <div class="jdcard">
+                <img src="/images/activity/promote/pullnew-w/w-pull-jd3.png" alt="">
+            </div>
+            <div class="jdcard">
+                <img src="/images/activity/promote/pullnew-w/w-pull-jd5.png" alt="">
+            </div>
+            <div class="jdcard">
+                <img src="/images/activity/promote/pullnew-w/w-pull-jd6.png" alt="">
+            </div>
+            <div class="btn">
+                <a href="" ng-click="gotop()" >
+                    <img src="/images/activity/promote/pullnew-w/w-pull-qg.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="borrow">
+            <img src="/images/activity/promote/pullnew-w/w-pull-borrow1.png" alt="">
+            <a href="" class="toborrow" ng-click="gotop()"></a>
+        </div>
+        <div class="borrow">
+            <img src="/images/activity/promote/pullnew-w/w-pull-borrow2.png" alt="">
+            <a href="" class="toborrow" ng-click="gotop()"></a>
+        </div>
+        <div class="rule">
+            <div class="title">
+                <img src="/images/activity/promote/pullnew-w/w-pull-rule.jpg" alt="">
+            </div>
+            <ul class="rule-list">
+                <li>
+                    <span>1、</span>
+                    活动时间：自2017年12月7日起；
+                </li>
+                <li>
+                    <span>2、</span>
+                    此活动仅限于本页面完成注册并首次投资的新用户，首次投资成功后即送规则内对应奖励；
+                </li>
+                <li>
+                    <span>3、</span>
+                    用户成功注册后，系统将自动发放288元新手红包，请前往PC端“我的账户>我的福利>我的优惠券”或APP端“我的-优惠券”查看；
+                </li>
+                <li>
+                    <span>4、</span>
+                    投资时可根据投资金额使用相应红包获得返现，新手红包需在有效期内进行兑现；
+                </li>
+                <li>
+                    <span>5、</span>
+                    京东卡（电子卡）将在首次投资成功后，10个工作日内发放至您的注册手机号中；
+                </li>
+                <li>
+                    <span>6、</span>
+                    每个身份证仅限参与一次，刷奖及冒用他人身份证、银行卡者一经核实，将会取消其活动资格，所有奖励不予兑换；
+                </li>
+                <li>
+                    <span>7、</span>
+                    此活动不与平台其他活动同享（且新手标及活动标不参与本活动）。
+                </li>
+            </ul>
+            <p class="rule-footer" style="text-align: left;padding-left: 1rem;line-height: 1.5rem;">
+                * 本活动最终解释权归沪深理财所有，如有疑问请咨询客服：400-031-9909。
+            </p>
+            <div class="zc-img">
+                <img src="/images/activity/promote/pullnew-w/w-pull-img2.png" alt="">
+            </div>
+        </div>
+        <div class="w-pull-confooer">
+            <p class="text">
+                体验投资乐趣 坐享投资收益
+            </p>
+            <div class="btn">
+                <a ng-click="gotop()">
+                    <img src="/images/activity/promote/pullnew-w/w-pull-qg.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="w-pull-footer">
+            粤ICP备17064674号-1 <br>
+            Copyright © 2017深圳前海云轩互联网金融服务有限公司v1.0.0  <br>
+            温馨提示：市场有风险，投资需谨慎
+        </div>
+    </div>
+</div>

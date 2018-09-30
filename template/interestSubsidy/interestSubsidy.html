@@ -1,0 +1,121 @@
+<div class="interest-subSidy headerTop" ng-controller="interestSubsidyCtrl">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="banner">
+        <img src="/images/interestSubsidy/banner-top.png" alt="" class="img">
+        <!--期数-->
+        <div class="num">
+            <img src="/images/interestSubsidy/rule-icon.png" alt="" ng-click="goLook()">
+        </div>
+        <!--时间-->
+        <div class="bETime">
+            活动时间：即日起 -- 2018.4.30
+        </div>
+    </div>
+    <div class="notebook-content">
+        <div class="tip-result">
+            <img src="/images/interestSubsidy/tip-icon.png" alt="" class="tip-icon">
+            <div class="tip-content">
+                <div class="tip-img">
+                    <p>
+                        活动期间内，总资产达到一定金额即可得到一张贴息卡,
+                    </p>
+                    <p> 在有效期内每次投资都可使用，还可叠加优惠券。</p>
+                </div>
+                <div class="calc-result" ng-show="isLogin">
+                    <div>
+                        <p>
+                            <span>您当前总资产(元)</span>=
+                            <span>投资金额(元)</span>+
+                            <span>可用金额(元)</span>
+                        </p>
+                        <p>
+                            <span style="color:red;">{{memberInfoForDiscount.balacne | isNumber}}</span>
+                            <span>{{memberInfoForDiscount.investedMoney  | isNumber}}</span>
+                            <span>{{memberInfoForDiscount.availableMoney  | isNumber}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="islogin-container">
+            <!--未登录-->
+            <div class="unLogin" ng-show="!isLogin">
+                <img src="/images/interestSubsidy/silver-card.png" alt="">
+                <a  ng-click="goToLogin()">
+                    <img src="/images/interestSubsidy/register-icon.png" alt="" class='button' >
+                </a>
+            </div>
+            <!--已登录-->
+            <div class="login" ng-show="isLogin">
+                <!--1已登录,资产达不到等级需求,去充值-->
+                <div class="hasNoSasset" ng-show="!memberInfoForDiscount.memberTypeDesc"><!--ng-show="memberInfoForDiscount.balacne < 15000"-->
+                    <img src="/images/interestSubsidy/silver-card.png" alt="">
+                    <p ng-show="memberInfoForDiscount.balacne < 15000 && (15000-memberInfoForDiscount.balacne) > 0">（还差{{15000-memberInfoForDiscount.balacne}}元可领~）</p>
+                    <div ng-show="memberInfoForDiscount.balacne < 15000 && memberInfoForDiscount.cps != 1">
+                        <img src="/images/interestSubsidy/recharge-icon.png" alt="" class='button' ng-click="goToRecharge()" style="margin-top: 3%;">
+                    </div>
+                    <div ng-show="memberInfoForDiscount.cps == 1">
+                        <img src="/images/interestSubsidy/recharge-icon.png" alt=""   class='button' ng-click="goToRecharge()" ng-show="memberInfoForDiscount.balacne < 15000" >
+                        <img src="/images/interestSubsidy/invest-get-icon.png" alt="" class='button' ng-click="cpsGoToInvest()" ng-show="memberInfoForDiscount.balacne >= 15000" >
+                    </div>
+                </div>
+                <!--2已登录有资产自动升级--提示-->
+                <div class="hasSasset" ng-show="memberInfoForDiscount.memberTypeDesc"><!--ng-show="memberInfoForDiscount.balacne >= 15000"-->
+                    <!--top卡-->
+                    <div class="invariability" ng-show="cardMoney == '500000'">
+                        <img ng-src="{{cardType}}" alt="" >
+                        <img src="/images/interestSubsidy/invest-icon.png" alt="" class='button invest-button' ng-click="topCardToVest()">
+                    </div>
+                    <div class="invariability" ng-hide="cardMoney == '500000'">
+                        <img ng-src="{{cardType}}" alt="" >
+                        <img src="/images/interestSubsidy/invest-icon.png" alt="" class='button invest-button' ng-click="upCardToVest()">
+                        <img src="/images/interestSubsidy/up.png" alt="" class='button-special ' >
+                    </div>
+                    <!--根据登录信息确定升级至什么卡-->
+                    <div class="variational" ng-hide="cardMoney == '500000'">
+                        <div class="variational-card"  ng-style="cardStyle">
+                            <p class="title">升级{{cardName}}</p>
+                            <p class="self-asset">
+                                <span ng-show="((memberInfoForDiscount.balacne)/cardMoney*100-20) > 0" ng-attr-style="margin-left: {{((memberInfoForDiscount.balacne)/cardMoney*100-20) < 60 ? ((memberInfoForDiscount.balacne)/cardMoney*100-20) : 60}}%" ng-class="{1:'yellow',2:'red'}[status]">{{memberInfoForDiscount.balacne}}元</span>
+                                <span ng-show="((memberInfoForDiscount.balacne)/cardMoney*100-20) < 0" style="margin-left: 0" ng-class="{1:'yellow',2:'red'}[status]">{{memberInfoForDiscount.balacne}}元</span>
+                            </p>
+                            <p class="progress">
+                                <span ng-attr-style="width: {{(memberInfoForDiscount.balacne)/cardMoney*100}}%" ng-class="{1:'white',2:'yellow'}[progressColor]"></span>
+                            </p>
+                            <p  class="next-asset clearfix">
+                                <span>下一等级：{{cardMoney}}元</span>
+                            </p>
+                            <p  class="description">
+                                <span>升级福利：<strong>{{rate}}</strong>%（&nbsp;额外加息{{ratePlus}}%&nbsp;）</span>
+                            </p>
+                            <p  class="time clearfix">
+                                <span>资产差距：≥{{cardMoney-memberInfoForDiscount.balacne}}元</span>
+                                <span>有效期至：2018-04-30</span>
+                            </p>
+                        </div>
+                    </div>
+                    <!--top-card没有下面按钮-->
+                    <img src="/images/interestSubsidy/up-icon.png" alt="" class="button up-button" ng-hide="cardMoney == '500000'" ng-click="goToRechargeUp()">
+                </div>
+            </div>
+        </div>
+        <div class="vip-list">
+            <img src="/images/interestSubsidy/vip-list.png" alt="">
+            <!--<img src="/images/interestSubsidy/notebook-bottom.png" alt="">-->
+        </div>
+    </div>
+    <div class="footer">
+        <img src="/images/interestSubsidy/footer.png">
+    </div>
+
+    <!--已下线-->
+    <div class="deline" ng-if="!isInActivityTime">
+        <div class="delineDialog">
+            <p>贴息活动已结束</p>
+            <p>敬请留意其他活动</p>
+        </div>
+    </div>
+</div>

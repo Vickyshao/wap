@@ -1,0 +1,24 @@
+<div class="wrap pb3 newhand-wrapper cp-wrapper prizedetail">
+    <div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+    <header>
+        <img src="{{prize.h5ImgUrlH}}" style="width:100%;min-height:12rem;">
+        <img src="images/activity/tjs/free.png" class="free">
+        <img src="images/activity/tjs/tzmfl.png" class="tzmfl">
+        <div>
+            <h1>{{prize.name}} <span> {{prize.simpleName}}</span></h1>
+            <p>原价 <span>￥{{prize.price | number:2}}</span></p>
+        </div>
+    </header>
+    <img src="images/activity/tjs/lpxq.png" style="width:100%;">
+    <img src="{{prize.h5DetailImgUrl}}" style="width:100%;">
+    <footer>
+        <img class="warning" ng-if="user && prize.isNot==1" src="images/activity/tjs/warning.png" style="width:100%;display:block;">
+        <div>
+            <p class="left">投资金额：<span>{{prize.amount}}</span>元</p>
+            <p class="right" ng-if="!user" ui-sref="dl({returnurl:'prizedetail'})">立即登录</p>
+            <p class="right" ui-sref="tjsinvestment({wap:true,pid:pid})" ng-if="user && prize.isNot==0">投资免费领</p>
+            <p class="right" ui-sref="giftyy({wap:true,id:prize.id})" ng-if="user && prize.isNot==1">我要预约</p>
+            <p class="null"></p>
+        </div>
+    </footer>
+</div>

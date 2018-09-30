@@ -1,0 +1,35 @@
+<div class="commonLoginWrap">
+	<!--预约ing内容-->
+	<div class="reservation ing" ng-show="!curReservation.clicked">
+		<div class="header">预约商品</div>
+		<div class="content">
+			<dl>
+				<dt></dt>
+				<dd>
+					<h2>{{curReservation.name}}</h2>
+					<p>市场价： <span>{{curReservation.marketPrice}}元</span></p>
+				</dd>
+			</dl>
+			<div class="codeNum">
+				<div class="input-wrap">
+					<a ng-click="sub()" class="minus"><i ng-class="{'1':'sub1','2':'sub2'}[subNum]"></i></a>
+					<input type="number" ng-model="vm.productNum">
+					<a ng-click="plus()" class="plus"><i ng-class="{'1':'plus1','2':'plus2'}[plusNum]"></i></a>
+				</div>&nbsp;个抽奖码
+			</div>
+			<p class="tips">预约总金额(元)：<span>{{vm.productNum*curReservation.unitPrice}}</span></p>
+			<div class="groupBtn">
+				<a ng-click="closeDialog()" class="cancle-btn">取消</a>
+				<a ng-click="submitReservation()" class="ok-btn">确认预约</a>
+			</div>
+			<p class="tips">预约后不会花费您的余额</p>
+		</div>
+	</div>
+	<!--预约over内容-->
+	<div class="reservation over" ng-show="curReservation.clicked">
+		<img src="/images/activity/lottery/smale.png" />
+		<h2>感谢您的预约</h2>
+		<div class="btn" ng-click="closeDialog()">好的</div>
+		<p class="tips">我们的投资顾问会尽快联系您</p>
+	</div>
+</div>

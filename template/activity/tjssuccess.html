@@ -1,0 +1,36 @@
+<div class="newhand-wrapper cp-wrapper tjssuccess" style="padding:0;margin-bottom:1rem;">
+    <div class="common-head"><p>{{title}}</p><span class="right" ui-sref="main.myaccountHome">关闭</span></div>
+    <div class="investSuccess headerTop">
+        <div class="investSuccess-info">
+            <img src="images/newhand/right.png" />
+            <h2>投资成功</h2>
+            <dl>
+                <dt>{{data.info.fullName}}</dt>
+                <dd>投资金额<span>{{data.prize.amount}}元</span></dd>
+                <dd>投资期限<span>{{data.info.deadline}}天</span></dd>
+                <dd>历史年化收益率
+                    <span>{{data.info.rate}}%<span ng-if="data.info.activityRate>0">
+                            +{{data.info.activityRate}}%
+                        </span></span>
+                </dd>
+                <dd>待收收益<span>{{data.shouyi}}元</span></dd>
+                <dd class="prizeName">投资送礼<span>{{data.prize.name}}&#x3000;{{data.prize.simpleName}}</span></dd>
+                <dd class="noaddress" ui-sref="tjsaddress({wap:true,investId:data.investId,type:data.prize.prizeType})">
+                    <div><img src="images/activity/tjs/write-address.png"></div>
+                </dd>
+                <!--<dd class="address" ng-if="hasaddress==true">收货地址<span ui-sref="tjsaddress({wap:true})">修改></span>
+                    <p>{{address}}</p>
+                    <p>{{name}}&#x3000;&#x3000;{{phone}}</p>
+                </dd>-->
+            </dl>
+        </div>
+        <div class="success-info" ng-if="data.info.type!=1">
+            <img src="images/newhand/investsuccess.png" />
+            <ul>
+                <li>购买成功<br />{{data.investTime|date:"yyyy.MM.dd"}}</li>
+                <li>产品成立<br />{{data.info.establish|date:"yyyy.MM.dd"}}</li>
+                <li>产品到期<br />{{data.info.expireDate|date:"yyyy.MM.dd"}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

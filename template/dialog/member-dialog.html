@@ -1,0 +1,29 @@
+<div class="winning-wrap">
+    <div class="close" ng-click="closeDialog()" ng-if="dialogType == 3">
+        <img src="/images/common/close-icon.png" alt="">
+    </div>
+    <!--机会用完了-->
+    <div class="type-wrap" ng-if="dialogType == 1">
+        <p>您本次刮奖机会已经全部用完了 <br>
+            请下周三再来吧！</p>
+    </div>
+    <!--分享或者投资还能刮奖-->
+    <div class="type-wrap" ng-if="dialogType == 2">
+        <p>分享/投资还能刮奖</p>
+    </div>
+    <!--需要首投-->
+    <div class="type-wrap" ng-if="dialogType == 3">
+        <p>您需完成<i>首投</i>后才能激活奖励</p>
+        <div class="button" ng-click="toInvestIng()">立即投资</div>
+    </div>
+    <!--投资成功-->
+    <div class="type-wrap success" ng-if="dialogType == 4">
+        <div class="icon"><img src="/images/memberWelfare/success-icon.png" alt="">投资成功</div>
+        <p>您获得了<i class="num">{{num}}</i>次刮奖机会</p>
+    </div>
+    <!--分享成功-->
+    <div class="type-wrap success" ng-if="dialogType == 5">
+        <div class="icon"><img src="/images/memberWelfare/success-icon.png" alt="">分享成功</div>
+        <p>您获得了<i class="num">1</i>次刮奖机会</p>
+    </div>
+</div>

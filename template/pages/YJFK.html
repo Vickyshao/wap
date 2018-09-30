@@ -1,0 +1,20 @@
+<div class="wrap newhand-wrapper" ng-controller="YJFKController">
+
+	<div class="common-head" >
+		<i ng-click="toback()"></i>
+		<p>意见反馈</p>
+		<span class="right" ng-click="toDial()">
+            <img src="/images/find/find_feedback_kefu.png" alt="" style="width: 1.5rem;vertical-align: middle;">
+        </span></div>
+	<div>
+	<form class="wap-xxfk-box" name="yjfk">
+		<textarea type="text" ng-model="content" required placeholder="沪深理财力求向您提供优质、高效的服务，请您留下宝贵建议...（200字以内）"></textarea>
+	</form>
+	</div>
+	<!-- <div class="button" ng-click="toSub()"
+	ng-disabled="content.$dirty && content.$invalid ">
+                提交
+    </div> -->
+    <div ng-if="yjfk.$invalid"  class="headerTop blue-btn">提交</div>
+    <div ng-if="!yjfk.$invalid"  class="headerTop blue-btn" ng-click="toSub()" >提交</div>
+</div>

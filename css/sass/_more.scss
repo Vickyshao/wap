@@ -1,0 +1,303 @@
+.introducedep {
+  padding-bottom: rem-calc(160);
+  .banner {
+    display: block;
+    width: 100%;
+  }
+  .content {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    header {
+      text-align: center;
+      color: #2180BF;
+      font-weight: bold;
+      margin-bottom: rem-calc(50);
+      font-size: 1.2rem;
+      img {
+        width: 2rem;
+        margin: 0 rem-calc(30);
+      }
+    }
+    .top {
+      position: absolute;
+      top: 0;
+      width: 3rem;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    &.parta {
+      background-color: #F1F5FE;
+      padding: rem-calc(110) rem-calc(70);
+      p {
+        text-indent: 2em;
+        line-height: rem-calc(65);
+        color: #333333;
+        font-size: 0.9rem;
+      }
+    }
+    &.partb {
+      background-color: #FFFFFF;
+      padding: rem-calc(110) 0;
+      h2 {
+        font-size: 1rem;
+        color: #2180BF;
+        border: 1px solid #2180BF;
+        line-height: rem-calc(80);
+        height: rem-calc(80);
+        border-radius: rem-calc(40);
+        margin: 0 auto;
+        width: 75%;
+        text-align: center;
+      }
+      main {
+        img {
+          width: 100%;
+          display: block;
+          margin-top: rem-calc(110);
+        }
+      }
+    }
+    &.partc {
+      background-color: #FFFFFF;
+      padding: 0;
+      .bg {
+        width: 100%;
+        display: block;
+      }
+      > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: rem-calc(160) 0 0 0;
+        box-sizing: border-box;
+        header {
+          color: #FFFFFF;
+          margin-bottom: rem-calc(100);
+        }
+        main {
+          padding: 0 rem-calc(40);
+          img {
+            display: block;
+            width: 100%;
+            margin-bottom: rem-calc(50);
+          }
+        }
+      }
+    }
+    &.partd {
+      background-color: #FFFFFF;
+      padding: rem-calc(80) 0 rem-calc(50) 0;
+      > img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+  .footer-bar {
+    position: fixed;
+    width: 100%;
+    max-width: 750px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #4C4C4C;
+    box-sizing: border-box;
+    padding: rem-calc(30) rem-calc(40);
+    .left {
+      float: left;
+      margin-right: rem-calc(60);
+      min-height: rem-calc(90);
+      h3 {
+        font-size: 0.8rem;
+        color: #FFFFFF;
+        line-height: rem-calc(50);
+        height: rem-calc(50);
+      }
+      p {
+        color: #FFB857;
+        font-size: 0.8rem;
+        line-height: rem-calc(50);
+        height: rem-calc(50);
+      }
+    }
+    .button {
+      position: absolute;
+      right: rem-calc(150);
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      padding: 0 rem-calc(40);
+      height: rem-calc(100);
+      line-height: rem-calc(100);
+      background-color: #FFB857;
+      color: #925700;
+      font-size: 1rem;
+      border-radius: 0.3rem;
+    }
+    img {
+      position: absolute;
+      right: rem-calc(40);
+      width: rem-calc(70);
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+  .icpba {
+    color: #FFFFFF;
+    background-color: #1E8BD6;
+  }
+}
+
+.server-upgrade {
+  width: 100%;
+  .img {
+    position: relative;
+    font-size: 0;
+    img {
+      width: 100%;
+    }
+    .text {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding-top: rem-calc(76, 750);
+      width: 100%;
+      .text-info {
+        width: rem-calc(578, 750);
+        font-size: rem-calc(24, 750);
+        color: #333;
+        line-height: 1.6rem;
+        margin: 0 auto;
+        position: relative;
+        left: -1rem;
+      }
+      .logo {
+        text-align: center;
+        margin-top: 0.5rem;
+        img {
+          width: rem-calc(162, 750);
+        }
+      }
+    }
+  }
+}
+
+.eContractIntroduce-wrap {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  background: #fff;
+  .banner {
+    font-size: 0;
+    img {
+      width: 100%;
+    }
+  }
+  .text-content {
+    padding: rem-calc(0 30, 750);
+    color: #454545;
+    h2 {
+      padding-top: rem-calc(85, 750);
+      line-height: 100%;
+      font-size: rem-calc(40, 750);
+      font-weight: bold;
+      text-align: center;
+      padding-bottom: rem-calc(45, 750);
+    }
+    .txt {
+      line-height: rem-calc(52, 750);
+      font-size: rem-calc(24, 750);
+      text-align: justify;
+    }
+    .img {
+      margin-top: rem-calc(73, 750);
+      padding-bottom: rem-calc(58, 750);
+      font-size: 0;
+      text-align: center;
+      img {
+        width: rem-calc(426, 750);
+      }
+    }
+  }
+  .carousel {
+    width: 100%;
+    background: url("/images/eContractIntro/img8.png") repeat;
+    padding-bottom: rem-calc(83,750);
+    h2 {
+      font-size: rem-calc(36, 750);
+      text-align: center;
+      font-weight: bold;
+      padding-bottom: rem-calc(64, 750);
+      padding-top: rem-calc(82, 750);
+    }
+    .swiper {
+      width: 100%;
+      margin: 0 auto;
+      .swiper-container {
+        width: 100%;
+        .swiper-slide {
+          img {
+            width: 100%;
+          }
+        }
+        .swiper-over-wrapper{
+          width: rem-calc(583, 750);
+          height: rem-calc(723, 750);
+          margin: 0 auto;
+          overflow: hidden;
+        }
+        .swiper-button-prev {
+          width: rem-calc(56, 750);
+          height: rem-calc(98, 750);
+          background: url("/images/eContractIntro/left-icon.png") no-repeat center/cover;
+          z-index: 10;
+          left: rem-calc(12,750);
+        }
+        .swiper-button-next {
+          width: rem-calc(56, 750);
+          height: rem-calc(98, 750);
+          background: url("/images/eContractIntro/right-icon.png") no-repeat center/cover;
+          z-index: 10;
+          right: rem-calc(12,750);
+        }
+
+      }
+    }
+  }
+  .question {
+    padding: rem-calc(0 30, 750);
+    color: #454545;
+    h2 {
+      padding-top: rem-calc(88, 750);
+      line-height: 100%;
+      font-size: rem-calc(40, 750);
+      font-weight: bold;
+      text-align: center;
+      padding-bottom: rem-calc(70, 750);
+    }
+    .txt{
+      padding: 0;
+      color: #454545;
+      text-align: justify;
+      h3{
+        font-size: rem-calc(28,750);
+        font-weight: bold;
+        margin-bottom: rem-calc(35,750);
+        img{
+          width: rem-calc(50,750);
+          vertical-align: middle;
+        }
+      }
+      .word{
+        padding-bottom: rem-calc(88,750);
+        font-size: rem-calc(24, 750);
+        line-height: rem-calc(48,750);
+      }
+    }
+  }
+}

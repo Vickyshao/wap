@@ -1,0 +1,280 @@
+<!-- <div class="cp-head"><span style=""><</span>{{title}}</div> -->
+<div class="wrap newhand-wrapper cp-wrapper" ng-controller='investmentController' style="overflow: hidden;padding-bottom:0;">
+    <div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+    <div class="container">
+<!-- 头 新手 -->
+        <!--<div class="handbox marT info-box" ng-if="cp.info.type == 1">
+            <h2>{{cp.info.fullName}}</h2>
+            <table>
+                <tr>
+                    <td rowspan="2" width="42%" class="noleft">
+                        <div class="mod">
+                            <span>历史年化收益</span>
+                            <p>
+                                <i>{{cp.info.rate}}%</i>
+                                <i ng-if="cp.info.activityRate>0">+{{cp.info.activityRate}}%</i>
+                            </p>
+                        </div>
+                    </td>
+                    <td width="28%">
+                        <div class="mod">
+                            <span>产品期限      </span>
+                            <div class="marT"><span class="color-orange">{{cp.info.deadline}}</span>天</div>
+                        </div>
+                    </td>
+                    <td width="28%" class="noright">
+                        <div class="mod">
+                            <span>起息规则</span>
+                            <div class="marT"><span class="color-orange">次日起息</span></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="mod">
+                            <span>起投金额（元）</span>
+                            <div class="marT"><span class="color-orange">{{cp.info.leastaAmount| number}}</span></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>-->
+<!-- 头 不是新手 -->
+        <div class="handbox marT info-box" ng-if="cp.info.type != 1">
+            <h2>
+                <p ng-if="cp.info.repayType!=3 && cp.info.repayType!=4" class="imgs">
+                    <!--<img ng-if="cp.info.atid" src="images/cs90/iphone7title.png" class="icon icon-activity" />-->
+                    <!-- 尾标奖icon -->
+                    <img class="icon icon_tail" ng-if="!cp.info.atid && !isNoNormal" src="images/activity/tailaward/icon_tail.png">
+
+                    <img class="icon icon_bb" ng-if="cp.info.isRepair==1" src="images/list/icon_bb.png">
+                    <img class="icon icon_raise" ng-if="cp.info.isInterest==1" src="images/list/icon_raise.png">
+                    <img ng-if="cp.info.isCash==1&&!cp.atid" class="icon icon_cash" src="images/list/icon_returncash.png">
+                    <img ng-if="cp.info.isDouble==1&&!cp.atid" class="icon icon_double" src="images/list/icon_double.png">
+                    <img class="icon icon_returncash" ng-if="cp.info.isDeductible==1" src="images/list/icon_returncash.png">
+                </p>
+                {{cp.info.fullName}}
+                <!--<b ng-if="cp.info.activityRate>0">活动</b>-->
+            </h2>
+            <table>
+                <tr>
+                    <td width="100%" class="noleft" style="border-right:none;text-align:center;">
+                        
+                        <div class="mod">
+                            <span>历史年化收益率</span>
+                            <p><i>{{cp.info.rate}}%</i>
+                                <i ng-if="cp.isOldUser && (cp.info.activityRate>0 || (cp.specialRate!=undefined && cp.specialRate > 0))">+{{cp.info.activityRate + cp.specialRate}}%</i>
+                                <i ng-if="!cp.isOldUser && cp.info.activityRate>0">+{{cp.info.activityRate}}%</i>
+                                <!--<span class="shuangdan" ng-if="cp.info.activityRate>0 || (cp.specialRate!=undefined && cp.specialRate > 0)">
+                                    <span class="rate-box">
+                                        <img src="images/activity/shuangdan/detail-icon.png">
+                                        <span>+{{cp.info.activityRate + cp.specialRate}}%</span>
+                                    </span>
+                                </span>-->
+                            </p>
+                            <p class="modinfo">{{cp.info.deadline}}天 | {{cp.info.leastaAmount| number}}元起投</p>
+                            <div class="percentage-box" style="width:100%;">
+                                <i>{{cp.info.pert | setProgress}}%</i>
+                                <div class="percentage" style="width:90%"><span ng-attr-style="width: {{cp.info.pert | setProgress}}%"></span></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bot">
+                        <div class="mod">
+                            <p class="left"><span>剩余可投（元）</span>{{cp.info.surplusAmount | number}}</p>
+                            <p class="right"><span>剩余期限</span>{{nowTimer}}</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+<!-- 中 不是新手 -->
+
+        <div class="info-list headerTop">
+            <table class="list-table">
+                <tr ng-if="cp.info.type != 1">
+                    <td class="list-title"><div>产品可投（元）</div></td>
+                    <td class="list-con" style="text-align: center;"><div>{{cp.info.surplusAmount | currency:''}} </div></td>
+                    <td class="list-con"></td>
+                </tr>
+                <tr>
+                    <td class="list-title"><div>可用余额（元）</div></td>
+                    <td class="list-con" style="text-align: center;"><div>{{balanceFuiou | currency:''}} </div></td>
+                    <td class="list-con" ng-if='userTypes.isFuiou==1' ui-sref="recharge({wap:true})"><div>充值</div></td>
+                    <td class="list-con" ng-if='userTypes.isFuiou==0' ui-sref="setDepository({wap:true})"><div>充值</div></td>
+                    <!-- <td class="list-con" ng-if='userTypes.realVerify==0' ui-sref="certification"><div>实名认证</div></td> -->
+                </tr>
+                <tr>
+                    <td class="list-title"><div>投资金额（元）</div>
+                    </td>
+                    <td class="list-con" style="position: relative;" >
+                        <input id="amount" type="number" min='0' style="width: 90%; color: #333; text-align: center;" ng-change="onChange()" ng-model="amount" autocomplete="off" ng-disabled="isDsProduct" placeholder="需为{{cp.info.increasAmount}}的倍数,{{cp.info.leastaAmount}}元起投" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')"/>
+                        <!--<input ng-show="isDsProduct" type="number" min='0' ng-model="amount" disabled/>-->
+                    		<!--<span class="error invest-error" ng-show="amount%100 > 0">注意：输入金额应该是100的倍数</span>-->
+
+                        <!-- <span ng-if="cpCoupon.type==4&&cp.info.type!=1" style="color: red;">+{{amount}}</span>
+                        <span ng-if="cp.info.type==1" style="color: red;">+{{cpCoupon.amount}}</span> -->
+                        <!--<span ng-if="cpCoupon.type==4" style="color: red;">+{{amount}}</span>-->
+                    </td>
+                    <td class="list-con"><div ng-click="amount=balanceFuiou" ng-show="!isDsProduct">全部</div></td>
+                </tr>
+                <!--激活体验金-->
+                <!--<tr ng-if="cp.info.type == 1">-->
+                    <!--<td class="list-title"><div>激活体验金</div></td>-->
+                    <!--<td class="list-con">-->
+                        <!--<p style="color:#999999;text-align:center;">投资≥5000元</p>-->
+                        <!--&lt;!&ndash;<input type="number" min='0' style="width: 90%" ng-model="amount" style="text-align: center;" placeholder="投资≥5000元" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ></input>&ndash;&gt;-->
+                    <!--</td>-->
+                    <!--<td class="list-con">-->
+                        <!--<div ng-click="changeSelect()" style="text-align:center;padding-right:0;">-->
+                            <!--<img style="width:1.5rem;float:initial;margin-right:0;" ng-if="select==false" src="images/list/select.png">-->
+                            <!--<img style="width:1.5rem;float:initial;margin-right:0;" ng-if="select==true" src="images/list/selected.png">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                <!--</tr>-->
+
+
+                <tr ng-if="cp.info.repayType!=3 && cp.info.repayType!=4 && !isDsProduct">
+                    <td class="list-title"><div>使用优惠券</div></td>
+                    <td class="list-con" ng-if="cop.length > 0 && cp.investTotal>0 && cp.info.type != 1" style="text-align: center;" >
+                        <div ui-sref="coupon({ amt: amount,cpid: cpCoupon.id})" ng-bind="{0:'选择优惠券',1:'返现券',2:'加息券',3:'体验金',4:'翻倍券',5:'暂无可用优惠券'}[cpCoupon.type]"></div>
+                        <!-- <span style="width:40px;float: right;margin-top: -3rem;" ng-click="delCoupon()">x</span> -->
+                    </td>
+                    <td class="list-con" ng-if="cop.length > 0 && cp.investTotal>0 && cp.info.type == 1" style="text-align: center;" >
+                        <div ui-sref="coupon({ amt: amount,cpid: cpCoupon.id})" ng-bind="{0:'投资满5000元可用红包',1:'返现券',2:'加息券',3:'体验金',4:'翻倍券',5:'暂无可用优惠券'}[cpCoupon.type]"></div>
+                        <!-- <span style="width:40px;float: right;margin-top: -3rem;" ng-click="delCoupon()">x</span> -->
+                    </td>
+
+                    <td class="list-con" ng-if="cop.length > 0 && cp.investTotal<1&& cp.info.isDouble==1 && cp.info.type != 1" style="text-align: center;"  >
+                        <div ng-bind="{0:'选择优惠券',1:'返现券',2:'加息券',3:'体验金',4:'翻倍券',5: '暂无可使用优惠券'}[cpCoupon.type]" ></div>
+                        <!-- <span style="width:40px;float: right;margin-top: -3rem;" ng-click="delCoupon()">x</span> -->
+                    </td>
+                    <td class="list-con" ng-if="cop.length > 0 && cp.investTotal<1&& cp.info.isDouble==1 && cp.info.type == 1" style="text-align: center;"  >
+                        <div ng-bind="{0:'投资满5000元可用红包',1:'返现券',2:'加息券',3:'体验金',4:'翻倍券',5: '暂无可使用优惠券'}[cpCoupon.type]" ></div>
+                        <!-- <span style="width:40px;float: right;margin-top: -3rem;" ng-click="delCoupon()">x</span> -->
+                    </td>
+                    <td class="list-con" ng-if="cop.length > 0 && cp.investTotal<1 && cp.info.isDouble==0 && cp.info.type != 1" style="text-align: center;"  >
+                        <div ui-sref="coupon({ amt: amount,cpid: cpCoupon.id })" ng-bind="{0:'选择优惠券',1:'返现券',2:'加息券',3:'体验金',4:'翻倍券',5: '暂无可使用优惠券'}[cpCoupon.type]" ></div>
+                        <!-- <span style="width:40px;float: right;margin-top: -3rem;" ng-click="delCoupon()">x</span> -->
+                    </td>
+                    <td class="list-con" ng-if="cop.length > 0 && cp.investTotal<1 && cp.info.isDouble==0 && cp.info.type == 1" style="text-align: center;"  >
+                        <div ui-sref="coupon({ amt: amount,cpid: cpCoupon.id })" ng-bind="{0:'投资满5000元可用红包',1:'返现券',2:'加息券',3:'体验金',4:'翻倍券',5: '暂无可使用优惠券'}[cpCoupon.type]" ></div>
+                        <!-- <span style="width:40px;float: right;margin-top: -3rem;" ng-click="delCoupon()">x</span> -->
+                    </td>
+
+                    <td class="list-con" ng-if="cop.length < 1"><div>不使用优惠券</div></td>
+                    <td class="list-con">
+                        <div ng-if="cop.length > 0" ui-sref="coupon({amt: amount,cpid: cpCoupon.id})">
+                        >
+                        </div>
+                    </td>
+                </tr>
+                <!-- 尾标奖 -->
+                <tr  ui-sref="tailawardDetail" ng-if="cp.info.type != 1 && !cp.info.atid && !isNoNormal">
+                    <td class="list-title"><div>尾标奖</div>
+                    </td>
+                    <td class="list-con" style="position: relative;" >
+                        <div><strong style="color:#fe1e30;font-size:1rem;">50</strong>元现金奖励封顶</div>
+                    </td>
+                    <td class="list-con"><span class="icon-caret"> > </span></td>
+                </tr>
+
+            </table>
+            <span class="error" ng-show="amount%100 > 0">注意：输入金额应该是{{cp.info.increasAmount}}的倍数</span>
+        </div>
+        <!--<div ng-if="cp.info.repayType!=3 && cp.info.repayType!=4" style="min-height:1em;">-->
+            <!--<p style="font-size:0.8rem;color:#666666;line-height:2.5rem;padding-left:1.4rem;" ng-if="cp.isShowLabel==true&&cp.info.deadline!=90&&cp.info.type != 1">投资<span style="color:#ED3234;">≥5000</span>元可激活<span style="color:#ED3234;">10万元</span>体验金</p>-->
+        <!--</div>-->
+        <div ng-if="cp.info.repayType==3 || cp.info.repayType==4" style="padding:0.4rem 1.4rem;">
+            <p style="font-size:0.8rem;color:#292929;line-height:1.5rem;">预估总收益：<span style="color:#ED3234;">{{amount * (cp.info.rate + cp.info.activityRate) / 100 / 360 * cp.info.deadline | isNumber2}}</span> 元</p>
+            <p style="font-size:0.8rem;color:#292929;line-height:1.5rem;">回款期数：{{cp.repayPeriod}} 期</p>
+            <p style="font-size:0.8rem;color:#292929;line-height:1.5rem;">每期回款本金：<span style="color:#ED3234;">{{amount/cp.repayPeriod | isNumber}}</span> 元&#x3000;|&#x3000;利息：<span style="color:#ED3234;">{{amount * (cp.info.rate + cp.info.activityRate) / 100 / 360 * cp.info.deadline / cp.repayPeriod | isNumber}}</span> 元</p>
+        </div>
+<!-- 底部 -->
+        <div class="info-list">
+            <table class="list-table">
+                <tr ng-if="userTypes.tpwdFlag == 0" ng-click="onClick('去设置交易密码')">
+                    <td class="list-title">
+                        <div style="margin-left: 1.3rem;">请设置交易密码</div>
+                    </td>
+                    <td class="list-con">
+                        <div>设置 > </div>
+                    </td>
+                </tr>
+                <tr ng-if="userTypes.tpwdFlag == 1">
+                    <td class="list-title">
+                        <input type="text" ng-focus="changeType($event)" ng-pattern="/^\d{6}$/" maxlength="6" style="margin-left: 1.3rem;width: 100%;" ng-model="userTypes.passWord" placeholder="请输入交易密码" id="myPwd"/>
+                    </td>
+                </tr>
+                <tr>&nbsp;</tr>
+            </table>
+        </div>
+        <div class="checkbox-mod invest-agree" style="font-size: 1rem;margin-left: 1em;margin-top:10px;" ng-if="cp.info.type!=1">
+            <label><i ng-click="agreeclick()" class="checkbox" ng-class="{checked:playSound}"></i>我已阅读并同意
+            </label><a href="https://hushenlc.cn/loan" target="_blank" >《借款协议》</a>
+        </div>
+        <div ng-if="cp.info.repayType!=3 && cp.info.repayType!=4" class="shouyi  pull-left" style="font-size: 1rem;">
+
+<!-- 返现券 -->
+          <!--  {{((amount * (cp.info.rate/100) / 360) * cp.info.deadline | isNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | isNumber2) + (amount * cp.specialRate/100 / 360 * cp.info.deadline | isNumber2)}}-->
+            <p ng-if="cpCoupon.type==1" class="surplas-amount">
+                <!-- 产品活动利率大于0时 加活动利率 -->
+
+                <t ng-if="cp.info.surplusAmount >= amount && cp.isOldUser">预估收益 {{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.specialRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}} 元，返现 <span class="big">{{cpCoupon.amount}} </span>元</t>
+                <t ng-if="cp.info.surplusAmount >= amount && !cp.isOldUser">预估收益 {{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}} 元，返现 <span class="big">{{cpCoupon.amount}}</span> 元</t>
+            </p>
+<!-- 加息券 -->
+            <p ng-if="cpCoupon.type==2" class="surplas-amount">
+                <!-- 产品活动利率大于0时 加活动利率 -->
+                 <t ng-if="cp.info.surplusAmount >= amount && cp.isOldUser">预估收益{{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.specialRate/100 / 360 * cp.info.deadline | wisNumber2) + (cpCoupon.raisedRates/100 / 360 * amount * cp.info.deadline | wisNumber2))| wisNumber2}} 元</t>
+                 <t ng-if="cp.info.surplusAmount >= amount && !cp.isOldUser">预估收益{{((amount * cp.info.rate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2) + (cpCoupon.raisedRates/100 / 360 * amount * cp.info.deadline | wisNumber2))| wisNumber2}} 元</t>
+            </p> 
+<!-- type==0 -->
+            <p ng-if="cpCoupon.type==0 && cp.info.type!=1" class="surplas-amount">
+                <t ng-if="noHBshouyi&&cp.info.surplusAmount >= amount && cp.isOldUser">预估收益{{((amount*cp.info.rate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.info.activityRate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.specialRate/100 /360 * cp.info.deadline | wisNumber2))| wisNumber2}} 元</t>
+                <t ng-if="noHBshouyi&&cp.info.surplusAmount >= amount && !cp.isOldUser">预估收益{{((amount*cp.info.rate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.info.activityRate/100 /360 * cp.info.deadline | wisNumber2))| wisNumber2 }} 元</t>
+            </p>
+            <p ng-if="cpCoupon.type==0 && cp.info.type==1" class="surplas-amount">
+                <t ng-if="noHBshouyi && cp.isOldUser">预估收益{{((amount*cp.info.rate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.info.activityRate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.specialRate/100 /360 * cp.info.deadline | wisNumber2))| wisNumber2 }} 元</t>
+                <t ng-if="noHBshouyi && !cp.isOldUser">预估收益{{((amount*cp.info.rate/100 /360 * cp.info.deadline | wisNumber2) + (amount*cp.info.activityRate/100 /360 * cp.info.deadline | wisNumber2))| wisNumber2 }} 元</t>
+
+            </p>
+<!-- 翻倍券 -->
+            <p ng-if="cpCoupon.type==4"  class="surplas-amount">
+                <!-- 产品活动利率大于0时 加活动利率 -->
+                 <t ng-if="cp.info.surplusAmount >= amount && cp.isOldUser">预估收益{{((amount * cp.info.rate*cpCoupon.multiple/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.specialRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}} 元</t>
+                 <t ng-if="cp.info.surplusAmount >= amount && !cp.isOldUser">预估收益{{((amount * cp.info.rate*cpCoupon.multiple/100 / 360 * cp.info.deadline | wisNumber2) + (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | wisNumber2))| wisNumber2}} 元</t>
+            </p>             
+            <p class="surplas-amount" ng-if="!cpCoupon && cp.isOldUser"><t>预估收益 {{((cp.info.rate/100 / 360 * amount * cp.info.deadline | wisNumber2) + (cp.specialRate/100 / 360 * amount * cp.info.deadline | wisNumber2) + (cp.info.activityRate/100 / 360 * amount * cp.info.deadline | wisNumber2))| wisNumber2}} 元</t></p>
+            <p class="surplas-amount" ng-if="!cpCoupon && !cp.isOldUser"><t>预估收益 {{((cp.info.rate/100 / 360 * amount * cp.info.deadline | wisNumber2) + (cp.info.activityRate/100 / 360 * amount * cp.info.deadline | wisNumber2))| wisNumber2}} 元</t></p>
+            <!--{{(amount * cp.info.rate/100 / 360 * cp.info.deadline | isNumber2 )+ (amount * cp.info.activityRate/100 / 360 * cp.info.deadline | isNumber2)}}-->
+        </div>
+        <!--<button class="sign_box_bottom newhand-btn" ng-disabled="!playSound" ng-if="userTypes.isFuiou==1&&cp.info.status==5" ng-click="tobuy()">-->
+        <div class="sign_box_bottom newhand-btn fixed" ng-disabled="!playSound" ng-if="cp.info.status==5" ng-click="tobuy()">
+                    确认投资
+        </div>
+        <!--<div class="sign_box_bottom newhand-btn" ng-if="userTypes.realVerify==0" ui-sref="certification">
+                    立即实名认证
+        </div> -->
+        <!-- <div class="sign_box_bottom newhand-btn" ng-if="userTypes.tpwdFlag == 0" ng-click="onClick('去设置交易密码')"> -->
+        <div class="newhand-btn fixed" ng-if="userTypes.tpwdFlag == 0" ng-click="onClick('去设置交易密码')">
+                    立即设置交易密码
+        </div>
+        <div class="newhand-btn fixed" ng-if="cp.info.status!=5" ng-bind="{6:'已计息',7:'募集失败',8:'待还款',9:'已还款'}[cp.info.status]">
+        </div>
+
+        <!--使用红包提示窗-->
+        <div class="useRedBag">
+            <div class="dialog">
+                <h2>您的红包未使用</h2>
+                <p>投资金额满<span>5000元</span>可使用红包哦</p>
+                <ul class="btn-group">
+                    <li ng-click="cancleBag()">放弃机会</li>
+                    <li ng-click="toUseBag()">使用红包</li>
+                </ul>
+            </div>
+        </div>
+</div>
+</div>

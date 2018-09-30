@@ -1,0 +1,31 @@
+<div class="wrap recharge-wrapper actinvest-succ" ng-controller="actinvestsuccessController">
+    <div class="common-head"><p>投资结果</p></div>
+
+    <div class="recharge-wrap">
+        <div class="img">
+            <img src="images/recharge/rechangesuccess-img.jpg" alt="">
+        </div>
+        <div class="status">
+            <div class="status-img">
+                <img src="images/recharge/rechange-status.png" alt="">
+            </div>
+            <div class="text">
+                <p class="title" style="color: #0084e7;">投资成功</p>
+                <p class="time">{{data.investTime|date:"yyyy.MM.dd"}}</p>
+                <p class="title">产品成立</p>
+                <p class="time">{{data.info.establish|date:"yyyy.MM.dd"}}</p>
+                <p class="title">产品到期</p>
+                <p class="time">{{data.info.expireDate|date:"yyyy.MM.dd"}}</p>
+            </div>
+        </div>
+        <div class="btn">
+            <button class="first" ui-sref="myInvest">查看投资</button>
+            <button ui-sref="main.bankBillList">继续投资</button>
+        </div>
+    </div>
+</div>
+<style>
+    body{
+        background: #fff;
+    }
+</style>

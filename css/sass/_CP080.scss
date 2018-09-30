@@ -1,0 +1,45 @@
+$bankBoxHeight:200;
+.cp080-box{
+	.cp080-msg{
+		font-size: rem-calc(43);
+		color: #885b3a;
+		background: #f3eae3;
+		padding: rem-calc(30);
+		li{
+			position: relative;
+			padding-left: rem-calc(28);
+			i{
+				width: rem-calc(10);
+				height: rem-calc(10);
+				border-radius: rem-calc(10);
+				position: absolute;
+				left: rem-calc(0);
+				top: rem-calc(26);
+				background: #885b3a;
+			}
+		}
+	}
+	.cp080-bankBox{
+		width: 100%;
+		height: rem-calc($bankBoxHeight);
+		border-bottom: 1px solid #d2d2d2;
+		// padding:rem-calc(10);
+		table{
+			padding:rem-calc(10);
+			width: 100%;
+			img{
+				width: rem-calc($bankBoxHeight - 50);
+				height: rem-calc($bankBoxHeight - 50);
+			}
+			.rate{
+				color: #999;
+				height: rem-calc($bankBoxHeight);
+				font-size: rem-calc(30);
+				span{
+					font-size: rem-calc(55);
+					color: #121212;
+				}
+			}
+		}
+	}
+}

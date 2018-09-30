@@ -1,0 +1,22 @@
+<div class="wrap login-wrapper newhand-wrapper cp-wrapper new-register" ng-controller='NewRegisterController'>
+    <div class="topbox">
+        <div class="common-head" ng-click="toback()"><i></i><p>新用户注册</p></div>
+        <div class="container">
+            <p class="message">短信已经发送至您<span>{{phone}}</span>的手机</p>
+            <form class="wap-login-box ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="fromregister" name="myForm" novalidate="">   
+                <div>
+                    <input ng-model="login.smsCode" type="text" placeholder="请输入验证码" maxlength="4" required>
+                    <span ng-if="canSend==false" class="resend">重发{{second}}秒</span>
+                    <span ng-if="canSend==true" ng-click="getyzm(myForm)">{{nowTimer}}</span>
+                </div>
+                <div>
+                    <input autocomplete="off" type="password" placeholder="输入登录密码" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/" ng-model="login.passWord" name="passWord" required/>
+                </div>
+                <span class="pwd-msg">登录密码为6-18位数字与字母组合</span>
+            </form>
+        </div>
+        <button class="btn" ng-click="zuce(myForm)" ng-disabled="myForm.$invalid">完成</button>
+    </div>
+    <!--<div change-hide class="bot"><p class="haveaccount">已有账号？<span ui-sref="dl">立即登录</span></p></div>-->
+    <p change-hide class="haveaccount">已有账号？<span ui-sref="dl">立即登录</span></p>
+</div>

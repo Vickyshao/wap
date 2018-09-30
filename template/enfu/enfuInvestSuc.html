@@ -1,0 +1,69 @@
+<div class="recharge-suc enfu-invest-success" ng-controller="enfuInvestSucCtrl">
+    <div class="topbox headerTop">
+        <div class="common-head" ng-if="!fromNative">
+            <!--<i ng-click="toback()"></i>-->
+            <p>{{title}}</p>
+            <span class="right" ui-sref="main.home">关闭</span>
+        </div>
+    </div>
+
+
+    <div class="recharge-wrap">
+        <div class="content">
+            <p class="icon" style="padding-top: 3rem;">
+                <img src="images/recharge/rechangesuccess-icon.png" alt="">
+                投资成功
+            </p>
+            <!--<p class="yue">账户可用余额：{{balanceFuiou | currency:''}} </p>-->
+        </div>
+    </div>
+
+    <div class="tips-text" style="text-indent: 1.2rem;">恩弗教育</div>
+    <ul class="list">
+        <li>
+            <div class="left">产品名称</div>
+            <div class="right">{{successData.fullName}}</div>
+        </li>
+        <li>
+            <div class="left">投资期限</div>
+            <div class="right">{{successData.deadline}}天</div>
+        </li>
+        <li>
+            <div class="left">历史年化收益率</div>
+            <div class="right">
+                {{successData.rate}}%
+            </div>
+        </li>
+        <li>
+            <div class="left">历史年化收益率</div>
+            <div class="right">
+                {{successData.shouyi}}
+            </div>
+        </li>
+    </ul>
+    <div class="course-box">
+        <div class="bg">
+            <img src="/images/enfu/bg1.png" alt="">
+        </div>
+        <div class="content">
+            <div class="left">
+                <p class="price">¥1170</p>
+                <p class="text">恩弗精选课程</p>
+            </div>
+            <div class="right">
+                <p class="price">价值¥1170恩弗精选课程</p>
+                <p class="text">兑换码：{{successData.enFuConvertCode}}</p>
+            </div>
+        </div>
+    </div>
+    <p class="text"><a ui-sref="enfuCourses">去恩弗少儿运动俱乐部兑换课程</a></p>
+    <p class="text">兑换电话：<span>021-52999132</span></p>
+    <div class="footer-btn">
+        <div class="left"><img src="/images/enfu/logo.png" alt="">打开沪深理财APP</div>
+        <div class="right"><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">下载App</a></div>
+    </div>
+    <!--<div class="enfo-bottom">
+        <div class="left"><img src="/images/enfu/logo.png" alt="">打开沪深理财APP</div>
+        <div class="right"><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">下载App</a></div>
+    </div>-->
+</div>

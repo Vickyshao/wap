@@ -1,0 +1,571 @@
+.special-activity-wrapper{
+	background: #fff;
+	.logo{
+		height: rem-calc(64px,640);
+		background: #f2f2f2;
+		overflow: hidden;
+		img{
+			display: block;
+			height: rem-calc(31px,640);
+			margin: rem-calc(27 0 0 37);
+		}
+	}
+	.banner{
+		img{
+			width: 100%;
+			margin: rem-calc(28px auto 10px,640);
+			display: block;
+		}
+	}
+	.lucky-wrap{
+		background: #f27c81;
+		border-top: 1px solid #ec444b;
+		border-bottom: 1px solid #ec444b;
+		padding-bottom: rem-calc(44px,640);
+		.text{
+			width: rem-calc(566px,640);
+			font-size: rem-calc(28px,640);
+			color: #fff;
+			line-height: rem-calc(48px,640);
+			padding: rem-calc(20px 0,640);
+			margin: 0 auto;
+		}
+		.special-lucky-code{
+			margin: 0 auto;
+			@include clearfix;
+			@include rem-sprite("special/*.png",lucky-code,$spacing:4px,$rem-base:640px);
+			p{
+				width: rem-calc(370px,640);
+				height: rem-calc(120px,640);
+				line-height: rem-calc(120px,640);
+				float: left;
+				text-align: center;
+				font-size: rem-calc(30px,640);
+				color: #2f2f2f;
+				span{
+					color: #f00;
+				}
+			}
+			a{
+				float: left;
+				width: rem-calc(170px,640);
+				height: rem-calc(78px,640);
+				text-align: center;
+				font-size: rem-calc(30px,640);
+				color: #fff;
+				background: #ec444b;
+				border-radius: rem-calc(6px,640);
+				margin-top: rem-calc(20px,640);
+				line-height: rem-calc(78px,640);
+			}
+		}
+	}
+	.bill-wrap{
+		.title{
+			padding: rem-calc(50px 0 0 38px,640);
+			font-size: rem-calc(28px,640);
+			color: #000;
+			span{
+				margin-left: rem-calc(30px,640);
+				display: inline-block;
+				vertical-align: top;
+				width: rem-calc(249px,640);
+				height: rem-calc(32px,640);
+				line-height: rem-calc(32px,640);
+				border: 1px solid #ec444b;
+				color: #ff000b;
+				font-size: rem-calc(24px,640);
+				text-align: center;
+				border-radius: 100px;
+			}
+		}
+		.bill-box{
+			.bill-table{
+				width: 100%;
+				margin-top: rem-calc(40px,640);
+				td{
+					text-align: center;
+					.percentage-box{
+						text-align: center;
+						width: auto;
+						i{
+							float: none;
+							display: block;
+							margin: 0 auto;
+							font-size: rem-calc(42px,640);
+							color: #f00;
+							padding-bottom: rem-calc(18px,640);
+						}
+						.percentage{
+							width: rem-calc(170px,640);
+							height: rem-calc(8px,640);
+							background: #d2d2d2;
+							margin: 0 auto;
+						}
+					}
+				}
+				.top{
+					td{
+						color: #5d5c5c;
+						font-size: rem-calc(26px,640);
+					}
+				}
+				.center{
+					td{
+						color: #f00;
+						font-size: rem-calc(42px,640);
+						p{
+							padding: rem-calc(10px 0 20px,640);
+						}
+					}
+				}
+				.bot{
+					td{
+						color: #949494;
+						font-size: rem-calc(22px,640);
+					}
+				}
+			}
+		}
+		.godetail{
+			padding-top: rem-calc(40px,640);
+			.btn{
+				width: rem-calc(546px,640);
+				height: rem-calc(67px,640);
+				line-height: rem-calc(67px,640);
+				text-align: center;
+				border-radius: rem-calc(8px,640);
+				background: #f6464e;
+				font-size: rem-calc(28px,640);
+				color: #fff;
+				display: block;
+				margin: 0 auto;
+				&[disabled="disabled"]{
+					background: #d1d1d1;
+					font-family: "Microsoft Yahei",arial,tahoma,"Hiragino Sans GB",\5b8b\4f53;
+				}
+			}
+		}
+		.total{
+			padding-top: rem-calc(24px,640);
+			font-size: rem-calc(24px,640);
+			color: #2b2b2b;
+			text-align: center;
+			span{
+				color: #f00;
+			}
+		}
+	}
+
+	.code-list{
+		padding: rem-calc(20px 0 25px,640);
+		.title-list{
+			table{
+				width: 100%;
+			}
+			th{
+				height: rem-calc(68px,640);
+				text-align: center;
+				font-size: rem-calc(22px,640);
+				color: #fff;
+				background: #ec444b;
+			}
+		}
+		.data-list{
+			height: rem-calc(240px,640);
+			overflow: hidden;
+			margin: rem-calc(15px auto 0,640);
+			&.short-list{
+				height: auto;
+			}
+			.data-table{
+				width: 100%;
+				td{
+					height: rem-calc(60px,640);
+					color: #1e1e1e;
+					font-size: rem-calc(24px,640);
+					text-align: center;
+				}
+			}
+		}
+	}
+	.step-wrap{
+		@include clearfix;
+		border-top: 6px solid #ec444b;
+		border-bottom: 6px solid #ec444b;
+		.special-step{
+			float: left;
+			@include rem-sprite("special/*.png",step,$spacing:4px,$rem-base:640px);
+			margin-left: rem-calc(52px,640);
+			position: relative;
+			z-index: 5;
+		}
+		.con{
+			float: left;
+			width: rem-calc(546px,640);
+			text-align: center;
+			margin-left: rem-calc(-75px,640);
+			.title{
+				height: rem-calc(94px,640);
+				line-height: rem-calc(90px,640);
+				font-size: rem-calc(30px,640);
+				color: #ec444b;
+			}
+			ul{
+				li{
+					width: rem-calc(530px,640);
+					border: 1px solid #ec444b;
+					border-radius: 100px;
+					height: rem-calc(93px,640);
+					line-height: rem-calc(93px,640);
+					font-size: rem-calc(26px,640);
+					color: #151515;
+					padding-left:2rem;
+					box-sizing:border-box;
+					margin-bottom: rem-calc(55px,640);
+					p{
+						line-height: rem-calc(36px,640);
+						padding-top: rem-calc(12px,640);
+					}
+				}
+			}
+		}
+	}
+	.lottery-wrap{
+		// padding-bottom: rem-calc(44px,640);
+		.title{
+			height: 4rem;
+			line-height: 4rem;
+			font-size: rem-calc(30px,640);
+			color: #000;
+			text-align: left;
+			i{
+				display: block;
+				float: left;
+				width: 0.3rem;
+				height: 1.8rem;
+				margin:1.1rem 1rem;
+				background:#ec444b;
+				border-radius:0.15rem;
+			}
+			a{
+				font-size: 1rem;
+				color: #666666;
+				float: right;
+				margin-right: 1rem;
+			}
+		}
+		.win-title{
+			line-height: rem-calc(48px,640);
+			color: #333;
+			font-size: rem-calc(24px,640);
+			text-align: center;
+			span{
+				color: #f6000a;
+			}
+		}
+		.img-box{
+			width: 90%;
+			margin: rem-calc(0px auto,640);
+			margin-top: 2rem;
+			background: #ccc;
+			overflow: hidden;
+			position:relative;
+				img{
+					width: 100%;
+					display: block;
+				}
+				span{position:absolute; left:1rem; top:1rem; font-size:0.9rem; color:#999;}
+			&.box{
+				background: #f9f9f9;
+				.special-nolottery{
+					@include rem-sprite("special/*.png",nolottery,$spacing:4px,$rem-base:640px);
+					margin: rem-calc(73px auto 0,640);
+				}
+				.expect{
+					padding: rem-calc(30px 0 0 190px,640);
+					color: #a4a4a4;
+					font-size: rem-calc(30px,640);
+				}
+			}
+		}
+		.lottery-info{
+			width:100%;
+			height: 10rem;
+			overflow: hidden;
+			margin: 0 auto;
+			padding: 0.5rem 0;
+			.swiper-container{
+				height: 100%;
+				margin:0 auto;
+				overflow: visible;
+				.swiper-container-android{
+				.swiper-slide{
+					transform: scale(0.85,0.85);
+					transition: all 0.5s;
+					background:#f79c9b;
+					box-shadow:0px 0px 5px #fff;
+					&.swiper-slide-active{
+						transform: scale(1,1);
+						background:#fff;
+						box-shadow:0px 0px 5px #f79c9b;
+					}
+				}
+				}
+				.swiper-slide{
+					transform: scale(0.85,0.85);
+					transition: all 0.5s;
+					background:#f79c9b;
+					box-shadow:0px 0px 5px #fff;
+					&.swiper-slide-active{
+						transform: scale(1,1);
+						background:#fff;
+						box-shadow:0px 0px 5px #f79c9b;
+					}
+				}
+			}
+			.infobox{
+				overflow: hidden;
+			}
+			.mode{
+				height: 9rem;
+				overflow: hidden;
+				dl{
+					@include clearfix;
+					dt{
+						width: 8rem;
+						float: left;
+						text-align: center;
+						img{
+							width: 6rem;
+							height: 6rem;
+							border-radius:3rem;
+							display: block;
+							margin:1rem 0 0 1rem;
+						}
+						p{
+							color: #ec444b;
+							line-height: 2rem;
+							font-size: 0.8rem;
+						}
+					}
+					dd{
+						padding-left:8rem;
+						padding-top:1rem;
+						color: #0d0808;
+						font-size: rem-calc(24px,640);
+						span{
+							color: #ec444b;
+							font-size: 1.5rem;
+						}
+						p{
+							font-size: 1rem;
+							padding:0 0.8rem 0 1.5rem;
+							position:relative;
+							word-break: break-all;
+							&.say{
+								&:after{
+									content:"”";
+									color: #ec444b;
+									font-size: 1.5rem;
+									line-height: 1.5rem;
+								}
+								&:before{
+									content:"“";
+									color: #ec444b;
+									font-size: 1.5rem;
+									line-height: 1.5rem;
+									position:absolute;
+									left:0;
+									top: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.rules-wrap{
+		background: #ec444b;
+		padding-bottom: rem-calc(40px,640);
+		color: #fff;
+		.title{
+			text-align: center;
+			padding: rem-calc(30px 0 15px,640);
+			font-size: rem-calc(30px,640);
+		}
+		ul{
+			width: rem-calc(570px,640);
+			margin: 0 auto;
+			line-height: rem-calc(48px,640);
+			font-size: rem-calc(24px,640);
+		}
+	}
+}
+
+.special-dialog{
+	.special-close{
+		@include rem-sprite("special/*.png",close,$spacing:4px,$rem-base:640px);
+		position: absolute;
+		right: rem-calc(-32px,640);
+		top: rem-calc(-35px,640);
+	}
+}
+.countdown-dialog{
+	width: rem-calc(526px,640);
+	height: rem-calc(257px,640);
+	background: #fff;
+	.special-countdown{
+		@include rem-sprite("special/*.png",countdown,$spacing:4px,$rem-base:640px);
+		float: left;
+		margin: rem-calc(87px 34px 0 60px,640);
+	}
+	p{
+		width: rem-calc(370px,640);
+		float: left;
+		padding-top: rem-calc(70px,640);
+		font-size: rem-calc(36px,640);
+		color: #666;
+		line-height: rem-calc(60px,640);
+		i{
+			color: #ec444b;
+		}
+	}
+}
+
+.special-code-dialog{
+	width: rem-calc(526px,640);
+	background: #fff;
+	border-radius: rem-calc(6px,640);
+	overflow: hidden;
+	.ngdialog-close, .ngdialog-close:before  {
+		font-size: 2.6rem;
+		font-weight: normal;
+	}
+	.title{
+		height: rem-calc(114px,640);
+		line-height: rem-calc(114px,640);
+		text-align: center;
+		font-size: rem-calc(30px,640);
+		color: #6b6b6b;
+	}
+	.nocode{
+		padding: rem-calc(40px 0,640);
+		overflow: hidden;
+		p{
+			width: 100%;
+			text-align: center;
+			margin: rem-calc(10px auto 40px,640);
+			height: rem-calc(59px,640);
+			line-height: rem-calc(59px,640);
+			font-size: rem-calc(36px,640);
+			color: #666;
+			i.special-nocode{
+				@include rem-sprite("special/*.png",nocode,$spacing:4px,$rem-base:640px);
+				float: left;
+				margin-right: rem-calc(20px,640);
+			}
+		}
+	}
+	.btnGroup {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-items: center;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		padding: rem-calc(15px 0 0,640);
+		a {
+			width: rem-calc(233px,640);
+			height: rem-calc(68px,640);
+			line-height: rem-calc(68px,640);
+			text-align: center;
+			border-radius: rem-calc(10px,640);
+			background: #ffa04a;
+			font-size: rem-calc(24px,640);
+			color: #fff;
+			&.mr20 {
+				margin-right: rem-calc(20px,640);
+			}
+			&.goinvest {
+				width: rem-calc(330px,640);
+			}
+		}
+	}
+	.mycode{
+		width: 100%;
+		padding-bottom: rem-calc(20px,640);
+		max-height: rem-calc(460px,640);
+		.header {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			width: 100%;
+			padding: rem-calc(20px,640);
+			background: #fff7f1;
+			font-size: rem-calc(30px,640);
+			text-align: center;
+			color: #333;
+		}
+		p {
+			width: 100%;
+			text-align: center;
+			font-size: rem-calc(28px,640);
+			color: #333;
+			padding: rem-calc(20px 0 0,640);
+		}
+		.codebox{
+			width: 100%;
+			max-height: rem-calc(210px,640);
+			overflow-y: scroll;
+			overflow-x: hidden;
+			ul {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-items: center;
+				align-items: flex-start;
+				justify-content: space-between;
+				padding: rem-calc(20px,640);
+				li {
+					width: rem-calc(149px,640);
+					height: rem-calc(50px,640);
+					margin-bottom: rem-calc(15px,640);
+					text-align: center;
+					line-height: rem-calc(50px,640);
+					border: 1px solid transparent;
+					font-size: rem-calc(24px,640);
+					&.blueBg {
+						color: $common-blue;
+						border-color: $common-blue;
+					}
+					&.redBg {
+						color: #666;
+						border-color: #ffa04a;
+					}
+					&.greyBg {
+						color: #999;
+						border-color: #999;
+					}
+				}
+
+			}
+		}
+	}
+}
+
+.ngdialog.ngdialog-theme-default.special-dialog-wrap{
+	.ngdialog-content{
+		max-width: none !important;
+		width: rem-calc(526px,640) !important;
+	}
+}
+.ngdialog.ngdialog-theme-default.rule-dialog-wrap{
+	.ngdialog-content{
+		max-width: none !important;
+		width: rem-calc(600px,640) !important;
+		background: none;
+	}
+}

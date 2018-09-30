@@ -1,0 +1,82 @@
+<div class="myinvest-wrapper actList headerTop" style="padding-top: 0;">
+	<div ng-if="!fromNative" class="common-head"><i ng-click="toback()"></i>
+		<p>{{title}}</p>
+		<span class="right" ui-sref="overdueActList">往期活动</span>
+	</div>
+	<!--<div ng-if="wap" class="trigger-wrap actList-wrap">
+		&lt;!&ndash;<p ng-click="changeMode(0)"><span ng-class="{0:'active'}[active]">全部</span></p>
+		<p ng-click="changeMode(1)"><span ng-class="{1:'active'}[active]">进行中</span></p>
+		<p ng-click="changeMode(2)"><span ng-class="{2:'active'}[active]">已结束</span></p>&ndash;&gt;
+		<p ng-click="changeMode(0)"><span ng-class="{0:'active'}[active]">线上活动</span></p>
+		<p ng-click="changeMode(3)"><span ng-class="{3:'active'}[active]">线下活动</span></p>
+	</div>-->
+	<!--线上活动-->
+	<div class="div-block"></div>
+	<div class="myMission">
+		<div class="myMissionItem" ng-repeat="item in datalist">
+			<a href="{{item.appUrl}}?wap=true">
+				<img ng-if="item.isTop==1&&item.status==1" src="images/myaccount/hot-icon.png" style="width:3rem;position:absolute;top:0;left:0;">
+				<img ng-src="{{item.appPic}}" class="banner-img">
+			</a>
+			<!--<img src="images/myaccount/misson.png?date={{date}}" width="100%" ng-click="statego(item)" ng-if="item.periods<=1" />-->
+			<div class="text">
+				<span>{{item.title}}</span>
+				<span>{{item.activityDate}}</span>
+			</div>
+			<!--<h3>{{item.title}}</h3>
+			<p>活动时间：{{item.updateTime | date:"yy-MM-dd"}}</p>-->
+			<!--<div class="qishu"><img src="images/activity/firend/qishu.png" /><span>{{item.periods}}</span></div>-->
+			<div class="over" ng-if="item.status==2">
+				<p>活动结束</p>
+			</div>
+		</div>
+	</div>
+	<!--线下活动-->
+	<!--<div class="myMission offline-activity" ng-if="kfrBanner">
+		<div ng-if="wap" class="list-item" ui-sref="openday({wap:true})">
+			<img ng-src="{{kfrBanner}}">
+			<h1>{{kfrTitle}}</h1>
+		</div>
+		&lt;!&ndash;<div ng-if="!wap" class="list-item" ui-sref="openday">&ndash;&gt;
+			&lt;!&ndash;<img src="{{kfrBanner}}">&ndash;&gt;
+			&lt;!&ndash;<h1>{{kfrTitle}}</h1>&ndash;&gt;
+		&lt;!&ndash;</div>&ndash;&gt;
+		<div ng-if="wap" class="list-item" ng-repeat="item in publicWelfareList" ui-sref="publicWelfare({wap:true,id:item.id})">
+			<img src="{{item.pcPictureUrlA}}">
+			<h1>{{item.title}}</h1>
+		</div>
+		&lt;!&ndash;<div ng-if="!wap" class="list-item" ng-repeat="item in publicWelfareList" ui-sref="publicWelfare({id:item.id})">&ndash;&gt;
+			&lt;!&ndash;<img src="{{item.contentPC}}">&ndash;&gt;
+			&lt;!&ndash;<h1>{{item.contentAPP}}</h1>&ndash;&gt;
+		&lt;!&ndash;</div>&ndash;&gt;
+	</div>-->
+	<!--进行中的活动-->
+	<!--<div class="myMission" ng-if="active==1">
+		<div class="myMissionItem" ng-repeat="item in datalist" ng-if="item.status==1">
+			<a href="{{item.appUrl}}?wap=true">
+				<img ng-if="item.isTop==1&&item.status==1" src="images/myaccount/hot-icon.png" style="width:3rem;position:absolute;top:0.5rem;left:0.5rem;">
+				<img src="{{item.appPic}}" width="100%">
+			</a>
+			<h3>{{item.title}}</h3>
+			<p>活动时间：{{item.activityDate}}</p>
+			<div class="over" ng-if="item.status==2">
+				<p>活动结束</p>
+			</div>
+		</div>
+	</div>-->
+	<!--已结束-->
+	<!--<div class="myMission" ng-if="active==2">
+		<div class="myMissionItem" ng-repeat="item in datalist" ng-if="item.status==2">
+			<a href="{{item.appUrl}}?wap=true">
+				<img ng-if="item.isTop==1&&item.status==1" src="images/myaccount/hot-icon.png" style="width:3rem;position:absolute;top:0.5rem;left:0.5rem;">
+				<img src="{{item.appPic}}" width="100%">
+			</a>
+			<h3>{{item.title}}</h3>
+			<p>活动时间：{{item.activityDate}}</p>
+			<div class="over" ng-if="item.status==2">
+				<p>活动结束</p>
+			</div>
+		</div>
+	</div>-->
+	
+</div>

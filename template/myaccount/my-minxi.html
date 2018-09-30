@@ -1,0 +1,23 @@
+<div class="wrap pb3 newhand-wrapper cp-wrapper" ng-controller="minxiController">
+
+    	<div class="common-head" ><i ng-click="toback()"></i><p>{{title}}</p></div>
+    	<div class="headerTop">
+					<table class="minxi-list">
+					  <tr class="t-h">
+					    <th>金额</th>
+					    <th>类型</th>
+					    <th>状态</th>
+					    <th>时间</th>
+					  </tr>
+					  <tr ng-repeat="item in cpList" infinite-scroll='loadMore(item)' infinite-scroll-distance='2'>
+					    <td>{{item.amount}} 元</td>
+					    <td>{{item.tradeType | isCPtradeType}}</td>
+					    <td>{{item.status | isCPstatus}}</td>
+					    <td>{{item.addTime | date:'y-MM-dd  HH:mm:ss'}}</td>
+					  </tr>
+					</table>
+					<div ng-if="cpList.length < 1"  class="wap-no-data">
+						<p>暂无投资记录</p>
+					</div>
+    	</div>
+	</div>

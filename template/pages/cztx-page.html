@@ -1,0 +1,63 @@
+<div class="serviceCenter headerTop" ng-controller="cztxPageCtrl" style="border-top: 1px solid #f4f4f4;">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="down">
+        <ul class="list">
+            <li>
+                <h3 ng-click="slideToggle($event)">如何充值？<i></i></h3>
+                <p class="one">答：进入“我的账户”，点击【充值】按钮，进入充值页面，选择支付方式，并输入相应的信息进行充值。投资者充值免费，沪深理财不收取手续费。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">充值是否收费？<i></i></h3>
+                <p class="one">投资者充值免费，沪深理财不收取手续费。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">充值出现最高限额是怎么回事？<i></i></h3>
+                <p class="first">情况一、部分银行对单笔单天支出的金额有限制的。可参见网站上的银行信息。</p>
+                <p class="last">情况二、使用快捷支付方式也是有限额的。如果超过限额，可以使用网银支付。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">充值失败怎么处理？<i></i></h3>
+                <p class="first">（出现此类情况，需要联系技术人员核实）。</p>
+                <p>使用快捷方式的情况下：</p>
+                <p>情况一、掉单。即客户显示扣款，但是我们这边充值没有成功。此种情况下，一般是银行通信问题，第二天，未达成的交易会在原路退回到客户账户的。</p>
+                <p>情况二、充值延时。充值一般2分钟以内会到账，延时情况会半小时左右。</p>
+                <p>使用网银充值的情况下：</p>
+                <p class="last">银行插件不兼容。需要清除浏览器缓存，安装好插件后，重启浏览器。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">如何提现？<i></i></h3>
+                <p class="one">登录个人账户，打开“我的账户”，点击“我要取现”。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">提现后什么时候到账？<i></i></h3>
+                <p class="one">当天下午4点之前提现，当天到账，4点后提现第二天到账。周末延期至下一个工作日。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">提现怎么收费？<i></i></h3>
+                <p class="one">每个月前两笔提现免手续费，之后每笔提现费用2元，不限金额大小。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">可以提现至别人的银行账户吗？<i></i></h3>
+                <p class="one">为了保障平台用户的资金安全，用户在平台充值和提现必须使用同一张银行借记卡（即只能是用户注册时绑定的银行卡），不可以提现至别人的账户的。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">何种情况会造成提现失败？<i></i></h3>
+                <p class="first">1. 提现的银行卡在平台预留的银行信息有误；</p>
+                <p>2. 绑定银行卡进行了注销。</p>
+                <p class="last">如不属上述情况，可咨询在线客服，询问具体原因。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">投资后能不能提前收款？<i></i></h3>
+                <p class="one">投资人成功投标后是无法申请提前收款的。投资成功后，金额是有一个固定期限的，固定期结束后，才能获得返还 </p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>

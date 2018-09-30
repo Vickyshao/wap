@@ -1,0 +1,22 @@
+<div class="jhscplist">
+    <div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+    <div class="jhscplist-content" ng-class="item.status!=5?'finish':''" ui-sref="cpDetail({pid:item.id})" ng-repeat="item in cpList" infinite-scroll='loadMore(item)' infinite-scroll-distance='2'>
+		<header>{{item.fullName}}<span>等本等息 按周回款</span></header>
+		<main>
+            <div class="part-a"><p>历时年化收益</p>{{item.rate | number:1}}<span>%</span><sup ng-if="item.activityRate>0">+{{item.activityRate | number:1}}<span>%</span></sup></div>
+            <div class="part-b">
+                <p>期限</p>
+                <span>{{item.deadline}}<span> 天</span></span>
+            </div>
+            <div class="part-c">
+                <div data-progress="{{item.pert}}" progress-circle></div>
+                <p ng-if="item.status==5" style="color:#EC5C59;">去抢购</p>
+                <p ng-if="item.status==6">抢完了</p> 
+                <p ng-if="item.status==8">待还款</p> 
+                <p ng-if="item.status==9">已回款</p> 
+            </div> 
+        </main>
+        <p>{{item.leastaAmount}}元起投&#x3000;|&#x3000;次日计息&#x3000;|&#x3000;多重保障</p>
+	</div>
+    <div class="rem-rule"></div>
+</div>

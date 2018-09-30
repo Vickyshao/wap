@@ -1,0 +1,66 @@
+<div class="my-invitation-wrapper darkBg" ng-controller="myInvitationCtrl">
+	<!--<div class="common-head" ><i ng-click="toback()"></i><p></p></div>-->
+	<div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i>
+		<p>邀请好友</p>
+		<!--<span class="float-menu" ui-sref="inviRaiders">攻略</span>-->
+	</div>
+	<!--有数据-->
+	<div class="invitation-content">
+		<img src="/images/activity/inviteFriend/banner.png" />
+		<br/>
+		<br/>
+		<br/>
+		<img src="/images/activity/inviteFriend/img01.png" />
+		<div class="invitation-content-list">
+			<div class="header">已有<span>{{total}}</span>位用户获得话费</div>
+			<div class="code-list code-style">
+				<div class="data-list">
+					<table class="data-table">
+						<tr ng-if="investList.length > 0" ng-repeat="item in investList">
+							<td width="60%">恭喜{{item.inviteMobilePhone | limitTo :3}} **** {{item.inviteMobilePhone | limitTo :-4}}的用户</td>
+							<td width="40%">已获得{{item.totalReward }}元话费</td>
+						</tr>
+						<tr ng-if="investList.length == 0">
+							<td width="60%">-</td>
+							<td width="40%">-</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<a ng-click="checkLogin()" class="txt">查看奖励</a>
+		<img src="/images/common/footer.png"/>
+	</div>
+
+
+
+	<div class="btn-bot" ng-click="invitation()">立即邀请</div>
+	<!--领取奖金后弹框-->
+	<div class="activity-firend-hongbao">
+		<div class="hongbaobg">
+			<img src="images/activity/firend/hongbao.png" />
+			<div class="hongbaotext">
+				<p class="money">领取了奖金<br />{{hongbaoAmount}}元</p>
+				<p class="text">奖金已转入您的账户请及时查收</p>
+				<a class="sharebtn" ng-click="share()">分享赚更多</a>
+				<a class="cancel" ng-click="closehongbao()">放弃机会</a>
+			</div>
+		</div>
+	</div>
+	<!--分享弹框-->
+	<div class="activity-tjs-boxh5" ng-click="closeshare()">
+		<div class="h5share" ng-click="default($event)">
+			<p>复制以下网址，发送给您的好友注册并投资</p>
+			<!--正式环境分享链接-->
+			<textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/welcom?recommCode={{userOBJ.user.member.recommCodes}}&mobilePhone={{userOBJ.user.member.mobilephone| limitTo :3}}****{{userOBJ.user.member.mobilephone| limitTo :-4}}&realName={{userOBJ.user.realName | limitTo :-1}}</textarea>
+			<a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+			<a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+		</div>
+	</div>
+	<!--微信中点击分享弹出浮层-->
+	<div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+		<img src="images/activity/firend/sharetext.png" class="sharetext" />
+	</div>
+
+
+</div>

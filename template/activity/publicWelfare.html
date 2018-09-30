@@ -1,0 +1,56 @@
+<div class="publicWelfare headerTop" ng-controller="publicWelfareController">
+     <div ng-if="!fromNative" class="common-head"><i ng-click="toback()"></i>
+        <p class="overflow">{{title}}</p>
+         <!--<span class="right" ng-click="share()">分享</span>-->
+    </div>
+    <!--<img class="publicWelfare-banner" src="{{h5Banner}}">-->
+    <div class="publicWelfare-content bt">
+        <!--<h1 class="title">{{mtitle}}</h1>-->
+        <!--<p class="summary">{{summary}}</p>-->
+        <!--<img ng-if="!videoUrl" src="{{imgUrl}}">-->
+        <a ng-if="videoUrl" href="{{videoUrl}}">
+            <img src="{{imgUrl}}">
+            <div ng-if="videoUrl" class="video-box">
+                <img src="images/actList/play-icon.png" class="play-icon">
+            </div>
+        </a>
+        <section ng-bind-html="content | asHtml"></section>
+    </div>
+    <!--
+    <div ng-if="picList.length>0" class="publicWelfare-live">
+        <h1>活动现场</h1>
+        <div class="live-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" ng-repeat="item in picList">
+                    <img src="{{item.imgUrl}}">
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    <div class="download-box">
+        <div class="download">
+            <dl>
+                <dt></dt>
+                <dd>
+                    <p>打开沪深理财APP</p>
+                    <p>砸蛋100%送豪礼</p>
+                </dd>
+            </dl>
+            <a target="_bank" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">立即下载</a>
+        </div>
+    </div>
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">{{link}}</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+</div>

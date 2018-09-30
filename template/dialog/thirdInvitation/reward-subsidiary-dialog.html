@@ -1,0 +1,87 @@
+<style>
+    .thirdInvitation-rule-dialog{
+        margin: 10rem 1rem 0;
+    }
+    .thirdInvitation-rule-dialog .rule-content .header{
+        background-image: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 0;
+        background-color: #ac8553;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white;
+    }
+    .thirdInvitation-rule-dialog .rule-content{
+        background-image: none;
+        background-color: #fef4e0;
+        height: 22.5rem;
+        padding-top: 0;
+        overflow: hidden;
+    }
+    .thirdInvitation-rule-dialog .rule-content .rule-list{
+        height: 17rem!important;
+        padding: 0;
+    }
+    .thirdInvitation-rule-dialog .special-close{
+        top: 11.1rem;
+        right: 1.7rem;
+    }
+    .table td{
+        color:#ac8553;
+    }
+</style>
+<div class="dialog special-dialog rule-dialog thirdInvitation-rule-dialog">
+    <i class="special-close" ng-click="closeDialog()"></i>
+    <div class="rule-content">
+        <div class="header">邀请奖励明细</div>
+        <div class="rule-list">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>我的好友</th>
+                    <th>人脉奖</th>
+                    <th>提成奖</th>
+                    <th>
+                        奖励发送时间
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="4" style="text-align: right;padding: 0 2.9rem;">（最新）</th>
+                </tr>
+                </thead>
+                <!--没有奖励-->
+                <tbody ng-show="invitationInfo.inviteList.length == 0">
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td colspan="4"  style=";padding: 0 2rem;color:#e3be8e;">您还没有邀请好友</td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td colspan="4">
+                        <img src="/images/thirdInvitation/get-money.png" alt="" style="width: 18rem;" ng-click="getReward()">
+                    </td>
+                </tr>
+                </tbody>
+                <!--有奖励-->
+                <tbody ng-show="invitationInfo.inviteList.length > 0" class="reward-list">
+                <tr ng-repeat="item in invitationInfo.inviteList">
+                    <td ng-if="!item.friendProperty">{{item.mobilePhone | limitTo:3}}****{{item.mobilePhone | limitTo:-4}}</td>
+                    <td ng-if="item.friendProperty">{{item.mobilePhone | limitTo:3}}****{{item.mobilePhone | limitTo:-4}}的好友</td>
+                    <td>{{item.invite ? item.invite : 0}}</td>
+                    <td>{{item.invest ? item.invest : 0}}</td>
+                    <td>
+                        {{item.addTime | date: 'yyyy-MM-dd'}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="tips" style="text-align: center;border: none;color:#ac8553;padding: 2rem 0;" ng-show="invitationInfo.inviteList.length > 0">
+                没有更多了~
+            </div>
+        </div>
+    </div>
+</div>

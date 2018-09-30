@@ -1,0 +1,33 @@
+<div class="wrap recharge-wrapper actinvest-succ" ng-controller="comRechargeSucc">
+    <div class="common-recharge-suc">
+        <div class="left">恭喜您， <br> <i>充值成功!</i></div>
+        <div class="right">
+            <img src="/images/recharge/cashin_end_icon.png" alt="">
+        </div>
+    </div>
+    <div class="recharge-wrap">
+        <div class="status">
+            <div class="status-img">
+                <img src="/images/recharge/common-recharge-img1.png" alt="">
+            </div>
+            <div class="text">
+                <p class="title" style="color: #0084e7;">充值{{rechargeInfo.amount}}元</p>
+                <p class="time">{{rechargeInfo.payTime|date:"yyyy-MM-dd HH:mm:ss"}}</p>
+                <p class="title" style="color: #0084e7;">银行处理中</p>
+                <p class="time">{{rechargeInfo.confirmTime|date:"yyyy-MM-dd HH:mm:ss"}}</p>
+                <p class="title" style="color: #0084e7;">充值成功</p>
+                <p class="time">{{rechargeInfo.paySuccessTime|date:"yyyy-MM-dd HH:mm:ss"}}</p>
+            </div>
+        </div>
+        <div class="btn">
+            <!--<button class="first" ui-sref="main.myaccountHome" style="color: #666;">返回账户</button>-->
+            <button class="first" ui-sref="interestSubsidy" >领取贴息卡</button>
+            <button ng-click="toInvest()">立即投资</button>
+        </div>
+    </div>
+</div>
+<style>
+    body{
+        background: #fff;
+    }
+</style>

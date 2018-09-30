@@ -1,0 +1,123 @@
+<div class="dragonboat">
+    <img src="images/activity/dragonboat/banner.png" alt="沪深理财" class="banner">
+    <img ng-if="wap" ng-click="lijiyaoqing()" src="images/activity/dragonboat/share-icon.png" alt="沪深理财" class="share">
+    <a ng-if="!wap" href="jsmp://page=300?"><img src="images/activity/dragonboat/share-icon.png" alt="沪深理财" class="share"></a>
+    <img src="images/activity/dragonboat/title.png" alt="沪深理财" class="title">
+    <img ng-click="gotop()" src="images/activity/dragonboat/top-icon.png" alt="沪深理财" class="totop">
+    <div class="cp-box">
+        <div class="header">
+            <img src="images/activity/dragonboat/dragonboat-a.png" alt="">
+            <img src="images/activity/dragonboat/special-icon.png" alt="">
+            <div></div>
+        </div>
+        <div class="cp-detail">
+            <div class="part-a">
+                <div class="left">
+                    <p><span>{{productA.rate}}%</span>+{{productA.activityRate}}%贴息</p>
+                    <p>基础年化率+平台贴息</p>
+                </div>
+                <div class="right">
+                    <p><span>&nbsp;</span>{{productA.deadline}}天</p>
+                    <p>项目期限</p>
+                </div>
+                <div class="footer"></div>
+            </div>
+            <div class="part-b" ng-if="productA.id || seckillTime">
+                <div class="progress"><div ng-attr-style="width: {{productA.pert | setProgress}}%;"></div></div>
+                <p>{{productA.pert | setProgress}}%</p>
+            </div>
+            <div class="part-b" ng-if="!productA.id && !seckillTime">
+                <div class="progress"><div style="width: 100%;"></div></div>
+                <p>100%</p>
+            </div>
+            <div class="part-c">
+                <div ng-if="productA.id && wap" class="button button-a" ui-sref="cpDetail({pid:productA.id})">立即抢购</div>
+                <a ng-if="productA.id && !wap" href="jsmp://page=9?pid={{productA.id}}&ptype={{productA.type}}"><div class="button button-a">立即抢购</div></a>
+                <div ng-if="!productA.id && !seckillTime" class="button button-b">已抢完</div>
+                <div ng-if="!productA.id && seckillTime" class="button button-c">{{hours}}:{{minutes}}:{{seconds}} 后开抢</div>
+            </div>
+        </div>
+    </div>
+    <div class="cp-box">
+        <div class="header">
+            <img src="images/activity/dragonboat/dragonboat-b.png" alt="">
+            <img src="images/activity/dragonboat/special-icon.png" alt="">
+            <div></div>
+        </div>
+        <div class="cp-detail">
+            <div class="part-a">
+                <div class="left">
+                    <p><span>{{productB.rate}}%</span>+{{productB.activityRate}}%贴息</p>
+                    <p>基础年化率+平台贴息</p>
+                </div>
+                <div class="right">
+                    <p><span>&nbsp;</span>{{productB.deadline}}天</p>
+                    <p>项目期限</p>
+                </div>
+                <div class="footer"></div>
+            </div>
+            <div class="part-b" ng-if="productB.id || seckillTime">
+                <div class="progress"><div ng-attr-style="width: {{productB.pert | setProgress}}%;"></div></div>
+                <p>{{productB.pert | setProgress}}%</p>
+            </div>
+            <div class="part-b" ng-if="!productB.id && !seckillTime">
+                <div class="progress"><div style="width: 100%;"></div></div>
+                <p>100%</p>
+            </div>
+            <div class="part-c">
+                <div ng-if="productB.id && wap" class="button button-a" ui-sref="cpDetail({pid:productB.id})">立即抢购</div>
+                <a ng-if="productB.id && !wap" href="jsmp://page=9?pid={{productB.id}}&ptype={{productB.type}}"><div class="button button-a">立即抢购</div></a>
+                <div ng-if="!productB.id && !seckillTime" class="button button-b">已抢完</div>
+                <div ng-if="!productB.id && seckillTime" class="button button-c">{{hours}}:{{minutes}}:{{seconds}} 后开抢</div>
+            </div>
+        </div>
+    </div>
+    <div class="list-box">
+        <h1>抢购记录</h1>
+        <div class="code-list">
+            <div class="title-list">
+                <table>
+                    <tr>
+                        <th width="33%">用户名</th>
+                        <th width="33%">抢购时间</th>
+                        <th width="33%">抢购金额</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list">
+                <table class="data-table">
+                    <tr ng-if="investList.length > 0" ng-repeat="item in investList">
+                        <td width="33%">{{item.mobilePhone}}</td>
+                        <td width="33%">{{item.investTime | date:'HH:mm:ss'}}</td>
+                        <td width="33%">{{item.amount}}</td>
+                    </tr>
+                </table>
+                <img ng-if="investList.length == 0" src="images/activity/dragonboat/list-icon.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="rule">
+        <p>活动规则：</p>
+        <p>1.本活动所有注册用户可参与；</p>
+        <p>2.活动期间，每天上午11:00和下午14:00各开启一场秒杀；</p>
+        <p>3.本活动标的为“端午秒杀专享”标的，平台贴息8%，期限45天及75天；</p>
+        <p>4.秒杀遵循先到先得原则，每场秒杀标满即止，本活动标不同时享受红包等平台其他任何福利。</p>
+        <br>
+        <p>*本活动由沪深理财发起并就活动内容作出解释和说明，任何疑问请咨询沪深理财客服：400-031-9909</p>
+        <br><br>
+    </div>
+    <!--icp备案号-->
+    <div class="icpba" style="background-color:#103A4A;color:#FFFFFF;">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司 v1.2.3</div>
+    <!--分享-->
+    <div class="activity-firend-boxh5" ng-click="closeshareh5()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <textarea id="shareurl" class="shareurl">https://hushenlc.cn/dragonboat?wap=true</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">复制链接</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <div class="activity-firend-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+</div>

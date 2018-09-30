@@ -1,0 +1,33 @@
+<div class="wrap pb3 myassets-wrapper newhand-wrapper activity-wrapper" ng-controller="activityPersonCtrl">
+	<div ng-if="wap" class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+	<div class="activity-person" ng-if="user">
+		<img class="header" ng-if="user.prizeHeadPhoto" src="{{user.prizeHeadPhoto}}" />
+		<img class="header" ng-if="!user.prizeHeadPhoto" src="images/cs90/defaultheader.png" />
+		<p>第{{user.activityPeriods}}期中奖者：<span ng-if="user.prizeMobile">{{user.prizeMobile}}</span><span style="color:#aaa;" ng-if="!user.prizeMobile">待公布</span></p>
+		<p>中奖号：<span>{{user.prizeCode}}</span></p>
+		<div class="activityContent">
+			<p><span>TA说</span><img src="images/cs90/iconbefore.png" class="iconbefore" /></p>
+			<p class="contentText">{{user.prizeContent}}<span style="color:#aaa;" ng-if="!user.prizeContent">待公布</span></p>
+			<p><img src="images/cs90/iconafter.png" class="iconafter" /></p>
+			<div style="width:96%;margin:3rem auto 0 auto;position:relative;clear:both;">
+				<img src="images/cs90/daigongbu.png" width="100%" style="display:block;" />
+				<div class="video-box" style="position: absolute;left:0;top:0;width:100%;height:100%;">
+						<img ng-if="user.prizeImgUrl" src="images/activity/iPhone/to-vedio.png" width="100%" height="100%" />
+						<a ng-if="user.prizeVideoLink" href="{{user.prizeVideoLink}}" target="_blank">
+							<div  style="position: absolute;left:0;top:0;width:100%;height:100%;background: rgba(0,0,0,0.4);">
+								<img src="images/cs90/play.png" style="width:3rem;height:3rem;left:50%;top:50%;margin:-1.5rem 0 0 -1.5rem;position: absolute;" />
+							</div>
+							<i>第{{user.activityPeriods}}期</i>
+							<p>获奖者感言</p>
+						</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="activity-notime" ng-if="!user">
+		<div class='notime'>
+			<img src="images/cs90/activityimg.png" />
+			<p>敬请期待...</p>
+		</div>
+	</div>
+</div>

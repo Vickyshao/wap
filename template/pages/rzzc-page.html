@@ -1,0 +1,38 @@
+<div class="serviceCenter headerTop" ng-controller="rzzcPageCtrl" style="border-top: 1px solid #f4f4f4;">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="down">
+        <ul class="list">
+            <li>
+                <h3 ng-click="slideToggle($event)">如何注册成为沪深理财的会员？<i></i></h3>
+                <p class="first">1.请登录http://www.hushenlc.cn，然后点击右上角的“注册”，根据 指引一步步操作即可。</p>
+                <p>2.关注微信公众号“沪深理财官微”，进行注册也可以。</p>
+                <p class="last">3.请到appstore 或者应用宝上直接搜索“沪深理财”，下载手机应用进行注册也可以。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">银行卡信息都正确，为什么不能通过认证？<i></i></h3>
+                <p class="first">1.银行卡认证需要跟银行信息相连的，可以尝试更换另一张银行卡进行尝试。</p>
+                <p>2.已经3次认证不通过的帐号，无法再进行认证，需要在后台设置重新认证，更换其他银行卡进行认证。</p>
+                <p class="last">3.三次验证失败后需要将客户的信息发邮件提交给技术处理</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">注册与绑卡时收不到验证码是什么情况？<i></i></h3>
+                <p class="first">1.用户可能退订平台短信。</p>
+                <p>2.自行设置了拦截功能。</p>
+                <p>3.app版本未及时更新。</p>
+                <p class="last">如不属上述情况，可咨询在线客服，询问具体原因。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">设置交易密码收不到验证码怎么办？<i></i></h3>
+                <p class="one">建议关闭呼叫转移功能。</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>

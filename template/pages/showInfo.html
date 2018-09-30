@@ -1,0 +1,11 @@
+<div class=" headerTop showInfo" ng-controller="showInfoCtrl">
+    <h2 ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </h2>
+    <div  ng-repeat='item in showList' ui-sref="{{item.uref}}">
+        <img src="{{item.img}}">
+        <!--<img src="images/showInfo/about-data.png">-->
+        <p>{{item.eText}}</p>
+        <p>{{item.cText}}</p>
+    </div>
+</div>

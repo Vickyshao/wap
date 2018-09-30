@@ -1,0 +1,36 @@
+<div class="myinvest-wrapper kfr-enrol">
+	<div ng-if="wap" class="common-head" ng-click="toback()"><i></i>
+		<p>{{title}}</p>
+	</div>
+    <img class="kfrEnrol-banner" src="images/actList/banner.png">
+    <form novalidate name="myForm">
+        <div class="input-item">
+            <h3>您的姓名</h3>
+            <input name="name" ng-model="enrol.userName" type="text" placeholder="请输入您的姓名" required>
+        </div>
+        <div class="input-item">
+            <h3>性别</h3>
+            <p>
+                <input type="radio" name="isMale" id="male" ng-model="enrol.sex" ng-value="0" required>
+                <label for="male">男</label>
+            </p>
+            <p>
+                <input type="radio" name="isMale" id="female" ng-model="enrol.sex" ng-value="1" required>
+                <label for="female">女</label>
+            </p>
+        </div>
+        <div class="input-item">
+            <h3>地区</h3>
+            <input name="city" ng-model="enrol.city" type="text" placeholder="请输入您的地区" required>
+        </div>
+        <!--<div class="input-item">
+            <h3>地区</h3>
+            <select name="city" required ng-model="enrol.city">
+                <option ng-value="null" style="display:none;" selected>请选择</option>
+                <option ng-repeat="item in cityList" ng-value="item.name">{{item.name}}</option>
+            </select>
+        </div>-->
+        <!--<div ng-click="submitEnrol(myForm)" class="submit">报名参加</div>-->
+        <button class="btn submit" ng-click="submitEnrol(myForm)" ng-disabled="!myForm.$valid" style="display:block;">报名参加</button>
+    </form>
+</div>

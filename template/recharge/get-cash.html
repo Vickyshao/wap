@@ -1,0 +1,87 @@
+<style>
+    .recharge-wrapper .cash-box{
+        padding: 0 0 0 1.38rem;
+    }
+    .recharge-wrapper .cash-box.recharge-box input{
+        width: 16.81481rem;
+        padding-left: 5.4rem;
+    }
+    .recharge-wrapper .cash-box.input-box input{
+        padding-left: 1rem;
+    }
+</style>
+<div ng-view class="wrap recharge-wrapper cash-wrapper  headerTop" ng-controller="getcashCtrl">
+    <div class="common-head blue-head" ><i ng-click="toback()"></i><p>{{title}}</p></div>
+
+
+    <div class="recharge-wrap">
+        <form name="cashForm" novalidate>
+           
+            <div class="card-box" ng-if="active==0">
+                <div class="left">
+                    <img src="images/recharge/balanceIcon.png" />
+                    <p class="card-name">可用余额<br/>{{cash.funds | currency:''}}</p>
+                </div>
+                <div class="center"><img src="/images/recharge/arrow.png"></div>
+                <div class="left">
+                    <img src="images/recharge/new/{{cash.bankCode}}.png" />
+                    <p class="card-name">{{cash.bankName}}<br/>尾号{{cash.bankNum}}</p>
+                </div>
+            </div>
+            <div class="input-item">
+                <div class="input-box cash-box">
+                    <!--<input class="text" type="text" class="cash" ng-model="cash.amount" name="cash" placeholder="请输入提现金额" value="" onkeyup="this.value=this.value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" required autocomplete="off" ng-blur="setAmount($event)" ng-pattern="/^[0-9]+([.]{1}[0-9]+){0,1}$/" morethan withdrawlimit maxlimit ng-if="cash.isChargeFlag == 0"/>-->
+                    <!--<input class="text" type="text" class="cash" ng-model="cash.amount" name="cash" placeholder="请输入提现金额" value="" onkeyup="this.value=this.value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" required autocomplete="off" ng-blur="setAmount($event)" ng-pattern="/^[0-9]+([.]{1}[0-9]+){0,1d}$/" morethan3 withdrawlimit maxlimit ng-if="cash.isChargeFlag == 1"/>-->
+                    <span class="left dw">输入金额(元)</span>
+                    <input class="text cash" type="text" ng-model="amount" name="cash" placeholder="最少{{leastCashAmount}}元" value="" onkeyup="this.value=this.value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" required autocomplete="off" ng-pattern="/^[0-9]+([.]{1}[0-9]+){0,1}$/" ng-change="setAmount($event)" maxlength="10">
+                    <!-- <div class="all"><span ng-click="setAll()" class="circlebtn"><i></i></span>全部</div> -->
+                </div>
+
+            </div>
+
+            <div class="input-item" ng-if="isNeedArea">
+                <div class="recharge-box cash-box clearfix" >
+                    <input type="text" class="text cash" name="area" ng-model="areaCity" value=""  required="required"  autocomplete="off" placeholder="填写银行所在城市(例如:上海市)" ng-change="showValue(areaCity)" >
+                    <span class="left">城市</span>
+                </div>
+            </div>
+
+            <div class="input-item" ng-if="isNeedBankBranch">
+                <div class="recharge-box cash-box clearfix" >
+                    <input type="text" class="text cash" name="branchName" ng-model="branchName" value="" required   autocomplete="off" placeholder="填写支行信息全称"  ng-change = 'showBank(branchName)'>
+                    <span class="left">支行</span>
+                </div>
+            </div>
+
+            <div class="cashInfo error" ng-if = 'isShowError' >{{isShowErrorText}}</div>
+            <div class="cashInfo" ng-if = '!isShowError' style="margin: 1.111rem 0;">预计下个工作日16点前到账，手续费 <i style="color: #e93938;">{{cash.cost}}.00</i> 元</div>
+
+            <!-- <div class="input-box cash-box" ng-if="active==0">
+                <input class="text" type="password" placeholder="请输入交易密码" ng-model="cash.tradepwd" ng-disabled="user.tpwdFlag == 0" value="" maxlength="6" minlength="6" autocomplete="off" required/>
+                <a class="setPwd" ui-sref="resetTradePwd({firstset:true})" ng-if="user.tpwdFlag == 0">设置交易密码</a>
+            </div> -->
+
+            <div class="sub-box">
+                <button class="sub-btn sub" ng-if="cashForm.$invalid" style="background:#d2d2d2" value="提现" type="button">提现</button>
+                <button class="sub-btn sub" ng-if="!cashForm.$invalid" ng-click="toZhiFu(cashForm)" value="提现" type="button">提现</button>
+            </div><!--ng-disabled="cashForm.cash.$invalid"-->
+
+            <div class="bot-tips" ng-if="active==0">
+                <span>友情提示</span>
+                <p style="padding-bottom:0.4rem;"><i></i>每位用户每月可享受2次免费提现，超出后提现手续费为{{showAmount}}元/笔，手续费将从您的账户余额中扣除；</p>
+                <p style="padding-bottom:0.4rem;"><i></i>工作日16点前的提现申请当天到账；工作日16点后的提现申请，顺延至下个工作日（具体到账时间以银行处理时间为准）；</p>
+                <p style="padding-bottom:0.4rem;"><i></i>周末和法定节假日提现，到账时间顺延至下个工作日；</p>
+                <p style="padding-bottom:0.4rem;"><i></i>返现或体验金收益需完成一次真实投资后才可提现；</p>
+                <p style="padding-bottom:0.4rem;"><i></i>若提现过程中遇到任何问题，请及时联系我们 400-031-9909。</p>
+            </div>
+        </form>
+    </div>
+
+    
+
+</div>
+
+<style>
+    body{background:#fff;}
+</style>
+

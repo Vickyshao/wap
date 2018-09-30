@@ -1,0 +1,181 @@
+.rechargegift-wrapper{
+	background: #fff;
+	overflow: hidden;
+	.banner{
+		img{
+			width: 100%;
+			display: block;
+		}
+	}
+	.gift-box{
+		width: rem-calc(1020);
+		margin: rem-calc(0 auto 110);
+		ul{
+			width: rem-calc(1080);
+			overflow: hidden;
+			li{
+				width: rem-calc(321);
+				height: rem-calc(235);
+				background: #ff799a;
+				border: 1px solid #fe6388;
+				border-radius: rem-calc(10);
+				float: left;
+				margin: rem-calc(58 24 0 0);
+				overflow: hidden;
+				span{
+					display: block;
+					height: rem-calc(60);
+					line-height: rem-calc(60);
+					text-align: center;
+					font-size: rem-calc(32);
+					color: #ff799a;
+					border-bottom: 1px solid #fe6388;
+					background: #fffde5;
+				}
+				p{
+					color: #fff;
+					font-size: rem-calc(32);
+					text-align: center;
+					padding-top: rem-calc(20);
+					line-height: rem-calc(60);
+					b{
+						font-size: rem-calc(55);
+						font-weight: normal;
+					}
+					i{
+						font-size: rem-calc(48);
+					}
+				}
+			}
+		}
+	}
+	.mode{
+		width: rem-calc(1016);
+		margin: 0 auto;
+		background: #fff;
+		border-radius: rem-calc(16);
+		text-align: center;
+		padding-bottom: rem-calc(60);
+		.titlefive{
+			@include rem-sprite("rechargegift/*.png", titlefive,$spacing:4px);
+		}
+		.titlesix{
+			@include rem-sprite("rechargegift/*.png", titlesix,$spacing:4px);
+		}
+		&.mode-five{
+			ul{
+				width: rem-calc(930);
+				margin: rem-calc(30 auto 0);
+				font-size: rem-calc(44);
+				color: #333;
+			}
+			li{
+				position: relative;
+				line-height: rem-calc(70);
+				text-align: left;
+				padding-left: rem-calc(44);
+				padding-bottom: rem-calc(20);
+				i{
+					width: rem-calc(16);
+					height: rem-calc(16);
+					background: #333;
+					border-radius: 30px;
+					position: absolute;
+					left: 0;
+					top: rem-calc(26);
+				}
+				&.small{
+					font-size: rem-calc(36);
+				}
+			}
+		}
+	}
+	.linebg{
+		overflow: hidden;
+		img{
+			margin-top: rem-calc(40);
+			width: 100%;
+			display: block;
+		}
+	}
+	.redmode-box{
+		padding: rem-calc(40 0 0);
+		background: linear-gradient(top,#ffa893,#ff7f88);
+		overflow: hidden;
+	}
+	.greenmode-box{
+		padding: rem-calc(40 0 0);
+		background: linear-gradient(top,#3ad5c8,#41cfd4);
+		overflow: hidden;
+	}
+	.content{
+		padding: rem-calc(83 0 0 120);
+		text-align: left;
+		margin-bottom: rem-calc(-62);
+		.iconmode{
+			height: auto;
+			padding-bottom: rem-calc(62);
+			overflow: hidden;
+			i{
+				float: left;
+				&.gzkg{
+					@include rem-sprite("rechargegift/*.png",gzkg,$spacing:4px);
+				}
+				&.guarantee{
+					@include rem-sprite("rechargegift/*.png",guarantee,$spacing:4px);
+				}
+				&.pjcd{
+					@include rem-sprite("rechargegift/*.png",pjcd,$spacing:4px);
+				}
+				&.lszc{
+					@include rem-sprite("rechargegift/*.png",lszc,$spacing:4px);
+				}
+			}
+			div{
+				overflow: hidden;
+				float: left;
+				padding-left: rem-calc(70);
+				width: rem-calc(576);
+			}
+			span{
+				color: #31bcbf;
+				font-size: rem-calc(46);
+				display: block;
+				font-weight: bold;
+			}
+			p{
+				font-size: rem-calc(38);
+				color: #333;
+			}
+		}
+	}
+	.code-wrapper{
+		width: 100%;
+		background: #ff7e88;
+		overflow: hidden;
+		padding: rem-calc(30 0);
+		.number{
+			color: #fff;
+			position: relative;
+			width: 100%;
+			td{
+				text-align: center;
+			}
+			i{
+				display: inline-block;
+				@include rem-sprite("rechargegift/*.png", botphone,$spacing:2px);
+			}
+			div{
+				display: inline-block;
+				padding-left: rem-calc(18);
+				text-align: left;
+				span{
+					font-size: rem-calc(64);
+				}
+				p{
+					font-size: rem-calc(32);
+				}
+			}
+		}
+	}
+}

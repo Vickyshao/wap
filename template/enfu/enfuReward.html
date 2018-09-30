@@ -1,0 +1,19 @@
+<div class="headerTop" ng-controller="enfuRewardCtrl">
+    <div class="common-head"><i ng-click="toback()"></i><p>奖品信息</p></div>
+    <main class="rewardsMain">
+        <dl class="rewards">
+            <dt>
+            <h2>¥1170</h2>
+            <span>恩弗精选课程</span>
+            </dt>
+            <dd>
+                <h2>价值¥1170恩弗精选课程</h2>
+                <p>投资金额：2000元</p>
+                <p>投资时间：{{reward.investTime | date:'yyyy-MM-dd'}}</p>
+            </dd>
+        </dl>
+        <div class="code">兑换码：{{reward.efCode}}</div>
+        <a href="/enfuCourses" class="course">去恩弗少儿运动俱乐部兑换课程</a>
+        <div class="phone">兑换电话：<span>021-52999132</span></div>
+    </main>
+</div>

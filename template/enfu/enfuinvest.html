@@ -1,0 +1,189 @@
+<div class="wrap pb3 newhand-wrapper cp-wrapper headerTop" ng-controller='enfuInvestCtrl'>
+    <div class="common-head blue-head">
+        <p>恩弗教育</p>
+        <span class="right"><!--<a href="https://hushenlc.cn/loan" class="xieyi">协议</a>--></span>
+    </div>
+    <div class="container" ng-show="mainbox">
+        <div class="invest-info-box">
+            <div class="cpinvest-header">
+                <p>历史年化收益率</p>
+                <div class="rate">
+                    <p>
+                        {{cp.info.rate}}%
+                        <span class="activity-rate" ng-if="cp.activityRate>0 && !isshuangdan">
+                            +{{cp.activityRate}}%
+                            <i ng-if="isshuangdan && (specialRate>0 || cp.activityRate>0)">+{{specialRate+cp.activityRate}}%</i>
+                        </span>
+                    </p>
+                </div>
+                <div class="coupon" ng-if="cp.type == 2 && cp.atid == undefined">
+                    <span ng-if="cp.isCash==1&&!cp.atid">红包</span>
+                    <span ng-if="cp.isInterest==1">加息券</span>
+                    <span ng-if="cp.isDouble==1&&!cp.atid">翻倍券</span>
+                </div>
+                <div class="desc">
+                    <span><img src="/images/newhand/detail_pro_icon.png" alt="">期限{{cp.info.deadline}}天</span>
+                    <span><img src="/images/newhand/detail_pro_icon.png" alt="">{{interestmode}}</span>
+                    <span><img src="/images/newhand/detail_pro_icon.png" alt=""><i ng-bind="{1:'到期还本付息',2: '按月付息到期还本',3:'等本等息 按周回款',4:'等本等息 按月回款',5:'其他'}[cp.info.repayType]"></i></span>
+                </div>
+            </div>
+            <div class="progress">
+                <div style="width: {{cp.info.pert | setProgress}}%;"></div>
+            </div>
+            <div class="info-wrap find-wrapper">
+                <ul class="list-wrap">
+                    <li>
+                        <span class="left">投资金额 </span>
+                        <span class="right">{{ amount }}</span>
+                    </li>
+                    <li>
+                        <span class="left">预计总收益</span>
+                        <span class="right"><i class="red">{{expect = ((cp.info.rate/100 / 360 *amount * cp.info.deadline) | isNumber2)}}</i></span>
+                    </li>
+                </ul>
+                <div class="div-block" style="background: #f2f2f2;" ng-if="!cp.enFuConvertCode"></div>
+                <div class="text-buy" ng-if="cp.enFuConvertCode">您已投资过该项目，可去门店兑换课程</div>
+                <ul class="list-wrap">
+                    <li ng-if="cp.enFuConvertCode" ui-sref="enfu">
+                        <span class="left">兑换码</span>
+                        <span class="right">{{cp.enFuConvertCode}}</span>
+                    </li>
+                    <li ui-sref="enfu({ source: 'invest' })">
+                        <span class="left">活动详情</span>
+                        <span class="right"><img src="/images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                    </li>
+                    <li style="border-bottom: 1px solid #e4e4e4;" ui-sref="enfuCourses">
+                        <span class="left">产品详情</span>
+                        <span class="right"><img src="/images/find/icon_rightto.png" alt="" class="right-icon"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="toinfo" ng-click="toXq()">
+        <img src="/images/newhand/gotop.png" alt="">点击查看详情
+    </div>
+    <div class="footer-btn-wrap" style="bottom: 4rem;">
+        <div class="new-blue-btn grey-btn" ng-if="status==6 || status==7 || status==8" ng-bind="{7:'募集结束',8:'已投资',6:'已投资'}[status]" style="color: #555;">立即抢购</div>
+        <div class="new-blue-btn" ng-click="toInvest()" ng-if="(a|isRegister).register && cp.info.status==5">立即抢购</div>
+        <div class="new-blue-btn" ng-if="!(a|isRegister).register" ng-click="gologin()">请登录后抢购</div>
+    </div>
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>
+
+
+<!--
+<div class="wrap pb3 newhand-wrapper cp-wrapper w-lottery-invest" ng-controller='enfuInvestCtrl' style="margin-bottom: 5rem;background: #f2f2f2;padding-bottom: 4rem;">
+    <div class="common-head" ><i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="headerTop container">
+        &lt;!&ndash; 头 &ndash;&gt;
+        <div class="handbox marT info-box">
+           &lt;!&ndash; <h2>
+                {{cp.info.fullName}}
+            </h2>&ndash;&gt;
+            <table>
+                <tr>
+                    <td width="100%" class="noleft" style="border-right:none;text-align:center;">
+                        <div class="mod">
+                            <span>历史年化收益率</span>
+                            <p>
+                                <i>{{cp.info.rate}}%</i>
+                                <i ng-if="cp.info.activityRate>0 || cp.specialRate>0">+{{cp.info.activityRate+cp.specialRate}}%</i>
+                            </p>
+                            <p class="modinfo">投资期限：{{cp.info.deadline}}天</p>
+                            <div class="percentage-box" style="width:100%;">
+                                <i>{{cp.info.pert | setProgress}}%</i>
+                                <div class="percentage" style="width:90%"><span ng-attr-style="width: {{cp.info.pert | setProgress}}%"></span></div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="info-list">
+            <table class="list-table">
+                <tbody>&lt;!&ndash; ngIf: cp.info.type != 1 &ndash;&gt;<tr ng-if="cp.info.type != 1" class="ng-scope">
+                    <td class="list-title"><div>投资金额（元）</div></td>
+                    <td class="list-con" style="text-align: center;"><div class="ng-binding">{{ amount }} </div></td>
+                    <td class="list-con"></td>
+                </tr>
+                <tr>
+                    <td class="list-title"><div>可用金额（元）</div></td>
+                    <td class="list-con" style="text-align: center;"><div class="ng-binding">{{balance | isNumber2}} </div></td>
+                </tr>
+                <tr>
+                    <td class="list-title"><div>预计收益（元）</div></td>
+                    <td class="list-con" style="text-align: center;"><div class="ng-binding" style="color: #F4524A;">{{(cp.info.rate/100 / 360 *amount * cp.info.deadline) | isNumber2}} </div></td>
+                </tr>
+                </tbody></table>
+        </div>
+        <div class="block" ng-if="!cp.enFuConvertCode"></div>
+        <div class="text-buy" ng-if="cp.enFuConvertCode">您已投资过该项目，可去门店兑换课程</div>
+        <div class="info-list">
+            <table class="list-table">
+                 <tr ng-if="userTypes.tpwdFlag == 0 && !cp.enFuConvertCode && realVerity != 0" ng-click="onClick('去设置交易密码')"><td class="list-title"><div>请设置交易密码</div></td>
+                <td class="list-con">
+                    <div>设置 <img src="/images/activity/lottery/right-icon.png" alt=""  style="width: 0.5rem;margin-top: -0.2rem;float: none;margin-left: 0.3rem;vertical-align: middle;" ui-sref="enfuCourses"> </div>
+                </td>
+            </tr>
+                <tr ng-if="userTypes.tpwdFlag == 1 && !cp.enFuConvertCode && realVerity != 0">
+                    <td class="list-title">
+                        <input type="password" ng-focus="changeType($event)" ng-pattern="/^\d{6}$/" maxlength="6" style="margin-left: 1.3rem;width: 100%;" ng-model="userTypes.passWord" placeholder="请输入交易密码" id="myPwd"/>
+                    </td>
+                </tr>
+                &lt;!&ndash;<tr>&nbsp;</tr>&ndash;&gt;
+            </table>
+        </div>
+        <div class="block" ng-if="!cp.enFuConvertCode"></div>
+        <div class="" ng-if="cp.enFuConvertCode"></div>
+        <div class="info-list">
+            <table class="list-table">
+                <tbody>&lt;!&ndash; ngIf: cp.info.type != 1 &ndash;&gt;
+                <tr ng-if="cp.enFuConvertCode">
+                    <td class="list-title"><div ui-sref="enfu">兑换码</div></td>
+                    <td class="list-con" style="text-align: center;"><div class="ng-binding">&nbsp; &nbsp; &nbsp; </div></td>
+                    <td class="list-con" style="padding-right: 2rem;">{{cp.enFuConvertCode}}</td>
+                </tr>
+                <tr ui-sref="enfu({ source: 'invest' })">
+                    <td class="list-title"><div>活动详情</div></td>
+                    <td class="list-con" style="text-align: center;"><div class="ng-binding">&nbsp; &nbsp; &nbsp; </div></td>
+                    <td class="list-con"  style="padding-right: 1.4rem;"><img src="/images/activity/lottery/right-icon.png" alt="" style="width: 0.5rem;margin-top: 0;float: right;"></td>
+                </tr>
+                <tr>
+                    <td class="list-title"><div ui-sref="enfuCourses">产品详情</div></td>
+                    <td class="list-con" style="text-align: center;"><div class="ng-binding"> </div></td>
+                    <td class="list-con" style="padding-right: 1.4rem;"><img src="/images/activity/lottery/right-icon.png" alt=""  style="width: 0.5rem;margin-top: 0;float: right;" ui-sref="enfuCourses"></td>
+                </tr>
+                </tbody></table>
+        </div>
+         <div class="xieyi" style="position: fixed;bottom: 3.5rem;left: 0;">
+             <p><i class="checkbox checked" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意
+                 <a href="https://hushenlc.cn/zc">《借款协议》</a>
+             </p>
+         </div>
+    </div>
+
+    <div class="sign_box_bottom newhand-btn fixed" style="z-index: 999" ng-if="!(a|isRegister).register" ng-click="gologin()">
+        请先登录再抢购
+    </div>
+    <div class="sign_box_bottom newhand-btn fixed" ng-if="realVerity == 0" ng-click="toInvest()">
+        立即抢购
+    </div>
+    <div class="newhand-btn fixed" ng-if="tpwdSetting == 0 && realVerity != 0" ng-click="onClick('去设置交易密码')">
+        确认投资
+    </div>
+
+
+    <div class="sign_box_bottom newhand-btn fixed" ng-disabled="!playSound" ng-if="cp.info.status==5 && userTypes.tpwdFlag != 0 && realVerity != 0" ng-click="tobuy()">
+        立即抢购
+    </div>
+
+    <div class="newhand-btn fixed" ng-if="status==6 || status==7 || status==8" ng-bind="{7:'募集结束',8:'已投资',6:'已投资'}[status]" style="background: #d5d5d5;color: #888;"></div>
+
+</div>-->

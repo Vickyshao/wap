@@ -1,0 +1,356 @@
+.reimburse {
+  .common-title {
+    padding: rem-calc(40);
+    font-size: 1.4rem;
+    color: #333;
+  }
+  .float-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    line-height: rem-calc(140);
+    font-size: 1.2rem;
+  }
+  .myReimburse {
+    padding: rem-calc(80 0);
+    background: #fff;
+    display: flex;
+    align-items: flex-start;
+
+    li {
+      flex: 1;
+      text-align: center;
+      &:not(:last-child) {
+        border-right: 1px solid $global-border;
+      }
+      p {
+        font-size: 1rem;
+        color: #666;
+        padding-bottom: rem-calc(30);
+      }
+      h2 {
+        font-size: 1rem;
+        color: #333;
+        span {
+          font-size: 1.6rem;
+          color: #333;
+          font-weight: 500;
+          &.red {
+            color: $common-red;
+          }
+        }
+      }
+    }
+  }
+  .reimburseTask {
+    .block {
+      padding: rem-calc(60 40);
+      background: #fff;
+      overflow: hidden;
+      &:not(:last-child) {
+        margin-bottom: rem-calc(60);
+      }
+      .left {
+        float: left;
+        width: rem-calc(180);
+        height: rem-calc(140);
+        padding-top: rem-calc(40);
+        color: #fff;
+        text-align: center;
+        border-radius: rem-calc(20);
+        background: url("/images/activity/eCommerce/red.png") no-repeat top center/cover;
+        h2 {
+          font-size: 1.2rem;
+          line-height: 100%;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+      }
+      &.task1 {
+        .left {
+          margin-top: rem-calc(25);
+        }
+      }
+      &.task2 {
+        .left {
+          margin-top: rem-calc(65);
+        }
+      }
+      .content {
+        padding: rem-calc(0 0 0 220);
+        font-size: 0;
+        .txt {
+          width: 70%;
+          @include inline-block(top);
+        }
+        .button {
+          @include inline-block(top);
+          width: 30%;
+          height: 100%;
+          text-align: right;
+          font-size: 1rem;
+          img {
+            width: 100%;
+          }
+          .btn {
+            @include inline-block(top);
+            width: rem-calc(200);
+            height: rem-calc(100);
+            line-height: rem-calc(110);
+            margin-top: rem-calc(120);
+            background: transparent;
+            border: 1px solid $common-red;
+            color: $common-red;
+            text-align: center;
+            border-radius: rem-calc(10);
+            &.btn2 {
+              margin-top: rem-calc(80);
+            }
+            &.invert {
+              background: $common-red;
+              color: #fff;
+            }
+            &.grey-btn {
+              background: #cfcfcf;
+              color: #fff;
+              border-color: #cfcfcf;
+            }
+
+          }
+        }
+        h3 {
+          font-size: 1rem;
+          color: #333;
+          font-weight: 500;
+          padding: rem-calc(0 0 20);
+          span {
+            border: 1px solid $common-blue;
+            color: $common-blue;
+            padding: rem-calc(0 10);
+          }
+        }
+        h2 {
+          font-size: 1.2rem;
+          color: #333;
+          font-weight: 700;
+        }
+        p {
+          font-size: 0.9rem;
+          color: #666;
+          padding-top: rem-calc(5);
+        }
+      }
+
+
+    }
+  }
+  .tips {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin: rem-calc(40 0 60);
+  }
+
+  //分期报销
+  &.staging {
+    .currentReimburse {
+      padding: rem-calc(40 0 80);
+      margin-bottom: rem-calc(40);
+      background: #fff;
+        h2{
+          text-align: center;
+          color: #666;
+          margin-top: rem-calc(-190);
+          font-size: 1.2rem;
+        }
+    }
+    .reimburseTask {
+      .block {
+        .left {
+          margin-top: rem-calc(45);
+        }
+        .content {
+          .txt {
+            h2 {
+              font-size: 1rem;
+            }
+            p{
+              font-size: 0.8rem;
+            }
+            .button {
+              .btn {
+                margin-top: rem-calc(50);
+              }
+            }
+          }
+        }
+
+      }
+    }
+    .table {
+      width: 100%;
+      background: #fff;
+      table {
+        width: 100%;
+        thead {
+          background: #f8f8f8;
+          tr {
+            th {
+              color: #666;
+              text-align: center;
+              font-size: 0.9rem;
+              padding: rem-calc(20 0);
+              &:first-child {
+                text-align: left;
+                padding-left: rem-calc(40);
+              }
+              &:last-child {
+                text-align: right;
+                padding-right: rem-calc(40);
+              }
+            }
+          }
+        }
+        tbody {
+          tr {
+            td {
+              padding: rem-calc(30 0);
+              text-align: center;
+              font-size: 0.9rem;
+              border-bottom: 1px solid $global-border;
+              &:first-child {
+                text-align: left;
+                padding-left: rem-calc(40);
+                color: #666;
+              }
+              &:last-child {
+                text-align: right;
+                padding-right: rem-calc(40);
+              }
+              &.red {
+               color: $common-red;
+              }
+              &.grey {
+                color: #999;
+              }
+              &.green {
+                color: #0a9043;
+              }
+            }
+          }
+        }
+      }
+
+    }
+    .more {
+      text-align: center;
+      padding-top: rem-calc(30);
+      padding-bottom: rem-calc(30);
+      font-size: 1rem;
+      color: #666;
+    }
+  }
+
+}
+
+
+.reimburseDialog {
+  padding-bottom: 160px;
+  padding-top: 160px;
+  .ngdialog-content {
+    width: 90%;
+    -webkit-animation: ngdialog-flyin .5s;
+    animation: ngdialog-flyin .5s;
+    background: transparent;
+    border-radius: 5px;
+    color: #444;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0;
+    position: relative;
+  }
+  .ngdialog-close {
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: rem-calc(40);
+    top: rem-calc(25);
+    font-size: 2.4rem;
+    color: #fff;
+    opacity: 0.6;
+  }
+  .reimburseWrap {
+    width: 100%;
+    text-align: center;
+    background: #fff;
+
+    &-title {
+      padding: rem-calc(40 0);
+      text-align: center;
+      color: #fff;
+      font-size: 1.2rem;
+      background: $common-blue;
+    }
+    &-body {
+      padding: rem-calc(60 0);
+      .tit {
+        padding: rem-calc(40 0);
+        color: #333;
+        font-size: 1rem;
+        text-align: center;
+        background: #edf5fa;
+      }
+      ul {
+        padding: rem-calc( 60 0);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        li {
+          flex: 1;
+          h2 {
+            font-size: 1.8rem;
+            color: #333;
+            padding-bottom: rem-calc(20);
+            span {
+              font-size: 0.9rem;
+            }
+            &.red {
+              color: $common-red;
+            }
+          }
+          p {
+            font-size: 0.8rem;
+            color: #c4c4c4;
+          }
+        }
+      }
+      .btn {
+        width: 90%;
+        padding: rem-calc(40 0);
+        color: #fff;
+        font-size: 1.2rem;
+        border-radius: rem-calc(80);
+        margin: 0 auto;
+        background: $common-blue;
+
+      }
+
+      .footer {
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: rem-calc(40);
+        span {
+          color: $common-red;
+        }
+      }
+
+    }
+
+
+  }
+}

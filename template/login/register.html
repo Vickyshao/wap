@@ -1,0 +1,53 @@
+<div class="wrap login-wrapper newhand-wrapper cp-wrapper imgcode" ng-controller='controllerRegister'>
+    <div class="common-head" ><i ui-sref="main.home"></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="container register-con">
+        <form class="wap-login-box ng-pristine ng-untouched ng-invalid ng-invalid-required" ng-model="fromregister" name="myForm"
+            novalidate="">
+            <div class="tel-box">
+                <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号（建议使用银行预留手机号）" ng-model="login.mobilephone"
+                    onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11"
+                    maxlength="11" required>
+                <!--<span></span>-->
+            </div>
+            <!--图形验证码-->
+            <div>
+                <input id="imgcode" type="text" placeholder="请输入图形码" ng-model="login.picCode" name="picCode" minlength="4" maxlength="4" required autocomplete="off" />
+                <span class="img-box"><img ng-click="clickInput($event)" src="login/validateCode2.dos"></span>
+            </div>
+            <div ng-disabled="true">
+                <input name="smsCode" ng-model="login.smsCode" type="text" placeholder="请输入短信验证码" maxlength="4" required>
+                <span ng-click="getyzm(myForm)">{{nowTimer}}</span>
+            </div>
+            <div class="tel-box">
+                <input autocomplete="off" type="{{(passwordText|isShowPw).type}}" placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/"
+                    ng-model="login.passWord" name="passWord" required/>
+            </div>
+            <p ng-init="showrec=false;" ng-click="showrec=!showrec;"><span ng-class="showrec==true?'active':''">▼</span><span></span> 推荐人（选填）</p>
+            <div ng-if="showrec==true">
+                <input type="text" style="width: 100%" ng-model="login.recommPhone" placeholder="推荐人邀请码/手机号码(选填)" ng-disabled="webFormPath.recommCode != undefined">
+            </div>
+            <div style="background:none;border:none;">
+                <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意
+                    <a href="https://hushenlc.cn/zc">《沪深理财注册协议》</a>
+                </p>
+            </div>
+        </form>
+        <button class="reg-btn" ng-click="zuce(myForm)" ng-disabled="!agree">立即注册</button>
+        <!--<p ui-sref="dl" class="gotodl">登录</p>
+        <a ui-sref="special({upgrade:2,wap:true})"><img src="images/activity.png" width="100%" style="margin-top:1rem;" /></a>-->
+    </div>
+    <footer class="reg-footer">已有账号？<span ng-click="toLogin()">立即登录</span></footer>
+
+    <!--<div class="sign_box_bottom newhand-btn" ng-disabled="!agree" ng-click="zuce(myForm)">立即注册</div>-->
+
+    <!-- <div class="activity-firend-boxweixin" style="display: block;" ng-show="frompc" ng-click="frompc=false">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+        <img src="images/activity/firend/sharebtn.png" class="sharebtn" ng-click="closeshareweixin()" />
+    </div> -->
+    <div class="activity-firend-boxweixin" style="display: block;" ng-show="frompc" ng-click="closeshareweixin();frompc=false;">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+    
+</div>

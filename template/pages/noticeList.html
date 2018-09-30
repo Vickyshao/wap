@@ -1,0 +1,17 @@
+<div class="abouths headerTop" ng-controller="abouthsCtrl">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>平台公告</p>
+    </div>
+    <!-- 网站公告 -->
+    <div class="mode">
+         <ul class="news">
+             <li ng-repeat="item in ggList" ng-click="goto(item.artiId)" infinite-scroll='loadMore(item)' infinite-scroll-distance='1' infinite-scroll-immediate-check = false>
+                <div class="left">
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.createTime | date:'yyyy-MM-dd'}}</p>
+                </div>
+                <div class="right"><img src="images/find/icon_rightto.png"  class="right-icon"></div>
+            </li>
+         </ul>
+    </div>
+</div>

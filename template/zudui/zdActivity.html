@@ -1,0 +1,127 @@
+<div class="myTeam zd-share zd-activity chedd headerTop" ng-controller="zdActivityCtrl">
+    <div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i><p>{{title}}</p></div>
+    <img ng-click="showZdRule()" class="ruleIcon" src="/images/zudui/rule-icon.png" style="opacity: 0;">
+    <!--banner-->
+    <div class="banner">
+        <img src="/images/zudui/activity/banner.png" class="banner">
+        <a href="/main/home" class="logo"></a>
+    </div>
+    <div class="toujisong">
+        <ul class="huafei">
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="btn" ng-click="share()"></div>
+    </div>
+    <div class="ranking-list">
+        <div class="title">
+            <img src="/images/zudui/activity/header1.png" alt="">
+        </div>
+        <!--未登录-->
+        <div class="isSign">
+            <div class="commonTeam-box detail">
+                <div class="caret caret1"></div>
+                <div class="caret caret2"></div>
+                <div class="caret caret3"></div>
+                <div class="caret caret4"></div>
+                <div ng-if="!isLogin">
+                    <h2 class="noLogin">登录后查看我的战队</h2>
+                </div>
+                <!--已登录-->
+                <div ng-if="isLogin" style="padding-top: 6rem;">
+                    <h2 class="mark" ng-if="isCaptain">
+                        <img src="/images/zudui/myteam/tearmLeader.png" alt="">
+                    </h2>
+                    <h2 class="mark" ng-if="!isCaptain">
+                        <img src="/images/zudui/share/zd-member.png" alt="">
+                    </h2>
+                    <p class="markNumber">{{myPhone}}</p>
+                    <!--我的战队列表-->
+                    <div class="myTeam-list">
+                        <div class="myTeam-list-header">我的战队 <span>(人数：{{ teamInfo.teamOtherMembersSize }}人）</span></div>
+                        <div class="myTeam-list-con">
+                            <ul class="content-list">
+                                <li class="content-list-item" ng-class="{captain: item.isCaptain == 1}" ng-repeat="item in teamOtherMembers">
+                                    <span class="name"><i></i></span>
+                                    <span class="number">{{item.inviteTel}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toujisong" ng-if="!isLogin">
+            <h2 ng-click="share()" class="btn1 btn"></h2>
+        </div>
+        <div class="btn-group" ng-if="isLogin">
+            <h2 ng-click="share()" class="continue"></h2>
+            <h2 ui-sref="myTeam" class="btn2" ng-if="isShowMyTeamButton"></h2>
+        </div>
+    </div>
+    <!--通知-->
+    <div class="notice" style="background: #f8ad01;">
+        <img src="/images/zudui/zdshare-01.png" alt="">
+        <div class="notice-list">
+            <span ng-repeat="notice in noticeList" ng-if="notice.inviteTel">{{notice.inviteTel}}邀请用户{{notice.invitedTel}}已加入战队</span>
+        </div>
+    </div>
+    <!--排行榜-->
+    <div class="ranking-list ranking-activity-list">
+        <div class="title">
+            <img src="/images/zudui/activity/header2.png"/>
+        </div>
+        <div class="main">
+            <div class="commonTeam-box">
+                <div class="caret caret1"></div>
+                <div class="caret caret2"></div>
+                <div class="caret caret3"></div>
+                <div class="caret caret4"></div>
+                <div class="zd-table-wrap">
+                    <div>
+                        <table>
+                            <tr style="height: 3.5rem;">
+                                <th style="text-indent: 1.5rem;">战队</th>
+                                <th>战队累计年化投资额</th>
+                                <th>战队奖励</th>
+                                <th>战队 <br>TOP1奖励</th>
+                            </tr>
+                            <tr ng-repeat="item in teamList|limitTo:teamNum" ng-class="{highLightShow: item.highLightShow == 1}">
+                                <td><i ng-class="{'num1': $index==0, 'num2': $index==1,'num3': $index==2, 'num': $index>2}">{{$index+1}}</i>{{item.teamName}}</td>
+                                <td>{{item.amount | number:0 }}</td>
+                                <td>{{item.teamReward | number:0 }}</td>
+                                <td>{{item.topReward | number:0 }}</td>
+                            </tr>
+                            <tr ng-if="teamList == undefined"><td>暂无排名</td></tr>
+                        </table>
+                        <div class="more" ng-click="showMoreTeam()" ng-if="teamNum == 5 && teamList.length > 5">查看更多</div>
+                        <div class="more shouhui" ng-click="showMoreTeam()" ng-if="teamNum == 10 && teamList.length > 5">收回</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            战队以队长的手机号命名； <br>
+            战队TOP1：指战队内年化投资金额排名第一的用户；<br>
+            排行榜数据实时更新，最终以活动截止后为准。
+        </div>
+    </div>
+    <div class="zhuigan">
+        <div class="btn" ng-click="toInvestList()"></div>
+    </div>
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/zdShare?tel={{myPhone}}&teamId={{teamInfo.myInfo.teamId}}&recommCode={{user.recommCodes}}</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+</div>
+<!--icp备案号-->
+<div class="icpba"><img src="/images/activity/lottery/footer.png" /></div>

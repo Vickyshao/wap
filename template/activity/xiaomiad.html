@@ -1,0 +1,70 @@
+<div class="xiaomiad">
+    <img class="banner" src="images/activity/xiaomiad/banner.png">
+
+    <main>
+        <div class="register-box box">
+            <div class="xiaomiad-box">
+                <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                    <div class="input-item">
+                        <img src="images/activity/xiaomiad/ico-a.png" style="left:0.8rem;padding-right: 0.7rem;">
+                        <div class="input-box">
+                            <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|7|8|9][0-9]{9}$/" placeholder="请输入手机号" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <img src="images/activity/xiaomiad/ico-b.png">
+                        <div class="input-box" style="width:67%;margin-right:3%;float:left;">
+                            <input ng-model="login.smsCode" type="text" placeholder="请输入短信验证码" maxlength="4" required class="input">
+                        </div>
+                        <div class="input-box" style="width:30%;float:left;background-color:#FFF2F2;border: 1px solid #F95458;">
+                            <span ng-click="getyzm(myForm)" style="color:#EC6360;">{{nowTimer}}</span>
+                        </div>
+                        <footer style="clear:both;"></footer>
+                    </div>
+                    <div class="input-item">
+                        <img src="images/activity/xiaomiad/ico-c.png">
+                        <div class="input-box">
+                            <input autocomplete="off" type="{{(passwordText|isShowPw).type}}" placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" ng-model="login.passWord" name="passWord" required class="input" />
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <p>
+                            <i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>
+                            我已阅读并同意
+                            <a href="https://hushenlc.cn/zc">《沪深理财注册协议》</a>
+                        </p>
+                    </div>
+                    <div class="input-item">
+                        <button class="btn" ng-click="zuce(myForm)" ng-disabled="!agree">立即注册</button>
+                        <p style="text-align: center;margin-top:1rem;">
+                            <a>已有账号， 【 <span ui-sref="dl({returnurl:'main.home'})" style="text-decoration:underline;">请登录</span> 】</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div class="prize">
+        <img src="images/activity/xiaomiad/prize.jpg">
+    </div>
+    <div class="rule">
+        <h1>活动规则</h1>
+        <ul>
+            <li>活动期间：4月24日00:00-4月30日24:00，新用户通过本活动页面注册并成功投资相应的金额，即可免费获得相应奖品。<br><span>（投资30天以上产品，不含90天产品。礼品不得与红包、加息券等投资福利同时享受，一个注册用户只能领取一个礼品。）</span></li>
+            <li>
+                单笔首投≥1000元，可获得爱奇艺黄金VIP会员1个月（限量500份，抢光为止）<br>
+                单笔首投≥5000元，可获得价值79元【10000mAh小米移动电源2 】一个 <br>
+                单笔首投≥9000元，可获得价值129元【小米方盒子蓝牙音箱】一个<br>
+                单笔首投≥25000元，可获得价值349元【90分旅行箱 24寸】一个<br>
+                单笔首投≥50000元，可获得价值699元【小米空气净化器2】一个<br>
+                活动期间内，累计投资≥400000元，可获得价值3499元【小米MIX】一个
+            </li>
+            <li>客服将于活动结束后7个工作日内由沪深理财安排发放，累计投资名单将在沪深理财官微（jsfax2016）公布。</li>
+        </ul>
+        <br>
+        <p>本活动由沪深理财发起并就活动内容作出解释和说明，如有任何疑问请联系客服热线400-031-9909。</p>
+    </div>
+    <img class="totop" ng-click="gotop()" src="images/activity/xiaomiad/totop.png">
+    <!--icp备案号-->
+    <div class="icpba" style="background-color:#A2051C;color:rgba(0,0,0,0.8);">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司 v1.2.3</div>
+</div>

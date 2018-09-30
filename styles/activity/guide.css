@@ -1,0 +1,189 @@
+body{
+	width: 100%;
+	height: 100%;
+	background: #f7da6e url('../../../images/activity/bg.jpg') no-repeat center top;
+}
+.mode .box .biao,
+.mode .box .icon,
+.mode .box .text,
+.mode .box .btn{
+	background: url('../../../images/activity/guide-icons.png') no-repeat;
+}
+h1{
+	text-indent: -999em;
+}
+.content{
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 690px;
+}
+.content .mode{
+	width: 985px;
+	margin: 0 auto;
+}
+.mode .title{
+	font-size: 32px;
+	color: #fff;
+	font-weight: bold;
+	padding-left: 12px;
+}
+.mode .line{
+	width: 985px;
+	height: 10px;
+	background: #d13440;
+	border-radius: 20px;
+}
+.mode .box{
+	width: 975px;
+	height: 288px;
+	margin: -3px auto 0;
+	background: rgba(195,39,51,.6);
+	position: relative;
+}
+.mode .box .biao{
+	width: 68px;
+	height: 68px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.mode .box .icon{
+	position: absolute;
+	left: 90px;
+	top: 52px;
+	width: 211px;
+	height: 185px;
+	background-position: -68px 0;
+}
+.friend-mode .box .icon{
+	background: url('../../../images/activity/guide-list.png'); 
+	width: 754px;
+	height: 138px;
+	left: 123px;
+	top: 19px;
+}
+.friend-mode .box{
+	height: 301px;
+}
+.mode .box .text{
+	position: absolute;
+	left: 322px;
+	top: 94px;
+	height: 181px;
+	background-position: 0 -185px;
+	width: 630px;
+	text-indent: -999em;
+}
+.mode .box .btn{
+	display: block;
+	width: 310px;
+	height: 46px;
+	text-align: center;
+	line-height: 46px;
+	font-weight: bold;
+	font-size: 16px;
+	color: #79141c;
+	background-position: -279px 0;
+	position: absolute;
+	left: 322px;
+	top: 185px;
+	text-decoration: none;
+}
+.content .friend-mode{
+	margin: 35px 0 48px;
+}
+.friend-mode .box .btn{
+	top: 225px;
+}
+.mode .box .btn:hover{
+	background-position: -279px -46px;
+}
+.mode .box ul{
+	padding: 160px 0 0 98px;
+	font-size: 18px;
+	color: #fff;
+	font-weight: bold;
+}
+.mode .box li{
+	float: left;
+	text-align: center;
+}
+.mode .box li.center{
+	padding: 0 100px 0 168px;
+}
+.mode .box li p{
+	font-size: 14px;
+	font-weight: normal;
+}
+.mode .box li span{
+	font-size: 18px;
+	color: #fff600;
+}
+.content .rules{
+	width: 1000px;
+	background: #d13440;
+	font-size: 14px;
+	color: #fff;
+}
+.content .rules .title{
+	padding: 15px 0 10px 36px;
+	font-size: 16px;
+}
+.content .rules .con{
+	line-height: 28px;
+	padding: 0 36px 14px;
+}
+.content .code{
+	width: 975px;
+	margin: 53px auto 50px;
+}
+.content .code .title{
+	color: #ffebed;
+	font-size: 15px;
+	height: 30px;
+	font-weight: bold;
+}
+.content .code .con{
+	background: #d13440;
+	overflow: hidden;
+	padding-bottom: 18px;
+}
+.content .code ul{
+	float: left;
+}
+.content .code ul.tip{
+	padding: 41px 54px 0 13px;
+}
+.content .code ul.tip li{
+	padding-bottom: 21px;
+	overflow: hidden;
+}
+.content .code ul.tip span{
+	width: 101px;height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #ffebed;
+	background: #e96800;
+	font-size: 16px;
+	float: left;
+}
+.content .code ul.tip p{
+	line-height: 30px;
+	font-size: 14px;
+	color: #ffebed;
+	padding-left: 29px;
+	float: left;
+}
+.content .code ul.code-box{
+	padding-top: 40px;
+	margin-right: -10px;
+}
+.content .code ul.code-box li{
+	width: 103px;
+	float: left;
+	text-align: center;
+	margin-right: 26px;
+}
+.content .code ul.code-box p{
+	padding-top: 13px;color: #ffebed;
+}

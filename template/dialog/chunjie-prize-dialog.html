@@ -1,0 +1,14 @@
+<div class="dialog chunjie-prize-dialog">
+    <div class="prize-wrap">
+        <h2 class="h2">{{curAward.awardTypeName}}</h2>
+        <div class="courter-close">
+            <div class="btn" ng-click="closeDialog()"></div>
+            <img src="/images/activity/newYear2018/activity/chunjie-prize-close-img.png" />
+        </div>
+        <div class="img">
+            <img src="{{curAward.picUrl}}" />
+        </div>
+        <p class="chunjie-prize-txt">年化投资额还差{{curAward.useCondition-myInfo.myAnnualizedAmount}}元</p>
+        <div class="to-invest" ng-click="toInvestIng()"></div>
+    </div>
+</div>

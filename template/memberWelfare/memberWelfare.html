@@ -1,0 +1,79 @@
+<div class="memberWelfare-wrap" ng-controller="memberWelfareCtrl">
+    <!--<div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>-->
+    <div class="banner">
+        <img src="/images/memberWelfare/banner.png" alt="" class="img">
+        <div class="rule" ng-click="ruleShow()"></div>
+        <div class="my-info" ng-if="isLogin">
+            <div class="left">您今天还有<i>{{userActivityInfo.usableSize}}</i>次刮奖机会</div>
+            <div class="right"><span ng-click="myAward()">我的奖品</span></div>
+        </div>
+        <div class="my-info" ng-if="!isLogin">
+            <div class="left"><span class="login" ng-click="toLogin()">登录</span> <span ng-if="isFirstActivity == 1">即可刮一刮</span><span ng-if="isFirstActivity != 1">可查看往期奖品</span></div>
+            <div class="right"><span ng-click="myAward()">我的奖品</span></div>
+        </div>
+    </div>
+    <div class="scratch">
+        <div class="bg">
+            <!--<div class="mask"></div>-->
+            <canvas id="myCanvas" class="mask"></canvas>
+            <img src="/images/memberWelfare/bg3.png" alt="" id="mask-img" style="display: none;">
+            <div class="canvas-mask" ng-hide="canvasMask">
+                <!--<p>周三刮一刮 iPhoneX抱回家</p>
+                <p><span ng-click="toGuaGua()">点我刮奖</span></p>-->
+                <div class="btn" ng-click="toGuaGua()"></div>
+            </div>
+        </div>
+    </div>
+    <div class="award-list">
+        <div class="list">
+            <p ng-repeat="item in prizeWinnerList">恭喜{{item.mobilePhone}}获得<i>{{item.awardName}}</i></p>
+        </div>
+    </div>
+    <div class="getchance award">
+        <h2>如何获得刮奖机会</h2>
+        <img src="/images/memberWelfare/getchance.png" alt="">
+    </div>
+    <div class="award">
+        <h2>大奖抢先看</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper" >
+                <div class="swiper-slide" ng-repeat="pic in awardInfoList">
+                    <img src="{{pic.picUrl}}">
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+    <div class="banner bottom">
+        <img src="/images/memberWelfare/bottom.png" alt="" class="img">
+    </div>
+    <div class="bottom-btn" ng-class="{'0': 'grey'}[status]" ng-if="status == 1">
+        <div ng-click="share()">分享立刮</div>
+        <div ng-click="toInvestIng()">投资立刮</div>
+    </div>
+    <div class="bottom-btn" ng-class="{'0': 'grey'}[status]" ng-if="status == 0">
+        <div>分享立刮</div>
+        <div>投资立刮</div>
+    </div>
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/memberWelfare</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+
+    <div class="no-started" ng-if="status != undefined && status != 1">活动未开始</div>
+
+</div>

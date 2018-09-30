@@ -1,0 +1,108 @@
+<div class="myinvest-detail-wrap headerTop" ng-controller="myInvestDetailCtrl">
+    <div class="common-head"><i ng-click="toback()"></i>
+        <p>{{title}}</p>
+        <!--<span class="right" ng-if="cpinfo.cfcaSwitchFlag"><a href="{{hostName}}/loan?pid={{cpinfo.pid}}&uid={{cpinfo.uid}}&investId={{cpinfo.id}}" target="_blank" ng-if="cpinfo.type != 5">协议</a></span>-->
+        <span class="right" ng-show="isOldAgreement"><a href="{{hostName}}/loan?pid={{cpinfo.pid}}&uid={{cpinfo.uid}}&investId={{cpinfo.id}}" target="_blank" ng-if="cpinfo.type != 5">协议</a></span>
+    </div>
+    <div class="obj-title">
+        <span>{{cpinfo.fullName}} <span class="cj" ng-if="cpinfo.productType == 2"><img src="/images/myaccount/me_choujiang.png" alt="">抽奖</span></span>
+        <span class="status" ng-bind="{0:'投资中',1:'待还款',2:'投资失败',3:'已还款'}[cpinfo.productStatus]"></span>
+    </div>
+    <div class="content">
+        <ul>
+            <li>
+                <div>历史年化收益率</div>
+                <div class="right">
+                    {{cpinfo.rate}}%
+                    <span class="activityRate" ng-if="cpinfo.activityRate>0 || cpinfo.specialRate>0">
+		                            +{{cpinfo.activityRate+cpinfo.specialRate}}%
+		                    </span>
+                </div>
+            </li>
+            <li>
+                <div>投资期限</div>
+                <div class="right">{{cpinfo.deadline}}天</div>
+            </li>
+            <li>
+                <div>还款方式</div>
+                <div class="right" ng-bind="{1:'到期还本付息',2:'按月付息',3:'到期还本'}[cpinfo.repayType]"></div>
+            </li>
+            <li>
+                <div>投资金额</div>
+                <div class="right">{{cpinfo.amount | number:0}}元</div>
+            </li>
+            <li>
+                <div>应收本金</div>
+                <div class="right">{{cpinfo.factAmount | number:2}}元</div>
+            </li>
+            <li>
+                <div>应收利息</div>
+                <div class="right">{{cpinfo.factInterest | number:2}}元</div>
+            </li>
+            <li>
+                <div>投资日期</div>
+                <div class="right">{{cpinfo.investTime | date:"yyyy-MM-dd"}}</div>
+            </li>
+            <li>
+                <div>计息日期</div>
+                <div class="right" ng-if="cpinfo.interestTime">{{cpinfo.interestTime | date:"yyyy-MM-dd"}}</div>
+                <div class="right" ng-if="!cpinfo.interestTime">未计息</div>
+            </li>
+            <li ng-if="cpinfo.interestTime">
+                <div>回款日期</div>
+                <div class="right">{{cpinfo.expireDate | date:"yyyy-MM-dd"}}</div>
+            </li>
+            <li ng-if="!cpinfo.interestTime">
+                <div>预计回款日期</div>
+                <div class="right">{{cpinfo.expireDate | date:"yyyy-MM-dd"}}</div>
+            </li>
+            <li ng-if="cpinfo.couponType != undefined && (cpinfo.couponType != 3 || cpinfo.type == 5)">
+                <div>优惠券</div>
+                <div class="right" ng-if="cpinfo.couponType == 1">返现{{cpinfo.couponAmount | number:2}}元</div>
+                <div class="right" ng-if="cpinfo.couponType == 2">加息{{cpinfo.couponRate | number:2}}%</div>
+                <div class="right" ng-if="cpinfo.couponType == 4">翻{{cpinfo.multiple | number:2}}倍</div>
+                <div class="right" ng-if="cpinfo.type == 5">体验金{{cpinfo.couponAmount}}元</div>
+            </li>
+            <li ng-if="cpinfo.bounty>0">
+                <div>尾标奖</div>
+                <div class="right">{{cpinfo.bounty}}元</div>
+            </li>
+        </ul>
+    </div>
+    <div class="div-block"></div>
+    <div class="content">
+        <ul>
+            <li ng-click="toDetailePage()">
+                <div>产品详情</div>
+                <div class="right"><img src="images/find/icon_rightto.png" alt="" class="right-icon"></div>
+            </li>
+        </ul>
+    </div>
+    <!--<div class="div-block" ng-if="cpinfo.cfcaSwitchFlag"></div>-->
+    <!--<div class="content" ng-if="cpinfo.cfcaSwitchFlag">-->
+        <!--<ul>-->
+            <!--<li>-->
+                <!--<div>电子合同</div>-->
+                <!--<div class="right"><img src="images/find/icon_rightto.png" alt="" class="right-icon"></div>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="anxinqian" ng-if="cpinfo.cfcaSwitchFlag">-->
+        <!--<span>温馨提示：平台电子合同被CFCA认证</span>-->
+        <!--<span class="right" ui-sref="eContractIntroduce">了解更多>></span>-->
+    <!--</div> -->
+    <div class="div-block" ng-show="!isOldAgreement"></div>
+    <div class="content" ng-show="!isOldAgreement" >
+        <ul>
+            <li ng-click="gotoOtherPage()" >
+                <div>电子合同</div>
+                <div class="right"><img src="images/find/icon_rightto.png" alt="" class="right-icon"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="anxinqian" ng-show="!isOldAgreement">
+        <span>温馨提示：平台电子合同被CFCA认证</span>
+        <span class="right" ui-sref="eContractIntroduce">了解更多>></span>
+    </div>
+    <div class="myinvest-footer" ng-click="tohuikuan()">查看回款记录</div>
+</div>

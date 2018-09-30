@@ -1,0 +1,13 @@
+<div class="recharge-dialog">
+	<form name="rechargeDialogForm" ng-submit="submitDialogForm(rechargeDialogForm.$valid)" novalidate>
+		<div class="title">确认充值</div>
+		<div class="num">充值金额(元)：{{recharge.amount | currency:''}}</div>
+		<div class="code"><a href="" ng-click="getPhoneCode(rechargeForm.amount.$valid, $event, code, false)" class="getcode">{{code.getCodeText}}</a><input name="phonecode" placeholder="请输入短信验证码" ng-model="recharge.phonecode" autocomplete="off" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')"></div>
+		<div class="btns">
+			<input type="submit" value="确定" ng-click="rechargeSure()" ng-disabled="rechargeDialogForm.$invalid">
+			<span ng-click="closeDialog()">取消</span>
+		</div>
+	</form>
+</div>
+
+<!-- showMask({rootSp.maskHidde:true}) -->

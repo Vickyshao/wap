@@ -1,0 +1,25 @@
+<div class="cp080-box" ng-controller="CP080Ctrl">
+<!-- 注释 -->
+	<div class="cp080-msg">
+		<ul>
+			<li><i></i><p>认证银行卡用充值提现，同卡进出保障资金安全。</p><p>请确认您的信息真实有效，如有疑问请联系客服人员。</p></li>
+			<li><i></i>实际金额请以银行限额为准，如有疑问请联系发卡行。</li>
+		</ul>
+	</div>
+<!-- 注释over -->
+	<div>
+		<div class="cp080-bankBox" ng-repeat="item in bankList.bankQuotaList">
+			<table>
+				<tr>
+					<td class="rate" style="width: 20%; text-align: center;">
+						<img src="images/bank/{{item.id}}.png">
+					</td>
+					<td class="rate" style="width: 80%;">
+						<span>{{item.id|isBankType}}</span>
+						<p>单笔额度：{{item.singleQuota | currency:''}}元，单日额度：{{item.dayQuota| currency:''}}元</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

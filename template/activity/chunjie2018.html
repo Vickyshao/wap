@@ -1,0 +1,134 @@
+<div class="chunjie2018 headerTop" ng-controller="chunjie2018Ctrl">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+        <span class="float-menu" ng-click="share()">分享</span>
+    </div>
+    <div class="banner"></div>
+    <!--活动规则-->
+    <div class="rule-text" ng-click="showNewYearRule()">活动规则</div>
+    <!--年华计算器-->
+    <div class="calculator" ng-click="calculator()"></div>
+    <div class="main">
+        <!--未登录-->
+        <div class="common-login-box no-login">
+            <p class="desc">您累计年化投资金额为</p>
+            <div ng-if="isLogin">
+                <h2 class="num">{{myInfo.myAnnualizedAmount}}元</h2>
+                <p ng-if="myInfo.gapAnnualizedAmount" class="tip">距离{{myInfo.awardTypeName}}：年化投资额仅差{{myInfo.gapAnnualizedAmount}}元</p>
+            </div>
+            <h2 ng-click="toInvestIng()" ng-if="!isLogin" class="num">请登录后查看</h2>
+
+            <a ng-click="toInvestIng()" class="invest"></a>
+        </div>
+        <!--通知-->
+        <div class="notice">
+            <table>
+                <tr ng-repeat="item in awardRecardList">
+                    <td><i></i>{{item.realname}}{{item.winningTime | date: 'yyyy.M.d'}}获得了{{item.awardName}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!--才高八斗-->
+        <div class="block">
+            <div class="common-header header1"></div>
+            <h2 class="desc">投资达到对应金额后，可包揽前面所有<span>现金及京东卡</span>哦~</h2>
+            <!--奖品区-->
+            <div class="prize">
+                <ul class="prize-progress">
+                    <li ng-class="{1:'rhj',2:'fgj',3:'xfj',4:'mmj',5:'zcj',6:'jbj'}[item.weight]" ng-repeat="item in awardLists" ng-click="reciveAward(item)">
+                        <div class="ing">
+                            <p class="img-wrap"><img src="{{item.picUrl}}" /></p>
+                            <h2 ng-if="item.status == '1'" class="pt16">已获得{{item.awardName}}</h2>
+                            <h2 ng-if="item.status == '0'">累计年化投资额<br>{{item.useCondition}}元</h2>
+                        </div>
+                        <div ng-if="item.status == '1'" class="ed">
+                            <div class="out"><label></label></div>
+                            <p class="out-txt">领</p>
+                        </div>
+                        <div class="jiantou"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--节节高升-->
+        <div class="block">
+            <div class="common-header header2"></div>
+            <h2 class="desc">TOP 10 用户可获得<span>额外加奖</span>哦~</h2>
+            <p ng-if="!top10" class="desc lowTop" ng-repeat="index in [9]">您距离Top10还差{{rankList[index].annualizedAmount-myInfo.myAnnualizedAmount}}元(年化投资额)~</p>
+            <!--中奖列表区-->
+            <div class="prize-list">
+                <!--<ul class="top-list" ng-if="!isLogin">-->
+                    <!--<li class="top1"><p class="no-login">可获得</p></li>-->
+                    <!--<li class="top2"><p class="no-login">可获得</p></li>-->
+                    <!--<li class="top3"><p class="no-login">可获得</p></li>-->
+                <!--</ul>-->
+                <ul class="top-list">
+                    <li ng-class="{0:'top2',1:'top1',2:'top3'}[index]" ng-repeat="index in [1,0,2]">
+                        <!--已登录-->
+                        <div class="logined">
+                            <p class="name">{{rankListlist1[index].userName}}</p>
+                            <h2 class="jine">{{rankListlist1[index].annualizedAmount}}元</h2>
+                            <h3><span>累计年化投资额</span></h3>
+                        </div>
+                        <span ng-if="rankListlist1[index].isYouSelf" class="nin" ng-class="{1:'nin1',0:'nin2',2:'nin3'}[index]">您:</span>
+                    </li>
+                </ul>
+                <table class="prize-table">
+                    <thead>
+                    <tr>
+                        <th width="17%">排名</th>
+                        <th width="18%">用户</th>
+                        <th width="40%">累计年化投资额（元）</th>
+                        <th width="25%">奖品</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-class="{true:'red',false:''}[item.isYouSelf]" ng-repeat="item in rankListlist">
+                        <td>
+                            <b ng-if="item.isYouSelf">您:</b>
+                            <span>{{item._index+4}}</span>
+                        </td>
+                        <td>{{item.userName}}</td>
+                        <td>{{item.annualizedAmount}}</td>
+                        <td>{{item.awardName}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!--点击分享-->
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/chunjie2018</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+
+    <div class="footer-bottom">
+        <img src="/images/activity/newYear2018/ny-img-footer.jpg">
+    </div>
+
+    <!--已下线-->
+    <div class="deline" ng-if="!isInActivityTime">
+        <div class="delineDialog">
+            <p>春节活动已结束</p>
+            <p>敬请留意其它活动</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<!-- page1 -->
+	<canvas class="h5-aqbz-c" id="canvas" width="100%" height="100%"><!-- 此处width可以更改，height的高度不得小于图片的高度-->
+	    <h1>不好意思，你的浏览器不支持canvas</h1>
+	</canvas>
+<div class="h5-aqbz-c">
+	page1
+	<div>
+		<img src="/weixin/images/AQBZ/page1_1.png">
+	</div>
+</div>
+<!-- page2 -->
+<div class="h5-aqbz-c">
+	<img src="/images/aqbz/line.png">
+	<h1>公司荣誉</h1>
+	<div class="h5-aqbz-zwbody text-center">
+		<div>
+			<p>2016年4月加入</p>
+			<p>上海市信息服务业行业协会</p>
+		</div>
+		<div>
+			<p>2016年4月荣获</p>
+			<p>“中国信用企业认证体系示范单位”证书</p>
+		</div>
+		<div>
+			<p>2016年3月加入</p>
+			<p>上海金融信息行业协会</p>
+		</div>
+		<div>
+			<p>2016年3月荣膺</p>
+			<p>“2016中国最佳诚信示范金融企业”证书</p>
+		</div>
+	</div>
+	<div class="h5-aqbz-jb">
+		<img src="/images/aqbz/jb.png">
+	</div>
+</div>
+<script type="text/javascript">
+	 var canvas = document.getElementById('canvas');
+    var    context = canvas.getContext('2d');
+    // pic1:{width:100%,height:100%}
+    var pic1=new Image();
+        pic1.src="http://1.su.bdimg.com/icon/712.png";//图片路径可以更改
+    //pic2:{width:16px,height:16px}
+    var pic2=new Image();
+        pic2.src="/images/aqbz/line.png";
+    var    moveX=0;
+    //绘制向右移动时的图形
+    function drawMoveToRight(x,y){
+        context.drawImage(pic1,x,y);
+    }
+    //绘制向左移动时的图形
+    function drawMoveToLeft(x,y){
+        context.drawImage(pic2,x,y);
+    }
+    //向右移动的定时器
+    var moveToRightInterval=setInterval(moveToRight,1);//每1毫秒执行moveToRight操作，毫秒可以更改
+    //向左移动的定时器
+    var moveToLeftInterval=null;
+    //向右移动
+    function moveToRight(){
+        context.clearRect(0,0,canvas.width,canvas.height);//清除画布
+        moveX++;
+        drawMoveToRight(moveX,0);//向右移动，并绘制图形
+        if(moveX>=(canvas.width+pic1.width*3)){//判断右边边界，实现左移操作
+            clearInterval(moveToRightInterval);//清除掉向右移动的定时器
+            moveX++;
+            if(moveX==((canvas.width+pic1.width*3)+1))//判断相等则向左移动
+            {
+                moveToLeftInterval=setInterval(moveToLeft,1);//每1毫秒执行moveToRight操作，毫秒可以更改
+            }
+        }
+    }
+    //向左移动
+    function moveToLeft(){
+        context.clearRect(0,0,canvas.width,canvas.height);//清除画布
+        moveX--;
+        drawMoveToLeft(moveX,0);//向左移动，并绘制图形
+        if(moveX<=-pic2.width*3){//判断左边边界，实现右移操作
+            clearInterval(moveToLeftInterval);//清除掉向左移动的定时器
+            moveX--;
+            if(moveX==-(pic2.width*3+1))//判断相等则向右移动
+            {
+                moveToRightInterval=setInterval(moveToRight,1);//每1毫秒执行moveToRight操作，毫秒可以更改
+            }
+        }
+    }
+</script>

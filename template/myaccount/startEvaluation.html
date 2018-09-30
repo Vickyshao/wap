@@ -1,0 +1,14 @@
+<div class="risk headerTop" ng-controller="evaluationCtrl">
+	<div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i><p>风险评测</p></div>
+	<div class="main test">
+		<div class="test-block">
+			<div class="number"><span>{{curSub.sort}}/{{subjectListLen}}</span></div>
+			<div class="qustioin">{{curSub.subject}}</div>
+			<ul class="awser">
+				<li class="radius-btn" ng-repeat="item in curSub.listOptions" ng-click="optionItem($event,this)">{{item.subjectOption}}</li>
+			</ul>
+			<div class="previous" ng-if="curSub.sort != 1"><a class="radius-btn" ng-click="previous()">上一题</a></div>
+		</div>
+
+	</div>
+</div>

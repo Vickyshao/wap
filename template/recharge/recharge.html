@@ -1,0 +1,57 @@
+<div class="wrap recharge-wrapper headerTop" ng-controller="rechargeController" >
+    <div class="common-head" ng-click="toback()" ng-class="{true:'blue-head', false: ''}[step1]"><i></i><p>{{title}}</p></div>
+
+    <div class="recharge-wrap">
+        <form name="rechargeForm"  ng-submit="submitDialogForm(rechargeForm.$valid)" novalidate>
+            <div ng-show="step1">
+                <div class="card-box">
+                    <div class="left">
+                        <img src="images/recharge/new/{{recharge.bankCode}}.png" />
+                        <p class="card-name">{{recharge.bankName}}<br/>尾号{{recharge.bankNum}}</p>
+                    </div>
+                    <div class="center"><img src="/images/recharge/arrow.png"></div>
+                    <div class="left">
+                        <img src="images/recharge/balanceIcon.png" />
+                        <p class="card-name" ng-if="recharge.amount">可用余额<br/>{{(recharge.amount * 1 + recharge.funds) | currency:''}}</p>
+                        <p class="card-name" ng-if="!recharge.amount">可用余额<br/>{{recharge.funds | currency:''}}</p>
+                    </div>
+                </div>
+
+                <div class="recharge-box cash-box clearfix">
+                    <input type="text" class="text sum amount" name="recharge" ng-model="recharge.amount" ng-value="recharge.amount" required onkeyup="this.value=this.value.replace(/^\D*(\d*(?:\.\d{0,2})?).*$/g, '$1')" ng-blur="setAmount()" autocomplete="off" placeholder="最少3元" ng-pattern="/^[0-9]+([.]{1}[0-9]+){0,1}$/" ng-change="setAmountError()" more3 rechargelimit><span class="left">输入金额</span><span  class="right">元</span>
+                </div>
+
+                <div class="bot-tips clearfix">
+                    <img src="/images/recharge/ico_circle.png">
+                    充值限额：单笔{{recharge.singleQuota | number}}元，单日{{recharge.dayQuota | number}}元
+                    <span ui-sref="payments" style="float:right;color:#0295e7;">支付额度表</span>
+                </div>
+                <!--<div class="line-table">-->
+                    <!--<span>支付额度表</span>-->
+                    <!--<span ui-sref="payments">查看</span>-->
+                <!--</div>-->
+
+                <div class="sub-box recharge-sub">
+                    <input type="button" value="下一步" class="sub-btn sub" ng-disabled="!rechargeForm.recharge>=3" ng-click="getPhoneCode(rechargeForm.amount.$valid, $event, code, false);"/>
+                </div>
+                <p ng-if="recharge.sysArticleList.length>0" style="padding:1rem 1.5rem;color:#E84033;">{{message}}</p>
+            </div>
+            <div ng-show="!step1" class="wap-login2-box">
+                <div class="smsConfirm">
+                    <p class="desc">短信验证码已发送至</p>
+                    <p class="phone">{{recharge.bankMobilePhone}}</p>
+                    <div class="common-box pa">
+                        <input name="phonecode" type="text" placeholder="请输入短信验证码" maxlength="6" required ng-model="recharge.phonecode" autocomplete="off" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')">
+                        <span class="sendsms" ng-click="getPhoneCode(rechargeForm.amount.$valid, $event, code, false);">{{code.getCodeText}}</span>
+                    </div>
+                </div>
+
+                <!--<div class="login-btn">确认</div>-->
+                <div class="sub-box recharge-sub">
+                    <input type="submit" value="确认" class="sub-btn sub"/>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

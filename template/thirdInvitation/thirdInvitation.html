@@ -1,0 +1,63 @@
+<div class="third-invitation headerTop" ng-controller="thirdInvitationCtrl">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+        <span class="right" ng-click="invite()">邀请</span>
+    </div>
+    <div class="banner" ng-class="isLogin ? 'loginBaner': 'unLoginBaner'">
+        <div style="height: 4rem;" ></div>
+        <img src="/images/thirdInvitation/logo.png" alt="" class="logoImg" ng-click="$state.go('main.home');">
+        <img src="/images/thirdInvitation/text1.png" alt="" class="img" style="width: 94%;margin-left: 3%;">
+        <!--活动规则-->
+        <div class="num">
+            <img src="/images/thirdInvitation/rule-icon.png" alt="" ng-click="goLook()">
+        </div>
+        <div class="title" ng-show="isLogin">
+
+            <p ng-click="showList()">已邀请<span>{{invitationInfo.totalInvite}}</span>位好友，共获得<span>{{invitationInfo.totalEarn}}</span>元奖励<img src="/images/thirdInvitation/expand.png" alt="" style="width: 0.7rem;display: inline-block;vertical-align: middle;margin-left: 0.35rem;"></p>
+            <img src="/images/thirdInvitation/title1.png" alt="" class="img">
+        </div>
+        <div class="title" ng-show="!isLogin" style="margin-top: 3.2rem;">
+            <img src="/images/thirdInvitation/title1.png" alt="" class="img">
+        </div>
+    </div>
+   <div class="content">
+       <img src="/images/thirdInvitation/step3.png" alt="">
+   </div>
+    <div class="steps">
+        <img src="/images/thirdInvitation/step4.png" alt="" class="img">
+        <img src="/images/thirdInvitation/award.png" alt="" class="img" ng-click="calcPop()">
+        <img src="/images/thirdInvitation/step5.png" alt="" class="img">
+    </div>
+    <div class="goInvite">
+        <img src="/images/thirdInvitation/invite-button.png" alt="" ng-click="goToLogin()">
+    </div>
+    <div class="footer">
+        <img src="/images/thirdInvitation/footer.png">
+        <img src="/images/activity/pinxuan/step8.png">
+    </div>
+    <!--分享弹框-->
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <!--<textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/thirdInvitationActivity?recommCode={{userOBJ.user.member.recommCodes}}&mobilePhone={{userOBJ.user.member.mobilephone| limitTo :3}}****{{userOBJ.user.member.mobilephone| limitTo :-4}}&realName={{userOBJ.user.realName | limitTo :-1}}</textarea>-->
+            <!--测试环境分享链接-->
+            <!--<textarea id="shareurl" class="shareurl">https://devm.shcen.com/thirdInvitationActivity?recommCode={{userOBJ.user.member.recommCodes}}&mobilePhone={{userOBJ.user.member.mobilephone| limitTo :3}}****{{userOBJ.user.member.mobilephone| limitTo :-4}}&realName={{userOBJ.user.realName | limitTo :-1}}</textarea>-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/welcom?recommCode={{userOBJ.member.recommCodes}}&mobilePhone={{userOBJ.member.mobilephone| limitTo :3}}****{{userOBJ.member.mobilephone| limitTo :-4}}&realName={{(userOBJ.realName?userOBJ.realName:'亲爱的用户') | limitTo :-1}}</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+    <!--已下线-->
+    <div class="deline" ng-if="!isInActivityTime">
+        <div class="delineDialog">
+            <p>三级邀请活动已结束</p>
+            <p>敬请留意其他活动</p>
+        </div>
+    </div>
+</div>

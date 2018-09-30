@@ -1,0 +1,119 @@
+<style>
+    .chedd main  .register-box .promote-box .input-item .input-box{
+        border:1px solid #ccc;
+    }
+    .chedd main .register-box .promote-box .input-item .btn{
+        height: 3.9rem;
+        width: 100%;
+        text-align: center;
+        line-height: 3.9rem;
+        margin:1rem 0 1rem;
+        background: url('/images/activity/chedd/chedd-btn.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .chedd  main .register-box .promote-box .input-item .btn:disabled{
+        background: url('/images/activity/chedd/chedd-btn-disable.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .chedd main .register-box .promote-box .input-item .input-box.sendCode{
+        background:#ff9600;
+        border:1px solid #ff9600;
+    }
+    .chedd  .img-wrap{
+        display: block;
+    }
+    .chedd .footer .footer-top .footer-header span{
+        color: white;
+    }
+    .chedd .footer .footer-top .footer-content li{
+        color: white;
+        font-size: 0.98765rem;
+        text-align: justify;
+        line-height: 24px;
+    }
+</style>
+<div class="chedd" ng-controller="commonSemCtrl" style="background:#fdedee;">
+    <main>
+        <img style="width:100%;" src="/images/activity/chedd/chedd01.png">
+        <a href="/main/home" class="logo"></a>
+        <div class="register-box">
+            <div class="promote-box">
+                <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                    <div class="step1" ng-show="form">
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-1.png" style="left:0.7rem;" />
+                            <div class="input-box">
+                                <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号码" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step2" ng-show="!form">
+                        <div class="input-item" ng-show="isShowPicCode">
+                            <img src="/images/activity/chedd/ico-2.png" style="left:0.6rem;"/>
+                            <div class="input-box" style="width:55%;margin-right:3%;float:left;">
+                                <input id="imgcode" class="input" type="text" placeholder="请输入图形验证码" ng-model="login.picCode" name="picCode" minlength="4" maxlength="4"  autocomplete="off" />
+                            </div>
+                            <div style="width:40%;float:right;">
+                                <span class="img-box"><img ng-click="clickInput($event)" src="login/validateCode2.dos"></span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-3.png" />
+                            <div class="input-box" style="width:55%;margin-right:3%;float:left;">
+                                <input name="smsCode" ng-model="login.smsCode"  type="text"  placeholder="请输入短信验证码" maxlength="4" required class="input">
+                            </div>
+                            <div class="input-box sendCode">
+                                <span ng-click="getyzm(myForm)" style="color:#fff;">{{nowTimer}}</span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-4.png" />
+                            <div class="input-box">
+                                <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" maxlength="16" ng-model="login.passWord" name="passWord" required class="input" />
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc" style="color:#ff9600;">《沪深理财注册协议》</a></p>
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <button class="btn reg-fir"  ng-show="form" ng-click="next(myForm)" ng-disabled="!agree" style="width:100%;"></button>
+                        <button class="btn reg-sec"  ng-show="!form" ng-click="zuce(myForm)" ng-disabled="!agree"></button>
+                        <p ng-show="form" style="text-align: center;color: #666;">已有账号？
+                            <a  ng-click="toLogin()" style="text-decoration:underline;color:#c32525;">立即登录</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div class="img-wrap">
+        <img class="" src="/images/activity/chedd/chedd02.png" >
+        <img class="" src="/images/activity/chedd/chedd03.png" >
+        <img class="" src="/images/activity/chedd/chedd04.png" >
+        <img class="" src="/images/activity/chedd/chedd05.png" >
+        <img class="" src="/images/activity/chedd/chedd06.png" >
+    </div>
+    <div class="footer" style="background:#d84036;">
+        <div class="footer-top rule-box">
+            <h1 class="footer-header" ng-click="ruleCtrl()">
+                <span>活动规则<img src="/images/activity/chedd/caret.png"></span>
+            </h1>
+            <ul class="footer-content"  type="1" style="list-style-type:decimal; list-style-image:none; list-style-position:outside;margin-left: 0.98765rem;">
+                <li>活动时间：2018年4月1日-4月30日；</li>
+                <li>活动对象：活动期间内通过此活动页面注册并投资的新用户；</li>
+                <li>新用户首投金额满足奖励条件即可获得相应奖励，每人限领一档奖励；</li>
+                <li>礼品发放：每周五为投资专享礼品发放日，统一由车点点发送到车点点账户（本周五投资送的礼品需在下周五发放）；</li>
+                <li>每个身份证仅限参加一次，刷奖及冒用他人身份证、银行卡者一经核实，取消活动资格，所得奖励不予承兑；</li>
+                <li>此活动不与平台其他活动同享（且新手标及活动标不参与本活动）。</li>
+                <li style="list-style: none;">* 本活动规则解释权归沪深理财所有，如有疑问请联系在线客服或拨打400-031-9909 。</li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <img src="/images/activity/chedd/footer.png">
+        </div>
+    </div>
+</div>

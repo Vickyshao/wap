@@ -1,0 +1,22 @@
+<div class="dialog special-dialog risk-dialog">
+    <i class="close" ng-click="closeDialog()"></i>
+    <div class="contain" ng-if="!showRiskDialog">
+        <div class="img">
+            <img class="img1" src="/images/risk/icon1.png" alt="">
+        </div>
+        <p class="text1">尊敬的用户：</p>
+        <p class="text2">根据《网络借贷信息中介机构业务活动的管理暂行办法》第四章第26条，请您出借前先完成风险承受能力评估！</p>
+        <p class="text3">首次做风险评测，领<span >1.2倍</span>翻倍券</p>
+        <div ng-if="!closeDia" class="new-blue-btn" ng-click="reviewEvaluation()">立即测评</div>
+        <div ng-if="closeDia" class="new-blue-btn" ng-click="closeDialog()">立即测评</div>
+    </div>
+    <div class="contain" ng-if="showRiskDialog">
+        <div class="img">
+            <p class="imgBg"><span>{{cp.info.riskname}}</span></p>
+        </div>
+        <p class="text2 no-indent">
+            该标的风险评测等级为<span>{{cp.info.riskname}}</span>，您的评测类型为<span>{{cp.myType}}</span>，还不能进行投资。您可以重新评测，符合标的的风险评测类型后可以进行投资。
+        </p>
+        <div class="new-blue-btn" ng-click="reviewEvaluation()">重新测评</div>
+    </div>
+</div>

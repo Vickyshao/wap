@@ -1,0 +1,9 @@
+<div class="company-honor headerTop" ng-controller="honorCtrl" >
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="honor">
+        <div ng-repeat='item in companyHonor' ng-bind-html="item.content | asHtml"></div>
+    </div>
+
+</div>

@@ -1,0 +1,90 @@
+.hl-html{background:#fff;}
+.header{overflow:hidden;background:#e8e7e7;}
+.header ul li{height:90px;line-height:90px; float:left;color:#646464;}
+.header .vast-type{padding-left:30px;padding-right:172px;}
+.header .vast-money{padding-right:95px;}
+
+/*��ɫ*/
+.white {color: #fff;}
+.orange-btn{color: #ffa51f;}
+.orange-font{color: #ff9900;}
+.red {color: #ff0000;}
+.green {color: #00bf00;}
+.pink {color: #ba136b;}
+.grey {color: #646464;}
+.black {color: #000;}
+.blue{color:#46aebd}
+ h5{color:#323232;}
+/*invest-record*/
+.list{height:130px;border-top:1px solid #dbdbdb;border-bottom:1px solid #dbdbdb;background:#fff;}
+.list .float{float:left;margin-top:22px;}
+.list .type{margin-left:30px;width:210px;}
+.list .money{width:230px;text-align:right;}
+.list .total{width:250px;text-align:right;}
+.list .type p{color:#969696;font-size:22px;}
+/*no-record*/
+.no-record {text-align:center;font-size:36px;}
+.no-record .noimg{padding-top:330px;margin-bottom:66px;}
+/*HL-plan*/
+.content{margin:0 30px;}
+.hl-tab{width:100%;border-radius:7px;border:2px solid #ffa51f;overflow:hidden;margin-top:30px;margin-bottom:20px;color:#b5b5b5;}
+.hl-tab li{width:50%;text-align:center;float:left;cursor: pointer;}
+.hl-tab .active{background:#ffa51f;color:#fff;}
+
+.hl-content{border-radius:7px;border:1px solid #dad9d9;overflow:hidden;margin-top:10px;}
+.hl-hd{background:#f0f0f0}
+.hl-content .hl-hd{color:#323232;text-align:left;background:#f0f0f0;border-radius:7px;}
+.hl-content .hl-hd span{margin-left:20px;display:inline-block;}
+.hl-content .hl-hd p{margin-left:112px;display:inline-block;}
+.hl-content .hl-hd strong{margin-left:84px;font-size:24px;display:inline-block;font-weight:normal;}
+
+.hl-content .hl-bd{font-size:24px;color:#b5b5b5;margin-top:20px;}
+.hl-bd .bd1,.hl-bd .bd2,.hl-bd .bd3{float:left;}
+.hl-bd p{color:#ff9900;}
+.hl-bd .bd1{width:254px;margin-left:20px;}
+.hl-bd .bd2{width:275px;}
+.more_data{text-align:center;line-height:80px;border-radius:7px;border:2px solid #d9d9d9;color:#696969;}
+/*payback-detail*/
+.account-content{margin-top:20px;border-radius:7px;border:2px solid #dad9d9;color:#959595;}
+.account-content h3{line-height:90px;padding-left:22px;background:#f0f0f0;border-radius:7px;font-size:36px;color:#323232;}
+.account-bd {font-size:30px;padding:30px 20px;overflow:hidden;}
+.account-bd p{color:#ff9900;}
+.account-content .interest{color: #00bf00;}
+.account-even{background:#fff;}
+.account-odd{background:#f0f0f0;}
+.account-last{border-radius:7px;}
+.account-bd .bd1{width:374px;float:left;}
+.account-bd .bd2{float:left;}
+/*invest-detail*/
+.invest-detail-content h3{position:relative;}
+.invest-detail-content .account-bd span{display:block;}
+.invest-detail-content h3 i{position:absolute;top:0;right:0;display:block;width:90px;height:90px;border-radius:0 7px 0 0;background:url(../../images/myaccount/income.png) no-repeat;}
+.invest-bd{font-size:24px;padding-left:20px;padding-bottom:30px;}
+.invest-bd span{font-size:90px;color:#ff9900;}
+.invest-bd em{color:#ff9900;margin-right:42px;}
+.invest-bd strong{color:#ff9900;margin-left:66px;}
+.account-bd span strong{font-size:20px; font-weight: normal;}
+.invest-btn{margin-top:40px;}
+.invest-btn ul{margin:0 20px 40px;overflow:hidden;}
+.invest-btn li{float:left;width:49%;line-height:90px;color:#fff;text-align:center;}
+.invest-btn li:hover{opacity:0.8;}
+.invest-btn li a{color:#fff;text-decoration:none;}
+.invest-btn .payback-btn{background:#ffa51f;border-radius:7px 0 0 7px;margin-right:2px;}
+.invest-btn .xieyi-btn{background:#46aebd;border-radius:0 7px 7px 0;}
+.invest-btn p{font-size:24px;color:#959595;margin-left:20px;margin-bottom:40px;}
+/*account home*/
+.home-info{background:#3f5454;color:#fff;padding:10px 30px;}
+.home-info ul{overflow:hidden;}
+.home-info ul li{height:60px;line-height:60px;}
+.home-info .h-user{background:url(../../images/myaccount/user.png) no-repeat;padding-left:85px;width:40%;float:left;}
+.home-info .h-mobile{float:right;}
+.home-info .account-all{margin-top:100px;text-align:center;}
+.home-info span{font-size:108px;text-align:center;display:block;}
+.h-over{margin-top:50px;}
+
+.h-myinvest a{background:#fff url(../../images/myaccount/my-invest.png) 30px 25px no-repeat;border-bottom:1px solid #dad9d9;height:38px;padding-left:80px;height:90px;line-height:90px;display:block;color:#404040;text-decoration:none;}
+.h-record a{background:#fff url(../../images/myaccount/record.png) 30px 25px no-repeat;border-bottom:1px solid #dad9d9;height:38px;padding-left:80px;height:90px;line-height:90px;display:block;color:#404040;text-decoration:none;}
+.h-myinvest i,.h-record i{float:right;color:#f2f2f2;font-weight:normal;padding-right:30px;}
+/*touzi protocol*/
+.protocol-content{background:#fff;margin:20px;padding:20px;border-radius:7px;border:2px solid #dad9d9;font-size:24px;color:#b5b5b5;}
+.protocol-content p{line-height:40px;}

@@ -1,0 +1,41 @@
+<div class="newcomer" ng-controller="newcomerCtrl">
+	<img src="images/newcomer/newcomera.png" />
+	<img src="images/newcomer/newcomerb.png" />
+	<img src="images/newcomer/newcomerc.png" />
+	<div class="newcomer-btn1">
+		<img src="images/newcomer/newcomerd.png" />
+		<a href="jsmp://page=7?" ng-if="wap!='true'">
+		<img src="images/newcomer/newcomerbtnone.png" class="btn-zhuce" />
+		</a>
+		<img src="images/newcomer/newcomerbtnone.png" ng-if="wap=='true'" ui-sref="zhuce" class="btn-zhuce" />
+	</div>
+	<img src="images/newcomer/newcomere.png" />
+	<div class="newcomerList">
+	<div class="newcomerListBox">
+		<img src="images/newcomer/newcomerlistbg.png" />
+		<div class="newcomerListBoxCont">
+			<div>
+			<ul class="newcomer-activitylist" ng-scrolltop ng-scrolltop-speed="30">
+                <li ng-repeat="item in newcomerList track by $index">{{item.mobilephone}}<span>投资<font>{{item.amount}}</font>元</span></li>
+            </ul>
+            </div>
+		</div>
+	</div>
+	</div> 
+	<img src="images/newcomer/newcomerg.png" />
+	<div class="newcomer-btn1">
+		<img src="images/newcomer/newcomerh.png" />
+		<a href="jsmp://page=2?" ng-if="!wap">
+		<img src="images/newcomer/newcomerbtntwo.png" class="btn-zhuce" />
+		</a>
+		<img src="images/newcomer/newcomerbtntwo.png" ng-if="wap" ui-sref="main.bankBillList" class="btn-zhuce" />
+	</div>
+	<img src="images/newcomer/newcomerj.png" /> 
+	<img src="images/newcomer/newcomerk.png" />
+	<img src="images/newcomer/newcomerl.png" />
+	<img src="images/newcomer/newcomerm.png" />
+	<img src="images/newcomer/newcomern.png" />
+	<img src="images/newcomer/newcomero.png" />
+	<img src="images/newcomer/newcomerp.png" />
+	<div class="zjd-box2" ng-if="showshare" ng-click="clodethis($event)"></div>
+</div>

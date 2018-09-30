@@ -1,0 +1,311 @@
+/*.ngdialog.ngdialog-theme-default {
+  padding-bottom: 160px;
+  padding-top: 160px;
+}*/
+.enfu-rule-dialog.ngdialog-theme-default{
+  padding-bottom: 3rem;
+  padding-top: 1.5rem;
+  .ngdialog-content{
+    max-width: 100% !important;
+    //font-size: 1.03704rem !important;
+    width: 90% !important;
+  }
+  .enfu-close{
+    right: 0.8rem;
+    top: 0.8rem;
+    width: 1rem;
+    height: 1rem;
+    background: url(../../images/common/close-icon.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
+.enfu-rule-content {
+  width: 100%;
+  border-radius: 0.66667rem;
+  background: #fff;
+  padding: rem-calc(24px,640);
+  color: #666;
+  .header{
+    font-size: 1.2rem;
+    color: #000;
+    text-align: center;
+    margin: 2rem auto 1rem;
+    font-weight: bold;
+  }
+  .rule-list{
+    font-size: rem-calc(26px,750);
+    line-height: 1.5rem;
+    text-align: justify;
+    .red{
+      color: #e31010;
+      margin-top: 1rem;
+    }
+  }
+}
+.enfu-act-wrap{
+  width: 100%;
+  height: auto;
+  .banner{
+    position: relative;
+    font-size: 0;
+    img{
+      width: 100%;
+      display: block;
+    }
+    .rule{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 5rem;
+      height: 2.4rem;
+    }
+  }
+  .img{
+    width: 100%;
+    font-size: 0;
+    img{
+      width: 100%;
+      display: block;
+    }
+  }
+  .courses-link{
+    position: relative;
+    background: red;
+    .href{
+      position: absolute;
+      bottom: 4.2rem;
+      left: 50%;
+      width: 6rem;
+      height: 2rem;
+      background: #93c02f;
+      margin-left: -3rem;
+      font-size: 1rem;
+      text-decoration: underline;
+      color: #257653;
+      text-align: center;
+    }
+  }
+  .form-rap{
+    background: url("/images/enfu/enfu-bg.png") repeat;
+    //margin-top: -3px;
+    .text{
+      text-align: center;
+      line-height: 3rem;
+      color: #fefa74;
+      padding-top: 0.4rem;
+      font-size: rem-calc(28px,750);
+    }
+    .log-text{
+      width: 100%;
+      text-align: center;
+      padding-bottom: 1rem;
+      p{
+        line-height: 1.5rem;
+        color: #000;
+        font-size: 1rem;
+      }
+    }
+  }
+  main{
+    .register-box{
+      background: none;
+      padding-top: 0;
+      .promote-box{
+        .input-item{
+          text-align: center;
+          .btn{
+            width: rem-calc(520px,750);
+            height: rem-calc(100px,750);
+            background-image: url("/images/enfu/enfu-btn1.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin: rem-calc(18px,750) auto 0;
+            &:disabled{
+              background-color: #a1c839;
+            }
+          }
+          .input-box{
+            width: 100%;
+            height: rem-calc(100px,750);
+            background: none;
+            text-align: center;
+            margin: rem-calc(18px,750) auto 0;
+            .input{
+              width: 100%;
+              height: rem-calc(84px,750);
+              &.phone-input{
+                width: rem-calc(520px,750);
+                height: rem-calc(100px,750);
+                background-image: url("/images/enfu/enfu-btn2.png");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                text-align: center;
+                padding: 0;
+              }
+            }
+          }
+          .img-box{
+            img{
+              width: rem-calc(180px,750);
+              height: rem-calc(84px,750);
+            }
+          }
+        }
+        .step2{
+          .input-item{
+            width: rem-calc(520px,750);
+            height: rem-calc(100px,750);
+            &>img{
+              top:44%;
+            }
+            p{
+              text-align: left;
+              color: #fff;
+              font-size: rem-calc(26px,750);
+              a{
+                color: #333;
+              }
+              .checkbox{
+                background: url(/images/enfu/check.png);
+                background-size: 100% 100%;
+                &.checked{
+                  background: url(/images/enfu/checked.png);
+                  background-size: 100% 100%;
+                }
+              }
+            }
+            .input-box{
+              width: rem-calc(320px,750);
+              height: rem-calc(85px,750);
+              background: #fff;
+              border: 1px solid #ffd366;
+              margin: 0;
+              text-align: left;
+              box-sizing: border-box;
+              &.yzm-input{
+                width: rem-calc(180px,750);
+                height: rem-calc(84px,750);
+                float: right;
+                border: 0;
+                color: #fff;
+                box-sizing: border-box;
+                background: #fba104;
+                text-align: center;
+              }
+              .input{
+                padding: 0.9rem 0 0.9rem 2.4rem;
+              }
+            }
+          }
+        }
+        .telphone{
+          width: 100%;
+          text-indent: rem-calc(130px,750);
+          font-size: rem-calc(28px,750);
+          color: #333;
+          margin-bottom: 0.8rem;
+        }
+      }
+    }
+  }
+}
+.enfu-invest-success{
+  padding-bottom: 3rem;
+  .course-box{
+    position: relative;
+    width: rem-calc(691px,750);
+    height: rem-calc(200px,750);
+    background: #fff;
+    margin: rem-calc(34px,750) auto;
+    border: 1px solid #ccc;
+    .bg{
+      position: absolute;
+      left: 0;
+      top: -1px;
+      width: 100%;
+      font-size: 0;
+      img{
+        width: 100%;
+      }
+    }
+    .content{
+      display: flex;
+      padding-top: 1.3rem;
+      .left{
+        width: rem-calc(262px,750);
+        height: rem-calc(130px,750);
+        border-right: 1px dashed #ccc;
+        text-align: center;
+        padding-top: 0.4rem;
+        .price{
+          color: #f64a19;
+          font-size: rem-calc(48px,750);
+        }
+        .text{
+          color: #666666;
+          font-size: rem-calc(22px,750);
+          text-indent: 0;
+        }
+      }
+      .right{
+        flex: 1;
+        padding-left: rem-calc(36px,750);
+        box-sizing: border-box;
+        padding-top: rem-calc(18px,750);
+        .price{
+          color: #555;
+          font-size: rem-calc(32px,750);
+        }
+        .text{
+          color: #f64a19;
+          font-size: rem-calc(26px,750);
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+  .text{
+    text-indent: 1rem;
+    color: #000066;
+    font-size: rem-calc(24px,750);
+    margin-bottom: 0.6rem;
+    a{
+      color: #000066;
+      text-decoration: underline;
+    }
+    span{
+      color: #0066cc;
+    }
+  }
+  .footer-btn{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    height: 3.58333rem;
+    line-height: 3.58333rem;
+    font-size: 1.2rem;
+    .left{
+      flex: 1;
+      background: #fff;
+      color: #1b1b1b;
+      img{
+        width: 2.5rem;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+      }
+    }
+    .right{
+      width: 9rem;
+      background: #0099ff;
+      a{
+        color: #fff;
+        font-weight: 200;
+        font-size: rem-calc(36px,750);
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<div class="yuanxiao">
+    <header>
+        <img src="images/activity/yuanxiao/index-header.png">
+    </header>
+    <main>
+        <img src="images/activity/yuanxiao/index-main.png">
+        <div ng-if="wap && !uid" ui-sref="dl({returnurl:'yuanxiao'})" class="button"></div>
+        <div ng-if="uid" ng-click="click()" class="button"></div>
+        <a style="display:block;" ng-if="!wap && !uid" href="jsmp://page=4?" class="button"></a>
+        <!--登录page-->
+        <div class="log-box">
+            <h3>领取记录</h3>
+            <ul ng-if="logList.length<=3">
+                <li ng-repeat="item in logList">
+                    <div>
+                        <p>{{item.updateTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                        <p>{{item.mobilePhone}}</p>
+                    </div>
+                    <h3>{{item.name}}</h3>
+                </li>
+            </ul>
+            <ul yuanxiaoscroll-text ng-if="logList.length>3"></ul>
+        </div>
+    </main>
+    <footer>
+        <img src="images/activity/yuanxiao/index-footer.png">
+        <img ng-if="wap" style="position:absolute;" class="hfive" src="images/activity/yuanxiao/index-h5.jpg">
+        <div ng-if="!wap" class="app">
+            <a href="jsmp://page=41?">
+                <img src="images/activity/yuanxiao/index-app.png">
+            </a>
+            <br>
+            <img src="images/activity/yuanxiao/index-appb.png">
+        </div>
+        
+    </footer>
+
+    <div ng-if="show==true" class="alert-box">
+        <div class="main">
+            <div ng-if="type==1" class="alert-success">
+                <img class="bg" src="images/activity/yuanxiao/success.png">
+                <p ng-if="hbtype==1">获得{{num}}元红包</p>
+                <p ng-if="hbtype==2">获得{{num}}加息券</p>
+                <p ng-if="hbtype==3">获得{{num}}元体验金</p>
+                <p ng-if="hbtype==4">获得{{num}}倍翻倍券</p>
+                <img ng-if="wap" ng-click="goto()" class="alert-button" src="images/activity/yuanxiao/alert-button.png">
+                <a ng-if="!wap && hbtype==3" href="jsmp://page=40?">
+                    <!--体验标page-->
+                    <img class="alert-button" src="images/activity/yuanxiao/alert-button.png">
+                </a>
+                <a ng-if="!wap && hbtype!=3" href="jsmp://page=2?">
+                    <!--投资列表page-->
+                    <img class="alert-button" src="images/activity/yuanxiao/alert-button.png">
+                </a>
+            </div>
+            <img ng-if="type==2" class="bg" src="images/activity/yuanxiao/fail.png">
+            <span ng-click="close()">
+                <img class="close-button" src="images/activity/yuanxiao/alert-close.png">
+            </span>
+        </div>
+    </div>
+</div>

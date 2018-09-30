@@ -1,0 +1,75 @@
+<style>
+    body{
+        background: #f33645;
+    }
+</style>
+<div class="newYear2018 headerTop" ng-controller="newYearWController">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+        <span class="float-menu" ng-click="share()">分享</span>
+    </div>
+    <main style="font-size: 0;">
+        <img style="width:100%;display:block;" src="/images/activity/newYear2018/ny-img1.jpg">
+        <img style="width:100%;display:block;" src="/images/activity/newYear2018/ny-img2.jpg">
+        <div class="tomy" ng-click="toMyCoupon()"></div>
+        <div class="button" ng-click="openFu()"></div>
+    </main>
+    <div class="massage">
+        <p class="text" ng-if="isLogin || isShow">
+            您有<i ng-model="chanceNum">{{chanceNum}}</i>次开福袋机会
+        </p>
+        <p class="text" ng-if="!isLogin && !isShow">
+            <i ng-click="toLogin()">登录</i>即可开福袋
+        </p>
+        <p class="text">
+            当前已有<i ng-model="peopleTotle">{{peopleTotle}}</i>人参与
+        </p>
+        <div class="getRed">
+            <table>
+                <tr ng-repeat="item in peopleList">
+                    <td>{{item.mobilePhone}}用户获得了{{item.awardName}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="rule-box">
+            <h1 class="footer-header">
+                <img src="/images/activity/newYear2018/ny-img4.jpg">
+            </h1>
+            <div class="footer-content">
+                <p>
+                    1 活动期间,每天登录后都可参加1次开福袋活动,开启福袋可以随机获得1个奖励;<br>
+                    2 福袋奖励包含京东卡(最高200元)、体验金(最高18万)、红包(最高318元)、翻倍券(最高1.5倍)、加息券(最高3%)等; <br>
+                    3 若获得京东卡奖励将在10个工作日内以电子卡形式短信发放,红包等优惠券奖励可以至我的优惠券中查看; <br>
+                    4 活动最终解释权归沪深理财所有,如有疑问请拨打客服热线:400-031-9909
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <img src="/images/activity/newYear2018/ny-img-footer.jpg">
+        </div>
+    </div>
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/newYear2018</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+
+    <!--已下线-->
+    <div class="deline">
+        <div class="delineDialog">
+            <p>元旦活动已结束</p>
+            <p>敬请留意其它活动</p>
+        </div>
+    </div>
+</div>

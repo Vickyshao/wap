@@ -1,0 +1,236 @@
+.invite-wrapper{
+	background: #b6f6ff;
+	.banner{
+		img{
+			width: 100% !important;
+			display: block;
+		}
+	}
+	.invite-btn{
+		width: rem-calc(788px,1080);
+		padding: rem-calc(64px 0,1080);
+		margin: 0 auto;
+		overflow: hidden;
+		a{
+			float: right;
+			@include rem-sprite("inviteapp/*.png",btn,$spacing:4px,$rem-base:1080px);
+			span{
+				width: rem-calc(355px,1080);
+				height: rem-calc(150px,1080);
+				margin: rem-calc(28px 0 0 130px,1080);
+				display: block;
+				font-size: rem-calc(56px,1080);
+				text-align: center;
+				line-height: rem-calc(150px,1080);
+				color: #fff;
+			}
+			&.upgrade{
+				span{
+					font-size: rem-calc(46px,1080);
+				}
+			}
+		}
+	}
+	.invite-mode{
+		.titlebg{
+			img{
+				width: 100%;
+				display: block;
+			}
+		}
+		.box{
+			width: rem-calc(1056px,1080);
+			margin: 0 auto;
+			background: #6ad3ff;
+			position: relative;
+			margin-top: rem-calc(-10px,1080);
+			.title{
+				width: rem-calc(599px,1080);
+				height: rem-calc(94px,1080);
+				background: #fd7289;
+				text-align: center;
+				line-height: rem-calc(94px,1080);
+				font-size: rem-calc(48px,1080);
+				color: #fff;
+				position: absolute;
+				left: 50%;
+				margin-left: rem-calc(-300px,1080);
+				top: rem-calc(-65px,1080);
+			}
+			.list{
+				padding: rem-calc(90px 0 30px,1080);
+				.nolist,.nologin{
+					height: rem-calc(190);
+					line-height: rem-calc(190);
+					font-size: rem-calc(40);
+					color: #333;
+					text-align: center;
+					a{
+						color: #002aff;
+					}
+				}
+				table{
+					width: rem-calc(985px,1080);
+					margin: 0 auto;
+					th{
+						height: rem-calc(96px,1080);
+						text-align: center;
+						color: #fff;
+						font-size: rem-calc(44px,1080);
+						font-weight: normal;
+						background: #1da2e7;
+					}
+					th:nth-child(1){
+						border-radius: rem-calc(16px 0 0 16px,1080);
+					}
+					th:nth-child(3){
+						border-radius: rem-calc(0 16px 16px 0,1080);
+					}
+					td{
+						height: rem-calc(104px,1080);
+						text-align: center;
+						color: #333;
+						font-size: rem-calc(40px,1080);
+					}
+				}
+			}
+			.more-wrap{
+				height: rem-calc(112px,1080);
+				line-height: rem-calc(112px,1080);
+				text-align: right;
+				background: #58cdfe;
+				a{
+					margin-right: rem-calc(36px,1080);
+					color: #fff45c;
+					font-size: rem-calc(36px,1080);
+				}
+			}
+		}
+		.why{
+			padding: rem-calc(76px 0 40px 136px,1080);
+			table{
+				width: rem-calc(800px,1080);
+				td{
+					height: rem-calc(220px,1080);
+					&.icon{
+						width: rem-calc(214px,1080);
+					}
+					div{
+						display: inline-block;
+						&.gzkg{
+							@include rem-sprite("inviteapp/*.png",gzkg,$spacing:4px,$rem-base:1080px);
+						}
+						&.guarantee{
+							@include rem-sprite("inviteapp/*.png",guarantee,$spacing:4px,$rem-base:1080px);
+						}
+						&.pjlc{
+							@include rem-sprite("inviteapp/*.png",pjlc,$spacing:4px,$rem-base:1080px);
+						}
+						&.zyls{
+							@include rem-sprite("inviteapp/*.png",zyls,$spacing:4px,$rem-base:1080px);
+						}
+					}
+					span{
+						color: #074463;
+						font-size: rem-calc(45px,1080);
+					}
+					p{
+						font-size: rem-calc(38px,1080);
+						color: #ecf9ff;
+					}
+				}
+			}
+		}
+	}
+	.rule-btn{
+		padding: rem-calc(50px 24px 24px 0,1080);
+		text-align: right;
+		.rule{
+			font-size: rem-calc(48px,1080);
+			color: #333;
+		}
+	}
+	.code-wrapper{
+		width: 100%;
+		overflow: hidden;
+		padding: rem-calc(30 0);
+		.number{
+			color: #035678;
+			position: relative;
+			width: 100%;
+			td{
+				text-align: center;
+			}
+			i{
+				display: inline-block;
+				@include rem-sprite("inviteapp/*.png",phone-icon,$spacing:4px,$rem-base:1080px);
+			}
+			div{
+				display: inline-block;
+				padding-left: rem-calc(10);
+				text-align: left;
+				span{
+					font-size: rem-calc(80px,1080);
+				}
+				p{
+					font-size: rem-calc(32px,1080);
+					margin-top: rem-calc(-14px,1080);
+				}
+			}
+		}
+	}
+}
+.invite-rules-wrapper{
+	background: #6ad3ff;
+	padding: rem-calc(43px 0 36px,1080);
+	.titlebg{
+		img{
+			width: 100%;
+		}
+	}
+	.rules-box{
+		width: rem-calc(1056px,1080);
+		margin: rem-calc(-58px auto 0,1080);
+		background: #fffcf4;
+		padding: rem-calc(85px 0 20px,1080);
+		position: relative;
+		.title{
+			width: rem-calc(599px,1080);
+			height: rem-calc(94px,1080);
+			background: #fd7289;
+			font-size: rem-calc(48px,1080);
+			color: #fff;
+			text-align: center;
+			line-height: rem-calc(94px,1080);
+			left: 50%;
+			top: rem-calc(-47px,1080);
+			margin-left: rem-calc(-300px,1080);
+			position: absolute;
+		}
+		ul{
+			width: rem-calc(1026px,1080);
+			margin: 0 auto;
+			li{
+				padding-bottom: rem-calc(30px,1080);
+				line-height: rem-calc(80px,1080);
+				position: relative;
+				font-size: rem-calc(40px,1080);
+				color: #333;
+				padding-left: rem-calc(30px,1080);
+				&.small{
+					padding-bottom: 0;
+					font-size: rem-calc(36px,1080);
+				}
+				i{
+					position: absolute;
+					width: rem-calc(16px,1080);
+					height: rem-calc(16px,1080);
+					border-radius: rem-calc(20px,1080);
+					left: 0;
+					top: rem-calc(30px,1080);
+					background: #333;
+				}
+			}
+		}
+	}
+}

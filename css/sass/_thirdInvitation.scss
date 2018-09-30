@@ -1,0 +1,161 @@
+.third-invitation{
+  background: #fcf1d9;
+  .banner{
+    position: relative;
+    background: url('/images/thirdInvitation/background.png') no-repeat;
+    background-size: 100% 100%;
+    font-size: 0;
+    &.loginBaner{
+      height: 545px;
+    }
+    &.unLoginBaner{
+      height: 472px;
+    }
+    img{
+      width: 100%;
+      display: block;
+    }
+    .logoImg{
+      position:absolute;
+      left: 1rem;
+      top: 1rem;
+      width: 9rem;
+    }
+    .num{
+      position: absolute;
+      top: rem-calc(56,750);
+      right: 0;
+      width: rem-calc(160,750);
+      height: rem-calc(30,750);
+    }
+    .title{
+      p{
+        height: 3rem;
+        line-height: 3rem;
+        color: white;
+        z-index: 100;
+        border: 1px solid #ff9307;
+        margin: 2rem 4.6rem 3rem;
+        text-align: center;
+        font-size: rem-calc(28, 750);
+        border-radius: 5px;
+        span{
+          color: #ffac18;
+        }
+      }
+    }
+  }
+  .content{
+    img{
+      width: 100%;
+      display: block;
+    }
+  }
+  .steps{
+    .img{
+      width: 100%;
+      display: block;
+    }
+  }
+  .goInvite{
+    img{
+      position: fixed;
+      left:0;
+      bottom: 0;
+      width: 100%;
+      display: block;
+    }
+  }
+  .footer{
+    font-size: 0;
+    img{
+      width: 100%;
+    }
+  }
+}
+/*活动规则弹窗*/
+.thirdInvitation-rule-dialog{
+  .special-close{
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 3.2rem;
+    background:url('/images/thirdInvitation/rule-close.png') no-repeat;
+    background-size: contain;
+  }
+  .rule-content{
+    height: 36rem;
+    padding-top: 3rem;
+    background-image: url('/images/thirdInvitation/rule-back.png');
+    .header{
+      background-image: url('/images/thirdInvitation/rule-header.png');
+      width: 72%;
+      //height: 4rem;
+      margin-top: 1.2rem;
+    }
+    .rule-list{
+      padding: 1rem 1.6667rem;
+      height: 26rem!important;
+      li{
+        span{
+          width: 1.6rem;
+          color: #956833;
+          background: none;
+        }
+        b{
+          color: #956833;
+        }
+      }
+    }
+  }
+}
+
+/*奖励计算器*/
+.thirdInvitation-dialog{
+  .tips{
+    padding: 0.4rem 0.64rem!important;
+    margin: 0 auto!important;
+    dd{
+      float: left;
+    }
+    dt{
+      margin-left: 0.5rem;
+      font-size: 0.9rem;
+      span{
+        color: red;
+      }
+    }
+  }
+}
+/*奖励明细弹窗*/
+.table{
+  width: 100%;
+  font-size: rem-calc(22,750);
+  color: #333;
+  //border-bottom: 2px solid #f5e4cc;
+  margin-top: rem-calc(38,750);
+  tr{
+    th{
+      text-align: center;
+      line-height: rem-calc(60,750);
+    }
+    td{
+      text-align: center;
+      line-height: rem-calc(60,750);
+      i{
+        display: inline-block;
+        width: rem-calc(31,750);
+        height: rem-calc(31,750);
+        background: #efa547;
+        border-radius: 50%;
+        vertical-align: middle;
+        text-align: center;
+        line-height: rem-calc(33,750);
+        color: #fff;
+      }
+    }
+  }
+}
+
+

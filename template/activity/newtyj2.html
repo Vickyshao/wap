@@ -1,0 +1,61 @@
+<div class="newtyj">
+    <img style="width:100%;display:block;" src="images/activity/newtyj/banner.png">
+    <div class="quick" style="padding-top:2rem;">
+        <img src="images/activity/newtyj/quick.png">
+    </div>
+    <div class="registerb">
+        <img class="title" src="images/activity/newtyj/registerb-title-a.png">
+        <img class="title" src="images/activity/newtyj/registerb-title-b.png" style="margin-top:0.5rem;">
+        <div class="nopen">
+            <img ng-if="wap && isLog==true" ui-sref="main.myaccountHome" src="images/activity/newtyj/hongbao.png">
+            <img ng-if="wap && isLog==false" ui-sref="zhuce" src="images/activity/newtyj/hongbao.png">
+            <a ng-if="!wap && isLog==true" href="jsmp://page=11?"><img src="images/activity/newtyj/hongbao.png"></a>
+            <a ng-if="!wap && isLog==false" href="jsmp://page=7?"><img src="images/activity/newtyj/hongbao.png"></a>
+        </div>
+    </div>
+    <div class="scroll-box">
+        <img src="images/activity/newtyj/scroll-title.png">
+        <div class="code-list">
+            <div class="title-list">
+                <table>
+                    <tr>
+                        <th width="50%">用户</th>
+                        <th width="50%">领取时间</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list" ng-class="{true: 'short-list'}[investList.length < 5]">
+                <table class="data-table">
+                    <tr ng-repeat="item in newtyjList" repeat-finish="background()">
+                        <td width="50%">{{item.mobilePhone}}</td>
+                        <td width="50%">{{item.regdate}}</td>
+                    </tr>
+                    <tr ng-if="newtyjList.length == 0">
+                        <td width="50%">-</td>
+                        <td width="50%">-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="rule-box">
+        <h1 ng-click="ruleCtrl()">活 动 规 则 <img src="images/activity/newtyj/top-icon.png"></h1>
+        <div>
+            <p>1. 活动时间：2017年3月17日起，本活动仅针对活动期间内注册的新用户；</p>
+            <p>2. 活动期间，新用户注册即送100000元体验金，再送总额666元返现红包，请前往PC端“我的账户-我的福利”或App端“我的-优惠券”查看；</p>
+            <p>3. 注册送的体验金可通过投资任意标的≥5000元激活（活动标除外），体验金为理财本金，可用于投资体验标，到期本金回收，所获得收益归用户，可随时提现；</p>
+            <p>4. 每个身份证仅限参加一次，刷奖及冒用他人身份证、银行卡者一经核实，取消活动资格，所得奖励不予承兑。</p>
+            <br>
+            <p>* 本活动由沪深理财发起并就活动内容作出解释和说明，如有疑问请联系客服400-031-9909</p>
+        </div>
+    </div>
+    <!--icp备案号-->
+    <div class="icpba">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司 v1.2.3</div>
+    <div ng-if="showdownload==true && wap" class="download">
+        <span>随时随地理财，抢标快人一步！</span>
+        <span ng-click="downloadclick()" class="download-button">下载APP</span>
+        <img ng-click="closedownload()" src="images/activity/promote/close-icon.png">
+    </div>
+    <div class="share-ios"><img ng-click="closethis()" src="images/share-ios.png" /></div>
+    <div class="share-android"><img ng-click="closethis()" src="images/share-android.png" /></div>
+</div>

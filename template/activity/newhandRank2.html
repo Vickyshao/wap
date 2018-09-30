@@ -1,0 +1,68 @@
+<div class="newtyj headerTop" ng-controller="newhandRankController">
+    <div class="common-head" ng-if="!fromNative"><i ui-sref="main.home" ></i>
+        <p>{{title}}</p>
+    </div>
+    <img style="width:100%;display:block;" src="/images/newhand/banner2.png">
+    <div class="quick">
+        <div class="product">
+            <a ng-click="toCpDetail()"></a>
+        </div>
+
+        <div class="scroll-box">
+            <img src="/images/newhand/newhand_01.jpg">
+            <div class="code-list">
+                <div class="title-list">
+                    <table>
+                        <tr>
+                            <th colspan="2"><span>{{noviceCount}}</span>人已参与</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="data-list" ng-class="{true: 'short-list'}[investList.length < 5]">
+                    <table class="data-table">
+                        <tr ng-repeat="item in newhandList" repeat-finish="background()">
+                            <td width="50%">{{item.mobilephone}}</td>
+                            <td width="50%">投资了{{item.amount}}元</td>
+                        </tr>
+                        <tr ng-if="newtyjList.length == 0">
+                            <td width="50%">-</td>
+                            <td width="50%">-</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <img src="/images/newhand/newhand_03.jpg">
+        <div class="product2">
+                <a ng-click="toCpDetail()"></a>
+        </div>
+    </div>
+    <div class="rule-box">
+        <h1 ng-click="ruleCtrl()">活 动 规 则 <img src="images/activity/newtyj/top-icon.png"></h1>
+        <div>
+            <p>• 本活动仅针对所有在沪深理财注册后未投资过新手标的用户；</p>
+            <p>• 每位用户限投一次，单笔投资金额无限制；</p>
+            <p>• 新手专享标不可使用优惠券；</p>
+            <p>• 新手专享标计息方式为满标后次日计息；</p>
+            <br>
+            <p>• 本活动由沪深理财发起并就活动内容作出解释和说明，如有疑问请联系客服 400-031-9909</p>
+        </div>
+    </div>
+    <!--icp备案号-->
+    <div class="icpba"><img src="/images/newhand/footer.png"></div>
+    <div class="regSuccess" ng-if="showSuccess==true;">
+        <div class="success-box">
+            <h1>恭喜你，注册成功！</h1>
+            <p><span>100,000</span>元体验金已放入您的账户！</p>
+            <div class="button" ui-sref="main.bankBillList">立即激活</div>
+            <img ng-click="closeSuccess()" src="images/activity/newtyj/close-icon.png">
+        </div>
+    </div>
+    <!--<div ng-if="showdownload==true" class="download">-->
+        <!--<span>随时随地理财，抢标快人一步！</span>-->
+        <!--<span ng-click="downloadclick()" class="download-button">下载APP</span>-->
+        <!--<img ng-click="closedownload()" src="images/activity/promote/close-icon.png">-->
+    <!--</div>-->
+    <div class="share-ios"><img ng-click="closethis()" src="images/share-ios.png" /></div>
+    <div class="share-android"><img ng-click="closethis()" src="images/share-android.png" /></div>
+</div>

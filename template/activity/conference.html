@@ -1,0 +1,196 @@
+<style>
+	img{
+		display:block;
+		width:100%;
+		height:auto;
+	}
+	.banner,.info{
+		position:relative;
+	}
+	.banner a{
+		display: inline-block;
+		width:8rem;
+		height:3rem;
+		position:absolute;
+		left:0.7rem;
+		top:1rem;
+
+	}
+	.info .countdown{
+		width:100%;
+		height:3.2rem;
+		line-height:3.2rem;
+		text-align:center;
+		font-size:1.2rem;
+		color:#fff;
+		position:absolute;
+		left:0;
+		top:-3.2rem;
+	}
+	.info iframe{
+		width:100%;
+		height:14rem;
+	}
+	.content{
+		padding:3rem 0.6rem 0rem 0.6rem;
+		background:#1a174a;
+	}
+	.content .tap{
+		display: -webkit-flex; /* Safari */
+  		display: flex;
+		justify-content:center;
+		margin-bottom:2rem;
+	}
+	.content .tap span{
+		font-size:0.8rem;
+		padding:0.4rem 0.5rem;
+		color:#fff;
+		border:1px solid #fff;
+		border-radius:20px;
+		-webkit-border-radius:20px;
+		margin-right:1rem;
+	}
+	.content .tap span.last{
+		margin-right:0;
+	}
+	.content .tap span.actived{
+		color:#ffda0c;
+		border:1px solid #ffda0c;
+	}
+	#banner {
+		width: 100%;
+		/*overflow: hidden;*/
+		position:relative;
+	}
+	#banner .swiper-slide {
+		position:relative;
+		text-align:center;
+	}
+	#banner img {
+		/*max-width: 100%;*/
+		width:96%;
+		display:block;
+		margin:0 auto;
+	}
+	.gallerytitle {
+		width:96%;
+		text-align: center;
+		font-size: 0.8rem;
+		line-height: 1.6rem;
+		color: #fafafa;
+		margin:1.5rem auto 2.5rem;
+		font-weight: normal;
+		word-wrap: break-word;
+	}
+	.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+	  position: absolute;
+	  z-index: 1000;
+	  bottom: -0.5rem;
+	  width: 100%;
+	  text-align: center;
+	  left:0;
+	}
+	.swiper-pagination-bullet {
+	  display: inline-block;
+	  width: 0.5rem;
+	  height: 0.5rem;
+	  border-radius:50%;
+	  border:1px solid #fff;
+	  margin: 0 2px;
+	  cursor: pointer;
+	}
+	.swiper-pagination-bullet-active {
+	  background: #fff;
+	}
+	
+</style>
+
+<div class="conference-new" ng-controller="conferenceCtrl" ng-init="action=1">
+	<div class="banner">
+		<img src="images/activity/conference/img1.png">
+		<a ui-sref="main.home"></a>
+	</div>
+    
+    <img src="images/activity/conference/img2.jpg">
+	<div class="info">
+		<p class="countdown">视频回顾</p>
+		<!-- <video id="my_video_1" class="video-js vjs-default-skin" controls autoplay="autoplay" data-setup="" ng-if="showVideo" preload="none">
+			<source ng-src="{{video}}" type="application/x-mpegURL">
+		</video> -->
+		<iframe frameborder="0"  src="https://v.qq.com/iframe/player.html?vid=r0548jo5l7v&tiny=0&auto=0" allowfullscreen></iframe>
+	</div>
+	
+    <img src="images/activity/conference/img4.png">
+
+	<div class="content">
+		<div class="tap">
+			<span ng-class="{1: 'actived'}[action]" ng-click="taps(1)">发布会现场</span>
+			<span ng-class="{2: 'actived'}[action]" ng-click="taps(2)">沪深行政总裁发言</span>
+			<span ng-class="{3: 'actived'}[action]" ng-click="taps(3)" class="last">泰和小贷副总经理发言</span>
+		</div>
+		<div class="tap">
+			<span ng-class="{4: 'actived'}[action]" ng-click="taps(4)">沪深首席市场官发言</span>
+			<span ng-class="{5: 'actived'}[action]" ng-click="taps(5)">合作仪式</span>
+		</div>
+		
+		<div id="banner" ng-if="action==1">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide"><img src="images/activity/conference/img1-1.jpg" /><h2 class="gallerytitle">签到现场 本次战略合作同时邀请了合作方领导、媒体、投资人等共同鉴证</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img1-2.jpg" /><h2 class="gallerytitle">泰和小贷副总经理许磊到达发布会现场并签到</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img1-3.jpg" /><h2 class="gallerytitle">沪深控股行政总裁刘琦到达发布会现场并签到</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img1-4.jpg" /><h2 class="gallerytitle">发布会开场 主持人宣布发布会正式开始，引领全场共证本次战略合作</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img1-5.jpg" /><h2 class="gallerytitle">开场表演</h2></div>
+		  </div>
+		  <div class="pagination"></div> 
+		</div>
+
+		<div id="banner" ng-if="action==2">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide"><img src="images/activity/conference/img2-1.jpg" /><h2 class="gallerytitle">沪深控股行政总裁刘琦对本次战略合作进行演讲，表示本次战略合作，双方将在更广阔严谨的平台下，努力打造一个值得信赖的互联网金融服务平台</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img2-2.jpg" /><h2 class="gallerytitle">沪深控股行政总裁刘琦对此次战略合作表示非常支持</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img2-3.jpg" /><h2 class="gallerytitle">沪深控股行政总裁刘琦上台发言</h2></div>
+		  </div>
+		  <div class="pagination"></div> 
+		</div>
+
+		<div id="banner" ng-if="action==3">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide"><img src="images/activity/conference/img3-1.jpg" /><h2 class="gallerytitle">泰和小贷副总经理许磊参加发布会</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img3-2.jpg" /><h2 class="gallerytitle">泰和小贷副总经理许磊发言，表示双方愿景一致，将深入合作，助力普惠金融发展</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img3-3.jpg" /><h2 class="gallerytitle">泰和小贷总经理许磊发言，感谢各位给予我们双方此次战略合作给予的关心和支持</h2></div>
+		  </div>
+		  <div class="pagination"></div> 
+		</div>
+
+		<div id="banner" ng-if="action==4">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide"><img src="images/activity/conference/img4-1.jpg" /><h2 class="gallerytitle">沪深首席市场官黄梦捷上台发言</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img4-2.jpg" /><h2 class="gallerytitle">沪深首席市场官黄梦捷发言，沪深理财平台成立以来，一直秉承着安全、合规、用户至上的理念，致力于打造一个值得信赖、高效的互联网金融服务平台</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img4-3.jpg" /><h2 class="gallerytitle">沪深首席市场官黄梦捷发表精彩演讲，对投资者全方位的讲述了沪深理财概况，国家政策以及数据情况进行详细的说明</h2></div>
+		  </div>
+		  <div class="pagination"></div> 
+		</div>
+
+		<div id="banner" ng-if="action==5">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide"><img src="images/activity/conference/img5-1.jpg" /><h2 class="gallerytitle">合作仪式正式开始</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img5-2.jpg" /><h2 class="gallerytitle">战略联手，精诚合作</h2></div>
+		    <div class="swiper-slide"><img src="images/activity/conference/img5-3.jpg" /><h2 class="gallerytitle">合作仪式，贺沪深理财与泰和小贷战略合作成功</h2></div>
+		  </div>
+		  <div class="pagination"></div> 
+		</div>
+
+
+		<!--  <div class="swiper">
+		            <my-banner banner="banner" seconds="5000"></my-banner>
+		        </div> -->
+
+	</div>
+
+    <img src="images/activity/conference/img5.png">
+    <img src="images/activity/conference/img6.png">
+    <img src="images/activity/conference/img7.png">
+    <img src="images/activity/conference/img8.png">
+    <img src="images/activity/conference/img9.png">
+    <img src="images/activity/conference/img10.png">
+</div>

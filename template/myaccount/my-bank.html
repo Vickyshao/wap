@@ -1,0 +1,50 @@
+<div class="my-info-wrapper my-bank-wrapper" ng-controller="myBankCtrl">
+	<div class="common-head" ng-click="toback()"><i></i><p>我的银行卡</p></div>
+	<!--<div class="info-box">
+		<ul>
+			<li class="bank"><p>尾号{{user.bankNum}}</p><span><img src="images/recharge/{{user.bankCode}}.png"></span></li>
+			<li><p>{{user.realName}}</p><span>姓名</span></li>
+			<li><p>{{user.idCards}}</p><span>身份证号</span></li>
+			<li><p>{{user.phone | limitTo:3}}****{{user.phone | limitTo:-4}}</p><span>手机号</span></li>
+		</ul>
+	</div>-->
+	<div class="div-block" style="background: #f2f2f2;"></div>
+	<div class="find-wrapper color-black">
+		<ul class="list-wrap">
+			<li>
+				<span class="left" style="color: #bebebe;"><img src="images/recharge/{{user.bankCode}}.png" style="width: 8rem;vertical-align: middle;"></span>
+				<span class="right">尾号{{user.bankNum}}</span>
+			</li>
+			<li>
+				<span class="left" style="color: #bebebe;">姓名</span>
+				<span class="right">{{user.realName}}</span>
+			</li>
+			<li>
+				<span class="left" style="color: #bebebe;">身份证号</span>
+				<span class="right">{{user.idCards}}</span>
+			</li>
+			<li>
+				<span class="left" style="color: #bebebe;">预留手机号</span>
+				<span class="right">{{user.phone | limitTo:3}}****{{user.phone | limitTo:-4}}</span>
+			</li>
+			<li ng-if="user.unbindBankSwitch == 1" ui-sref="unbindingBank">
+				<span class="left" style="color: #bebebe;">解绑银行卡</span>
+				<!--<span class="right">{{user.phone | limitTo:3}}****{{user.phone | limitTo:-4}}</span>-->
+				<span class="right"><span class="right"><img src="/images/find/icon_rightto.png" alt="" class="right-icon"></span></span>
+			</li>
+		</ul>
+	</div>
+	<div class="bot-tips">
+        <span>友情提示<i></i></span>
+        <p><i></i>此银行卡为您的充值和取现银行卡，同卡进出不可更改</p>
+        <p><i></i><span class="edu" ui-sref="payments">支付额度表</span></p>
+       <!-- <p><i></i>银行充值单笔限额为{{user.singleQuota}}元</p>
+        <p><i></i>银行充值每日限额为{{user.dayQuota}}元</p>
+        <p><i></i>银行提现单笔限额为500,000元</p>-->
+    </div>
+</div>
+<style>
+	html,body{
+		background: #fff;
+	}
+</style>

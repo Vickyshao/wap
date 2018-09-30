@@ -1,0 +1,32 @@
+<div class="yuandan8-wrap">
+    <div class="content">
+        <!--红包-->
+        <div class="package" ng-if="drAward.type == 1">
+            <p class="price">
+                {{drAward.value}}<i>元</i>
+            </p>
+            <p class="man">投资满{{drAward.enableAmount/10000}}万元使用</p>
+            <p class="term">有效期{{drAward.deadline}}天</p>
+            <p class="type">红包</p>
+        </div>
+        <!--加息券-->
+        <div class="package" ng-if="drAward.type == 2">
+            <p class="price">
+                {{drAward.value}}<i>%</i>
+            </p>
+            <p class="man">投资满{{drAward.enableAmount/10000}}万元使用</p>
+            <p class="term">有效期{{drAward.deadline}}天</p>
+            <p class="type">加息券</p>
+        </div>
+        <!--翻倍券-->
+        <div class="package" ng-if="drAward.type == 4">
+            <p class="price">
+                {{drAward.value}}<i>倍</i>
+            </p>
+            <p class="man">投资满{{drAward.enableAmount/10000}}万元使用</p>
+            <p class="term">有效期{{drAward.deadline}}天</p>
+            <p class="type">翻倍券</p>
+        </div>
+        <div class="btn" ng-click="toDetail()"></div>
+    </div>
+</div>

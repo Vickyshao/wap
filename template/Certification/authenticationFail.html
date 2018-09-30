@@ -1,0 +1,13 @@
+<div class="renzheng-fail-wrap" ng-controller="renzhengFailCtrl">
+    <div class="img">
+        <img src="/images/failure.png" alt="">
+    </div>
+    <div class="err-text">{{failInfo.errorName}}</div>
+    <p class="reason">失败原因（{{failInfo.errorCode}}）：{{failInfo.errorText}}！</p>
+    <div class="btn" ng-click="toback()">重新操作</div>
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>

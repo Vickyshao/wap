@@ -1,0 +1,22 @@
+<div class="wrap login-wrapper newhand-wrapper cp-wrapper new-register tyjRegSuccess" ng-controller="tyjRegSuccessController">
+    <div class="topbox headerTop">
+        <div class="common-head" ui-sref="main.home" ng-if="!fromNative"><i></i><p>新用户注册</p>
+            <span class="float-menu" ng-click="toHome()">跳过</span>
+        </div>
+        <main>
+            <div class="block add">
+                <h2 class="blue-header">注册成功</h2>
+                <p class="color3">288元红包已到账</p>
+                <p class="color9">在“我的-优惠券”内可查看</p>
+                <br>
+                <img src="/images/activity/tyj/success-progress.png" />
+                <br>
+                <br>
+                <div class="button " ng-click="tobingCard()">绑 卡 领 8888 元</div>
+                <div class="upload" ng-if="isShowUpload">
+                    <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp"><img src="/images/activity/jdek/upload-icon.png" alt="" style="width: 1rem;vertical-align: middle;">下载沪深理财APP</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

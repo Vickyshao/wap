@@ -1,0 +1,67 @@
+<div class="newhand-wrapper cp-wrapper tyjdetail headerTop" ng-controller="tyjdetailController">
+    <div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+    <main class="main">
+        <!--<img class="full" src="images/activity/tyj/detail-header.png">-->
+        <div class="div-block" style="background: #f2f2f2;"></div>
+        <h2>体验金专享</h2>
+        <h3>体验理财乐趣，享受投资收益</h3>
+        <div class="center-box">
+            <div>
+                <h4>历史年化收益率</h4>
+                <p>{{data.Info.rate}}%<i ng-if="data.Info.activityRate>0">+{{data.Info.activityRate}}%</i></p>
+
+            </div>
+            <div>
+                <h4>投资期限</h4>
+                <p>{{data.Info.deadline}}<i>天</i></p>
+            </div>
+            <footer></footer>
+        </div>
+        <p class="message">已有{{data.investCount}}人赚到了钱</p>
+    </main>
+    <div class="rule-box">
+        <header>
+            <p>计算收益：</p>
+            <p>小明有50000元体验金，那么他的到期收益为</p>
+            <p>50000*{{data.Info.rate}}%/360*1=<span>{{50000*(data.Info.rate)/100/360 | number:2}}元</span></p>
+        </header>
+        <div class="rule">
+            <p><img src="images/activity/tyj/rule-icon.png"> 体验标说明</p>
+            <ul>
+                <li>仅限使用沪深理财体验金进行投资，标的为虚拟体验，可产生投资收益；</li>
+                <li>投资体验标无需实名认证，投资次日计息；</li>
+                <li>体验标投资到期后，所得收益以现金形式存入用户的平台账户，归用户所有，可提现；</li>
+                <li>体验金收益需完成一次真实投资后才可提现；</li>
+                <li>投资后体验金本金会由平台收回。 本规则解释权归沪深理财所有；</li>
+                <li>如有疑问请拨打客服热线：400-031-9909</li>
+            </ul>
+        </div>
+        <!--<img class="full" src="images/activity/tyj/detail-footer.png">-->
+    </div>
+    <!--<img ng-click="confirm=true;canInvest=true;" class="full" src="images/activity/tyj/detail-button.png" style="position:fixed;bottom:0;left:0;">-->
+    <div class="invest-btn" ng-click="showConfirm()">
+        <button>立即投资</button>
+    </div>
+    <div ng-if="confirm==true" class="confirm-box">
+        <main>
+            <h3>确认支付</h3>
+            <!--<div ng-click="changeSelect()" class="quan-box">
+                <div class="quan">
+                    <img src="images/activity/tyj/quan.png">
+                    <div>
+                        <p>使用体验金支付</p>
+                        <p>共计{{data.experienceAmount.experAmount}}元</p>
+                    </div>
+                </div>
+                <div class="correct">
+                    <img ng-if="canInvest==true" src="images/activity/tyj/correct.png">
+                </div>
+            </div>-->
+            <div class="tyj-text">使用体验金支付，共计<span>{{data.experienceAmount.experAmount}}</span>元</div>
+            <p class="info"><img src="/images/activity/failure.png" alt="">体验金不可与其他优惠同时使用，支付后扣除</p>
+            <!--<img ng-click="investment()" class="confirm-button" src="images/activity/tyj/detail-confirm.png">-->
+            <button ng-click="investment()" ng-disabled="!canInvest" class="confirm-button">去支付</button>
+            <img ng-click="close()" class="close" src="images/activity/tyj/close-icon.png">
+        </main>
+    </div>
+</div>

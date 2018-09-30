@@ -1,0 +1,75 @@
+<div class="chedd redBagzhuce" ng-controller="investShareCtrl">
+    <!--<div class="common-head" ng-if="!fromNative"><i ui-sref="main.home"></i>-->
+        <!--<p>{{title}}</p>-->
+    <!--</div>-->
+    <main class="main">
+        <a class="logologo" href="/main/home"><img src="/images/activity/investShare/logo.png" /></a>
+        <div class="desc">你的好友{{phone| limitTo:3}}****{{phone| limitTo:-4}}<br>给你发来了体验金!</div>
+        <div class="register-box redBagBox">
+            <div class="promote-box">
+                <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                    <div class="step1" ng-show="form">
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-1.png" style="left:0.7rem;" />
+                            <div class="input-box">
+                                <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|7|8|9][0-9]{9}$/" placeholder="请输入手机号码" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step2"  ng-show="!form">
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-2.png" style="left:0.6rem;"/>
+                            <div class="input-box" style="width:55%;margin-right:3%;float:left;">
+                                <input id="imgcode" class="input" type="text" placeholder="请输入图形验证码" ng-model="login.picCode" name="picCode" minlength="4" maxlength="4" required autocomplete="off" />
+                            </div>
+                            <div style="width:40%;float:right;">
+                                <span class="img-box"><img ng-click="clickInput($event)" src="login/validateCode2.dos"></span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-3.png" />
+                            <div class="input-box" style="width:55%;margin-right:3%;float:left;">
+                                <input name="smsCode" ng-model="login.smsCode"  type="text"  placeholder="请输入短信验证码" maxlength="4" required class="input">
+                            </div>
+                            <div class="input-box sendCode">
+                                <span ng-click="getyzm(myForm)">{{nowTimer}}</span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-4.png" />
+                            <div class="input-box">
+                                <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" maxlength="16" ng-model="login.passWord" name="passWord" required class="input" />
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc">《沪深理财注册协议》</a></p>
+                        </div>
+                    </div>
+                    <div class="chai-box" ng-show="form">
+                        <a class="chai-btn" ng-click="next(myForm)" ng-disabled="!agree"></a>
+                    </div>
+                    <div class="input-item" ng-show="!form">
+                        <button class="btn" ng-class="{'true':'disabled','false':''}[!agree]" ng-click="zuce(myForm)" ng-disabled="!agree" style="background-image: none;">立即领取</button>
+                    </div>
+                    <img ng-show="!form" class="img" src="/images/activity/investShare/bottom.png" />
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/zdShare?tel={{myPhone}}&teamId={{teamInfo.myInfo.teamId}}&recommCode={{user.recommCodes}}</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+</div>

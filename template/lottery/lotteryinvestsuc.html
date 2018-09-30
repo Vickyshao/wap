@@ -1,0 +1,36 @@
+<div class="newhand-wrapper cp-wrapper tyjSuccess" style="padding:0;margin-bottom:1rem;" ng-controller='lotteryInvestSuccsssCtrl'>
+    <div class="common-head"><p><i ng-click="toback()"></i>{{title}}</p><span class="right" ui-sref="main.myaccountHome">关闭</span></div>
+    <div class="investSuccess w-investSuccess">
+        <div class="investSuccess-info">
+            <img src="images/activity/lottery/w-lotsuc-icon1.png" />
+            <h2>投资成功</h2>
+            <p class="getcodenum">恭喜您获得<i>{{successData.luckCodeCount}}</i>个抽奖码</p>
+            <dl>
+                <dd>投资项目<span>{{successData.info.fullName}}</span></dd>
+                <dd>历史年化收益率
+                    <span>
+                        {{ + successData.info.rate}}%
+                        <span ng-if="successData.info.activityRate>0 || successData.specialRate>0">
+		                            +{{successData.info.activityRate+successData.specialRate}}%
+		                        </span>
+                    </span>
+                </dd>
+                <dd>投资金额<span>{{successData.investAmount | number:2}}元</span></dd>
+                <dd>投资期限<span>{{successData.info.deadline}}天</span></dd>
+                <dd>投资日期<span>{{successData.investTime| date:'yyyy-MM-dd'}}</span></dd>
+            </dl>
+            <div class="w-btn">
+                <span class="fl" ui-sref="myInvest">查看我的投资</span>
+                <span class="fr" ui-sref="lottery">更多精选</span>
+            </div>
+        </div>
+        <div class="download-wrap">
+            下载APP可查看抽奖码
+            <div class="btn"><a target="_bank" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">下载APP</a></div>
+        </div>
+    </div>
+</div>
+
+
+
+

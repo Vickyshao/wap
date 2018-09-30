@@ -1,0 +1,172 @@
+<div class="czglad">
+    <div class="top-box">
+        <img style="width:100%;display:block;" src="images/activity/czglad/banner.png">
+        <main>
+            <div class="register-box">
+                <div class="promote-box">
+                    <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                        <div class="input-item">
+                            <img src="images/activity/changcheng/ico-1.png" style="left:0.7rem;" />
+                            <div class="input-box">
+                                <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号码" ng-model="login.mobilephone"
+                                    onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)"
+                                    minlength="11" maxlength="11" required class="input">
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="images/activity/changcheng/ico-2.png" />
+                            <div class="input-box" style="width:57%;margin-right:3%;float:left;">
+                                <input ng-model="login.smsCode" type="text" placeholder="请输入短信验证码" maxlength="4" required class="input">
+                            </div>
+                            <div class="input-box" style="width:40%;float:left;border:1px solid #E70000;color:#E70000;box-sizing:border-box;border-radius:0.2rem;">
+                                <span ng-click="getyzm(myForm)" style="color:#FF5A52;">{{nowTimer}}</span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="images/activity/changcheng/ico-3.png" />
+                            <div class="input-box">
+                                <input autocomplete="off" type="{{(passwordText|isShowPw).type}}" placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/"
+                                    ng-model="login.passWord" name="passWord" required class="input" />
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意
+                                <a
+                                    href="https://hushenlc.cn/zc" style="color:#FDAF2A;">《沪深理财注册协议》</a>
+                            </p>
+                        </div>
+                        <div class="input-item">
+                            <button class="btn" ng-click="zuce(myForm)" ng-disabled="!agree">立 即 注 册</button>
+                            <p style="text-align: center;"><a>我已注册&#x3000;<span ui-sref="dl" style="text-decoration:underline;color:#FDAF2A;">立即登录</span></a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <div class="maina">
+            <header>
+                <img src="images/activity/czglad/first.png">
+                <h1>各界媒体关注</h1>
+            </header>
+            <section>
+                <p>&#x3000;&#x3000;第一财经：2017年1月4日，沪深理财成功在上海外滩华尔道夫酒店召开《国资互金平台创新发展之路暨上海和平影视企业公司(集团)垂直管理沪深理财媒体通告会》，开启历史的新篇章。</p>
+                <p>&#x3000;&#x3000;上海和平影视企业公司(集团)正式宣布，对集团直属的沪深理财进行穿透式的垂直化管理。这是和平影视集团进行垂直管理的首家互金平台。</p>
+            </section>
+            <div class="conference-box">
+                <img ng-click="playvideo()" src="images/activity/czglad/conferencea.png">
+                <img ui-sref="conference({wap:true,currentv:3})" src="images/activity/czglad/conferenceb.png">
+            </div>
+        </div>
+    </div>
+    <div class="mainb">
+        <header>
+            <img src="images/activity/czglad/second.png">
+            <h1>沪深与和平影视的关系</h1>
+        </header>
+        <section>
+            <h2>上海和平影视企业公司</h2>
+            <p>“和平影视”于1992年8月经上级批准以非公司企业法人（全民所有制性质），在上海市工商行政管理局注册设立“上海和平影视企业公司”独立法人单位的企事业公司，简称“和平影视”。1996年中央实行专业行政管理属地化，“和平影视”业务归上海市文化广播影视管理局及中共上海市委宣传部领导。</p>
+        </section>
+        <img style="width:90%;display:block;margin:0 auto;" src="images/activity/czglad/second-middle.png">
+        <div>
+            <img src="images/activity/czglad/second-logo.png">
+            <h2>上海沪深理财管理有限公司</h2>
+            <hr>
+            <div class="content">
+                <h3>人事管理方面</h3>
+                <p>和平影视集团将在沪深理财内建立党支部，直接管理平台的高管团队，将其人事关系纳入到国有企业编制。</p>
+            </div>
+            <div class="content">
+                <h3>业务管理方面</h3>
+                <p>要求沪深理财严格按照网贷管理办法，以国有企业标准制定并向集团提交开展相关业务的制度、流程和标准，经集团批准后执行。</p>
+            </div>
+            <div class="content">
+                <h3>财务管理方面</h3>
+                <p>集团将指派专人定期对沪深理财的财务报表进行审计，并建立起对平台的第三方资金存管、银行存管、平台自有运营资金的日常巡查与监管制度。</p>
+            </div>
+        </div>
+    </div>
+    <div class="mainc">
+        <header>
+            <img src="images/activity/czglad/third.png">
+            <h1>贺沪深理财获国资全资控股全场加息</h1>
+        </header>
+        <div class="cp-box">
+            <h1>1个月</h1>
+            <div>
+                <h2>6%+4.5%&nbsp;&nbsp;&nbsp;</h2>
+                <p>历史年化收益率</p>
+            </div>
+            <div>
+                <h2>35天</h2>
+                <p>投资期限</p>
+            </div>
+            <div>
+                <h2>￥1,020.83</h2>
+                <p>预计利息收益</p>
+            </div>
+        </div>
+        <div class="cp-box">
+            <h1>2个月</h1>
+            <div>
+                <h2>7.5%+3.8%&nbsp;</h2>
+                <p>历史年化收益率</p>
+            </div>
+            <div>
+                <h2>60天</h2>
+                <p>投资期限</p>
+            </div>
+            <div>
+                <h2>￥1,833.33</h2>
+                <p>预计利息收益</p>
+            </div>
+        </div>
+        <div class="cp-box">
+            <h1>3个月</h1>
+            <div>
+                <h2>8.5%+3%&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                <p>历史年化收益率</p>
+            </div>
+            <div>
+                <h2>90天</h2>
+                <p>投资期限</p>
+            </div>
+            <div>
+                <h2>￥2,875.00</h2>
+                <p>预计利息收益</p>
+            </div>
+        </div>
+        <div class="cp-box">
+            <h1>6个月</h1>
+            <div>
+                <h2>10.5%+0.5%</h2>
+                <p>历史年化收益率</p>
+            </div>
+            <div>
+                <h2>180天</h2>
+                <p>投资期限</p>
+            </div>
+            <div>
+                <h2>￥6,000.00</h2>
+                <p>预计利息收益</p>
+            </div>
+        </div>
+        <p>*以投资金额10万元为例</p>
+        <div ng-click="gotop()" class="button">立 即 赚 钱</div>
+    </div>
+    <div ng-if="showdownload==true" class="download">
+        <span>随时随地理财，抢标快人一步！</span>
+        <span ng-click="downloadclick()" class="download-button">下载APP</span>
+        <img ng-click="closedownload()" src="images/activity/promote/close-icon.png">
+    </div>
+    <div class="share-ios"><img ng-click="closethis()" src="images/share-ios.png" /></div>
+    <div class="share-android"><img ng-click="closethis()" src="images/share-android.png" /></div>
+
+    <div ng-if="videoplay==true" class="video-box">
+        <main>
+            <video poster="images/index/poster.png" width="100%" height="100%" src="https://hushenlc.cn/images/shipin/hepingjusheng.mp4"
+                preload="none" controls></video>
+            <img class="close" src="images/index/closesd.png" ng-click="closevideo()">
+        </main>
+    </div>
+</div>

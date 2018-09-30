@@ -1,0 +1,149 @@
+/*
+* @Author: Ellie
+* @Date:   2018-01-17 15:46:45
+* @Last Modified by:   Ellie
+* @Last Modified time: 2018-01-18 09:56:29
+*/
+.serviceCenter{
+  width: 100%;
+  height: auto;
+  .up{
+    padding:1.5rem 0 1rem;
+    background:#0193e8;
+    .left{
+      float:left;
+      width:40%;
+      text-align:center;
+      img{
+        width:70%;
+        height:auto;
+      }
+    }
+    .right{
+      float:left;
+      width:60%;
+      color:#fff;
+      font-size:0.8rem;
+      p{
+        line-height:1.5rem;
+      }
+      button{
+        width:6rem;
+        height:2rem;
+        line-height:2rem;
+        margin-top:0.7rem;
+        border:1px solid #fff;
+        border-radius:15px;
+        text-align:center;
+        color:#fff;
+        &.one{
+          margin-right:1rem;
+        }
+      }
+    }
+  }
+  .middle{
+    background:#fff;
+    font-size:0.8rem;
+    color: #666;
+    .title{
+      height:2rem;
+      line-height:2rem;
+      padding-left:1.5rem;
+      border: 1px solid #f4f4f4;
+    }
+    table{
+      width:100%;
+      td{
+        border: 1px solid #e4e4e4;
+        background: #fff;
+        text-align: center;
+        position: relative;
+        border-collapse: collapse;
+        box-shadow: none;
+        border-top: 0;
+        vertical-align: inherit;
+        height: 7rem;
+        overflow: hidden;
+        padding-top: 4.5rem;
+        box-sizing:  border-box;
+        img{
+          width: 30%;
+          margin: 1.2rem 0 0.4rem;
+          margin-top: -1rem;
+          position: absolute;
+          left: 50%;
+          top: 2.4rem;
+          margin-left: -15%;
+        }
+        p{
+          line-height:0.8rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+  
+  .down{
+    background:#fff;
+    font-size:0.8rem;
+    color: #555;
+    .title{
+      height:2rem;
+      line-height:2rem;
+      padding-left:1.5rem;
+      border: 1px solid #f4f4f4;
+    }
+    .list{
+      li{   
+        line-height:rem-calc(100);
+        //margin-bottom:rem-calc(20);
+        h3{
+          position:relative;
+          background:#fff;
+          height:rem-calc(100);
+          line-height:rem-calc(100);
+          padding-left:1.5rem;
+          border-bottom:1px solid #f4f4f4;
+          i{
+            position: absolute;
+            right: rem-calc(20px,640);
+            width:rem-calc(42);
+            height: rem-calc(24);
+            margin-top: rem-calc(40);
+            transform:rotate(0deg);
+            -moz-transform:rotate(0deg);
+            -o-transform:rotate(0deg);
+            -webkit-transform:rotate(0deg);
+            transition:all 0.2s ease;
+            background: url("/images/find/ico_downparrow2.png") no-repeat center/cover;
+            &.slideDown{
+              transform:rotate(180deg);
+            }
+          }
+        }
+        p{ 
+          background:#f2f2f2;
+          padding-left:1.5rem;
+          padding-right:1.5rem;
+          display:none;
+          line-height:rem-calc(70);
+          &.first{
+            padding-top:0.5rem;
+          }
+          &.last{
+            padding-bottom:0.5rem;
+          }
+          &.one{
+            padding-top:0.5rem;
+            padding-bottom:0.5rem;
+          }
+        }
+      }
+    }
+    
+
+  }
+
+
+}

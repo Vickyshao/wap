@@ -1,0 +1,152 @@
+<div class="changcheng2">
+    <img style="width:100%;display:block;" src="images/activity/changcheng2/index-banner.png">
+    <main>
+        <div class="register-box box" ng-if="!user">
+            <div class="changcheng-box">
+                <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                    <div class="input-item">
+                        <img src="images/activity/changcheng/ico-1.png" style="left:0.7rem;" />
+                        <div class="input-box">
+                            <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|7|8|9][0-9]{9}$/" placeholder="请输入手机号码" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <img src="images/activity/changcheng/ico-2.png" />
+                        <div class="input-box" style="width:57%;margin-right:3%;float:left;">
+                            <input ng-model="login.smsCode"  type="text"  placeholder="请输入短信验证码" maxlength="4" required class="input">
+                        </div>
+                        <div class="input-box" style="width:40%;float:left;background-color:#FFDB0B;">
+                            <span ng-click="getyzm(myForm)" style="color:#FF5A52;">{{nowTimer}}</span>
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <img src="images/activity/changcheng/ico-3.png" />
+                        <div class="input-box">
+                            <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" ng-model="login.passWord" name="passWord" required class="input" />
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc">《沪深理财注册协议》</a></p>
+                    </div>
+                    <div class="input-item">
+                        <button class="btn" ng-click="zuce(myForm)" ng-disabled="!agree">立即注册</button>
+                        <p style="text-align: center;"><a>我已注册&#x3000;<span ui-sref="dl({returnurl:'changcheng2'})" style="text-decoration:underline;">立即登录</span></a></p>
+                    </div>
+                </form>
+                <footer>
+                    <img src="images/activity/changcheng2/register-footer.png">
+                </footer>
+            </div>
+        </div>
+        <div class="normal-box box" ng-if="user">
+            <h3>欢迎您，{{name}}！</h3>
+            <p>账户余额：<b>{{account.balance}}</b>元
+                <span ng-if="account.isFuiou==1" ui-sref="recharge({from:'changcheng2',wap:true})">充值</span>
+                <span ng-if="account.isFuiou==0" ui-sref="certification({from:'changcheng2'})">充值</span>
+            </p>
+            <p>我的红包：<mark>{{account.redCount}}</mark>个<span ui-sref="myCoupon">查看</span></p>
+            <footer>
+                <img src="images/activity/changcheng2/register-footer.png">
+            </footer>
+        </div>
+    </main>
+    <div class="main-box">
+        <img style="width:100%;display:block;" src="images/activity/changcheng2/czlc.png">
+		<div class="main">
+			<h1>购买沪深理财 享长城宽带费补贴</h1>
+			<div class="first-box">
+				<p>上海地区用户通过以下入口购买沪深理财——小胜30产品<span>20000</span>元（期限35天），</p>
+				<p class="special"><mark>1</mark> 宽带需求用户，可享380元宽带费补贴。</p>
+				<p class="special"><mark>2</mark> 无宽带需求用户，可享300元现金返还。</p>
+				<p>长宽工作人员将在<span>3</span>个工作日内与成功投资的用户联系安装（续费）宽带并办理返现事宜。</p>
+			</div>
+			<div class="second-box">
+				<h3>小胜30</h2>
+				<h2>6%+4.5%</h2>
+				<p>
+					<span>产品期限：<span>35</span>天&nbsp;</span>
+					<span>&nbsp;|&nbsp;</span>
+					<span>&nbsp;还款方式：到期一次还本付息</span>
+				</p>
+				<img ng-click="quickbuy()" src="images/activity/changcheng2/kjgm.png">
+			</div>
+		</div>
+        <!--<div ng-click="quickbuy()" class="button"></div>-->
+    </div>
+    <img style="width:100%;display:block;margin-top:1rem;" src="images/activity/changcheng2/index-footer.png">
+	<!--<div class="logo" ui-sref="main.home"><img src="images/logo.png" /></div>-->
+
+
+	<!--<div class="changcheng-reg">
+		<img class="bg" src="images/activity/changcheng/changcheng1.png" />
+		<div class="changcheng-box">
+			<form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+			<div class="input-item">
+				<img src="images/activity/changcheng/ico-1.png" style="left:1.2rem;" />
+				<div class="input-box">
+					 <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|7|8|9][0-9]{9}$/" placeholder="请输入手机号" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+				</div>
+			</div>
+			<div class="input-item">
+				<img src="images/activity/changcheng/ico-2.png" />
+				<div class="input-box" style="width:50%;margin-right:10%;float:left;">
+					<input ng-model="login.smsCode"  type="text"  placeholder="输入验证码" maxlength="4" required class="input">
+				</div>
+				<div class="input-box" style="width:40%;float:left;">
+                	<span  ng-click="getyzm(myForm)" >{{nowTimer}}</span>
+				</div>
+			</div>
+			<div class="input-item">
+				<img src="images/activity/changcheng/ico-3.png" />
+				<div class="input-box">
+					<input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/" ng-model="login.passWord" name="passWord" required class="input" />
+				</div>
+			</div>
+			<div class="input-item">
+				<p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc">《沪深理财注册协议》</a></p>
+			</div>
+			<div class="input-item">
+				<button class="btn" ng-click="zuce(myForm)" ng-disabled="!agree">立即注册领取666元</button>
+				<p style="text-align: center;"><a ui-sref="dl">已注册，立即登录</a></p>
+			</div>
+			</form>
+		</div>
+	</div>-->
+
+
+
+
+	<!--<div class="changcheng-product">
+		<h2>购买沪深理财，享免费宽带</h2>
+		<p><a><img src="images/activity/changcheng/changchengico.png" class="firstblood" />购买20000元/30天包，可<span>免费安装50M</span>长城宽带;</a></p>
+		<p>购买20000元/60天包，可<span>免费安装100M</span>长城宽带.</p>
+		<p>我们将在3个工作日内与符合要求的用户进行联系.</p>
+		<dl>
+			<dt>长宽沪深1号送50M</dt>
+			<dd>
+				<p class="num">6%</p>
+				<p><span>产品期限：</span>30天</p>
+				<p><span>还款方式：</span>到期一次还本付息</p>
+			</dd>
+			<button ng-click="changchengclick(30)">快捷购买20000元</button>
+		</dl>
+		<dl>
+			<dt>长宽沪深2号送100M</dt>
+			<dd>
+				<p class="num">7.5%</p>
+				<p><span>产品期限：</span>60天</p>
+				<p><span>还款方式：</span>到期一次还本付息</p>
+			</dd>
+			<button ng-click="changchengclick(60)">快捷购买20000元</button>
+		</dl>
+	</div>-->
+	<!--<div class="changcheng-info">
+		<p>沪深理财为你的资金安全合规支持</p>
+		<img class="bg" src="images/activity/changcheng/changcheng2.png" />
+	</div>
+	<div class="changcheng-bottom">
+		<button class="btn2" ng-click="gotop()">立即领取666元</button>
+		<p>*本活动解释权归沪深理财所有<br />
+如有疑问，请联系在线客服或拨打400-671-7711</p>
+	</div>-->
+</div>

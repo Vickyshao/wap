@@ -1,0 +1,82 @@
+<div class="my-info-wrapper headerTop" ng-controller="myInfoCtrl">
+	<div class="common-head" ><i ng-click="toback()"></i><p>安全中心</p></div>
+	<!--<div class="info-box">
+		<ul>
+			<li><p>{{user.mobilephone}}</p><span>手机号</span></li>
+			
+			<li>
+				<p ng-if="user.isFuiou == 1 || user.realVerify == 1">{{user.realName}}</p>
+				<p ng-if="user.realVerify == 0 && user.isFuiou == 0" ui-sref="setDepository({wap:true})"><i></i>未认证</p>
+				<span>姓名</span>
+			</li>
+			<li>
+				<p ng-if="user.isFuiou == 1 || user.realVerify == 1">{{user.idCards}}</p>
+				<p ng-if="user.realVerify == 0 && user.isFuiou == 0" ui-sref="setDepository({wap:true})"><i></i>未认证</p>
+				<span>身份证号</span>
+			</li>
+			<li ng-if="user.isFuiou == 1 || user.realVerify == 1">
+				&lt;!&ndash;<p ui-sref="myBank"><i></i><img src="images/recharge/{{user.bankId}}.png"></p>&ndash;&gt;
+				<p><img src="images/recharge/{{user.bankId}}.png"></p>
+				<span>银行卡</span>
+			</li>
+			<li ng-if="user.realVerify == 0 && user.isFuiou == 0">
+				<p ui-sref="setDepository({wap:true})"><i></i>未认证</p>
+				<span>银行卡</span>
+			</li>
+		</ul>
+	</div>-->
+	<div class="div-block"></div>
+	<div class="find-wrapper color-black">
+		<ul class="list-wrap">
+			<li>
+				<span class="left">手机号</span>
+				<span class="right">{{user.mobilephone}}</span>
+			</li>
+			<li>
+				<span class="left">姓名</span>
+				<span class="right" ng-if="user.realVerify == 1">{{user.realName}}</span>
+				<span class="right" ng-if="user.realVerify == 0" ui-sref="authRecharge">未认证<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+			</li>
+			<li>
+				<span class="left">身份证号</span>
+				<span class="right" ng-if="user.realVerify == 1">{{user.idCards}}</span>
+				<span class="right" ng-if="user.realVerify == 0" ui-sref="authRecharge">未认证<img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+			</li>
+			<li>
+				<span class="left">银行卡</span>
+				<span class="right" ui-sref="myBank" ng-if="user.isFuiou == 1 || user.realVerify == 1">
+					<img src="images/recharge/{{user.bankId}}.png" class="bank-img">
+					<img src="images/find/icon_rightto.png" alt="" class="right-icon">
+				</span>
+				<span class="right" ui-sref="authRecharge" ng-if="user.realVerify == 0">
+					未认证<img src="images/find/icon_rightto.png" alt="" class="right-icon">
+				</span>
+			</li>
+		</ul>
+	</div>
+	<div class="div-block"></div>
+	<div class="find-wrapper color-black">
+		<ul class="list-wrap">
+			<li ui-sref="resetPwd({forget:false})">
+				<span class="left">重置登录密码</span>
+				<span class="right"><img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+			</li>
+			<li ui-sref="resetTradePwd({firstset:false})" ng-if="user.tpwdFlag == 1">
+				<span class="left">重置交易密码</span>
+				<span class="right"><img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+			</li>
+			<li ui-sref="resetTradePwd({firstset:true})" ng-if="user.tpwdFlag == 0">
+				<span class="left">设置交易密码</span>
+				<span class="right"><img src="images/find/icon_rightto.png" alt="" class="right-icon"></span>
+			</li>
+		</ul>
+	</div>
+	<!--<div class="info-box">
+		<ul>
+			<li ui-sref="resetPwd({forget:false})"><p><i></i></p><span>重置登录密码</span></li>
+			<li ui-sref="resetTradePwd({firstset:false})" ng-if="user.tpwdFlag == 1"><p><i></i></p><span>重置交易密码</span></li>
+			<li ui-sref="resetTradePwd({firstset:true})" ng-if="user.tpwdFlag == 0"><p><i></i></p><span>设置交易密码</span></li>
+		</ul>
+	</div>-->
+	<a href="" ng-click="out('out')">安全退出</a>
+</div>

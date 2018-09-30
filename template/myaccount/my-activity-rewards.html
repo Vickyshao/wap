@@ -1,0 +1,23 @@
+<div class="wrap pb3 myassets-wrapper newhand-wrapper activity-wrapper" ng-controller="myActivityRewardsCtrl">
+	<div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+	<h2>中奖记录</h2>
+	<div class="activity-type"><span ng-class="{active:active==0}" ng-click="clickItem(0)">全部</span><span ng-class="{active:active==1}" ng-click="clickItem(1)">未开奖</span><span ng-class="{active:active==2}" ng-click="clickItem(2)">已开奖</span></div>
+	<div class="activity-list">
+		<div class="activity-head"><span style="width:33%;">活动名</span><span>投资项目</span><span>中奖结果</span></div>
+		<div class="activity-body">
+			<div class="activity-item" ng-repeat="item in activityData">
+				<div class="activity-cloumn" ng-click="showInfo($event)">
+				<div class="cloumn1">{{item.activityName}}</div>
+				<div class="cloumn2">{{item.productName}}<br><span>{{item.amount|currency:"￥"}}元</span></div>
+				<div class="cloumn3" ng-class="{blue:item.prizeStatus==0,red:item.prizeStatus==2}">{{item.prizeStatus|prizeStatus}}<span ng-if="item.prizeStatus==2"><br />{{item.prizeCode}}</span></div>
+				<div class="cloumn4"><img src="images/cs90/ico-jt.png" /></div>
+				</div>
+				<div class="activity-info">
+					<p>活动奖励：<span ng-class="{red:item.prizeStatus==2}">{{item.activityPrizes}}</span></p>
+					<p>我的幸运码：<span style="color:#444;" ng-draw drawdata='item.luckCodes' drawvalue="item.prizeCode"></span></p>
+                    <p style="text-align: center;"><a ui-sref="activityPerson({id:item.pid,wap:true})">查看中奖号</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,39 @@
+<div class="redBag redBagEnd" ng-controller="investStartCtrl">
+    <div class="banner" ng-if="!isNoMore">
+        <img class="bag" src="/images/activity/investShare/banner1.png"/>
+        <h2>{{shareInfo.amount}}<span>元</span></h2>
+        <h3>体验金已放入<span>{{shareInfo.mobilePhone}}</span>的账户</h3>
+    </div>
+    <div class="banner" ng-if="isNoMore">
+        <img class="no-bag" src="/images/activity/investShare/sorry.png" />
+    </div>
+    <div class="main">
+        <div class="btn-group">
+            <div ng-if="!isNoMore && !isLogin" class="btn active" ui-sref="dl">立即使用</div>
+            <div ng-if="!isNoMore && isLogin" class="btn active" ui-sref="myTyj">立即使用</div>
+            <div ng-if="!isNoMore" class="btn" ui-sref="authRecharge">实名再领8888元</div>
+            <div ng-if="isNoMore" class="btn active" ui-sref="authRecharge">实名再领8888元</div>
+        </div>
+        <div class="header"><span>红包已领取: {{shareInfo.totalAmount}}元</span></div>
+        <ul class="redBag-list">
+            <li ng-repeat="item in awardDetail">
+
+                <div class="left">
+                    <p class="tit">{{item.partnerMobilePhone}}</p>
+                    <p class="time">{{item.handselTime | date: 'MM-dd HH:mm'}}</p>
+                </div>
+                <h2 class="right">{{item.amount}}元</h2>
+            </li>
+        </ul>
+        <div class="header"><span>活动规则</span></div>
+        <ul class="txt-list">
+            <li>1 新用户可以领取一次随机体验金，最高88万；</li>
+            <li>2 体验金可以直接用于投资并获得实际收益，使用体验金时的手机号需要与领取注册时的手机号一致；</li>
+            <li>3 已注册用户首次分享可获得1000元体验金奖励；</li>
+            <li>4 本活动最终解释权归沪深理财所有，如有疑问请咨询客服：400-031-9909</li>
+        </ul>
+        <div class="btn-group">
+            <div class="btn active"><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">下载APP领取更多奖励</a></div>
+        </div>
+    </div>
+</div>

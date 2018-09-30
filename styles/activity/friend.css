@@ -1,0 +1,224 @@
+body{
+	width: 100%;
+	background: #1d9661 url('../../../images/activity/friend-bg.jpg') center top no-repeat;
+}
+h1{
+	text-indent: -999em;
+}
+
+.method-box .title,
+.method-box .copy-btn,
+.icon-box .box-title i,
+.icon-box .icon a,
+.icon-box .tips i,
+.table-box .title{
+	background: url('../../../images/activity/friends-icons.png');
+}
+
+.content{
+	width: 839px;
+	margin: 0 auto;
+	padding-top: 449px;
+	overflow: hidden;
+}
+.method{
+	width: 860px;
+	overflow: hidden;
+}
+.method-box{
+	width: 406px;
+	float: left;
+	margin-right: 24px;
+}
+.method-box .title{
+	text-indent: -999em;
+	height: 49px;
+	background-position: -80px -56px;
+	width: : 406px;
+}
+.copy-box .title{
+	background-position: -80px -105px;
+}
+.method-box .box{
+	width: 400px;
+	height: 390px;
+	background: #0d7847;
+	border: 3px solid #62b52d;
+	border-radius: 20px;
+}
+.method-box .copy{
+	width: 326px;
+	height: 259px;
+	margin: 20px auto 0;
+	background: #fff;
+	font-size: 16px;
+	color: #444;
+	line-height: 30px;
+	padding: 10px 17px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.method-box .nologin{
+	margin: 20px auto 0;
+	width: 360px;
+	height: 279px;
+	line-height: 259px;
+	text-align: center;
+	background: #fff7ca;
+	font-size: 14px;
+	color: #0d7847;
+}
+.method-box .nologin a{
+	color: #f6797b;
+	text-decoration: underline;
+}
+.method-box .copy-btn{
+	width: 360px;
+	height: 53px;
+	display: block;
+	background-position: -80px -154px;
+	text-align: center;
+	line-height: 53px;
+	font-size: 16px;
+	color: #6d2400;
+	font-weight: bold;
+	margin: 19px auto 0;
+	text-decoration: none;
+}
+.method-box .copy-btn:hover{
+	background-position: -80px -207px;
+}
+.icon-box .box-title{
+	width: 375px;
+	height: 82px;
+	line-height: 82px;
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	border-bottom: 1px solid #09692d;
+	position: relative;
+	margin: 0 auto;
+}
+.icon-box .box-title i{
+	position: absolute;
+	width: 20px;
+	height: 11px;
+	background-position: -480px -164px;
+	left: 175px;
+	top: 72px;
+}
+.icon-box .icon{
+	overflow: hidden;
+	padding: 29px 0 0 33px;
+	width: 400px;
+}
+.icon-box .icon p{
+	width: 80px;
+	float: left;
+	margin-right: 48px;
+	color: #fff;
+}
+.icon-box .icon a{
+	width: 80px;
+	height: 80px;
+	display: block;
+}
+.icon-box .icon a.qq{
+	background-position: 0 -80px;
+}
+.icon-box .icon a.sina{
+	background-position: 0 -160px;
+}
+.icon-box .icon span{
+	width: 62px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	background: #066238;
+	border-radius: 4px;
+	display: block;
+	margin: 15px auto 0;
+}
+.icon-box .tips{
+	width: 360px;
+	height: 33px;
+	text-align: center;
+	line-height: 33px;
+	color: #fff;
+	font-size: 14px;
+	background: #066238;
+	margin: 45px auto 0;
+	position: relative;
+}
+.icon-box .tips i{
+	width: 15px;
+	height: 10px;
+	position: absolute;
+	left: 175px;
+	top: -10px;
+	background-position: -485px -154px;
+}
+.table-box{
+	margin-top: 22px;
+}
+.table-box .title{
+	width: 214px;
+	height: 28px;
+	background-position: -80px 0;
+	margin: 0 0 10px 8px;
+}
+.rule-box .title{
+	background-position: -80px -28px;
+}
+.table-box table{
+	font-size: 14px;
+	color: #444;
+	width: 815px;
+	background: #fff7ca;
+	margin-left: 12px;
+}
+.table-box table td{
+	height: 30px;
+	border-right: 1px solid #fff7ca;
+	text-align: center;
+}
+.table-box tr.active td{
+	background: #f2e9ba;
+}
+.table-box table th{
+	background: #f0e4a2;
+	height: 30px;
+	text-align: center;
+	border-right: 1px solid #fff7ca;
+}
+.table-box p{
+	height: 31px;
+	background: #0d7847;
+}
+.table-box .nologin{
+	height: 190px;
+	text-align: center;
+	color: #0d7847;
+}
+.table-box .nofriend{
+	height: 190px;
+	text-align: center;
+	color: #887e48;
+}
+.table-box .nologin a{
+	color: #f6797b;
+}
+.rule-wrap{
+	background: #0d7847;
+	font-size: 14px;
+	color: #ffe4c7;
+	margin: 29px 0 22px;
+}
+.rule-wrap .title{
+	font-weight: bold;
+	padding: 14px 0 14px 30px;
+}
+.rule-wrap ul{
+	padding: 0 40px 20px 33px;
+	line-height: 24px;
+}

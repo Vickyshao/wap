@@ -1,0 +1,88 @@
+<div class="myTeam headerTop" ng-controller="myTeamCtrl">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+        <span class="float-menu" ng-click="share()">分享</span>
+    </div>
+    <img src="/images/zudui/myteam/banner.png" class="banner">
+    <a href="/main/home" class="logo"></a>
+    <!--我de战队-->
+    <div class="header">
+        <h2><i class="icon"></i>我的战队 <span ng-click="showRule()">活动规则</span></h2>
+    </div>
+
+    <div class="main">
+        <div class="commonTeam-box detail">
+            <div class="caret caret1"></div>
+            <div class="caret caret2"></div>
+            <div class="caret caret3"></div>
+            <div class="caret caret4"></div>
+            <h2 class="mark" ng-if="isCaptain">
+                <img src="/images/zudui/myteam/tearmLeader.png" alt="">
+            </h2>
+            <h2 class="mark" ng-if="!isCaptain">
+                <img src="/images/zudui/share/zd-member.png" alt="">
+            </h2>
+            <p class="markNumber">{{myPhone}}</p>
+            <!--我的战队列表-->
+            <div class="myTeam-list">
+                <div class="myTeam-list-header">我的战队 <span>(人数：{{ teamInfo.teamOtherMembersSize }}人）</span></div>
+                <div class="myTeam-list-con">
+                    <ul class="content-list">
+                        <li class="content-list-item" ng-class="{captain: item.isCaptain == 1}" ng-repeat="item in teamOtherMembers">
+                            <span class="name"><i></i></span>
+                            <span class="number">{{item.inviteTel}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-click="showMyTeam()" class="checkDetail">查看详情>></div>
+            </div>
+        </div>
+        <h2 class="title">所有队员参队后需完成投资才能瓜分战队奖励</h2>
+        <!--排名-->
+        <ul class="ranker-list">
+            <li class="ranker-list-item">
+                <i class="icon icon1"></i>
+                <span class="tit">战队排名</span>
+                <span class="num" ng-if="teamInfo.rank>0">第{{teamInfo.rank}}名</span>
+                <span class="num" ng-if="teamInfo.rank<=0">暂无排名</span>
+            </li>
+            <li class="ranker-list-item">
+                <i class="icon icon2"></i>
+                <span class="tit">战队累计年化投资额</span>
+                <span class="num">￥{{teamInfo.teamInvestedMoney | number:0}}元</span>
+            </li>
+            <li class="ranker-list-item">
+                <i class="icon icon3"></i>
+                <span class="tit">我的累计年化投资额</span>
+                <span class="num">￥{{teamInfo.myInvestedMoney | number:0}}元</span>
+            </li>
+            <li class="ranker-list-item">
+                <i class="icon icon4"></i>
+                <span class="tit">我离战队内TOP1还差</span>
+                <span class="num">￥{{teamInfo.distanceMoney | number:0}}元</span>
+            </li>
+        </ul>
+
+    </div>
+    <div class="btn-group">
+        <h2 ng-click="share()" class="continue"></h2>
+        <h2 ng-click="toInvestList()" class="investment"></h2>
+    </div>
+
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/zdShare?tel={{myPhone}}&teamId={{teamInfo.myInfo.teamId}}&recommCode={{user.recommCodes}}</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+</div>
+<!--icp备案号-->
+<div class="icpba"><img src="/images/activity/lottery/footer.png" /></div>

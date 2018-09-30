@@ -1,0 +1,363 @@
+.interest-subSidy{
+  background: #fcf1d9;
+  .banner{
+    position: relative;
+    font-size: 0;
+    img{
+      width: 100%;
+    }
+    .num{
+      position: absolute;
+      top: rem-calc(84,750);
+      right: 0;
+      width: rem-calc(140,750);
+      height: rem-calc(30,750);
+    }
+    .bETime{
+      position: absolute;
+      top: rem-calc(391,750);
+      color: #454545;
+      left:rem-calc(172,750);
+      font-size: rem-calc(26,750);
+      text-align: center;
+      padding: rem-calc(28 0, 750);
+    }
+  }
+  .notebook-content{
+    background: url('/images/interestSubsidy/back-bottom.png') no-repeat;
+    background-size: 100% 100%;
+    height: auto;
+    .tip-result{
+      padding: rem-calc(196 30 40, 750);
+      position: relative;
+      .tip-icon{
+        position: absolute;
+        top: rem-calc(132, 750);
+        width: rem-calc(450, 750);
+        left:  rem-calc(146, 750);
+      }
+      .tip-content{
+        background-color: #d6f6ff;
+        border-radius: rem-calc(5px,640);
+        .tip-img{
+          height: rem-calc(112, 750);
+          padding-top: rem-calc(112, 750);
+          p{
+            font-size: rem-calc(24.5, 750);
+            text-align: center;
+            color: #454545;
+          }
+        }
+        .calc-result{
+          height: rem-calc(120, 750);
+          div{
+            p{
+              display: flex;
+              display: -webkit-flex;
+              justify-content: center;
+              span{
+                flex: 1;
+                text-align: center;
+                color: #333;
+                font-weight: bold;
+              }
+              &:nth-child(1){
+                color: #0f6980;
+                span{
+                  color:#0f6980;
+                  &:first-child{
+                    flex: 0 1 rem-calc(253, 750);
+                  }
+                }
+              }
+              &:nth-child(2){
+                margin-top: rem-calc(10, 750);
+                span{
+                  font-size: rem-calc(26,750);
+                  &:first-child{
+                    flex: 0 1 rem-calc(253, 750);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .islogin-container{
+      height: auto;
+      padding-bottom: 1rem;
+      .unLogin{
+        img:nth-child(1){
+          width: 80%;
+          margin-left: 10%;
+        }
+        a .button{
+          width: 56%;
+          margin-left: 22%;
+        }
+      }
+      .login{
+        .hasNoSasset{
+          p{
+            text-align: center;
+            color: red;
+            margin-top: 0.5rem;
+            //letter-spacing: 1px;
+          }
+          img{
+            width: 80%;
+            margin-left: 9%;
+          }
+          div{
+            img{
+              width: 56%;
+              margin-left: 22%;
+              margin-top: 5%;
+            }
+          }
+
+        }
+        .hasSasset{
+          .invariability{
+            img:nth-child(1){
+              width: 80%;
+              margin-left: 10%;
+              display: block;
+            }
+          }
+          .variational{
+            padding: rem-calc(0 68, 750);
+            height: rem-calc(351, 750);
+            position: relative;
+            .variational-card{
+              width: 100%;
+              height: 100%;
+              position: relative;
+              .title{
+                font-weight:bold;
+                font-size: rem-calc(44, 750);
+                margin: rem-calc(16 0 0 28, 750);
+                color: #fff;
+                padding-top: 0.5rem;
+              }
+              .self-asset{
+                width:rem-calc(562, 750);
+                margin: 0 auto;
+                span{
+                  word-break: break-all;
+                  display:inline-block;
+                  font-weight:bold;
+                  font-size: rem-calc(23, 750);
+                  //padding: rem-calc(28 53, 750);
+                  height: 2rem;
+                  width: 7.7rem;
+                  line-height: 1.8rem;
+                  text-align: center;
+                  &.yellow{
+                    background: url('/images/interestSubsidy/asset-border-yellow.png')no-repeat center;
+                    color: #ffce22;
+                    background-size: contain;
+                  }
+                  &.red{
+                    background: url('/images/interestSubsidy/asset-border-red.png')no-repeat center;
+                    color:red;
+                    background-size: contain;
+                  }
+                }
+                img{
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                }
+              }
+              .progress{
+                margin:0.5rem auto 0;
+                width:rem-calc(562, 750);
+                height: 5px;
+                background: rgba(0,0,0,0.2);
+                position: relative;
+                overflow: hidden;
+                -moz-border-radius: 20px;
+                -webkit-border-radius: 20px;
+                border-radius: 20px;
+                span{
+                  color: #fff;
+                  display: inline-block;
+                  height: 5px;
+                  border-radius: 20px;
+                  left: 0 !important;
+                  top: 0 !important;
+                  margin: 0 !important;
+                  position: absolute;
+                  overflow: hidden;
+                  &.white{
+                    background: #fff;
+                  }
+                  &.yellow{
+                    background: #ffce22;
+                  }
+                }
+              }
+              .next-asset{
+                margin: rem-calc(5 40 0 20, 750);
+                span{
+                  font-size: rem-calc(21, 750);
+                  float: right;
+                  font-weight: bold;
+                  color: #fff;
+                }
+              }
+              .description{
+                margin: rem-calc(6 0 0 24, 750);
+                span{
+                  color: #fff;
+                  font-size: rem-calc(21, 750);
+                  strong{
+                    font-size:rem-calc(47, 750);
+                    font-weight: bold;
+                  }
+                }
+              }
+              .time{
+                margin: rem-calc(14 80 0 24, 750);
+                span{
+                  color: #fff;
+                  font-size: rem-calc(21, 750);
+                  &:first-child{
+                    float: left;
+                  }
+                  &:last-child{
+                    float: right;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .vip-list{
+      min-height: rem-calc(1294, 750);
+      img{
+        font-size: 0;
+        display: block;
+        width: 86%;
+        margin-left: 7%;
+        display: block;
+      }
+    }
+  }
+  .footer{
+    font-size: 0;
+    img{
+      width: 100%;
+    }
+  }
+}
+.interest-subSidy{
+  .button{
+    width: 42%;
+    margin-left: 29%;
+    margin-top: 5%;
+  }
+  .button-special{
+    width: 12.5%;
+    margin-left: 43.5%;
+  }
+  .invest-button{
+    width: 56%;
+    margin-left: 22%;
+  }
+  .up-button{
+    width: 56%;
+    margin-left: 22%;
+    margin-top: 4%;
+  }
+}
+/*活动规则弹窗*/
+.interest-rule-dialog{
+  .special-close{
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    right: 1rem;
+    top: 2rem;
+    background:url('/images/interestSubsidy/interest-rule-close.png') no-repeat;
+    background-size: contain;
+  }
+  .rule-content{
+    height: 36rem;
+    padding-top: 3rem;
+    background-image: url('/images/interestSubsidy/interest-bg.png');
+    .header{
+      background-image: url('/images/interestSubsidy/interest-header.png');
+      width: 72%;
+    }
+    .rule-list{
+      padding: 1rem 1.6667rem;
+      height: 28rem!important;
+      li{
+        span{
+          width: 1rem;
+          color: #117893;
+          background: none;
+        }
+        b{
+          color: #117893;
+        }
+      }
+    }
+  }
+}
+/*首投提示弹窗*/
+.firstInvest-dialog{
+  background: #fff!important;
+}
+/*活动页面卡级别弹窗*/
+.card-pop-dialog{
+  background: transparent!important;
+  .close{
+    right: 1rem;
+    top: -3rem;
+    width: rem-calc(80, 750);
+    height: rem-calc(80, 750);
+    background: url('/images/interestSubsidy/pop-close.png')no-repeat!important;
+    background-size: contain!important;
+  }
+  .contain{
+    .text{
+      color: white;
+      margin: rem-calc(28 0, 750);
+    }
+    .img{
+      padding-top: 0!important;
+    }
+  }
+}
+/*首页贴息活动入口*/
+.homeInterest-dialog{
+  background: transparent!important;
+  .close{
+    right:rem-calc(338, 750);
+    top:rem-calc(450, 750);
+    width: rem-calc(93, 750);
+    height: rem-calc(93, 750);
+    background: url('/images/interestSubsidy/pop-close.png')no-repeat!important;
+    background-size: contain!important;
+  }
+  .title{
+    img {
+      width: rem-calc(280, 750);
+      margin: 0 auto;
+    }
+  }
+  .contain{
+    .img{
+      background: url('/images/interestSubsidy/home-go-back.png')no-repeat;
+      background-size:100% auto!important;
+    }
+  }
+}
+

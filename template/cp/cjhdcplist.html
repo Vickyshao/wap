@@ -1,0 +1,29 @@
+<div class="normalcplist">
+    <div class="common-head"><i ng-click="toback()"></i><p>{{title}}</p><div class="div-block" style="background: #f2f2f2;"></div></div>
+    <div class="normalcplist-content" ng-class="item.status!=5?'finish':''" ui-sref="lotteryinvest({pid:item.id})" ng-repeat="item in cpList" infinite-scroll='loadMore(item)' infinite-scroll-distance='2'>
+        <div class="div-block"></div>
+        <header>{{item.fullName}}
+            <div class="new" ng-if="item.isCash==1 || item.isInterest==1 || item.isDouble==1">
+                <i ng-if="item.isCash==1">红包</i>
+                <i ng-if="item.isInterest==1"><strong ng-if="item.isCash==1">·</strong>加息券</i>
+                <i ng-if="item.isDouble==1"><strong ng-if="item.isCash==1 || item.isInterest==1">·</strong>翻倍券</i>
+            </div>
+        </header>
+        <main>
+            <div class="part-a"><p>历时年化收益</p>{{item.rate | number:1}}<span>%</span><sup ng-if="item.activityRate>0">+{{item.activityRate | number:1}}<span>%</span></sup></div>
+            <div class="part-b">
+                <p>期限</p>
+                <span>{{item.deadline}}<span> 天</span></span>
+            </div>
+            <div class="part-c">
+                <div data-progress="{{item.pert}}" progress-circle></div>
+                <p ng-if="item.status==5" style="color:#048eed;">去抢购</p>
+                <p ng-if="item.status==6">抢完了</p>
+                <p ng-if="item.status==8">待还款</p>
+                <p ng-if="item.status==9">已回款</p>
+            </div>
+        </main>
+        <p>{{item.leastaAmount}}元起投&#x3000;|&#x3000;次日计息&#x3000;|&#x3000;多重保障</p>
+    </div>
+    <div class="rem-rule"></div>
+</div>

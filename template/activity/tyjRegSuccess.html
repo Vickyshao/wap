@@ -1,0 +1,25 @@
+<div class="wrap login-wrapper newhand-wrapper cp-wrapper new-register tyjRegSuccess" ng-controller="tyjRegSuccessController">
+    <div class="topbox headerTop">
+        <div class="common-head" ui-sref="main.home" ng-if="!fromNative"><i></i><p>注册</p></div>
+        <main>
+            <div class="block add">
+                <img src="/images/activity/tyj/regsuccess-bg.png"/>
+                <br>
+                <br>
+                <p><span>288元</span>红包已放入您的账户</p>
+                <p>快快体验投资吧！</p>
+            </div>
+            <div class="block">
+                <h2 class="title">新手专享标</h2>
+                <div class="pro">
+                    <p>历史年化收益率</p>
+                    <h2>{{newhand.rate}}<span>%</span></h2>
+                    <ul><li>期限{{newhand.deadline}}天</li><li>|</li><li>每位仅投一次</li></ul>
+                    <div class="gif"><img src="/images/common/newhand.gif" alt=""></div>
+                </div>
+                <div class="button yellow-btn" ng-click="toCpDetail()">立即投资</div>
+                <div class="look"><a ng-click="toHome()">我先看看</a></div>
+            </div>
+        </main>
+    </div>
+</div>

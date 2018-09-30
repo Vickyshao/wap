@@ -1,0 +1,68 @@
+<div class="pb3 newhand-wrapper" ng-controller='controllerNewhand'>
+    <div class="common-head" ng-click="toback()" ng-if="wap=='true' || wap==true"><i></i><p>{{title}}</p></div>
+    <div class="container" ng-show="mainbox">
+<!-- 头 -->
+        <div class="handbox marT info-box" ng-if="wap=='true' || wap==true" style="display: none;">
+            <h2>{{cp.fullName}}<!-- <img src="images/index/label_ojg.png"> --></h2>
+<!--  ng-bind="{1:'体验金专享',6: 'end-list',7: 'end-list',8: 'end-list',9: 'end-list'}[cp.type]" -->
+            <table>
+                <tr>
+                    <td width="100%" class="noleft newhand-mod" style="border-right:none;text-align:center;">
+                        <div class="mod">
+                            <span>历史年化收益率</span>
+                            <p><i>{{cp.rate}}%</i><i ng-if="cp.activityRate>0">+{{cp.activityRate}}%</i>
+                            </p>
+                            <p class="modinfo">期限{{cp.deadline}}天 | 起投{{cp.leastaAmount| number}}元 | 次日计息</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!-- <table>
+                <tr>
+                    <td rowspan="2" width="42%" class="noleft">
+                        <div class="mod">
+                            <span>年化利率</span>
+                            <p><i>{{cp.rate}}</i>%</p>
+                        </div>
+                    </td>
+                    <td width="28%">
+                        <div class="mod">
+                            <span>产品期限</span>
+                            <div class="marT"><span class="color-orange">{{cp.deadline}}</span>天</div>
+                        </div>
+                    </td>
+                    <td width="28%" class="noright">
+                        <div class="mod">
+                            <span>起息规则</span>
+                            <div class="marT"><span class="color-orange">次日起息</span></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="28%">
+                        <div class="mod">
+                            <span>起投金额（元）</span>
+                            <div class="marT"><span class="color-orange">{{cp.leastaAmount| number}}</span></div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table> -->
+        </div>
+        <!-- 中 -->
+        <div class="handbox marT list newhandbox" style="border-top: 1px solid #f4f4f4;">
+            <div class="newhand-info"><img src="images/newhand/newhand1.png"></div>
+            <div class="newhand-fangshi"><img src="images/newhand/newhand2.png"></div>
+            <div class="newhand-shouyi"><img src="images/newhand/newhand3.png"></div>
+            <div class="newhand-anquan"><img src="images/newhand/newhand4.png"></div>
+        </div>
+    </div>
+
+    <!--<div class="sign_box_bottom marT2 button-info newhand-btn" ng-if="(a|isRegister).register && (wap=='true' || wap==true) && cpObj.newHandInvested==false && cpObj.isInvested==false" ng-click="toInvest()">立即投资</div>-->
+    <!--<img class="xsb-warn" src="/images/newhand/xsb-warn1.png" alt="" ng-if="cpObj.newHandInvested==true && (wap=='true' || wap==true)">-->
+    <!--<img class="xsb-warn" src="/images/newhand/xsb-warn2.png" alt="" ng-if="cpObj.newHandInvested==false && cpObj.isInvested==true && (wap=='true' || wap==true)">-->
+    <!--<div ui-sref="main.bankBillList" class="marT2 button-info newhand-btn" ng-if="(cpObj.newHandInvested==true || cpObj.isInvested==true) && (wap=='true' || wap==true)">-->
+                <!--关注其他项目-->
+    <!--</div>-->
+    <!--<div class="sign_box_bottom newhand-btn" ng-if="!(a|isRegister).register && (wap=='true' || wap==true)" ng-click="gologin()">立即登录</div>-->
+</div>

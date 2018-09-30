@@ -1,0 +1,16 @@
+<div class="newhand-wrapper cp-wrapper tyjSuccess" ng-controller="eggSuccessCtrl">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+        <!--<span class="right" ui-sref="main.myaccountHome">关闭</span>-->
+    </div>
+    <div class="investSuccess">
+        <div class="investSuccess-info">
+            <img src="images/newhand/right.png" />
+            <h2 class="okTip">恭喜您成功投资<span>{{data.investAmount | number:1}}</span>元</h2>
+            <p class="changeTip">获得 <span>1</span>次砸蛋机会</p>
+            <p class="p2-egg"><img class="normal" src="/images/activity/egg/egg1.png" /></p>
+            <a ng-click="toEgg()" class="btn">立即砸蛋</a>
+        </div>
+    </div>
+</div>

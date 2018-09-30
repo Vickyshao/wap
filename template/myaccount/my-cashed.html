@@ -1,0 +1,17 @@
+<div class="myinvest-wrapper" ng-controller="mycashedCtrl">
+	<div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+	<div class="mycashedList">
+		<div class="mycashedHead">
+			<div class="tab1">回款金额（元）</div>
+			<div class="tab2">回款日期</div>
+			<div class="tab3">状态</div>
+		</div>
+		<div class="mycashedBody">
+			<div class="mycashedBody-td" ng-repeat="item in cashedData.result">
+				<div class="tab1"><span>{{item.shouldPrincipal | isNumber}}+{{item.shouldInterest | isNumber}}</span><br />{{item.index}}期本金+收益</div>
+				<div class="tab2">{{item.date}}</div>
+				<div class="tab3"><span ng-if="item.status==0">待回款</span><span class="green" ng-if="item.status==1">已回款</span></div>
+			</div>
+		</div>
+	</div>
+</div>

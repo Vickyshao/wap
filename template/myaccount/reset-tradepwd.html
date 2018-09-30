@@ -1,0 +1,60 @@
+<!--
+<div class="tradepwd-wrapper" ng-controller="tradepwdCtrl">
+	<div class="common-head" ><i ng-click="toback()"></i><p>{{title}}</p></div>
+	<form name="tpwdSetForm" novalidate ng-submit="submitForm(tpwdSetForm.$valid)" autocomplete="off">
+		<input style="display:none">
+        <input type="password" style="display:none">
+		&lt;!&ndash;<div class="pwd-box code-box">&ndash;&gt;
+			&lt;!&ndash;<a href="" ng-click="getCode()" ng-if="isGetCode == false" class="right">获取验证码</a><span class="right" ng-if="isGetCode == true">{{times}}s重新获取</span><input type="text" class="text" placeholder="请输入短信验证码" name="code" ng-model="trade.code" required onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" maxlength="6">&ndash;&gt;
+		&lt;!&ndash;</div>&ndash;&gt;
+		<div class="pwd-box code-box" ng-show="showCode == false">
+			<a href="" class="eye right" ng-click="showCode = true"></a><input type="password" name="tpwd" class="text" placeholder="设置交易密码" maxlength="6" required ng-pattern="/^\d{6}$/" ng-model="trade.tpwd" autocomplete="off" maxlength="6" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')">
+		</div>
+		<div class="pwd-box code-box" ng-show="showCode == true">
+			<a href="" class="eye right act" ng-click="showCode = false"></a><input type="text" name="retpwd" class="text" placeholder="设置交易密码" maxlength="6" required ng-pattern="/^\d{6}$/" ng-model="trade.tpwd" autocomplete="off" maxlength="6" onkeyup="this.value=this.value.replace(/ [\D\.]/gi,'')">
+		</div>
+		<div class="pwd-box" ng-show="showCode2 == false">
+			<a href="" class="eye right" ng-click="showCode2 = true"></a><input type="password" name="tpwd" class="text" placeholder="确认交易密码" maxlength="6" required ng-pattern="/^\d{6}$/" ng-model="trade.pwd" autocomplete="off" maxlength="6" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')">
+		</div>
+		<div class="pwd-box" ng-show="showCode2 == true">
+			<a href="" class="eye right act" ng-click="showCode2 = false"></a><input type="text" name="retpwd" class="text" placeholder="确认交易密码" maxlength="6" required ng-pattern="/^\d{6}$/" ng-model="trade.pwd" autocomplete="off" maxlength="6" onkeyup="this.value=this.value.replace(/ [\D\.]/gi,'')">
+		</div>
+		&lt;!&ndash;<div class="little-tip" ng-if="trade.tpwd != trade.pwd">设置交易密码与确认交易密码不一致</div>&ndash;&gt;
+		<div class="little-tip">交易密码为6位数字组合</div>
+		<div class="sub-box" ng-if="firstset == true"><input type="submit" value="设置" class="sub" ng-disabled="tpwdSetForm.$invalid || (trade.tpwd != trade.pwd)"></div>
+		<div class="sub-box" ng-if="firstset == false"><input type="submit" value="修改" class="sub" ng-disabled="tpwdSetForm.$invalid || (trade.tpwd != trade.pwd)"></div>
+	</form>
+</div>-->
+<div class="tradepwd-wrapper" ng-controller="tradepwdCtrl">
+	<div class="common-head" ><i ng-click="toback()"></i><p>{{title}}</p></div>
+	<div class="div-block-grey"></div>
+	<form name="pwdSetForm" novalidate ng-submit="submitForm(pwdSetForm)" autocomplete="off">
+		<div class="pwd-box" ng-if="!userOBJ.register">
+			<input id="mobilephone"  name="mobilephone" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号" ng-model="mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')"  minlength="11" maxlength="11" required>
+		</div>
+		<input style="display:none">
+		<input type="password" style="display:none">
+		<div class="pwd-box code-box">
+
+			<a ng-click="getCode()" ng-if="isGetCode == false" class="right">获取验证码</a>
+			<span class="right" ng-if="isGetCode == true">发送（{{times}}秒）</span>
+			<input type="text" class="text" placeholder="请输入短信验证码" name="code" ng-model="pwd.code" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" maxlength="6" required>
+		</div>
+		<div class="pwd-box" ng-show="showCode == false">
+			<a href="" class="eye right" ng-click="showCode = true"></a>
+			<input type="password"  name="pwd" class="text" placeholder="请输入交易密码" required ng-pattern="/^\d{6}$/" ng-model="pwd.pwd" autocomplete="off" maxlength="6" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')">
+		</div>
+		<div class="pwd-box" ng-show="showCode == true">
+			<a href="" class="eye right act" ng-click="showCode = false"></a><input type="text" name="repwd" class="text" placeholder="请输入交易密码" required ng-pattern="/^\d{6}$/" ng-model="pwd.pwd" autocomplete="off" maxlength="6" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')">
+		</div>
+		<div class="little-tip">交易密码为6位数字</div>
+		<div class="sub-box"><input type="submit" value="完成" class="sub"></div>
+		<!--<div class="sub-box" ng-if="forget == true"><input type="submit" value="完成" class="sub" ng-disabled="pwdSetForm.$invalid"></div>-->
+
+	</form>
+</div>
+<style>
+	html,body{
+		background: #fff;
+	}
+</style>

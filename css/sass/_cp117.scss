@@ -1,0 +1,24 @@
+.cp117-bg{
+	background: red;
+	height:rem-calc(750);
+	width:100%;
+	background: image-url('CP117/bd.png') center top;
+	img{
+		width:100%;
+		display:block;
+		max-width:750px;
+		margin: 0 auto;
+	}
+}
+
+.cp117-icon{
+	// background: red;
+	// width: rem-calc(10);
+	// height: rem-calc(10);
+	// border-radius: rem-calc(10);
+	background-color:#ccc;  
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border:1px solid #000; 
+	padding:1px; 
+}

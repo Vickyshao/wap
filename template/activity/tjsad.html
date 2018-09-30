@@ -1,0 +1,148 @@
+<div class="tjsad">
+    <div class="banner-box">
+        <img class="banner" style="width:100%;display:block;" src="images/activity/tjsad/banner.png">
+        <p>已有 <span>{{investCount}}</span> 人免费领取</p>
+        <img class="banner-footer" style="width:100%;display:block;" src="images/activity/tjsad/banner-footer.png">
+    </div>
+    <main>
+        <div class="register-box box">
+            <div class="tjsad-box">
+                <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                    <div class="input-item">
+                        <img src="images/activity/changcheng/ico-1.png" style="left:0.7rem;" />
+                        <div class="input-box">
+                            <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|7|8|9][0-9]{9}$/" placeholder="请输入手机号码" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <img src="images/activity/iPhonead/ico-4.png" style="left:0.6rem;"/>
+                        <div class="input-box">
+                            <input id="imgcode" class="input" type="text" placeholder="请输入图形验证码" ng-model="login.picCode" name="picCode" minlength="4" maxlength="4" required autocomplete="off" />
+                            <span class="img-box"><img ng-click="clickInput($event)" src="login/validateCode2.dos"></span>
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <img src="images/activity/changcheng/ico-2.png" />
+                        <div class="input-box" style="width:57%;margin-right:3%;float:left;">
+                            <input ng-model="login.smsCode"  type="text"  placeholder="请输入短信验证码" maxlength="4" required class="input">
+                        </div>
+                        <div class="input-box" style="width:40%;float:left;background-color:#fff;">
+                            <span ng-click="getyzm(myForm)" style="color:#EC6360;">{{nowTimer}}</span>
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <img src="images/activity/changcheng/ico-3.png" />
+                        <div class="input-box">
+                            <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/" ng-model="login.passWord" name="passWord" required class="input" />
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc" style="color:#FF5255;">《沪深理财注册协议》</a></p>
+                    </div>
+                    <div class="input-item">
+                        <button class="btn" ng-click="zuce(myForm)" ng-disabled="!agree">立即注册</button>
+                        <p style="text-align: center;margin-top:1rem;"><a>已有账号？ <span ui-sref="dl({returnurl:'tjs'})">立即登录</span></a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div class="content-a">
+        <header>
+            <h1>好礼钜献专享</h1>
+            <p>单笔投资满一定金额，<span>0元</span>即可获得超值豪礼!</p>
+        </header>
+        <div class="cp-box">
+            <div>
+                <h4>150天</h4>
+                <h2>9<span>%</span><span>+</span>2.8<span>%<img src="images/activity/tjsad/activity-icon.png"></span></h2>
+                <h4>历史年化收益率</h4>
+            </div>
+        </div>
+        <footer>
+            <!--<h3>预计10万存90天可赚</h3>-->
+            <p>
+                <span>
+                    <img src="images/activity/tjsad/money-icon.png">投资收益
+                </span>
+                &#x3000;<img style="width: 0.8rem;" src="images/activity/tjsad/plus-icon.png">&#x3000;
+                <span>
+                    <img src="images/activity/tjsad/prize-icon.png">超值好礼
+                </span>
+            </p>
+        </footer>
+        <div class="prize-box">
+            <div class="img-box swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/activity/tjsad/prizea.png">
+                        <img src="images/activity/tjsad/prizeb.png">
+                        <img src="images/activity/tjsad/prizec.png">
+                        <img src="images/activity/tjsad/prized.png">
+                        <div></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/activity/tjsad/prizee.png">
+                        <img src="images/activity/tjsad/prizef.png">
+                        <img src="images/activity/tjsad/prizeg.png">
+                        <img src="images/activity/tjsad/prizeh.png">
+                        <div></div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-h"></div>
+            </div>
+        </div>
+        <div class="button-box">
+            <div class="button" ng-click="gotop()">我要白拿</div>
+        </div>
+        <div class="scroll-box">
+            <h2>已有{{investCount}}位用户白拿了好礼</h2>
+            <div class="code-list">
+                <div class="title-list">
+                    <table>
+                        <tr>
+                            <th width="33%">用户名</th>
+                            <th width="33%">投资时间</th>
+                            <th width="33%">获得礼品</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="data-list" ng-class="{true: 'short-list'}[investList.length < 5]">
+                    <table class="data-table">
+                        <tr ng-repeat="item in investList" repeat-finish="background()">
+                            <td width="33%">{{item.mobilePhone}}</td>
+                            <td width="33%">{{item.investTime}}</td>
+                            <td width="33%">{{item.name}}</td>
+                        </tr>
+                        <tr ng-if="newtyjList.length == 0">
+                            <td width="33%">-</td>
+                            <td width="33%">-</td>
+                            <td width="33%">-</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-b">
+        <h1>国企全资控股平台 雄厚的实力保障</h1>
+        <img src="images/activity/tjsad/border-a.png">
+        <img style="margin-top:2rem;" src="images/activity/tjsad/advantage.png">
+        <!--<footer ui-sref="promote({wap:true})">了解详情 ></footer>-->
+    </div>
+    <div class="content-c">
+        <h1>活动规则</h1>
+        <img style="margin-bottom:1.5rem;margin-top:0.4rem;" src="images/activity/tjsad/border-b.png">
+        <p>1. 本活动专属标为“好礼钜献专享标”。投资本标的单笔满足礼品对应的金额即可免费领取该礼品，同时还额外获得投资收益；</p>
+        <p>2. 投资本活动标不享受红包等平台其他任何福利；</p>
+        <p>3. 礼品领取方式：投资成功后，请务必填写正确的收货人姓名、地址及联系方式，平台将按您填写的收货信息寄出礼品，预计投资后15个工作日内可到货。</p>
+        <br>
+        <p style="text-align:center;color:#666666;">*本活动由沪深理财发起并就活动内容作出解释和说明</p>
+        <p style="text-align:center;color:#666666;">任何疑问请咨询沪深理财客服：400-031-9909</p>
+        <br>
+        <footer style="color:#666666;">市场有风险，投资需谨慎</footer>
+    </div>
+    <img class="totop" ng-click="gotop()" src="images/activity/newhandreg/top.png">
+</div>
+<!--icp备案号-->
+<div class="icpba">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司  v1.2.3</div>

@@ -1,0 +1,60 @@
+<div class="publicWelfare headerTop" ng-controller="publicWelfareListController">
+     <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="div-block"></div>
+    <img class="publicWelfare-banner" src="/images/find/love_logo.png">
+    <div ng-repeat="item in list | limitTo: listLength">
+        <ul class="list" ui-sref="publicWelfare({id:item.id})">
+            <li>
+                <p class="title">{{item.title}}</p>
+                <p class="content">{{item.summary}}</p>
+                <p class="time">沪深公益{{item.activityTime | date:"yyyy-MM-dd"}}</p>
+            </li>
+            <li>
+                <img src="{{item.appPictureUrlA}}" alt="" class="img" ng-if="item.appPictureUrlA">
+                <img src="/images/find/logo_default.png" alt="" class="logo-img" ng-if="!item.appPictureUrlA">
+            </li>
+        </ul>
+        <div class="div-block"></div>
+    </div>
+    <div class="more" ng-if="isShowMore" ng-click="more()">更多 <img src="/images/find/ico_downparrow.png" alt=""></div>
+    <div class="production">
+        <h3><img src="/images/find/love_hor_title.png" alt="">他们的作品</h3>
+        <div class="img-list-wrap">
+            <ul class="img-list">
+                <li>
+                    <img src="/images/find/love1.png" alt="">
+                </li>
+                <li>
+                    <img src="/images/find/love2.png" alt="">
+                </li>
+                <li>
+                    <img src="/images/find/love3.png" alt="">
+                </li>
+                <li>
+                    <img src="/images/find/love4.png" alt="">
+                </li>
+                <li>
+                    <img src="/images/find/love5.png" alt="">
+                </li>
+                <!--<li>
+                    <img src="/images/find/love6.png" alt="">
+                </li>-->
+            </ul>
+        </div>
+
+    </div>
+    <div class="download-box">
+        <div class="download">
+            <dl>
+                <dt></dt>
+                <dd>
+                    <p>打开沪深理财APP</p>
+                    <p>砸蛋100%送豪礼</p>
+                </dd>
+            </dl>
+            <a target="_bank" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">立即下载</a>
+        </div>
+    </div>
+</div>

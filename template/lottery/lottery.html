@@ -1,0 +1,161 @@
+<div class="iPhone lottery headerTop" ng-controller="lotteryCtrl">
+    <div class="common-head" ng-if="!fromNative">
+        <!--<i ng-click="toback()"></i>-->
+        <p>{{title}}</p>
+        <span class="float-menu" ng-click="share()">分享</span>
+    </div>
+    <img src="/images/activity/lottery/banner.png" class="banner">
+    <img ng-click="showRule()" src="/images/activity/lottery/icon-rule.png" class="rule-icon">
+    <div class="bill-wrap" ng-if="awardType == 0">
+        <header class="header"><h2 class="title">第{{curLotteryInfo.activityPeriods}}期大奖</h2></header>
+        <div class="name"><span class="flag1"></span>{{curLotteryInfo.awardName}}<span class="flag2"></span></div>
+        <h2 class="desc">每投资<span>{{curLotteryInfo.amount}}</span>元即可获得一个抽奖码</h2>
+        <div class="label"><p>满{{curLotteryInfo.totalCount}}个</p><p>抽奖码就开奖</p></div>
+        <div class="lotteryWard">
+            <p class="img"><img src="{{curLotteryInfo.h5ImgUrlV}}" /></p>
+            <div class="bg2"></div>
+            <div class="remain">还剩{{curLotteryInfo.residueCount}}个抽奖码</div>
+            <a class="button" ng-click="nowBuy()">立即抢购</a>
+            <p class="tip">不喜欢？<a class="remain" ng-click="orderOther()">预约其它奖品</a></p>
+        </div>
+	</div>
+    <div class="bill-wrap" ng-if="awardType == 1 || awardType == 2">
+        <header class="header"><h2 class="title">下一期大奖</h2></header>
+        <div class="name"><span class="flag1"></span>{{curLotteryInfo.name | limitTo:10}}<span class="flag2"></span></div>
+        <div class="lotteryWard">
+            <p class="img"><img src="{{curLotteryInfo.h5ImgUrl}}" /></p>
+            <div class="bg2"></div>
+            <a class="button" ng-click="reservation(curLotteryInfo)" ng-bind="{'1':'立即预约','2':'即将开始'}[awardType]"></a>
+            <p class="tip">不喜欢？<a class="remain" ng-click="orderOther()">预约其它奖品</a></p>
+        </div>
+    </div>
+    <div class="bill-wrap" ng-if="awardType == 3">
+        <div ng-if="">
+
+        </div>
+        <header class="header"><h2 class="title">下一期大奖</h2></header>
+        <div class="name"><span class="flag1"></span>京东卡1000元<span class="flag2"></span></div>
+        <div class="lotteryWard">
+            <p class="img"><img src="/images/activity/lottery/img.png" /></p>
+            <div class="bg2"></div>
+            <a class="button">即将开始</a>
+            <p class="tip">不喜欢？<a class="remain" ng-click="orderOther()">预约其它奖品</a></p>
+        </div>
+	</div>
+    <!--开奖专区-->
+    <div class="history-box">
+        <div class="lottery-zone lotteryBg">
+            <header class="header"><img src="/images/activity/lottery/header1.png" /></header>
+            <div class="video-box" ng-if="historyList.length <= 0">
+                <a><div class="video"><img src="/images/activity/lottery/noVideo.png"></div></a>
+                <div class="detail">
+                    <h1>第1期</h1>
+                    <p>中奖号：<span>未开奖</span></p>
+                    <p>中奖用户：<span>未开奖</span></p>
+                </div>
+            </div>
+            <div class="video-box" ng-if="historyList.length > 0">
+                <a ng-if="fromNative" ng-click="playVideo(curHistory.videoUrl)">
+                    <div class="video">
+                        <span class="playBg"><i></i></span>
+                        <img src="{{curHistory.videoImgUrl}}">
+                    </div>
+                </a>
+                <a ng-if="!fromNative" href="{{curHistory.videoUrl}}">
+                    <div class="video">
+                        <span class="playBg"><i></i></span>
+                        <img src="{{curHistory.videoImgUrl}}">
+                    </div>
+                </a>
+                <div class="detail">
+                    <h1>第 {{curHistory.issue}} 期</h1>
+                    <p>中奖号：<span>{{curHistory.winningNumbers}}</span></p>
+                    <p>中奖用户：<span>{{curHistory.winningUser}}</span></p>
+                    <a class="brower" ng-click="ViewPast()">查看往期 <i class="caret"></i></a>
+                </div>
+            </div>
+        </div>
+        <!--查看往期-->
+        <div class="lottery-history" ng-mouseover="mouseover()">
+            <ul class="lottery-history-list">
+                <li class="lottery-history-list-item" ng-click="setItem(item)" ng-repeat="item in historyList">
+                    <span class="num">第{{item.issue}}期</span>
+                    <span class="code">中奖号:{{item.winningNumbers}}</span>
+                    <span class="phone">中奖用户: {{item.winningUser}}</span>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="step-box">
+        <img src="/images/activity/lottery/progress.png">
+    </div>
+    <!--最新动态-->
+    <div class="news lotteryBg" ng-show="newTrends.length > 0">
+        <header class="header"><img src="/images/activity/lottery/header2.png" /></header>
+        <div class="news-list">
+            <ul>
+                <li ng-repeat="item in newTrends">
+                    {{item.time | date:'MM-dd'}}&nbsp;&nbsp;&nbsp;{{item.contents}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--奖品预约-->
+    <div class="reservation">
+        <header class="header"><img src="/images/activity/lottery/header3.png" /></header>
+        <p class="desc">人气奖品会在下一期优先发布</p>
+        <ul class="reservation-list">
+            <li ng-click="reservation(item)" ng-repeat="item in reservationList">
+                <h2>{{item.name}}</h2>
+                <p class="p1">投资{{item.unitPrice}}元赢大奖</p>
+                <p ng-if="item.h5ImgUrl == null || item.h5ImgUrl == undefined || item.h5ImgUrl == ''" class="pic"><img src="/images/activity/lottery/invitation.png" alt=""></p>
+                <p ng-if="item.h5ImgUrl != null" class="pic"><img src="{{item.h5ImgUrl}}" alt=""></p>
+                <a ng-class="{'0':'','1':'ok'}[item.reservation]" ng-bind="{'0':'预约','1':'预约成功'}[item.reservation]"></a>
+            </li>
+        </ul>
+    </div>
+    <!--活动规则-->
+    <div class="rule">
+        <div class="rule-content" style="height: auto;">
+            <header>活动规则<img ng-click="closeRule()" src="images/activity/iPhone/close-icon.png"></header>
+            <main>
+                <p>1、本活动标期180天，属于活动标。根据奖励不同，每期投资总金额不同。投资者除获得收益以外，还有机会获得大奖。</p>
+                <p>2、每期共有300个名额。根据奖励不同，每次投资对应金额获得1个“字母+数字”组合的抽奖号码，也可以一次性投资对应金额的倍数获得多个抽奖号码，提升获奖几率。</p>
+                <p>3、投资本活动标不享受红包等平台或渠道的其它任何福利。</p>
+                <p>4、开奖方式及中奖结果。活动遵循公开公平公正的原则。每期活动标满后5个工作日内进行开奖，请关注沪深理财微信公众号"沪深金融官微“（hushenlicai）查看获奖信息。同时会有工作人员联系您记录收货地址。正常情况下中奖奖励会在开奖后的15个工作日内发货。</p>
+                <br>
+                <p style="color: red;">*本活动由沪深理财发起并就活动内容作出解释和说明，苹果公司（Apple Inc. ）非活动赞助商，本活动与苹果公司无关。任何疑问请咨询沪深客服：400-031-9909</p>
+                <header>常见问题</header>
+                <h2>1、关于中奖礼品</h2>
+                <p>平台精选多种品质商品作为中奖礼品，供用户投资并中奖获得。根据活动情况，礼品可能会进行上下架调整，具体请以活动页展示为准。</p>
+                <h2>2、中奖礼品是否可以选择尺寸及颜色？</h2>
+                <p>获奖礼品一般为固定型号固定尺寸，不可选择。礼品颜色一般默认为平台展示的颜色，具体将以实际库存颜色随机发货。</p>
+                <h2>3、中奖礼品售后保障怎么办？</h2>
+                <p>本活动礼品不提供发票，凡活动获得的实物类礼品，若有质量问题，可联系商家进行售后退换或维修，售后服务以商家为准，沪深客服可配合您完成售后咨询。</p>
+                <h2>4、中奖用户未及时收到奖励是什么原因？</h2>
+                <p>获奖后会有工作人员联系您确认收货地址。若地址提供错误或不全等可能导致礼品延期发货；部分礼品因库存因素等无法保证具体发货时间，如未能及时到货也请您耐心等待，我们承诺会按照下单顺序，尽快发货。</p>
+                <h2>5、中奖礼品发货配送问题处理？</h2>
+                <p>为了保障您的权益，若您在中奖并联系您确认地址后15天内未收到礼品，请及时联系沪深客服跟踪订单、申请维权，投资后30天内为维权问题受理期，逾期则视为放弃申请维权，平台将不再受理。</p>
+                <h2>6、奖励价格与市场价不一样，为什么？</h2>
+                <p>因奖励为沪深平台批量采购，采购价格在市场价格上下浮动。属于正常情况。</p>
+
+            </main>
+        </div>
+    </div>
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <!--正式环境分享链接-->
+            <textarea id="shareurl" class="shareurl">https://m.hushenlc.cn/lottery</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">点击复制链接到浏览器查看哦</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <!--微信中点击分享弹出浮层-->
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+</div>
+<!--icp备案号-->
+<div class="icpba"><img src="/images/activity/lottery/footer.png" /></div>

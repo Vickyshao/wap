@@ -1,0 +1,161 @@
+<div class="wrap pb3 newhand-wrapper cp-wrapper headerTop" ng-controller='controllerCpInvestInfo'>
+    <div class="common-head" >
+        <i ng-click="toback()"></i>
+        <p>{{cp.info.fullName}}</p>
+        <!--<span class="right"><a href="https://hushenlc.cn/loan" class="xieyi">协议</a></span>-->
+    </div>
+    <div class="cp-info-wrap">
+        <h2 class="bt">
+            <span ng-class="{1:'act',2:'',3:''}[isAct]" ng-click="isAct = 1">项目信息</span>
+            <span ng-class="{1:'',2:'act',3:''}[isAct]" ng-click="isAct = 2">资金保障</span>
+            <span ng-class="{1:'',2:'',3:'act'}[isAct]" ng-click="isAct = 3">投资记录</span>
+        </h2>
+        <div class="div-block"></div>
+        <div class="cp-info-con">
+            <div ng-if="isAct == 1">
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>投资周期
+                    </h3>
+                    <div class="content">
+                        <div class="circle-wrap">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+                        <ul class="text">
+                            <li>
+                                <p class="head">开始计息</p>
+                                <p class="time">{{cp.nowTime | date:"yyyy-MM-dd"}}</p>
+                            </li>
+                            <li>
+                                <p class="head">预计募集完成</p>
+                                <p class="time">{{cp.info.endDate | date:"yyyy-MM-dd"}}</p>
+                            </li>
+                            <li>
+                                <p class="head">预计回款日</p>
+                                <p class="time">{{cp.info.expireDate | date:"yyyy-MM-dd"}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="div-block" ng-if="riskname"></div>
+                <div class="info-block" ng-if="riskname">
+                    <h3 class="tit">
+                        <i class="line"></i>投资要求
+                    </h3>
+                    <div class="content">
+                        <p class="color3">风险评测等级“{{cp.info.riskname}}”及以上</p>
+                        <p class="color6">(若您还不知道您的客户类型，请至“我的”页面进行风险评估)</p>
+                    </div>
+                </div>
+                <div class="div-block"></div>
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>项目介绍
+                    </h3>
+                    <div class="content">{{cp.info.introduce}}</div>
+                </div>
+                <div class="div-block"></div>
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>产品原理
+                    </h3>
+                    <div class="content">
+                        <img ng-src="{{cp.info.principleH5}}" alt="">
+                    </div>
+                </div>
+                <div class="div-block"></div>
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>原债方企业资料
+                    </h3>
+                    <div class="content">
+                        <img src="{{item.bigUrl}}" alt="" ng-repeat="item in picList" ng-if="item.type == 0">
+                    </div>
+                </div>
+                <div class="div-block"></div>
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>借款用途
+                    </h3>
+                    <div class="content">{{cp.info.borrower}}</div>
+                </div>
+                <div class="div-block"></div>
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>三方委托贷款合同
+                    </h3>
+                    <div class="content">
+                        <img src="{{item.bigUrl}}" alt="" ng-repeat="item in picList" ng-if="item.type == 1">
+                    </div>
+                </div>
+            </div>
+            <div ng-if="isAct == 2">
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>还款方式
+                    </h3>
+                    <div class="content">
+                        <span ng-bind="{1:'到期还本付息',2: '按月付息到期还本',3:'等本等息 按周回款',4:'等本等息 按月回款',5:'其他'}[cp.info.repayType]"></span>
+                    </div>
+                </div>
+                <div class="div-block"></div>
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>还款保障
+                    </h3>
+                    <div class="content">{{cp.info.windMeasure}}</div>
+                </div>
+                <div class="div-block"></div>
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>还款来源
+                    </h3>
+                    <div class="content">
+                        {{cp.info.repaySource}}
+                    </div>
+                </div>
+                <div class="div-block"></div>
+                <div class="info-block">
+                    <h3 class="tit">
+                        <i class="line"></i>还款开始日期
+                    </h3>
+                    <div class="content">
+                        {{cp.info.expireDate | date:"yyyy-MM-dd"}}
+                    </div>
+                </div>
+            </div>
+            <div ng-if="isAct == 3">
+                <div class="info-block">
+                    <table>
+                        <tr>
+                            <th>用户</th>
+                            <th>投资金额(元)</th>
+                            <th>时间</th>
+                        </tr>
+                        <tr ng-repeat="item in investList">
+                            <td>
+                                <img src="/images/newhand/invest_list_pc.png" alt="" ng-if="item.joinType == 0">
+                                <img src="/images/newhand/invest_list_app.png" alt="" ng-if="item.joinType != 0">
+                                {{item.mobilephone}}
+                            </td>
+                            <td>{{item.amount | currency2}}元</td>
+                            <td class="time">{{item.investTime | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-btn-wrap">
+        <div class="new-blue-btn" ng-click="toInvest()" ng-if="(a|isRegister).register && cp.info.status==5">立即抢购</div>
+        <div class="new-blue-btn" ng-if="!(a|isRegister).register" ng-click="gologin()">请登录后抢购</div>
+    </div>
+
+    <div class="footer-btn-wrap" ng-if="cp.info.status!=5">
+        <div class="new-blue-btn grey-btn" ng-class="{'newhand-btn-default':true,all:!yuebiao.isReservation}" ng-bind="{6:'抢光了',7:'募集失败',8:'待还款',9:'已还款'}[cp.info.status]"></div>
+        <div class="new-blue-btn" ng-click="goyuebiao()" ng-if="yuebiao.isReservation">立即预约下期</div>
+    </div>
+</div>

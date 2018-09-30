@@ -1,0 +1,26 @@
+<div class=" headerTop payments" ng-controller="paymentsCtrl"  ng-init="tapsub=1">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <!-- 支付额度 -->
+    <div class="regulation" >
+        <ul class="news">
+            <li ng-repeat="item in ggList" ng-click="expand()" infinite-scroll='loadMore(item)' infinite-scroll-distance='1'  >
+                <div class="up-text clearfix">
+                    <div class="left">
+                        <h3>{{item.title}}</h3>
+                    </div>
+                    <div class="right">
+                        <img src="images/find/icon_uparrow.png"  class="right-icon  hide expand" >
+                        <img src="images/find/ico_downparrow.png"  class="right-icon no-expand" >
+                    </div>
+                </div>
+                <div class="down-text hide" >
+                    <p  ng-bind-html="item.content | asHtml">
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

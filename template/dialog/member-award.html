@@ -1,0 +1,62 @@
+<div class="winning-wrap">
+    <div class="close" ng-click="closeDialog()">
+        <img src="/images/memberWelfare/close.png" alt="">
+    </div>
+    <h3>我的奖品</h3>
+    <div class="content">
+        <div class="award-header">
+            <span ng-class="{1:'act'}[act]" ng-click="actFun(1)">未领取</span>
+            <span ng-class="{2:'act'}[act]" ng-click="actFun(2)">已领取</span>
+        </div>
+        <p class="award-info" ng-if="act == 1 && awardInfos.length > 0">{{awardInfoText}}</p>
+        <p class="award-info" ng-if="act == 2 && myawardInfos.length>0">{{awardInfoText}}</p>
+        <div class="award-list">
+            <ul ng-if="act == 1 && awardInfos.length > 0">
+                <li ng-repeat="item in awardInfos  | orderBy:'status':desc">
+                    <div class="img">
+                        <img ng-src="{{item.picUrl}}" alt="" ng-class="{3:'grey'}[item.status]">
+                    </div>
+                    <div class="award noclaimed">
+                        <p class="tit">{{item.awardName}}</p>
+                        <p class="time">单笔投资≥{{item.useCondition}}元</p>
+                        <p class="time">标期≥30天即可领取</p>
+                    </div>
+                    <div class="btn-box">
+                        <!--未领取-->
+                        <div class="btn" ng-if="item.status == 0" ng-click="toInvestIng(item)">
+                            <img src="/images/memberWelfare/award-btn-bg.png" alt="">
+                        </div>
+                        <!--已失效-->
+                        <div class="btn-invaild btn" ng-if="item.status == 3">
+                            <img src="/images/memberWelfare/invalid.png" alt="">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul ng-if="act == 1 && awardInfos.length == 0" class="no-award">
+                <li style="margin-top: 3rem;">
+                    <div>
+                        <img class="no-award-img" src="/images/memberWelfare/no-award.png" alt="">
+                        <div class="togua" ng-click="toguaka()">立即去刮奖</div>
+                    </div>
+                </li>
+            </ul>
+            <ul ng-if="act == 2 && myawardInfos.length>0">
+                <li ng-repeat="item in myawardInfos">
+                    <div class="img">
+                        <img ng-src="{{item.picUrl}}" alt="">
+                    </div>
+                    <div class="award">
+                        <p class="tit">{{item.awardName}}</p>
+                        <p class="time">领取时间：{{item.prizeDate | changchinese}}</p>
+                    </div>
+                </li>
+            </ul>
+            <ul ng-if="act == 2 && myawardInfos.length == 0" class="no-award">
+                <li>
+                    <img class="nolq" src="/images/memberWelfare/nolq-img.png" alt="">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

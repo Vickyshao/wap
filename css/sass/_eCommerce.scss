@@ -1,0 +1,238 @@
+.eCommerce {
+  background: #fff6d7;
+  .banner {
+    width: 100%;
+    height: rem-calc(860);
+    padding: rem-calc(40 0 0 20);
+    background: url("/images/activity/eCommerce/banner.png") no-repeat top center/cover;
+    .logo {
+      @include inline-block(top);
+      width: rem-calc(350);
+      height: rem-calc(110);
+      background: url("/images/activity/eCommerce/logo.png") no-repeat top center/cover;
+      }
+    }
+  &-login {
+    width: 83%;
+    padding: rem-calc(80 0 0);
+    margin: rem-calc(-310 auto 0);
+    background: #f9511a;
+    border-top-left-radius: rem-calc(60);
+    border-top-right-radius: rem-calc(60);
+    .eCommerceForm {
+      width: 90%;
+      margin: rem-calc(0 auto);
+      .tit {
+        color: #fff;
+        font-size: 1rem;
+        padding-bottom: rem-calc(40);
+        a {
+          @include inline-block(top);
+          color: $yellow;
+          text-decoration: underline;
+        }
+      }
+      .common-box {
+        position: relative;
+        overflow: hidden;
+        &:not(:last-child) {
+          margin-bottom: rem-calc(40);
+        }
+        span {
+          float: left;
+          width: rem-calc(90);
+          height: rem-calc(90);
+          padding: rem-calc(30 20 0 0);
+          text-align: right;
+          i {
+            @include inline-block(top);
+            width: rem-calc(50);
+            height: rem-calc(50);
+            background: #000;
+            &.icon1 {
+              height: rem-calc(60);
+              background: url("/images/activity/eCommerce/icon1.png") no-repeat top center/contain;
+            }
+            &.icon2 {
+              background: url("/images/activity/eCommerce/icon2.png") no-repeat top center/contain;
+            }
+            &.icon3 {
+              background: url("/images/activity/eCommerce/icon3.png") no-repeat center center/contain;
+            }
+            &.icon4 {
+              background: url("/images/activity/eCommerce/icon4.png") no-repeat top center/contain;
+            }
+          }
+        }
+        .input-box {
+          height: rem-calc(120);
+          padding-left: rem-calc(120);
+          border-radius: rem-calc(6px,640);
+          background: #fff;
+          input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: rem-calc(35);
+            font-size: 1rem;
+            padding-left: rem-calc(40);
+            color: #666;
+            border-left: 1px solid #999;
+            border-radius: 0;
+          }
+          &.smsCode {
+            width: rem-calc(340);
+          }
+        }
+        .sendBtn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 99;
+          width: rem-calc(280);
+          height: rem-calc(120);
+          line-height: rem-calc(120);
+          padding: 0;
+          background: $yellow;
+          color: $common-red;
+          border-radius: rem-calc(6px,640);
+          text-align: center;
+          font-size: 1rem;
+        }
+        .tips {
+          padding-top: rem-calc(10);
+          font-size: 0.9rem;
+          color: $yellow;
+        }
+      }
+    }
+  }
+  .pic-wap {
+    @include inline-block(top);
+    width: 100%;
+    height: rem-calc(1761);
+    padding-top: rem-calc(120);
+    margin-top: rem-calc(-10);
+    background: url("/images/activity/eCommerce/eCommerce_02.png") no-repeat top center/contain;
+    .btn {
+      width: 70%;
+      height: rem-calc(120);
+      margin: rem-calc(0 auto);
+      &.btn1 {
+        background: url("/images/activity/eCommerce/btn.png") no-repeat top center/contain;
+      }
+      &.btn2 {
+        background: url("/images/activity/eCommerce/btn2.png") no-repeat top center/contain;
+      }
+    }
+    .toLogin {
+      font-size: 1rem;
+      padding-top: rem-calc(30);
+      text-align: center;
+      color: #fff;
+      a {
+        color: $yellow;
+        text-decoration: underline;
+      }
+    }
+  }
+  .img-group {
+    img {
+      width: 100%;
+      @include inline-block(top);
+    }
+  }
+  //滚动列表
+  &-grade {
+    padding: rem-calc(0 30 80);
+    h2 {
+      font-size: 1.6rem;
+      color: #333;
+      padding: rem-calc(60 0);
+      text-align: center;
+      span {
+        color: #f9511a;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+    &-box {
+      img {
+        width: 100%;
+        @include inline-block(bottom);
+      }
+      .data-list{
+        height: rem-calc(240px,640);
+        padding: rem-calc(15px 0 0,640);
+        background: url("/images/activity/eCommerce/bg2.png") repeat-y center/contain;
+        overflow: hidden;
+        &.short-list{
+          height: auto;
+        }
+        .data-table{
+          width: 92%;
+          margin: 0 auto;
+          tr {
+            &:nth-child(2n) {
+              background: #fff3c8;
+            }
+            td{
+              height: rem-calc(60px,640);
+              color: #1e1e1e;
+              font-size: rem-calc(24px,640);
+              text-align: center;
+              &:first-child {
+                text-align: left;
+                padding-left: rem-calc(60);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .swiper {
+    padding: rem-calc(0 40);
+    height: rem-calc(1050);
+    background: darken($light-yellow,10%);
+    .swiper-container {
+      height: 25rem !important;
+      overflow:hidden;
+      .swiper-pagination-bullet-active {
+        background: darken($light-yellow,40%) !important;
+      }
+      .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 1;
+      }
+    }
+    img {
+      width: 100%;
+    }
+  }
+
+
+  //点我报销
+  .toTop {
+    width: 100%;
+    height: rem-calc(240);
+    background: darken($light-yellow,10%);
+    .clickme {
+      width: 80%;
+      margin: 0 auto;
+      height: 50%;
+      text-align: center;
+      background: url("/images/activity/eCommerce/toTop.png") no-repeat top center/contain;
+      a {
+        @include inline-block(top);
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  //tanchuang
+  .ngdialog.ngdialog-theme-default .ngdialog-content {
+    max-width: 90% !important;
+  }
+}

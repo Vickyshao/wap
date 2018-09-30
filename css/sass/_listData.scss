@@ -1,0 +1,316 @@
+.operationData{
+  width: 100%;
+  background-color: #fff;
+  //平台实时数据
+  .real-time-data{
+       //width: 100%;
+       //padding-top: 2rem;
+       padding: 0.6rem;
+      .title{
+        text-align: center;
+        //border-bottom: 1px solid #ccc;
+        padding: 1rem 0;
+        p{
+          &.title-head{
+            font-size: rem-calc(60);
+            color: #646464;
+            font-weight:bold;
+            letter-spacing: 3px;
+          }
+          &.title-tip{
+            padding-top:10px;
+            font-size: rem-calc(40);
+            color: #858585;
+          }
+        }
+      }
+      .content{
+        border: 1px solid #ccc;
+        .detail{
+          background: #ffffff;
+          width: 33.3%;
+          float: left;
+          height: rem-calc(240px,750);
+          font-size: rem-calc(48);
+          color: #666;
+          text-align: center;
+          position: relative;
+          p{
+            padding-top: rem-calc(126px,750);
+            position: absolute;
+            width: 100%;
+            top: 0;
+            color: #889ff8;
+            font-size: 1rem;
+            &:nth-child(2) {
+              font-size: 0.8rem;
+              color: #333;
+              top: 2rem;
+            }
+          }
+          img{
+            width: 33%;
+            margin-top: -1rem;
+            position: absolute;
+            left: 50%;
+            top: 2.4rem;
+            margin-left: -17%;
+            &:nth-child(1) {
+              //height: 30%;
+            }
+            &:nth-child(2){
+              width: 30%;
+              position: absolute;
+              left: 50%;
+              margin-left: -15%;
+              top: 7rem;
+            }
+          }
+        }
+      }
+  }
+  //借款人数据  //风险控制
+  .loan-data{
+     //width: 100%;
+     //padding-top: 2rem;
+    padding: 0.6rem;
+    .title{
+      text-align: center;
+      //border-bottom: 1px solid #ccc;
+      padding: 1rem 0;
+      p{
+        &.title-head{
+          font-size: rem-calc(60);
+          color: #646464;
+          font-weight:bold;
+          letter-spacing: 3px;
+          &.special{
+            color: #666;
+            font-size: rem-calc(50);
+            font-weight: normal;
+          }
+        }
+        &.title-tip{
+          padding-top:10px;
+          font-size: rem-calc(40);
+          color: #858585;
+        }
+      }
+    }
+    .content {
+      border: 1px solid #ccc;
+      &.standard{
+        border: none;
+      }
+      .detail {
+        background: #ffffff;
+        width: 50%;
+        float: left;
+        height: rem-calc(240px, 750);
+        font-size: rem-calc(48);
+        color: #666;
+        text-align: center;
+        position: relative;
+        p {
+          padding-top: rem-calc(126px, 750);
+          position: absolute;
+          width: 100%;
+          top: 0;
+          color: #889ff8;
+          font-size: 1rem;
+          &:nth-child(2) {
+            font-size: 0.8rem;
+            color: #333;
+            top: 2rem;
+          }
+        }
+        img {
+          width: 22%;
+          margin-top: -1rem;
+          position: absolute;
+          left: 46%;
+          top: 2.4rem;
+          margin-left: -7%;
+          &:nth-child(1) {
+            //height: 30%;
+          }
+          &:nth-child(2) {
+            width: 30%;
+            position: absolute;
+            left: 50%;
+            margin-left: -15%;
+            top: 7rem;
+          }
+        }
+      }
+      .special {
+        background: #ffffff;
+        width: 50%;
+        float: left;
+        //height: rem-calc(240px,750);
+        overflow: hidden;
+        font-size: 0.8rem;
+        color: #666;
+        text-align: center;
+        position: relative;
+      }
+      //.chargeStandard {
+      //  width: 100%;
+      //  td {
+      //    border: 1px solid #ccc;
+      //    background: #fff;
+      //    font-size: rem-calc(20);
+      //    color: #666;
+      //    text-align: center;
+      //    position: relative;
+      //    border-collapse: collapse;
+      //    vertical-align: inherit;
+      //    padding: 10px 0;
+      //  }
+      //}
+      img{
+        display:block;
+        width:100%;
+        height:auto;
+        border:0;
+        outline:none;
+      }
+    }
+    .mode{
+      padding: 0 rem-calc(50);
+      .overdueSum{
+        background-color: #fff;
+        li{
+          height:rem-calc(160);
+          .left{
+            float: left;
+            width: 65%;
+            height:rem-calc(160);
+            line-height: rem-calc(160);
+            box-sizing: border-box;
+            p{
+              width: 100%;
+              color:#333;
+              font-size:1rem;
+            }
+          }
+          .right{
+            float: left;
+            width: 35%;
+            text-align:right;
+            height:rem-calc(160);
+            line-height: rem-calc(160);
+          }
+        }
+
+      }
+    }
+  }
+
+  //运营报告
+  .operation-reports{
+    width: 100%;
+    padding-top: 2rem;
+    .title{
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      padding: 1rem 0;
+      p{
+        &.title-head{
+          font-size: rem-calc(60);
+          color: #646464;
+          font-weight:bold;
+          letter-spacing: 3px;
+        }
+        &.title-tip{
+          padding-top:6px;
+          font-size: rem-calc(24);
+          color: #858585;
+        }
+      }
+    }
+    .content{
+      .mode{
+        background:#fff;
+        padding-bottom:1.5rem;
+        &.modepad{
+          padding:1.5rem 0;
+        }
+        .tapsub{
+          width: 40%;
+          background: #fff;
+          margin:0 auto;
+          background:#fff;
+          li{
+            float: left;
+            width: 50%;
+            text-align: center;
+            box-sizing:border-box;
+            a{
+              display: inline-block;
+              font-size: rem-calc(28px,750);
+              height: rem-calc(58px,750);
+              line-height: rem-calc(58px,750);
+              font-size: 1.2rem;
+              &.active{
+                display: inline-block;
+                width: 60%;
+                border-bottom:1px solid #2982f8;
+                color: #2982f8;
+              }
+            }
+          }
+        }
+        .submode{
+          padding-top:1.5rem;
+          .switch{
+            width: 80%;
+            margin: 0 auto;
+            position:relative;
+            .swiper {
+              padding: rem-calc(0 20);
+              .swiper-container {
+                padding: rem-calc(10 0 120);
+                //height: auto !important;
+                overflow:hidden;
+                height: 11rem !important;
+                .swiper-slide {
+                  height: 100%;
+                }
+                .swiper-pagination-bullet {
+                  width: 10px !important;
+                  height: 10px !important;
+                  background:url('/images/find/abouths/btn2.png') no-repeat;
+                  background-size:100% 100%;
+                  -webkit-background-size:100% 100%;
+                  vertical-align:middle;
+                }
+                .swiper-pagination-bullet-active {
+                  width: 12px !important;
+                  height: 12px !important;
+                  background:url('/images/find/abouths/btn1.png') no-repeat;
+                  background-size:100% 100%;
+                  -webkit-background-size:100% 100%;
+                  vertical-align:middle;
+                }
+              }
+              img {
+                width: 100%;
+              }
+            }
+
+          }
+
+        }
+      }
+    }
+  }
+  .block{
+    //padding: 0 rem-calc(50);
+    width: 100%;
+    height: 0.71605rem;
+    background-color: #f7f7f7;
+  }
+
+}
+

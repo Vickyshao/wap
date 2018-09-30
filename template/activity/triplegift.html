@@ -1,0 +1,110 @@
+<div class="triplegift-wrapper" ng-controller='controllerH5Register' ng-init='isShowRecomm=false;'>
+	<div class="banner">
+		<img src="../../images/mybanner.png">
+	</div>
+	<div class="mode gift">
+		<div class="modebg">新人礼包三重奏</div>
+		<div class="title"><span>第<b>1</b>重</span></div>
+		<div class="giftbox">
+			<div class="t"><span>完成<br>注册</span></div>
+			<div class="con"><p class="sendyibai">赠送<span class="yibai">100,000</span>元新手理财金</p></div>
+		</div>
+		<div class="title"><span>第<b>2</b>重</span></div>
+		<div class="giftbox">
+			<div class="t"><span>投资<br>福利</span></div>
+			<div class="con"><div>收益翻倍<p>投一万送一万，投百万送百万</p></div></div>
+	   </div>
+		<div class="title"><span>第<b>3</b>重</span></div>
+		<div class="giftbox">
+			<div class="t"><span>任性<br>加息</span></div>
+			<div class="con"><div class="qx">赠送<span>4%加息券</span></div></div>
+	   </div>
+	</div>
+	<div class="login">
+		<div class="title">注册领理财金</div>
+		<form   name="myForm" novalidate>
+			<!-- 手机号 -->
+			<div>
+			   	<!-- <label>
+                    <i class="icon-mobile"></i>
+                </label> -->
+				<input placeholder="请输入手机号" name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|7|8|9][0-9]{9}$/" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" minlength="11" maxlength="11" required>
+			</div>
+			<!-- 短信 -->
+			<div class="login-msm-box">
+				<table>
+					<tr>
+						<td><input name="smsCode" ng-disabled="!myForm.mobilephone.$valid"  ng-model="login.smsCode" class="fl" type="text"  placeholder="请输入短信验证码" maxlength="4" required></td>
+						<td><span  ng-click="getyzm(myForm)" class="fr">{{nowTimer}}</span></td>
+					</tr>
+				</table>
+	        </div>
+	        <!-- 密码 -->
+	        <div >
+	            <!-- <label  ng-click="showPassword(passwordText)" ><i ng-class="{true:'icon icon-eye huang',false:'icon icon-eye'}[passwordText]"  ></i></label> -->
+	            <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" ng-model="login.passWord" name="passWord" required />
+	        </div>
+	        <div class="login-recomm-box" ng-click="isShowRecomm=true" >
+		        <p ng-if="!isShowRecomm" >► 推荐人（选填）</p>
+	        </div>
+	        <div class="login-recomm-box" ng-click="isShowRecomm=false" >
+		        <p ng-if="isShowRecomm">▼ 推荐人（选填）</p>
+	        </div>
+	        <!-- 推荐 -->
+	        <div ng-if='isShowRecomm'>
+	            <input type="text" ng-model="login.recommPhone" placeholder="推荐人手机号（可不填）" ng-disabled="webFormPath.recommCodes != undefined">
+	        </div>
+			<a href=""  ng-click="zuce(myForm)">立即领取100,000元</a>
+			<!-- <a href="" style="background: #efd960;" ng-if="!myForm.$valid" >立即领取100,000元</a> -->
+	    </form>
+	</div>
+	<div class="mode gift">
+		<div class="modebg">高息短期投资产品</div>
+		<!-- <div class="title"><span>第<b>1</b>重</span></div> -->
+		<div class="giftbox giftbox1">
+			<div class="t"><span>新手<br>体验</span></div>
+			<div class="con"><div><p>历史年化<span>15%</span></p><p>投资期限1天（可用体验金）</p></div></div>
+		</div>
+		<!-- <div class="title"><span>第<b>2</b>重</span></div> -->
+		<div class="giftbox giftbox1">
+			<div class="t"><span>灵活<br>多选</span></div>
+			<div class="con"><div><p>历史年化<span>7-9%</span></p><p>投资期限7天、15天、30天</p></div></div>
+	   </div>
+		<!-- <div class="title"><span>第<b>3</b>重</span></div> -->
+		<div class="giftbox giftbox1">
+			<div class="t"><span>首投<br>高息</span></div>
+			<div class="con"><div><p>新手第一次投资（体验标除外）</p><p>收益翻倍，最高<span>14%</span></p></div></div>
+	   </div>
+	</div>
+	<div class="whybg">
+		<div class="content">
+			<div class="iconmode">
+				<i class="gqkg"></i>
+				<div>大型国企中商投控股</div>
+			</div>
+			<div class="iconmode">
+				<i class="pjlc"></i>
+				<div>专业票据理财</div>
+			</div>
+			<div class="iconmode">
+				<i class="ygfk"></i>
+				<div>严格风控、零逾期</div>
+			</div>
+			<div class="iconmode">
+				<i class="zyfl"></i>
+				<div>专业律所提供法律支持</div>
+			</div>
+			<div class="iconmode">
+				<i class="gjzc"></i>
+				<div>合规紧跟国家政策</div>
+			</div>
+		</div>
+	</div>
+	<div class="bot">
+		<!-- <img src="../../images/triple/bot.png"> -->
+		<div ng-if='isText' class="fengxian">
+			<p>预计收益不等于实际收益</p>
+		</div>
+	</div>
+	<div class="download-box"><div class="download">下载沪深理财App领取<span>10</span>万理财金<a target="_bank" href="/html/2weimaActivity.html">立即下载</a></div></div>
+</div>

@@ -1,0 +1,102 @@
+.newcomer{
+	position: relative;
+	img{ width:100%; display:block;}
+	.fullbg{
+		position: relative;
+		top: -1.8rem;
+	}
+	.tel{
+		position: absolute;
+		width: 80%;
+		height: 3.5rem;
+		left: 50%;
+		transform: translate(-50%);
+		top: 30rem;
+		background-color: white;
+		text-align: center;
+		font-size: 1.2rem;
+	}
+	.btn-box{
+		display: block;
+		position: absolute;
+		width: 80%;
+		height: 4rem;
+		left: 50%;
+		transform: translate(-50%);
+	}
+	.lqhb{
+		top: 35rem;
+	}
+	.ljxjx{
+		bottom: 3rem;
+	}
+	.newcomer-btn1{
+		position:relative;
+		.btn-zhuce{
+			position:absolute;
+			top: 50%;
+			left:50%;
+			width:40%;
+			transform: translate(-50%, -50%);
+		}
+	}
+	.newcomer-btn2{
+		position:relative;
+		.btn-zhuce{
+			position:absolute;
+			top: 50%;
+			left:50%;
+			width:40%;
+			transform: translate(-50%, -50%);
+		}
+	}
+	.newcomerList{ 
+		background:#ffe864;
+		position:relative;
+		.newcomerListBox{
+			width:70%; margin:0 auto;
+			position:relative;
+			.newcomerListBoxCont{
+				padding:rem-calc(105 120 150 100);
+				width:100%;
+				height:100%;
+				position:absolute;
+				box-sizing:border-box;
+				left:0;
+				top:0;
+				overflow: hidden;
+				div{
+					height:100%;
+					overflow: hidden;
+					li{
+					font-size:rem-calc(30);
+					line-height:rem-calc(85);
+					padding-right:rem-calc(40);
+						span{
+							font-family:"楷体";
+							float:right;
+							font{  color:#ff9e53;}
+						}
+					}
+				}
+			}
+		}
+		img{ }
+	}
+	.zjd-box2{
+		width: 100%;
+		height:100%;
+		position:fixed;
+		left: 0;
+		top: 0;
+		background:rgba(0,0,0,0.6) url(../images/activity/zjd/share.png) 60% 2% no-repeat;
+		background-size:95% auto;
+	}
+	.ljdl{
+		position: absolute;
+		width: 4rem;
+		height: 1.5rem;
+		left: 50%;
+		top: 40rem;
+	}
+}

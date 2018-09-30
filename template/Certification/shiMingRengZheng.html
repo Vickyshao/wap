@@ -1,0 +1,65 @@
+<div class="newhand-wrapper bingCard" style="background: #f2f2f2;" ng-controller="SMRZcontroller">
+	<div class="common-head" ><i ng-click="toback()"></i><p>{{title}}</p></div>
+
+	<div class="wap-smrz-box headerTop">
+		<form name='smrzForm'>
+			<div class="block">
+				<div class="item" ng-click="choeseBank()">
+					<label class="title">银行卡</label>
+					<input type="text" name="bankName" ng-model="smrFrom.bankName" placeholder="请选择所在银行" required disabled />
+					<b class="caret"></b>
+				</div>
+				<div class="item">
+					<label class="title">卡号</label>
+					<input type="text"  name='bankCade'  ng-model="smrFrom.bankNum1" ng-pattern="/\d/" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" placeholder="请输入银行卡号" required />
+				</div>
+				<div class="item">
+					<label class="title">姓名</label>
+					<input type="text" name='name' ng-model="smrFrom.realName"  placeholder="请输入姓名" required />
+				</div>
+				<div class="item">
+					<label class="title">身份证号</label>
+					<input type="text" name='idCade' ng-model="smrFrom.idCards" minlength="18" maxlength="18" placeholder="请输入证件号码" required />
+				</div>
+			</div>
+			<div class="block">
+				<div class="item">
+					<label class="title">手机号</label>
+					<input type="text" name='phone' ng-model="smrFrom.phone" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" placeholder="请输入手机号码"   minlength="11" maxlength="11"required />
+				</div>
+				<div class="item">
+					<label class="title">验证码</label>
+					<input type="text" ng-model="smrFrom.smsCode"  placeholder="请输入验证码" maxlength="4" minlength="4" required />
+					<div ng-if="smrzForm" class="msg-btn" ng-click="sendMsg(smrzForm)">{{nowTimer}}</div>
+					<!--<div ng-if="smrzForm" class="msg-btn" ng-click="toSub('信息认证')">{{nowTimer}}</div>-->
+				</div>
+			</div>
+		</form>
+
+		<a class="wap-sub-btn" ng-if="smrzForm.$invalid" style="background: #b3b3b3;" >立即绑卡</a>
+		<a class="wap-sub-btn" ng-if="!smrzForm.$invalid" ng-click="toSub('实名认证')">立即绑卡</a>
+		<!--<a class="wap-sub-btn" ng-if="!smrzForm.$invalid" ng-click="toVerity(smrzForm)">立即绑卡</a>-->
+
+	    <div class="bot-tips">
+                <span>友情提示<i></i></span>
+                <p>请确保您的信息真实有效，一经认证不可更改</p>
+                <p>认证银行卡用于充值和提现，同卡进出保障资金安全</p>
+                <p>如有疑问请联系客服人员</p>
+        </div>
+	</div>
+	<!--认证成功弹窗-->
+	<!--<div class="tyj-box" ng-if="tyj">-->
+		<!--<main>-->
+			<!--<img class="bg" src="images/activity/tyj/certification-box.png">-->
+			<!--<img ng-click="close()" class="close" src="images/activity/tyj/close-icon.png">-->
+			<!--<div ng-if="isCps == 1">-->
+				<!--<img ng-click="toWhere('myCoupon')" src="images/activity/tyj/button1.png">-->
+				<!--<img ng-click="toWhere('main.bankBillList')" src="images/activity/tyj/button2.png">-->
+			<!--</div>-->
+			<!--<div ng-if="isCps ==0">-->
+				<!--<img ng-click="toWhere('myTyj')" src="images/activity/tyj/button1.png">-->
+				<!--<img ng-click="toWhere('tyjdetail')" src="images/activity/tyj/button2.png">-->
+			<!--</div>-->
+		<!--</main>-->
+	<!--</div>-->
+</div>

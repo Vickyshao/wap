@@ -1,0 +1,139 @@
+.welfare{
+  width: 100%;
+  height: auto;
+  background-image: linear-gradient(to bottom, #fff 0%, #ffecd0 100%);
+  .content{
+    .img{
+      width: 90%;
+      padding-top: 2rem;
+      font-size: 0;
+      margin: 0 auto;
+      img{
+        width: 100%;
+      }
+    }
+    .no-more{
+      width: 90%;
+      margin: 7rem auto;
+      img{
+        width: 100%;
+      }
+    }
+    .activity{
+      position: relative;
+      width: 90%;
+      height: auto;
+      background: #fff;
+      margin: 0 auto;
+      border: 1px solid #e0e0e0;
+      padding: rem-calc(42px,750) rem-calc(37px,750);
+      box-sizing: border-box;
+      margin-top: 1rem;
+      h3{
+        width: 100%;
+        height: 3rem;
+        span{
+          display: block;
+          width:8.7rem;
+          height: rem-calc(62px,750);
+          border-radius: 20px;
+          margin: 0 auto;
+          text-align: center;
+          line-height: rem-calc(62px,750);
+          color: #fcae63;
+          border: 1px solid #fcae63;
+          font-size: rem-calc(34px,750);
+        }
+      }
+      .text{
+        margin-top: 1rem;
+        color: #666666;
+        font-size: rem-calc(28px,750);
+        line-height: 1.6rem;
+        text-align:justify;
+      }
+      .end{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.2);
+        text-align: center;
+        img{
+          width: rem-calc(194px,750);
+          height: rem-calc(169px,750);
+          margin-top: 4rem;
+        }
+      }
+    }
+    .open-wechat{
+      width: 87%;
+      height: rem-calc(71px,750);
+      line-height: rem-calc(71px,750);
+      background: #fcae63;
+      border-radius: 3px;
+      margin: rem-calc(40px,750) auto rem-calc(20px,750);
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: rem-calc(32px,750);
+    }
+    .follow-way{
+      color: #e8554a;
+      text-align: center;
+      font-size: rem-calc(24px,750);
+      padding-bottom: 3rem;
+    }
+  }
+  .follow-content{
+    width: 100%;
+    font-size: 0;
+    padding-bottom: 6rem;
+    img{
+      width: 100%;
+    }
+  }
+  .footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: rem-calc(93px,750);
+    background: #fcae63;
+    text-align: center;
+    line-height: rem-calc(93px,750);
+    font-size: rem-calc(34px,750);
+    color: #fff;
+  }
+  .copied{
+    position: fixed;
+    left: 0;
+    top: 40%;
+    width: 100%;
+    span{
+      display: block;
+      width: rem-calc(549px,750);
+      height: rem-calc(74px,750);
+      line-height: rem-calc(74px,750);
+      text-align: center;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      margin: 0 auto;
+      border-radius: 20px;
+      font-size: rem-calc(30px,750);
+    }
+  }
+  .myMission{
+    .myMissionItem{
+      .text{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0.5rem;
+        line-height: 2rem;
+        padding-bottom: 0.8rem;
+        font-size: 0.78222rem;
+      }
+    }
+  }
+}

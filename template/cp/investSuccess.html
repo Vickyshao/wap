@@ -1,0 +1,34 @@
+<div class="newhand-wrapper cp-wrapper tyjSuccess" style="padding:0;margin-bottom:1rem;">
+    <div class="common-head"><p></p><span class="right" ui-sref="main.myaccountHome">关闭</span></div>
+    <div class="investSuccess">
+        <!--安心签印章-->
+        <div class="anxinqian" ng-if="data.cfcaSwitchFlag">
+            <img src="/images/eContractIntro/invest-suc.png" alt="">
+        </div>
+
+        <div class="investSuccess-info" style="padding-bottom: 2rem;">
+            <img src="/images/newhand/success.png" />
+            <h2 style="margin-bottom:3rem;">恭喜您成功投资{{data.investAmount}}元</h2>
+            <dl>
+                <dt></dt>
+                <dd>投资项目<span>{{data.info.fullName}}</span></dd>
+                <dd>投资期限<span>{{data.info.deadline}}天</span></dd>
+                <dd>回款日期
+                    <span>{{data.info.expireDate | date:"yyyy-MM-dd"}}</span>
+
+                </dd>
+                <dd>到期本息<span>{{(data.investAmount + data.shouyi) | number:2}}元</span></dd>
+            </dl>
+        </div>
+        <div class="btn">
+            <button class="first" ui-sref="myInvest">查看我的投资</button>
+            <button ui-sref="main.bankBillList" ng-if="!wxhyhd">更多精选</button>
+            <button ui-sref="memberWelfare({wxGetSize: data.wxGetSize})" ng-if="wxhyhd">微信会员日</button>
+        </div>
+    </div>
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>

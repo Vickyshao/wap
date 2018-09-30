@@ -1,0 +1,1226 @@
+$common-blue: #0095e5;
+$common-red: #f45448;
+$orange: #f77237;
+$yellow: #fdc00a;
+$light-yellow: #fff2d1;
+$global-border: #dedede;
+$border-bottom-color: #e4e4e4;
+$block-height: rem-calc(29);
+.fl {
+    float: left !important;
+}
+.fr {
+    float: right !important;
+}
+p{
+    word-wrap: break-word;
+}
+.pull-left {
+    float: left;
+}
+.wrapper-mode {
+    margin-bottom: rem-calc(180);
+}
+.headerTop {
+    margin-top: rem-calc(138);
+}
+.div-block {
+    width: 100%;
+    height: $block-height;
+}
+.div-block-grey {
+    width: 100%;
+    height: $block-height;
+    background: #f2f2f2;
+}
+.pa {
+    position: relative;
+}
+.text-left {
+    text-align: left !important;
+}
+input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px rgba(0,0,0,0) inset;
+    background: transparent;
+}
+.percentage {
+    width: rem-calc(286);
+    height: rem-calc(14);
+    background: #d2d2d2;
+    position: relative;
+    @include border-radius(20px);
+    span {
+        height: rem-calc(14);
+        background: $common-blue;
+        @include border-radius(20px);
+        left: 0 !important;
+        top: 0 !important;
+        margin: 0 !important;
+        position: absolute;
+    }
+}
+
+.percentage-box {
+    width: rem-calc(376);
+    i {
+        float: right;
+        color: $common-blue;
+        margin-top: rem-calc(-18);
+        font-size: rem-calc(32);
+    }
+}
+.no-act{
+    width: 100%;
+    padding-top: rem-calc(350px,750);
+    text-align: center;
+    img{
+        width: 3rem;
+    }
+    p{
+        text-align: center;
+        font-size: rem-calc(20px,750);
+        color: #6f6f6f;
+    }
+}
+.newhand-wrap {
+    text-align: center;
+    position: relative;
+    border-top: 1px solid #d2d2d2;
+    background: #fff;
+    padding-bottom: rem-calc(46);
+    border-bottom: 1px solid #d2d2d2;
+    margin-bottom: rem-calc(40);
+    overflow: hidden;
+    clear: both;
+    zoom: 1;
+    padding-top: rem-calc(50);
+    .icon {
+        position: absolute;
+        right: rem-calc(60);
+    }
+    h2 {
+        clear: both;
+        zoom: 1;
+        width: 90%;
+        margin: 0 auto;
+        font-size: rem-calc(50);
+        font-weight: normal;
+        height: rem-calc(100);
+        line-height: rem-calc(100);
+        border-radius: rem-calc(16);
+        border: 1px solid $common-blue;
+        overflow: hidden;
+        span {
+            cursor: pointer;
+            background: #f5f4f4;
+            display:inline-block;
+            width: 50%;
+            text-align: center;
+            height: 100%;
+            &.active {
+                color: $common-blue;
+                background: #fff;
+            }
+        }
+    }
+    .newhand{
+        padding-top: rem-calc(50);
+        .btn{
+            font-size:rem-calc(55);
+            color:#fff;
+            display:block;
+            width:90%;
+            margin:rem-calc(40 auto);
+            border-radius:rem-calc(16);
+            height:rem-calc(100);
+            line-height:rem-calc(100);
+            background:#DF2928;
+            &:active{
+                background:#d23028;
+            }
+        }
+    }
+    .hot {
+        padding-top: rem-calc(50);
+    	position:relative;
+        .percentage-box{
+            width: 90%;
+            margin:0.5rem auto 0 auto;
+            .percentage{
+                height: 0.25rem;
+                span{
+                    height: 100%;
+                }
+            }
+
+        }
+        .percent {
+            h3 {
+                // padding-right: 2.4rem;
+            }
+            p {
+            	margin:0 20%;
+                span {
+                    line-height: 100%;
+                }
+            }
+        }
+        img{
+        	position:absolute;
+        	width: 20%;
+		    bottom:rem-calc(380);
+		    right: 7%;
+        }
+        img.tzbs{
+            top: 0;
+            left: 7%;
+        }
+        img.righttop{
+            top: 0;
+            right: 0;
+        }
+        .btn{ font-size:rem-calc(55); color:#fff; display:block; width:90%; margin:rem-calc(40 auto); border-radius:rem-calc(16); height:rem-calc(100); line-height:rem-calc(100); background:#DF2928;
+			&:active{
+				background:#d23028;
+			}
+        }
+        .default{
+            color:#333;
+            background:#e4e4e4;
+        }
+    }
+    .percent {
+        padding-top: rem-calc(10);
+        h3 {
+            font-size: rem-calc(50);
+            text-align: center;
+            font-weight: normal;
+        }
+        p {
+            font-size: rem-calc(120);
+            color: #ed3334;
+            text-align: center;
+            span {
+                font-size: rem-calc(120);
+                line-height: 100%;
+            }
+            font{
+                vertical-align: top;
+                font-size: 1.8rem;
+            }
+            img{
+                width: 1.5rem;
+                vertical-align: top;
+                margin: 0.3rem;
+            }
+        }
+    }
+    .pre_list {
+        width: 80%;
+        margin: 0 auto;
+        overflow: hidden;
+        span {
+            width: 33%;
+            float: left;
+            font-size: rem-calc(36);
+            color: #666;
+            border-right: 1px solid #d2d2d2;
+            &.noborder {
+                border: none;
+            }
+        }
+    }
+    .pre_list-tjs {
+        width: 60%;
+        margin: 0 auto;
+        overflow: hidden;
+        span {
+            width: 50%;
+            float: left;
+            font-size: rem-calc(36);
+            color: #666;
+            border-right: 1px solid #d2d2d2;
+            box-sizing: border-box;
+            &.noborder {
+                border: none;
+            }
+        }
+    }
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    max-width: rem-calc(600) !important;
+    font-size: rem-calc(42) !important;
+    width: auto !important;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-close,
+.ngdialog.ngdialog-theme-default .ngdialog-close:before {
+    font-size: rem-calc(60) !important;
+}
+
+.ngdialog-content .error-msg {
+    padding: rem-calc(25 20);
+    text-align: center;
+    font-size: rem-calc(50);
+}
+
+.ngdialog-content .success-msg {
+    padding: rem-calc(25 20);
+    text-align: center;
+    font-size: rem-calc(50);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border-radius: rem-calc(10);
+    overflow: hidden;
+    &.msg1 {
+        padding: rem-calc(40px 0,640);
+        font-size: rem-calc(24px,640);
+        border-radius: rem-calc(10px,640);
+        color: rgba(255,255,255,0.9);
+        background: rgba(0,0,0,0.8);
+    }
+}
+.ngdialog-content main{
+    padding: rem-calc(30) rem-calc(40);
+}
+
+.sub[disabled="disabled"],
+.nouse-btn {
+    background: #bbb !important;
+    color: #ededed !important;
+    cursor: default !important;
+    &:hover {
+        background: #bbb !important;
+    }
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    max-width: 750px;
+    z-index: 100000;
+}
+
+.loading div {
+    text-align: center;
+    margin-top: 50%;
+    left: 50%;
+    img {
+        width: rem-calc(110) !important;
+        height: rem-calc(110) !important;
+    }
+}
+
+.bt {
+    border-top: 1px solid #dedede;
+}
+.bb {
+    border-bottom: 1px solid #dedede;
+}
+.mb30 {
+    margin-bottom: rem-calc(30px,640);
+}
+.common-head {
+    height: rem-calc(138);
+    background: #ffffff;
+    color: #646464;
+    width: 100%;
+    max-width: 750px;
+    position: fixed;
+    top: 0;
+    //left: 0;
+    z-index: 999;
+    &.blue-head{
+        background: $common-blue;
+        p{
+            color: #fff;
+        }
+        i {
+            @include rem-sprite("myaccount/*.png", return-white, $spacing: 2px);
+        }
+    }
+    p {
+        text-align: center;
+        font-size: rem-calc(36px,750);
+        line-height: rem-calc(138);
+        width: 100%;
+        color: #434343;
+        &.overflow{
+            height: rem-calc(138);
+            padding: 0 7rem;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+    .tab-wrap{
+        display: flex;
+        width: rem-calc(512);
+        height: rem-calc(84);
+        border: 1px solid $common-blue;
+        border-radius: 5px;
+        color: $common-blue;
+        text-align: center;
+        line-height: rem-calc(84);
+        margin: rem-calc(27) auto;
+        span{
+            flex: 1;
+            font-size: rem-calc(42);
+            &.active{
+                background: $common-blue;
+                color: #fff;
+            }
+        }
+    }
+    i {
+        padding: rem-calc(0 60);
+        position: absolute;
+        left: rem-calc(56);
+        @include rem-sprite("myaccount/*.png", return, $spacing: 2px);
+        top: rem-calc(38);
+    }
+    .right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 9;
+        padding-right: rem-calc(56);
+        line-height: rem-calc(138);
+        font-size: rem-calc(42);
+        .message{
+            width: rem-calc(47px,750);
+            vertical-align: middle;
+        }
+        .xieyi{
+            color: #fff;
+        }
+        .kefu{
+            width: 2rem;
+            vertical-align: middle;
+        }
+        .help {
+            width: 1.6rem;
+            vertical-align: middle;
+        }
+    }
+}
+
+.bot-tips {
+    padding: rem-calc(40 40 0 56);
+    span {
+        font-size: rem-calc(22,750);
+        color: #333;
+        display: block;
+        padding-bottom: rem-calc(40);
+        i {
+            float: left;
+            @include rem-sprite("recharge/*.png", mybank-tip);
+            margin: rem-calc(9 12 0 0);
+        }
+    }
+    p {
+        font-size: rem-calc(34);
+        color: #999;
+        position: relative;
+        padding: rem-calc(0 0 26 46);
+        line-height: rem-calc(60);
+        i {
+            @include rem-sprite("recharge/*.png", ico_circle);
+            position: absolute;
+            left: rem-calc(23);
+            top: rem-calc(18);
+            background: #999;
+            border-radius: 10px;
+        }
+        .edu{
+            color: #0295e7;
+            font-size: rem-calc(20,750);
+        }
+    }
+    ul{
+        list-style-type: disc;
+        padding-left: rem-calc(46);
+        li{
+            color: #999;
+            font-size: rem-calc(34);
+            line-height: rem-calc(60);
+        }
+    }
+}
+
+.icpba{
+    width: 100%;
+    text-align: center;
+    color: #999999;
+    background-color: #EAEBEC;
+    font-size: 0.7rem;
+    line-height: rem-calc(70);
+    img {
+        @include inline-block(top);
+        width: 100%;
+    }
+}
+.rem-rule{
+	width: 5rem;
+	display: none;
+}
+
+//通用注册样式
+.common-register{
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: rem-calc(40 0 20 0);
+
+    .promote-box{
+        width: 100%;
+        .input-item{
+            width: 90%;
+            margin:0 auto 0.8rem;
+            position:relative;
+            overflow:hidden;
+            >img{
+                position:absolute;
+                height: 1.6rem;
+                left: 0.5rem;
+                top: 50%;
+                margin-top: -0.8rem;
+            }
+            .input-box{
+                //width: 100%;
+                height: 3rem;
+                background: #fff;
+                //border-radius: rem-calc(20);
+                font-size: 1rem;
+                line-height: 3rem;
+                text-align: center;
+                border: 1px solid $orange;
+                overflow: hidden;
+                .input{
+                    text-align: left;
+                    line-height: normal;
+                    width: 100%;
+                    box-sizing:border-box;
+                    padding:0.9rem 0 0.9rem 3rem;
+                    font-size: 1rem;
+                    border-radius: rem-calc(20);
+                }
+                &.sendCode {
+                    width:40%;
+                    float:right;
+                    border:1px solid $common-blue;
+                    color:#fff;
+                    box-sizing:border-box;
+                    background: $common-blue;
+                    border-radius: rem-calc(20);
+
+                }
+            }
+            .img-box{
+                width: 100%;
+                text-align: right;
+                img{
+                    width: 100%;
+                    height: 3rem;
+                    display: block;
+                }
+            }
+            p{
+                font-size: 1rem;
+                color: #666;
+                a{color: $common-blue;}
+                .checkbox{
+                    width:1rem;
+                    height: 1rem;
+                    float:left;
+                    margin-top: 0.3rem;
+                    margin-right: 0.5rem;
+                    background-image:url('/images/activity/chedd/check.png');
+                    background-size:100% 100%;
+                    &.checked{
+                        background-image:url('/images/activity/chedd/checked.png');
+                        background-size:100% 100%;
+                    }
+                }
+            }
+            .btn{
+                height: 3rem;
+                width: 100%;
+                background-color: $orange;
+                text-align: center;
+                line-height: 3rem;
+                font-size: 1.4rem;
+                color:#FFF;
+                border-radius: rem-calc(20);
+                margin-top: rem-calc(10 0 50);
+                &:disabled{
+                    background-color: #B3B3B3;
+                }
+            }
+        }
+    }
+}
+
+
+//自定义弹窗样式
+.myDialog {
+    padding-bottom: 160px;
+    padding-top: 160px;
+    .ngdialog-content {
+        width: 90%;
+        -webkit-animation: ngdialog-flyin .5s;
+        animation: ngdialog-flyin .5s;
+        background: transparent;
+        border-radius: 5px;
+        color: #444;
+        font-size: 1em;
+        line-height: 1.5em;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 0;
+        position: relative;
+    }
+    .ngdialog-close {
+        border-radius: 5px;
+        cursor: pointer;
+        position: absolute;
+        right: rem-calc(40);
+        top: rem-calc(25);
+        font-size: 2.4rem;
+        color: #fff;
+        opacity: 0.6;
+    }
+}
+//注册弹窗
+.ngdialog.ngdialog-theme-default.commonLogin {
+    padding: rem-calc(160px 0,640);
+}
+.ngdialog.ngdialog-theme-default.commonLogin {
+    .ngdialog-content {
+        width: 90% !important;
+        max-width: 90% !important;
+        background: #fff;
+        .ngdialog-close, .ngdialog-close:before {
+            font-size: 2.4rem !important;font-weight: lighter;
+        }
+        .title {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            padding: rem-calc(20px 0,640);
+        }
+        .common-register {
+            .register-box {
+                .promote-box {
+                    .input-item {
+                        .input-box {
+                            border: none;
+                            color: #bbb;
+                            border-radius: rem-calc(10px,640);
+                            background: #f1f1f1;
+                            &.sendCode {
+                                width: 32%;
+                                background: #ffa04a;
+                            }
+                            .input {
+                                padding: rem-calc(10px 20px,640);
+                                color: #bbb;
+                            }
+                        }
+                        .img-box {
+                            img {
+                                border-radius: rem-calc(10px,640);
+                            }
+                        }
+                        .error-tip {
+                            color: #ffa04a;
+                            font-size: 0.8rem;
+                            padding-left: rem-calc(20px,640);
+                        }
+                        .btn {
+                            background: #ffa04a;
+                        }
+                        p {
+                            a {
+                                color: #ffa04a;
+                                &.right {
+                                    float: right;
+                                }
+                            }
+                            .checkbox {
+                                background-image: url("/images/common/check2.png");
+                                &.checked {
+                                background-image: url("/images/common/checked2.png");
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
+}
+.ngdialog.ngdialog-theme-default.reservationDialog {
+    .ngdialog-content {
+        width: 85% !important;
+        max-width: 85% !important;
+        background: #fff;
+        .ngdialog-close, .ngdialog-close:before {
+            font-size: 2.4rem !important;
+            font-weight: lighter;
+            color: #fff;
+        }
+        //预约奖品弹窗
+        .reservation {
+            padding: rem-calc(80px 0 40px, 640);
+            &.ing {
+                padding: 0;
+                .header {
+                    width: 100%;
+                    padding: rem-calc(30px 0,640);
+                    font-size: rem-calc(36px,640);
+                    color: #fff;
+                    text-align: center;
+                    background: #ffa04a;
+                    border-top-left-radius: rem-calc(6px,640);
+                    border-top-right-radius: rem-calc(6px,640);
+                }
+                .content {
+                    padding: rem-calc(20px 40px 30px,640);
+                    dl {
+                        width: 100%;
+                        padding-bottom: rem-calc(20px,640);
+                        dt {
+                            @include inline-block(top);
+                            width: rem-calc(92px,640);
+                            height: rem-calc(92px,640);
+                            background: url("/images/activity/lottery/icon-rever.png") no-repeat center/contain;
+                        }
+                        dd {
+                            -webkit-box-sizing: border-box;
+                            -moz-box-sizing: border-box;
+                            box-sizing: border-box;
+                            @include inline-block(top);
+                            width: rem-calc(350px,640);
+                            h2 {
+                                overflow: hidden;
+                                text-overflow:ellipsis;
+                                white-space: nowrap;
+                                font-size: rem-calc(40px,640);
+                                color: #333;
+                                padding: rem-calc(10px 0 5px,640);
+                            }
+                            p {
+                                font-size: rem-calc(24px,640);
+                                color: #666;
+                                span {
+                                    color: #e74a4a;
+                                }
+                            }
+                        }
+                    }
+                    .codeNum {
+                        display: flex;
+                        height: rem-calc(80px,640);
+                        line-height: rem-calc(80px,640);
+                        .input-wrap  {
+                            position: relative;
+                            width: 75%;
+                            border: 1px solid $global-border;
+                            border-radius: rem-calc(6px,640);
+                            a {
+                                @include inline-block(top);
+                                position: absolute;
+                                top: 0;
+                                z-index: 8;
+                                padding:rem-calc(0 20px,640);
+                                i {
+                                    @include inline-block(top);
+                                    width: rem-calc(40px,640);
+                                    height: rem-calc(40px,640);
+                                    margin: rem-calc(18px auto,640);
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    &.plus1 {
+                                        background-image: url("/images/activity/lottery/plus1.png");
+                                    }
+                                    &.plus2 {
+                                        background-image: url("/images/activity/lottery/plus2.png");
+                                    }
+                                    &.sub1 {
+                                        background-image: url("/images/activity/lottery/sub1.png");
+                                    }
+                                    &.sub2 {
+                                        background-image: url("/images/activity/lottery/sub2.png");
+                                    }
+                                }
+                                &.minus {
+                                    left: 0;
+                                    border-right: 1px solid $global-border;
+                                }
+                                &.plus {
+                                    right: 0;
+                                    border-left: 1px solid $global-border;
+                                }
+                            }
+                            input {
+                                width: 100%;
+                                color: #666;
+                                text-align: center;
+                                input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+                                    background-color: transparent;
+                                    background-image: none;
+                                }
+                            }
+                        }
+                    }
+                    .tips {
+                        font-family: "宋体";
+                        color: #666;
+                        font-size: rem-calc(24px,640);
+                        padding-top: rem-calc(20px,640);
+                        span {
+                            color: #e74a4a;
+                        }
+                    }
+                    .groupBtn {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        justify-items: center;
+                        padding-top: rem-calc(20px,640);
+                        a {
+                            width: rem-calc(220px,640);
+                            @include inline-block(top);
+                            padding: rem-calc(20px 0,640);
+                            font-size: rem-calc(24px,640);
+                            color: #fff;
+                            text-align: center;
+                            border-radius: rem-calc(6px ,640);
+                            background: #ffa04a;
+                            &.cancle-btn {
+                                background: #d7d7d7;
+                                color: #666;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            &.over {
+                text-align: center;
+                img {
+                    width: 30%;
+                    margin: 0 auto;
+                }
+                h2 {
+                    padding: rem-calc(10px 0 40px, 640);
+                    font-size: rem-calc(40px, 640);
+                    color: #e74a4a;
+                }
+                .btn {
+                    @include inline-block(top);
+                    background: #ffa04a;
+                    color: #fff;
+                    font-size: rem-calc(26px, 640);
+                    padding: rem-calc(20px 70px, 640);
+                    border-radius: rem-calc(6px, 640);
+                }
+                .tips {
+                    padding: rem-calc(20px 0 0, 640);
+                    font-size: rem-calc(24px, 640);
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+//元旦弹窗
+.ngdialog.yuandan-default.reservationDialog{
+    .ngdialog-content{
+        background: none;
+        width: 70% !important;
+        font-size: rem-calc(42) !important;
+        margin: 6.5rem auto 0;
+        position: relative;
+    }
+    .yuandan8-wrap{
+        .content{
+            position: relative;
+            width: 100%;
+            //height: rem-calc(830px,640);
+            .package{
+                width: 100%;
+                height: rem-calc(830px,640);
+                background: url("/images/activity/newYear2018/ny-gift-bg.png") no-repeat;
+                background-size: 100% auto;
+                margin-left: 1.5rem;
+                padding-top: 7rem;
+                text-align: center;
+                padding-right: 2.5rem;
+                .price{
+                    font-size: rem-calc(90px,640);
+                    color: #d7b97c;
+                    height: 5rem;
+                    i{
+                        display:inline-block;
+                        width: rem-calc(60px,640);
+                        height: rem-calc(60px,640);
+                        text-align: center;
+                        line-height: rem-calc(60px,640);
+                        background: #d6b97c;
+                        color: #fff;
+                        font-size: rem-calc(36px,640);
+                        border-radius: 50%;
+                        vertical-align: middle;
+                        margin-top: -0.8rem;
+                    }
+                }
+                .man{
+                    color: #d7b97c;
+                    font-size: rem-calc(22px,640);
+                }
+                .term{
+                    color: #d7b97c;
+                    margin-top: 2rem;
+                    font-size: rem-calc(22px,640);
+                    height: 5.3rem;
+                }
+                .type{
+                    width: 9rem;
+                    height: 2.2rem;
+                    font-size: 1.41667rem;
+                    color: #faeaaf;
+                    background: url(/images/activity/newYear2018/ny-gift-box.png) no-repeat;
+                    line-height: 2.2rem;
+                    background-size: 100% 100%;
+                    margin: 0 auto;
+                    margin-top: 0.4rem;
+                }
+            }
+            .btn{
+                position: absolute;
+                top: 24rem;
+                width: 68%;
+                height: 3rem;
+                left: 50%;
+                margin-left: -33%;
+            }
+        }
+    }
+    .ngdialog-close{
+        display: block;
+        width: 2.3rem;
+        height: 2.3rem;
+        right: -1.5rem;
+        position: absolute;
+        top: 0;
+        &:before{
+            content: "";
+        }
+    }
+}
+.ngdialog.no-chance.reservationDialog{
+    .ngdialog-content{
+        position: relative;
+        background: none;
+        width: 80% !important;
+        font-size: rem-calc(42) !important;
+        margin: 10rem auto 0;
+        img{
+            width: 100%;
+        }
+        .see{
+            position: absolute;
+            left: 50%;
+            top: 16.6rem;
+            //background: rgba(0,0,0,0.4);
+            width: 36%;
+            height: 2rem;
+            margin-left: -18%;
+        }
+        .ngdialog-close{
+            display: block;
+            width: 3rem;
+            height: 3rem;
+            //background: red;
+            left: 50%;
+            //background: rgba(0, 0, 0, 0.4);
+            bottom: 0;
+            position: absolute;
+            margin-left: -1.5rem;
+            &:before{
+                content: "";
+            }
+        }
+    }
+}
+//成为队长弹窗
+.teamleader-dialog-wrap.ngdialog-theme-default{
+    .ngdialog-content{
+        width: 80%!important;
+        max-width: 100%!important;
+    }
+}
+//解绑卡成功
+.unbinding.ngdialog-theme-default{
+    .ngdialog-content{
+        width: 80%!important;
+        max-width: 100%!important;
+        background: #fff;
+        overflow: hidden;
+    }
+}
+.teamleader-dialog{
+    background: #fff5e5;
+    text-align: center;
+    padding-bottom: 3rem;
+    border-radius: 10px;
+    .close{
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        width: 1.3rem;
+        height: 1.3rem;
+        background: url(../../images/zudui/myteam/close2.png);
+        background-size: 100% 100%;
+    }
+    .img{
+        padding-top: 3rem;
+        img{
+            width: 10rem;
+        }
+    }
+    .text{
+        text-align: center;
+        color: #ca6206;
+        font-size: 1.2rem;
+        margin: 1rem auto 3rem;
+    }
+    .upload{
+        img{
+            width: 80%;
+        }
+    }
+}
+.risk-dialog {
+    background: #fff url("/images/risk/bg.png") no-repeat top center/contain;
+    border-radius: rem-calc(20px,750);
+    padding: rem-calc(0 40px 70px,750);
+    .close {
+        position: absolute;
+        bottom: rem-calc(-72px,640);
+        left: 45%;
+        z-index: 9;
+        width: rem-calc(48px,640);
+        height: rem-calc(48px,640);
+        background: url("/images/activity/investShare/close.png") no-repeat center/contain;
+    }
+    .img {
+        text-align: center;
+        padding-bottom: rem-calc(80px,750);
+        .img1 {
+            margin-top: rem-calc(-60px,640);
+            width: rem-calc(168px,640);
+        }
+        .img2 {
+            margin-top: rem-calc(-36px,640);
+            width: rem-calc(240px,640);
+        }
+
+        .imgBg {
+            @include inline-block(top);
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding-top: rem-calc(144px,640);
+            margin: rem-calc(-36px auto 0,640);
+            width: rem-calc(264px,640);
+            height: rem-calc(200px,640);
+            background: url("/images/myaccount/pingheng.png") no-repeat top center/contain;
+            span {
+                font-weight: bolder;
+                color: #076ea7;
+            }
+
+        }
+    }
+    .text1 {
+        font-size: rem-calc(30px,750);
+        color: #000;
+    }
+    .text2 {
+        text-indent: rem-calc(48px,640);
+        color: #666;
+        text-align: justify;
+        font-size: rem-calc(30px,750);
+        padding-bottom: rem-calc(70px,750);
+        &.no-indent {
+            text-indent: 0;
+        }
+        span {
+            color: $common-blue;
+        }
+    }
+    .text3 {
+        color: red;
+        text-align: center;
+        font-size: rem-calc(26px,750);
+        padding-bottom: rem-calc(20px,750);
+        //font-weight: bold;
+        span {
+            font-weight: 500;
+            font-size: rem-calc(30px,750);
+        }
+    }
+}
+
+//拨打电话弹窗
+.dial-phone-wrap{
+    width: 100%;
+    text-align: center;
+    padding-top: 1rem;
+    .text{
+        color: #606060;
+        font-size: rem-calc(30px,750);
+        line-height: 3rem;
+    }
+    .unbingding-text{
+        color: #010101;
+        font-size: rem-calc(30px,750);
+        line-height: rem-calc(192,750);
+    }
+    .tel{
+        color: #000;
+        font-size: rem-calc(32px,750);
+    }
+    .time{
+        line-height: 2rem;
+        color: #606060;
+        padding: 2rem 0 1.5rem;
+    }
+    .btn{
+        display: flex;
+        width: 100%;
+        border-top: 1px solid #e2e2e2;
+        &.unbingding-btn{
+            background: #f5f5f5;
+            border-top: 1px solid #d6d6d6;
+            span{
+                flex: 1;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: rem-calc(95,750);
+                color: #606060;
+                &.cancel{
+                    color: #afadad;
+                    border-right: 1px solid #d6d6d6;
+                }
+            }
+        }
+        span{
+            flex: 1;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 3rem;
+            a{
+                color: #e43c37;
+            }
+            &.cancel{
+                color: #606060;
+                border-right: 1px solid #e2e2e2;
+            }
+        }
+    }
+}
+//客服中心弹窗
+.kefu-dialog-wrap.ngdialog-theme-default{
+    .ngdialog-content{
+        width: 72%!important;
+        max-width: 100%!important;
+    }
+}
+.dial-phone-wrap2{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    //padding-top: 1rem;
+    .close{
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 1.5rem;
+        img{
+            width: 100%;
+        }
+    }
+    .text{
+        color: #606060;
+        font-size: rem-calc(36px,750);
+        line-height: 3rem;
+    }
+    .tel{
+        color: #000;
+        font-size: rem-calc(32px,750);
+        line-height: 2rem;
+    }
+    .time{
+        line-height: 4rem;
+        color: #606060;
+    }
+    .btn{
+        display: flex;
+        width: 100%;
+        border-top: 1px solid #e2e2e2;
+        margin-top: 1rem;
+        span{
+            flex: 1;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 3rem;
+            a{
+                color: #e43c37;
+            }
+            &.cancel{
+                color: #606060;
+                border-right: 1px solid #e2e2e2;
+            }
+        }
+    }
+}
+
+/*透明弹窗（如：红包已进入您的账户）*/
+
+.red-packet-transparent{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color:rgba(0, 0, 0, 0.1);
+        z-index: 500;
+        p{
+            position: absolute;
+            background: rgba(0, 0, 0, 0.6);
+            width: rem-calc(506px, 750);
+            padding: rem-calc(56px 0, 750);
+            @include border-radius(10px);
+            left:  rem-calc(129px, 750);
+            top: rem-calc(535px, 750);
+            text-align: center;
+            span {
+                display: inline-block;
+                font-size: rem-calc(36px, 750);
+                color: #fff;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+    }

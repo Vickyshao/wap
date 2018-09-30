@@ -1,0 +1,18 @@
+<div class="wrap wap-more-box" ng-controller="GSZZCtrl" ng-init="isYY=false">
+	<div class="common-head"  ng-if="wap=='true'"><i ng-click="toback()"></i><p>公司资质</p></div>
+	<div class="gszz-content">
+        <!--<header>
+            <span ng-class="isYY==false?'actived':''" ng-click="isYY=false">经营资质</span>
+            &#x3000;&#x3000;&#x3000;&#x3000;
+            <span ng-class="isYY==true?'actived':''" ng-click="isYY=true">一亿验资</span>
+        </header>-->
+        <div class="content" ng-show="!isYY">
+            <img src="images/more/zzhao.png">
+            <p>国资控股，企业信用信息查询系统可查询详情</p>
+        </div>
+        <!--<div class="content" ng-show="isYY">
+            <img class="img-border" src="/images/more/yzbg.jpg">
+            <p>实缴一亿验资报告</p>
+        </div>-->
+    </div>
+</div>

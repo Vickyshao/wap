@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <style type="text/css">
+       
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+              display: none !important;
+            }
+        #cnzz_stat_icon_1271471294{
+            display: none;
+        }
+    </style>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0, width=device-width">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="favicon" href="/favicon.ico" />
+    <link rel="stylesheet" href="styles/icons-files/icons.css">
+    <link rel="stylesheet" href="styles/dialog/ngDialog.css">
+    <link rel="stylesheet" href="styles/dialog/ngDialog-theme-default.css">
+    <link rel="stylesheet" href="styles/dialog/ngDialog-theme-plain.css">
+    <link rel="stylesheet" href="styles/dialog/ngDialog-custom-width.css">
+    <link rel="stylesheet" href="styles/activity/h5page.css">
+
+    <link rel="stylesheet" type="text/css" href="css/stylesheets/ie.css">
+    <link rel="stylesheet" type="text/css" href="css/stylesheets/print.css">
+    <link rel="stylesheet" type="text/css" href="css/stylesheets/screen.css?v=1.7.0">
+    <link rel="stylesheet" href="framework/swiper.min.css">
+    <link rel="stylesheet" href="framework/video.css">
+    <title ng-bind="title">沪深理财-网贷投资，国企控股平台</title>
+    <meta name="keywords" content="沪深理财|沪深投资|网络理财|投资|安全理财">
+    <meta name="description" content="沪深理财(hushenlc.cn)，国企控股平台，安全可靠。投资方便快捷，五大还款来源保障资金安全。沪深理财注册送666元，新手专享10%高收益。">
+    <meta name="baidu-site-verification" content="XTSMeCfnJb" />
+    <!-- 百度买点 -->
+
+    <meta baidu-gxt-verify-token="b87646e5f113ffdc630a40e120d3df10">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?faaf4f44183640df310b381d7a407a39";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+<div ng-show="maskHidde" class="loading">
+    <div>
+        <img style="width: 2em;height: 2em;" src="images/loading.gif">
+    </div>
+</div>
+<div ng-show="maskError" ng-click="maskError=false" class="maskError ng-cloak" >
+    <div class="maskError-box">
+        <p>{{errorText}}</p>
+        <p class="luckText" ng-if="luckCodeCount" style=" font-size: 1.2rem;">恭喜您获得<font color="red" style=" font-size: 1.2rem;">{{luckCodeCount}}</font>个中奖码</p>
+        <a ng-if="luckCodeCount" class="luckText" ui-sref="myActivity"><font style=" font-size: 1rem;" color='blue'>点击查看</font></a>
+    </div>
+</div>
+<div  ng-show="isShowMaskError" class="maskErrorDl ng-cloak" >
+    <div class="maskErrorDl-box">
+        <p>{{errorText}}</p>
+        <a ng-click="isShowMaskError=false" href="">知道了</a>
+    </div>
+</div>
+
+
+<div ui-view class="ng-cloak"></div>
+<script type="text/javascript" src="framework/require.js" data-main="js/main" ></script>
+<!--友盟埋点-->
+<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1271471294'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1271471294%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>

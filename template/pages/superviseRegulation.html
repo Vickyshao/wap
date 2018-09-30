@@ -1,0 +1,35 @@
+<div class=" headerTop supervise" ng-controller="superviseCtrl"  ng-init="tapsub=1">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <!-- 监管法规 -->
+    <div class="regulation" >
+        <ul class="news">
+            <li ng-repeat="item in ggList" ng-click="expand()" infinite-scroll='loadMore(item)' infinite-scroll-distance='1' infinite-scroll-immediate-check = false >
+                <div class="up-text clearfix">
+                    <div class="left">
+                        <h3>{{item.title}}</h3>
+                    </div>
+                    <div class="right">
+                        <img src="images/find/icon_uparrow.png"  class="right-icon hide expand" >
+                        <img src="images/find/ico_downparrow.png"  class="right-icon no-expand " >
+                    </div>
+                </div>
+                <div class="down-text hide"  ng-click="goto(item.artiId)">
+                    <p ng-bind-html="item.summaryContents | asHtml"><!--ng-bind-html="item.content | asHtml"-->
+                        <!--{{item.summaryContents}}-->
+                        <!--为扎实推进P2P网络借贷(以下简称"网贷" )风险专项整治工作，在分类处置工作基础上，进一步加强各省(区、市、计划单列市)辖内-->
+                    <!--为扎实推进P2P网络借贷(以下简称"网贷" )风险专项整治工作，在分类处置工作基础上，进一步加强各省(区、市、计划单列市)辖内-->
+                    <!--为扎实推进P2P网络借贷(以下简称"网贷" )风险专项整治工作，在分类处置工作基础上，进一步加强各省(区、市、计划单列市)辖内-->
+                    <!--为扎实推进P2P网络借贷(以下简称"网贷" )风险专项整治工作，在分类处置工作基础上，进一步加强各省(区、市、计划单列市)辖内-->
+                    </p >
+                    <h3  class="clearfix">
+                        <span><i style="color: #0295e7;">阅读全文</i>&nbsp;&nbsp;|&nbsp;&nbsp;发布于{{item.createTime | date:'yyyy-MM-dd'}}</span>
+                    </h3>
+                </div>
+                <div class="div-block-gray"></div>
+            </li>
+        </ul>
+    </div>
+
+</div>

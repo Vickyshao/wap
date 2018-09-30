@@ -1,0 +1,36 @@
+<div class="wrap login-wrapper newhand-wrapper cp-wrapper headerTop" ng-controller='findPwdCtrl'>
+    <div class="common-head"><i ui-sref="main.home"></i><p>{{title}}</p></div>
+    <div class="container pd40 bt">
+        <!--填写手机号码-->
+        <form class="wap-login2-box" name="userLoginform">
+            <div class="smsConfirm">
+                <p class="desc">短信已经发送至您</p>
+                <p class="phone">{{mobilePhone1}}</p>
+                <div class="common-box pa">
+                    <input name="smsCode" class="smsCode" ng-model="userLogin.smsCode" type="text" placeholder="请输入短信验证码" maxlength="4" required>
+                    <span class="sendsms" ng-click="getyzm(userLoginform)">{{nowTimer}}</span>
+                </div>
+            </div>
+            <div class="pwdConfirm">
+                <div class="common-box">
+                    <input type="password" class="password" name="passWord1" id="pwd" ng-model="userLogin.passWord1" ng-focus="blue($event)" ng-blur="removeblue($event)" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" placeholder="请输入新的密码(6-16位数字、字母)" required/>
+                    <label class="eyes1 icon-openeyes" ng-click="showPwd(1)"></label>
+                </div>
+                <div class="common-box">
+                    <input type="password" class="password" name="passWord2" id="pwd1" ng-model="userLogin.passWord2" ng-focus="blue($event)" ng-blur="removeblue($event)" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/" placeholder="请再次输入新密码" required/>
+                    <label class="eyes2 icon-openeyes" ng-click="showPwd(2)"></label>
+                </div>
+            </div>
+            <div ng-if="userLoginform.$invalid" class="login-btn">提交</div>
+            <div ng-if="!userLoginform.$invalid" class="login-btn ok" ng-click="commitPwd(userLoginform)" >提交</div>
+
+        </form>
+    </div>
+</div>
+<style>
+    body{
+        width: 100%;
+        height: 100%;
+        background: #fff
+    }
+</style>

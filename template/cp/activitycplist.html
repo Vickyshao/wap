@@ -1,0 +1,30 @@
+<div class="activitycplist">
+    <div class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+    <div class="activitycplist-swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" ng-repeat="item in bannerList">
+                <a href="{{item.location}}?wap=true"><img src="{{item.imgUrl}}"></a>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="activitycplist-content" ng-click="tocpdetail(item)" ng-class="item.status!=5?'finish':''" ng-repeat="item in cpList" infinite-scroll='loadMore(item)' infinite-scroll-distance='2'>
+		<header>{{item.fullName}}<span ng-if="item.prizeName">{{item.prizeName}}</span></header>
+		<main>
+            <div class="part-a"><p>历时年化收益</p>{{item.rate | number:1}}<span>%</span><sup ng-if="item.activityRate>0">+{{item.activityRate | number:1}}<span>%</span></sup></div>
+            <div class="part-b">
+                <p>期限</p>
+                <span>{{item.deadline}}<span> 天</span></span>
+            </div>
+            <div class="part-c">
+                <div data-progress="{{item.pert}}" progress-circle></div>
+                <p ng-if="item.status==5" style="color: #048eed;">去抢购</p>
+                <p ng-if="item.status==6">抢完了</p> 
+                <p ng-if="item.status==8">待还款</p> 
+                <p ng-if="item.status==9">已回款</p> 
+            </div> 
+        </main>
+        <p>{{item.leastaAmount}}元起投&#x3000;|&#x3000;次日计息&#x3000;|&#x3000;多重保障</p>
+	</div>
+    <div class="rem-rule"></div>
+</div>

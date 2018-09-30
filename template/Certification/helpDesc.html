@@ -1,0 +1,32 @@
+<div class="helpDesc headerTop" ng-controller="authHelpCtrl">
+	<div class="common-head" ng-if="!fromNative"><i ng-click="toback()"></i><p>实名认证帮助</p></div>
+	<div class="main">
+		<div class="bgfff">
+			<h2 class="title">为保障您的资金安全，投资前需进行实名认证，如认证未通过，建议您确认以下信息：</h2>
+			<div class="block">
+				<div class="ask"><i class="ask1">Q1</i>银行预留手机号是否填写正确?</div>
+				<div class="answer">
+					<p>1.您填写银行预留的手机号需与您的银行卡预留的手机号码一致。</p>
+					<p>2.如您尚未在银行预留手机号码，建议你去银行柜面进行信息补充。</p>
+				</div>
+			</div>
+			<div class="block">
+				<div class="ask"><i class="ask1">Q2</i>银行卡号是否填写正确?</div>
+				<div class="answer">
+					<p>1.绑定的银行卡需使用您本人名下的银行卡。</p>
+					<p>2.银行卡充值支付额度查看 <a ng-click="tanchuang()">支持银行及额度。</a></p>
+					<p>3.如银行卡号填写有误或认证未通过，请修改卡号或更换银行卡后重试。</p>
+					<p>4.如三次绑卡均认证失败后，请联系客服。</p>
+				</div>
+			</div>
+			<div class="block">
+				<div class="ask"><i class="ask1">Q3</i>银行卡是否已开通银联无卡支付业务?</div>
+				<div class="answer">
+					<p>1.如您绑定的银行卡为浦发银行/邮储银行/上海银行，需开通银联无卡支付业务后才能投资。</p>
+					<p class="text-left">2.开通地址：<a href="https://www.95516.com/static/union/pages/card/openFirst.html?entry=openPay">https://www.95516.com/static/union/pages/card/openFirst.html?entry=openPay。</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="tips">如需帮助，请联系客服 <span ng-click="call()">400-031-9909</span></div>
+	</div>
+</div>

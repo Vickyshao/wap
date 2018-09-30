@@ -1,0 +1,525 @@
+.abouths{
+  width: 100%;
+  height: auto;
+  .tap{
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    //border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    overflow: hidden;
+    //margin-top: rem-calc(80);
+    li{
+      float: left;
+      width: 33%;
+      text-align: center;
+      i{
+        font-size:1.5rem;
+        color:#cfcfcf;
+        height: rem-calc(75px,640);
+        line-height: rem-calc(76px,640);
+        float:right;
+      }
+      a{
+        font-size: rem-calc(30px,750);
+        color: #464646;
+        height: rem-calc(75px,640);
+        line-height: rem-calc(76px,640);
+        border-bottom: rem-calc(4px,750) solid #fff;
+      }
+      &.active{
+        a{
+          color: #2982f8;
+          display: inline-block;
+          // border-color: #2982f8;
+          border-bottom: 2px solid #2982f8;
+          // padding: 0 1rem;
+        }
+      }
+    }
+  }
+
+  .mode{
+    background:#fff;
+    padding-bottom:1.5rem;
+    &.modepad{
+      padding:1.5rem 0;
+    }
+    //走进沪深
+    .brief{
+      color:#333;
+      //width:90%;
+      margin:0 auto;
+      //padding-top:1rem;
+      .title{
+        font-size:rem-calc(40px,750);
+        line-height: rem-calc(86px,640);
+        text-align:center;
+      }
+      p{
+        font-size:rem-calc(28px,750);
+        line-height: rem-calc(45px,640);
+        //text-indent:2em;
+      }
+      //img{
+      //  display:block;
+      //  width:100%;
+      //  height:auto;
+      //  margin:1.5rem auto 1.5rem;
+      //}
+      a{
+        color:#3b5fb6;
+        font-size:rem-calc(26px,750);
+        text-decoration:underline;
+      }
+    }
+    //管理团队
+    //.leader{
+    //  width:90%;
+    //  margin:0 auto;
+    //  padding:0 0 2rem;
+    //  //img{
+    //  //  display:block;
+    //  //  width:45%;
+    //  //  height:auto;
+    //  //  margin:0 auto 1.5rem  27.5%;
+    //  //}
+    //  p{
+    //    color:#333;
+    //    font-size:rem-calc(28px,750);
+    //    line-height: rem-calc(45px,640);
+    //    text-indent:2em;
+    //    text-align: center;
+    //  }
+    //
+    //}
+    //资质荣誉
+    //.tapsub{
+    //  width: 70%;
+    //  background: #fff;
+    //  margin:0 auto;
+    //  border: 1px solid #2982f8;
+    //  box-sizing:border-box;
+    //  border-radius:5px;
+    //  -webkit-border-radius:5px;
+    //  background:#fff;
+    //  li{
+    //    float: left;
+    //    width: 33.33%;
+    //    text-align: center;
+    //    border-right: 1px solid #2982f8;
+    //    box-sizing:border-box;
+    //    &.last{border-right:none;}
+    //    a{
+    //      display: inline-block;
+    //      font-size: rem-calc(28px,750);
+    //      color: #2982f8;
+    //      height: rem-calc(58px,750);
+    //      line-height: rem-calc(58px,750);
+    //    }
+    //    &.active{
+    //      background:#2982f8;
+    //      a{
+    //        color: #fff;
+    //      }
+    //    }
+    //  }
+    //}
+    //.submode{
+    //  padding-top:1.5rem;
+    //  .company{
+    //    display:block;
+    //    width:80%;
+    //    margin:0 auto;
+    //  }
+    //
+    //  .switch{
+    //    width: 80%;
+    //    margin: 0 auto;
+    //    position:relative;
+    //    .swiper {
+    //      padding: rem-calc(0 20);
+    //      .swiper-container {
+    //        padding: rem-calc(10 0 120);
+    //        height: auto !important;
+    //        overflow:hidden;
+    //        .swiper-slide {
+    //          height: 100%;
+    //        }
+    //        .swiper-pagination-bullet {
+    //          width: 10px !important;
+    //          height: 10px !important;
+    //          background:url('/images/find/abouths/btn2.png') no-repeat;
+    //          background-size:100% 100%;
+    //          -webkit-background-size:100% 100%;
+    //          vertical-align:middle;
+    //        }
+    //        .swiper-pagination-bullet-active {
+    //          width: 12px !important;
+    //          height: 12px !important;
+    //          background:url('/images/find/abouths/btn1.png') no-repeat;
+    //          background-size:100% 100%;
+    //          -webkit-background-size:100% 100%;
+    //          vertical-align:middle;
+    //        }
+    //      }
+    //      img {
+    //        width: 100%;
+    //      }
+    //    }
+    //
+    //  }
+    //
+    //}
+
+    //媒体动态
+    .media-news{
+      // margin-top: rem-calc(140);
+      border-top: 1px solid #d2d2d2;
+      background-color: #fff;
+      li{
+        height:rem-calc(280);
+        border-bottom: 1px solid #d2d2d2;
+        // display: flex;
+        .left{
+          float: left;
+          width: 65%;
+          padding: rem-calc(40) 0 rem-calc(30) rem-calc(60);
+          height:rem-calc(230);
+          box-sizing: border-box;
+          h3{
+            //overflow: hidden;
+            //text-overflow: ellipsis;
+            width: 100%;
+            height: rem-calc(71);
+            //white-space: nowrap;
+            //word-break:break-all;
+            color:#333;
+            font-size:rem-calc(34px,750);
+          }
+          p{
+            font-size: rem-calc(26px,750);
+            margin-top: rem-calc(90);
+            color: #0295e7;
+            //img {
+            //  width: 5rem;
+            //  vertical-align: middle;
+            //}
+          }
+        }
+        .right{
+          float: left;
+          width: 35%;
+          text-align:center;
+          height:rem-calc(280);
+          line-height: rem-calc(280);
+          .right-icon {
+            width: 7rem;
+            height: 6rem;
+            vertical-align: middle;
+          }
+        }
+      }
+
+    }
+
+
+
+    //网站公告
+    .news{
+      border-top: 1px solid #d2d2d2;
+      background-color: #fff;
+      li{
+        height:rem-calc(220);
+        border-bottom: 1px solid #d2d2d2;
+        // display: flex;
+        .left{
+          float: left;
+          width: 85%;
+          padding: rem-calc(40) 0 rem-calc(30) rem-calc(60);
+          height:rem-calc(220);
+          box-sizing: border-box;
+          h3{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            height: rem-calc(71);
+            white-space: nowrap;
+            color:#333;
+            font-size:rem-calc(34px,750);
+          }
+          p{
+            color: #999;
+            font-size: rem-calc(26px,750);
+            margin-top: rem-calc(20);
+          }
+        }
+        .right{
+          float: left;
+          width: 15%;
+          text-align:center;
+          height:rem-calc(220);
+          line-height: rem-calc(220);
+          .right-icon {
+            width: 0.6rem;
+            vertical-align: middle;
+          }
+        }
+      }
+
+    }
+
+    //公司概况
+    .company-introduce{
+      width: 100%;
+      //padding-top: 2rem;
+      .title{
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        padding: 1rem 0;
+        p{
+          &.title-head{
+            font-size: rem-calc(60);
+            color: #646464;
+            font-weight:bold;
+            letter-spacing: 3px;
+          }
+          &.title-tip{
+            padding-top:6px;
+            font-size: rem-calc(24);
+            color: #858585;
+          }
+        }
+      }
+    }
+  }
+
+}
+/*信息披露*/
+.showInfo{
+  width: 100%;
+  //padding-bottom: 100%;
+  //padding-left: 0.5%;
+  //padding-top: 0.5%;
+  div{
+    width: 30.7%;
+    border: 1px solid #e4e4e4;
+    background-color: #fff;
+    border-radius: 3%;
+    float: left;
+    margin: 1%;
+    height: rem-calc(240px,750);
+    overflow: hidden;
+    font-size: rem-calc(48);
+    color: #666;
+    text-align: center;
+    position: relative;
+    p{
+      padding-top: rem-calc(126px,750);
+      position: absolute;
+      width: 100%;
+      top: 0;
+      color: #656565;
+      font-size: 1rem;
+      &:nth-child(2) {
+        font-size: 0.8rem;
+        color: silver;
+        //color: red;
+        top: 1.5rem;
+      }
+    }
+  }
+  img{
+    width: 30%;
+    margin-top: -1rem;
+    position: absolute;
+    left: 50%;
+    top: 2.4rem;
+    margin-left: -15%;
+    &:nth-child(1) {
+      //height: 30%;
+    }
+    &:nth-child(2){
+      width: 30%;
+      position: absolute;
+      left: 50%;
+      margin-left: -15%;
+      top: 7rem;
+    }
+  }
+}
+/*企业荣誉*/
+.company-honor{
+  .honor{
+    background-color: #fff;
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+}
+/*联系我们*/
+.contact-us{
+  background-color: #fff;
+  //.map{
+  //  height: 13.36889rem;
+  //  background-image: url('../../images/find/abouths/honor1.png');
+  //  background-repeat: no-repeat;
+  //  background-size: 100% 100%;
+  //}
+  //.map{
+  //  img{
+  //    display:block;
+  //    width:100%;
+  //    height:auto;
+  //    border:0;
+  //    outline:none;
+  //  }
+  //}
+  //.detail-info{
+  //  padding: 0 10px;
+  //  .address{
+  //    margin: 20px;
+  //    div{
+  //      img{
+  //        float: left;
+  //        vertical-align: middle;
+  //        margin-right: 10px;
+  //      }
+  //      p{
+  //        font-size: rem-calc(50);
+  //        color: #333;
+  //        vertical-align: middle;
+  //        &:nth-child(3){
+  //          color: #858585;
+  //          font-size: rem-calc(45);
+  //          line-height: rem-calc(110);
+  //        }
+  //
+  //      }
+  //    }
+  //  }
+  //}
+}
+/*监管法规*/
+.supervise{
+  .regulation{
+    .news{
+      //border-top: 1px solid #d2d2d2;
+      background-color: #fff;
+      li{
+        min-height:rem-calc(220);
+        //border-bottom: 1px solid #d2d2d2;
+        // display: flex;
+        //margin-bottom: rem-calc(40);
+        .up-text{
+          .left{
+            float: left;
+            width: 85%;
+            padding: rem-calc(40) 0 rem-calc(30) rem-calc(60);
+            height:rem-calc(220);
+            line-height:rem-calc(150);
+            box-sizing: border-box;
+            h3{
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 100%;
+              height: 100%;
+              //height: rem-calc(220);
+              //line-height: rem-calc(220);
+              white-space: nowrap;
+              color:#333;
+              font-size:rem-calc(34px,750);
+            }
+          }
+          .right{
+            float: left;
+            width: 15%;
+            text-align:center;
+            height:rem-calc(220);
+            line-height: rem-calc(220);
+            .right-icon {
+              width: 1rem;
+              vertical-align: middle;
+            }
+          }
+        }
+        .down-text{
+          padding: rem-calc(10) rem-calc(60) rem-calc(20) rem-calc(60);
+          min-height:rem-calc(220);
+          h3{
+            padding: rem-calc(30 30 0 0);
+            span{
+              float: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*支付额度*/
+.payments{
+  .regulation{
+    .news{
+      //border-top: 1px solid #d2d2d2;
+      background-color: #fff;
+      li{
+        min-height:rem-calc(220);
+        border-bottom: 1px solid #d2d2d2;
+        .up-text{
+          .left{
+            float: left;
+            width: 85%;
+            padding: rem-calc(40) 0 rem-calc(30) rem-calc(60);
+            height:rem-calc(220);
+            line-height:rem-calc(150);
+            box-sizing: border-box;
+            h3{
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 100%;
+              height: 100%;
+              //height: rem-calc(220);
+              //line-height: rem-calc(220);
+              white-space: nowrap;
+              color:#333;
+              font-size:rem-calc(34px,750);
+            }
+          }
+          .right{
+            float: left;
+            width: 15%;
+            text-align:center;
+            height:rem-calc(220);
+            line-height: rem-calc(220);
+            .right-icon {
+              width: 1rem;
+              vertical-align: middle;
+              &.expand{
+                width: 1rem;
+              }
+            }
+          }
+        }
+        .down-text{
+          padding: rem-calc(10) rem-calc(60) rem-calc(20) rem-calc(60);
+          min-height:rem-calc(220);
+          td{
+            border: 1px solid silver!important;
+            text-align: center!important;
+          }
+        }
+      }
+    }
+  }
+}
+.hide{
+  display: none;
+}
+.div-block-gray{
+  width: 100%;
+  height: 0.71605rem;
+  background-color: #f7f7f7;
+}

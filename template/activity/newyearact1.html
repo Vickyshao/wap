@@ -1,0 +1,29 @@
+<div class="newyearact1" ng-init="ruleShow=false">
+    <main>
+        <img src="images/activity/newyear/act-main-title.png">
+        <div>
+            <img src="images/activity/newyear/act-maina.png" alt="">
+            <span ng-click="gotoDetail(30)"></span>
+        </div>
+        <div>
+            <img src="images/activity/newyear/act-mainb.png" alt="">
+            <span ng-click="gotoDetail(60)"></span>
+        </div>
+        <div>
+            <img src="images/activity/newyear/act-mainc.png" alt="">
+            <span ng-click="gotoDetail(180)"></span>
+        </div>
+    </main>
+    <img ui-sref="myTyj" ng-if="wap" src="images/activity/newyear/act-footer.png">
+    <a href="jsmp://page=39?" ng-if="!wap && uid"><img src="images/activity/newyear/act-footer.png"></a>
+    <a href="jsmp://page=4?" ng-if="!wap && !uid"><img src="images/activity/newyear/act-footer.png"></a>
+    <img ng-click="showRule()" class="rule" src="images/activity/newyear/icon-rule.png">
+    <div ng-if="ruleShow==true" class="rule-box">
+        <div>
+            <img class="bg" src="images/activity/newyear/act-rule.png">
+            <span ng-click="closeRule()">
+                <img class="close-button" src="images/activity/inviteFriend4/close.png">
+            </span>
+        </div>
+    </div>
+</div>

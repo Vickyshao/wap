@@ -1,0 +1,25 @@
+.mycashedList{
+	font-size: rem-calc(40);
+	.mycashedHead{
+		line-height:260%;
+		color:#4D4D4D;
+		border-bottom:1px solid #e5e5e5;
+		overflow: hidden;
+		.tab1{ float:left; width:40%;text-align:center;}
+		.tab2{ float:left;width:30%;text-align:center;}
+		.tab3{float:left;width:30%;text-align:center;}
+	
+	}
+	.mycashedBody{
+		.mycashedBody-td{
+			border-bottom:1px solid #d3d4d3;
+			padding:rem-calc(30 0);
+			overflow: hidden;
+			color:#4D4D4D;
+			background:#fff;
+		.tab1{ float:left; width:40%;text-align:center; height:rem-calc(140); font-size:rem-calc(33);span{color:#ed3334; font-size:rem-calc(50);}}
+		.tab2{ float:left;width:30%;text-align:center; height:rem-calc(140); line-height:rem-calc(140);font-size:rem-calc(40);}
+		.tab3{float:left;width:30%;text-align:center; height:rem-calc(140);line-height:rem-calc(140);font-size:rem-calc(40);color:#9c9c9c;.green{color:#3eb228;}.gray{color:#9c9c9c;}}
+		}
+	}
+}

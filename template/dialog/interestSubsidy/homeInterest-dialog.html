@@ -1,0 +1,40 @@
+<style>
+    .ngdialog.ngdialog-theme-default .ngdialog-content{
+        background-color: transparent!important;
+    }
+    .teamleader-dialog .img{
+        padding-top: 0;
+        height: 13rem;
+    }
+    .teamleader-dialog .img img:first-child{
+        width: 20rem;
+        display: inline-block;
+        margin:0 auto;
+    }
+    .teamleader-dialog .img a img:first-child {
+        width: 4rem;
+        display: block;
+        margin:0 auto;
+    }
+    .ngdialog-overlay{
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .teamleader-dialog-wrap.ngdialog-theme-default  .ngdialog-content{
+        width: 100%!important;
+        max-width: 100%!important;
+    }
+</style>
+<div class="dialog special-dialog teamleader-dialog homeInterest-dialog">
+    <i class="close" ng-click="closeDialog()"></i>
+    <div class="title">
+        <img src="/images/interestSubsidy/home-go-title.png" alt="">
+    </div>
+    <div class="contain">
+        <div class="img">
+            <img src="/images/interestSubsidy/home-go-text.png" alt="">
+            <a ui-sref="interestSubsidy" style="display:block;" >
+                <img src="/images/interestSubsidy/home-go-interest.png" alt="" >
+            </a>
+        </div>
+    </div>
+</div>

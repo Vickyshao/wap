@@ -1,0 +1,36 @@
+<div class="myActivity headerTop" ng-controller="myActivityCtrl">
+	<div ng-if='!fromNative' class="common-head" ng-click="toback()"><i></i>
+		<p>{{title}}</p>
+	</div>
+	<!--线上活动
+	<div class="myMission">
+		<div class="myMissionItem" ng-repeat="item in datalist">
+			<a href="{{item.appUrl}}?wap=true">
+				<img ng-if="item.isTop==1&&item.status==1" src="images/myaccount/hot-icon.png" style="width:3rem;position:absolute;top:0.5rem;left:0.5rem;">
+				<img ng-src="{{item.appPic}}" width="100%">
+			</a>
+			<h3>{{item.title}}</h3>
+			<p>活动时间：{{item.activityDate}}</p>
+			<div class="over" ng-if="item.status==2">
+				<p>活动结束</p>
+			</div>
+		</div>
+	</div>-->
+
+	<ul class="myActivity-list">
+		<li ng-repeat="item in activitylist" ng-click="toDetail(item)">
+			<dl>
+				<dt>
+					<h2><i ng-class="{'1':'active','2':''}[item.status]"></i>{{item.activityName}}</h2>
+					<p>活动时间：{{item.startTime | date:'yyyy-MM-dd'}}到{{item.endTime | date:'yyyy-MM-dd'}}</p>
+					<span ng-class="{'1':'active','2':''}[item.status]" ng-bind="{'1':'进行中','2':'已失效'}[item.status]"></span>
+				</dt>
+				<dd>详情 ></dd>
+			</dl>
+		</li>
+	</ul>
+	<div class="no-act" ng-if="activitylist.length == 0">
+		<img src="/images/myaccount/ico_record.png" alt="">
+		<p>暂无记录</p>
+	</div>
+</div>

@@ -1,0 +1,113 @@
+<div class="chedd billGift" ng-controller="commonSemCtrl">
+    <main>
+        <img style="width:100%;" src="/images/activity/billGift/jd-banner.png">
+        <a href="/main/home" class="logo"></a>
+        <div class="register-box" ng-if="!isLogin">
+            <div class="promote-box">
+                <form class="wap-login-box step-one" ng-model="fromregister" name="myForm" novalidate>
+                    <div class="step1" ng-show="form">
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-1.png" style="left:0.7rem;" />
+                            <div class="input-box">
+                                <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号码" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step2"  ng-show="!form">
+                        <div class="input-item" ng-show="isShowPicCode">
+                            <img src="/images/activity/chedd/ico-2.png" style="left:0.6rem;"/>
+                            <div class="input-box" style="width:55%;margin-right:3%;float:left;">
+                                <input id="imgcode" class="input" type="text" placeholder="请输入图形验证码" ng-model="login.picCode" name="picCode" minlength="4" maxlength="4" autocomplete="off" />
+                            </div>
+                            <div style="width:40%;float:right;">
+                                <span class="img-box"><img ng-click="clickInput($event)" src="login/validateCode2.dos"></span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-3.png" />
+                            <div class="input-box" style="width:55%;margin-right:3%;float:left;">
+                                <input name="smsCode" ng-model="login.smsCode"  type="text"  placeholder="请输入短信验证码" maxlength="4" required class="input">
+                            </div>
+                            <div class="input-box sendCode">
+                                <span ng-click="getyzm(myForm)" style="color:#fff;">{{nowTimer}}</span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/chedd/ico-4.png" />
+                            <div class="input-box">
+                                <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/" maxlength="16" ng-model="login.passWord" name="passWord" required class="input" />
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc">《沪深理财注册协议》</a></p>
+                        </div>
+                    </div>
+                    <div class="input-item">
+                        <button class="btn"   ng-show="form" ng-click="next(myForm)" ng-disabled="!agree" style="width:100%;height:3rem;margin:0 auto;">立即注册&nbsp;&nbsp;享12.88%历史年化收益率</button>
+                        <button class="btn"   ng-show="!form" ng-click="zuce(myForm)" ng-disabled="!agree" style="width:100%;height:3rem;margin:0 auto;">立即注册</button>
+                          <p style="text-align: center;color: #fff;margin-top:0.2rem;">已有账号？<a ng-click="toLogin()" style="text-decoration:underline;color:#fdc00a;">立即登录</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <img style="width:100%;" ng-if="isLogin" src="/images/activity/billGift/billGift_ad.png">
+    </main>
+    <div class="img-wrap">
+        <img class="" src="/images/activity/billGift/billGift_title.png">
+        <div class="block jd-block1">
+            <div class="item fl list1">
+                <a ng-if="!isLogin" ng-click="gotop()"></a>
+                <a ng-if="isLogin" href="/myCoupon"></a>
+            </div>
+            <div class="item fr list2">
+                <a ng-if="!isLogin" ng-click="gotop()"></a>
+                <a ng-if="isLogin" href="/main/bankBillList"></a>
+            </div>
+        </div>
+        <img class="" src="/images/activity/billGift/jd-02.png">
+        <div class="block jd-block2">
+            <div class="item fl list2">
+                <a ng-if="!isLogin" ng-click="gotop()"></a>
+                <a ng-if="isLogin" href="/main/bankBillList"></a>
+            </div>
+            <div class="item fr list2">
+                <a ng-if="!isLogin" ng-click="gotop()"></a>
+                <a ng-if="isLogin" href="/main/bankBillList"></a>
+            </div>
+        </div>
+        <!-- 新手标 -->
+        <div class="jd-newhan">
+            <!--<img src="/images/activity/billGift/newhan.png" >-->
+            <div class="btn" ng-if="!isLogin" ng-click="gotop()"></div>
+            <div class="btn" ng-if="isLogin" ui-sref="cpDetail({pid: newhand.id })"></div>
+
+        </div>
+        <img class="" src="/images/activity/billGift/billGift_04.png">
+    </div>
+    <div class="footer">
+        <h2><span></span></h2>
+        <p><i class="jdsem-num">1.</i> 活动时间：自2017年11月24日起；</p>
+        <p><i class="jdsem-num">2.</i> 此活动仅限于本页面完成注册并首次投资的新用户，首次投   资成功后即送规则内对应奖励；</p>
+        <p><i class="jdsem-num">3.</i> 用户成功注册后，系统将自动发放288元注册红包，请前往PC端“我的账户>我的福利>我的优惠券”或 APP端“我的-优惠券”查看；</p>
+        <p><i class="jdsem-num">4.</i> 投资时可根据投资金额使用相应红包获得返现，注册红包需在有效期内进行兑现；</p>
+        <p><i class="jdsem-num">5.</i> 京东卡（电子卡）将在首次投资成功后，10个工作日内发放至您的注册手机号中；</p>
+        <p><i class="jdsem-num">6.</i> 每个身份证仅限参与一次，刷奖及冒用他人身份证、银行卡者一经核实，将会取消其活动资格，所有奖励不予兑换；</p>
+        <p><i class="jdsem-num">7.</i> 此活动不与平台其他活动同享（且新手标及活动标不参与本活动）。</p>
+        <p class="jdweizi1">* 本活动最终解释权归沪深理财所有</p>
+        <p class="jdweizi2">如有疑问请咨询客服：400-031-9909</p>
+        <div class="footer-bottom">
+            <img src="/images/activity/billGift/jd-footer.png">
+        </div>
+    </div>
+</div>
+<style>
+    .chedd.billGift .footer p{
+        position: relative;
+        padding-left: 2rem;
+    }
+    .chedd.billGift .footer p .jdsem-num{
+        position: absolute;
+        display: inline-block;
+        left: 0.7rem;
+    }
+</style>

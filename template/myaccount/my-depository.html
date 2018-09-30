@@ -1,0 +1,20 @@
+<div class="my-info-wrapper">
+	<div class="common-head" ng-if="wap" ng-click="toback()"><i></i><p>{{title}}</p></div>
+	<div class="info-box">
+		<ul>
+			<li>
+				<p>{{user.realName}}</p>
+				<span>姓名</span>
+			</li>
+			<li>
+				<p>{{user.idCards}}</p>
+				<span>身份证号</span>
+			</li>
+			<li>
+				<p><img style="width:7.5rem;" src="images/recharge/{{user.bankCode}}.png"></p>
+				<span>银行卡</span>
+			</li>
+		</ul>
+	</div>
+	<!--<a href="" ng-click="out('out')">安全退出</a>-->
+</div>

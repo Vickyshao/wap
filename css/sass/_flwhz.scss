@@ -1,0 +1,100 @@
+.lefttoptext{
+	position:absolute;
+	background:rgba(0,0,0,0.5);
+	color:#fff;
+	font-size:rem-calc(36);
+	padding:rem-calc(10 60 10 30);
+	background:url(../images/flw/blackbg.png) center right no-repeat;
+	background-size:auto 100%;
+}
+.flwhz{
+	background:#ffda46;
+	img{ width:100%; display:block;}
+	.flwhz-btn1{
+		position:relative;
+		.flwhz_btn{
+			position:absolute;
+			bottom: 16%;
+		    left: 50%;
+		    width: 50%;
+		    transform: translate(-50%, 0%);
+		    background:url(../images/flw/flwhzbtn.png) center bottom no-repeat;
+			background-size:100% 100%;
+			img{ width:100%; opacity:0;}
+			&:active{
+				background:url(../images/flw/flwhzbtn2.png) center bottom no-repeat;
+				background-size:100% auto;
+			}
+		}
+		.text{ 
+			width: 100%;
+			text-align: center;
+			font-size:rem-calc(36);  color:#fff;  line-height:rem-calc(60); position:absolute; bottom:25%;
+			p{background:rgba(0,0,0,0.5); padding:rem-calc(0 36);border-radius:6px; display:inline-block;}
+		}
+	}
+	.flwhz-text{
+		width: 80.5%;
+		margin:20px auto;
+		background:#fff;
+		position:relative;
+		padding-bottom:rem-calc(200);
+		border:rem-calc(7) solid #ff0c00;
+		border-radius:rem-calc(35);
+		p{padding:rem-calc(40 0 0 0);text-align:center; font-size:rem-calc(60);color:#ff0c00;line-height:rem-calc(100);span{font-size:rem-calc(50);color:#000;}}
+		.flwhz-text-cont{
+			overflow: hidden;
+			background:url(../images/flw/linebg.png) center center no-repeat;
+			background-size:auto 70%;
+			p{padding:0; width:50%; float:left; text-align:center; font-size:rem-calc(45); color:#707070; span{ font-size:rem-calc(45); color:#000;font{ font-size:rem-calc(80);}}}
+		}
+		.red{ font-size:rem-calc(40); color:#ff0c00;padding: 0;line-height: normal;padding-bottom: 0.5rem;}
+		.flwhz_btn{
+			position:absolute;
+			bottom: 8%;
+		    left: 50%;
+		    width: 50%;
+		    transform: translate(-50%, 0%);
+		    background:url(../images/flw/flwhzbtn.png) center bottom no-repeat;
+			background-size:100% 100%;
+			img{ width:100%; opacity:0;}
+			&:active{
+				background:url(../images/flw/flwhzbtn2.png) center bottom no-repeat;
+				background-size:100% auto;
+			}
+		}
+	}
+	.flwhzList{
+		background:#ffe864;
+		position:relative;
+		.flwhzListBox{
+			width:70%; margin:0 auto;
+			position:relative;
+			.flwhzListBoxCont{
+				padding:rem-calc(105 120 150 100);
+				width:100%;
+				height:100%;
+				position:absolute;
+				box-sizing:border-box;
+				left:0;
+				top:0;
+				overflow: hidden;
+				div{
+					height:100%;
+					overflow: hidden;
+					li{
+					font-size:rem-calc(30);
+					line-height:rem-calc(85);
+					padding-right:rem-calc(40);
+						span{
+							font-family:"楷体";
+							float:right;
+							font{  color:#ff9e53;}
+						}
+					}
+				}
+			}
+		}
+		img{ }
+	}
+}

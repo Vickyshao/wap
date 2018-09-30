@@ -1,0 +1,35 @@
+<div class="zd-leader headerTop zd-share myTeam" ng-controller="zdShareResultCtrl">
+    <div class="common-head" ng-if="!fromNative">
+        <!--<i ng-click="toback()"></i>-->
+        <p>{{title}}</p>
+    </div>
+    <!--通知-->
+    <div class="notice" ng-if="isShow">
+        <img src="/images/zudui/zdshare-01.png" alt="" style="top:1rem;">
+        <!--<span>您已注册</span>-->
+        <marquee scrollAmount=2  direction=left loop＝n style="width: 88%;vertical-align: middle;font-size: 1rem;margin-left: 16%;">{{massage.topText}}</marquee>
+        <!--<div class="notice-list" style="padding-left: 4rem;">
+            <div class="marquee">
+                <div>
+                    <span>{{massage.topText}}</span>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    <div class="contain">
+        <div class="img">
+            <img src="{{massage.img}}" alt="">
+        </div>
+        <p class="text">{{massage.text}}</p>
+        <div class="upload">
+            <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.yx.jinzhuapp">
+                <img src="/images/zudui/share/zd-uploadapp-btn.png" alt="">
+            </a>
+        </div>
+    </div>
+</div>
+<style>
+    body{
+        background: #fff;
+    }
+</style>

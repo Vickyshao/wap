@@ -1,0 +1,345 @@
+<div class="myinvest-wrapper headerTop wrap" ng-controller="myInvestHisCtrl">
+    <div class="common-head" ><i ng-click="toback()"></i><p>{{title}}</p></div>
+    <div class="myassets-wrapper" style="height: 6.04444rem;background: #fff;">
+        <div class="all">
+            <p class="his-txt">历史累计投资收益（元）</p>
+            <p class="his-money">{{accumulatedIncome | number:2}}</p>
+        </div>
+    </div>
+    <div class="div-block"></div>
+    <div class="myinvest-list" ng-repeat="item in one.pro" infinite-scroll='getData(one,item)' infinite-scroll-distance='2' infinite-scroll-immediate-check = false>
+        <div class="list-box">
+            <h3>
+                <span>{{item.fullName}}</span>
+                <span class="status" ng-bind="{0:'投资中',1:'待还款',2:'投资失败',3:'已还款'}[item.productStatus]"></span>
+            </h3>
+            <div class="myassets-wrapper">
+                <div class="all">
+                    <i></i>
+                    <div class="mod">
+                        <div>到期收益（元）</div>
+                        <p>{{item.factInterest | isNumber2}}</p>
+                    </div>
+                    <div class="mod">
+                        <div>历史年化收益率</div>
+                        <p>
+                            {{item.rate | wisNumber3}}%
+                            <span class="activityRate" ng-if="item.activityRate>0 || item.specialRate>0" style="font-size: 0.8rem;">
+		                            +{{item.activityRate+item.specialRate}}%
+		                    </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+                <div class="txt">投资金额：<span>{{item.amount | number:0}}元</span></div>
+                <div class="txt">回款日期：<span>{{item.expireDate | date:'yyyy-MM-dd'}}</span></div>
+            </div>
+        </div>
+        <div class="div-block"></div>
+    </div>
+    <div class="load-end" style="text-align: center;">全部加载完毕</div>
+    <!--<div class="trigger-wrap">
+        <p ng-click="changeMode(1)"><span ng-class="{1:'active'}[showMode]">待回款</span></p>
+        <p ng-click="changeMode(2)"><span ng-class="{2:'active'}[showMode]">已回款</span></p>
+        <p ng-click="changeMode(3)"><span ng-class="{3:'active'}[showMode]">募集中</span></p>
+    </div>
+    <div class="mod" ng-show="showMode == 1">
+        <div class="all">
+            <span>待回款总金额（元）</span>
+            <p>{{one.user.principal+one.user.interest | currency:''}}</p>
+        </div>
+        <div class="child">
+            <i></i>
+            <div class="mode">
+                <span>待回款本金（元）</span>
+                <p>{{one.user.principal | currency:''}}</p>
+            </div>
+            <div class="mode">
+                <span>待回款利息（元）</span>
+                <p>{{one.user.interest | currency:''}}</p>
+            </div>
+        </div>
+        <div class="list-wrap">
+            <div class="con" ng-repeat="item in one.pro" infinite-scroll='getData(one,item)' infinite-scroll-distance='2'>
+                <div class="title" ng-click="upDownClick($event)">{{item.fullName}}<span ng-if="item.continuePeriod">到期续投{{item.continuePeriod}}天标</span><i class="updown"></i></div>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span class="t">投资日期：</span>
+                            <span class="c">{{item.investTime | date:'yyyy-MM-dd'}}</span>
+                        </li>
+                        <li>
+                            <span class="t">投资金额：</span>
+                            <span ng-if="item.couponType!=3" class="c">{{item.amount | currency:''}}元</span>
+                            <span ng-if="item.couponType==3" class="c">{{item.couponAmount | currency:''}}元（体验金）</span>
+                        </li>
+                        <li>
+                            <span class="t">投资期限：</span>
+                            <span class="c">{{item.deadline}}天</span>
+                        </li>
+                        <li>
+                            <span class="t">历史年化收益率：</span>
+                            <span class="c">{{item.rate}}%
+                                <span ng-if="item.activityRate>0 || item.specialRate>0" style="font-size: 1rem;">
+                                    +{{item.activityRate+item.specialRate}}%
+                                </span></span>
+
+                        </li>
+                        <li>
+                            <span class="t">还款方式：</span>
+                            <span class="c" ng-if="item.repayType == 1">到期一次还本付息</span>
+                            <span class="c" ng-if="item.repayType == 2">按月付息到期还本</span>
+                            <span class="c" ng-if="item.repayType == 3">等本等息 按周回款</span>
+                            <span class="c" ng-if="item.repayType == 4">等本等息 按月回款</span>
+                            <span class="c" ng-if="item.repayType == 5">其他</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">回款日期：</span>&lt;!&ndash; -(60*60*24) &ndash;&gt;
+                            <span class="c">{{item.expireDate | date:'yyyy-MM-dd'}}</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">回款期数：</span>
+                            <span class="c">{{item.repayPeriod}}期</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">应收本金：</span>
+                            <span class="c">{{item.factAmount | currency:''}}元</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">每期回款本金：</span>
+                            <span class="c">{{item.shouldPrincipalPeriod | number:2}}元</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">应收利息：</span>
+                            <span class="c">{{item.factInterest | currency:''}}元</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">每期利息：</span>
+                            <span class="c">{{item.shouldInterestPeriod}}元</span>
+                        </li>
+                        <li ng-if="item.couponType == 1 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">返现{{item.couponAmount}}元</span>
+                        </li>
+                        <li ng-if="item.couponType == 3 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">未使用</span>
+                        </li>
+                        <li ng-if="item.couponType == 2 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">加息{{item.couponRate | currency:''}}%</span>
+                        </li>
+                        <li ng-if="item.couponType == 4 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">基础利率翻{{item.multiple}}倍</span>
+                        </li>
+                        <li ng-if="item.couponType == undefined && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">未使用</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">下次回款日：</span>
+                            <span class="c">{{item.nextShouldTime | date:'yyyy-MM-dd'}}元</span>
+                        </li>
+                    </ul>
+                    <p><a ng-if="item.type!= 1 && item.type!=5" href="{{hostName}}/loan?pid={{item.pid}}&uid={{item.uid}}&investId={{item.id}}" target="_blank">查看投资协议</a> <a ng-click="goCashed(item)" ng-class="{true:'payrecords'}[item.type!= 1 && item.type!=5]">回款记录</a></p>
+                    &lt;!&ndash;<p><a ng-if="item.deadline != 1" href="http://192.168.1.126/loan?pid={{item.pid}}&uid={{item.uid}}&investId={{item.id}}" target="_blank">查看投资协议</a><a ng-click="goCashed(item)" ng-class="{true:'payrecords'}[item.deadline != 1]">回款记录</a></p>&ndash;&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mod" ng-show="showMode == 2">
+        <div class="all">
+            <span>已回款总金额（元）</span>
+            <p>{{two.user.principal+two.user.interest | currency:''}}</p>
+        </div>
+        <div class="child">
+            <i></i>
+            <div class="mode">
+                <span>已回款本金（元）</span>
+                <p>{{two.user.principal | currency:''}}</p>
+            </div>
+            <div class="mode">
+                <span>已回款利息（元）</span>
+                <p>{{two.user.interest | currency:''}}</p>
+            </div>
+        </div>
+        <div class="list-wrap">
+            <div class="con" ng-repeat="item in two.pro" infinite-scroll='getData(two,item)' infinite-scroll-distance='2'>
+                <div class="title" ng-click="upDownClick($event)">{{item.fullName}}<span ng-if="item.continuePeriod">到期续投{{item.continuePeriod}}天标</span><i class="updown"></i></div>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span class="t">投资日期：</span>
+                            <span class="c">{{item.investTime | date:'yyyy-MM-dd'}}</span>
+                        </li>
+                        <li>
+                            <span class="t">投资金额：</span>
+                            <span ng-if="item.couponType!=3" class="c">{{item.amount | currency:''}}元</span>
+                            <span ng-if="item.couponType==3" class="c">{{item.couponAmount | currency:''}}元（体验金）</span>
+                        </li>
+                        <li>
+                            <span class="t">投资期限：</span>
+                            <span class="c">{{item.deadline}}天</span>
+                        </li>
+                        <li>
+                            <span class="t">历史年化收益率：</span>
+                            <span class="c">
+                                {{item.rate}}%
+                                <span ng-if="item.activityRate>0 || item.specialRate>0" style="font-size: 1rem;">
+                                    +{{item.activityRate+item.specialRate}}%
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="t">还款方式：</span>
+                            <span class="c" ng-if="item.repayType == 1">到期一次还本付息</span>
+                            <span class="c" ng-if="item.repayType == 2">按月付息到期还本</span>
+                            <span class="c" ng-if="item.repayType == 3">等本等息 按周回款</span>
+                            <span class="c" ng-if="item.repayType == 4">等本等息 按月回款</span>
+                            <span class="c" ng-if="item.repayType == 5">其他</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">回款日期：</span>&lt;!&ndash; -(60*60*24) &ndash;&gt;
+                            <span class="c">{{item.expireDate | date:'yyyy-MM-dd'}}</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">回款期数：</span>
+                            <span class="c">{{item.repayPeriod}}期</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">应收本金：</span>
+                            <span class="c">{{item.factAmount | currency:''}}元</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">每期回款本金：</span>
+                            <span class="c">{{item.shouldPrincipalPeriod | number:2}}元</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">应收利息：</span>
+                            <span class="c">{{item.factInterest | currency:''}}元</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">每期利息：</span>
+                            <span class="c">{{item.shouldInterestPeriod}}元</span>
+                        </li>
+                        <li ng-if="item.couponType == 1 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">返现{{item.couponAmount}}元</span>
+                        </li>
+                        <li ng-if="item.couponType == 3 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">未使用</span>
+                        </li>
+                        <li ng-if="item.couponType == 2 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">加息{{item.couponRate | currency:''}}%</span>
+                        </li>
+                        <li ng-if="item.couponType == 4 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">基础利率翻{{item.multiple}}倍</span>
+                        </li>
+                        <li ng-if="item.couponType == undefined && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">未使用</span>
+                        </li>
+                    </ul>
+                    <p><a ng-if="item.type!= 1 && item.type!=5" target="_blank" style="color:#666;">查看投资协议</a><a ng-click="goCashed(item)" ng-class="{true: 'payrecords'}[item.type!= 1 && item.type!=5]">回款记录</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mod" ng-show="showMode == 3">
+        <div class="all">
+            <span>冻结总额（元）</span>
+            <p>{{three.user.principal | currency:''}}</p>
+        </div>
+        <div class="list-wrap">
+            <div class="con" ng-repeat="item in three.pro" infinite-scroll='getData(three,item)' infinite-scroll-distance='2'>
+                <div class="title" ng-click="upDownClick($event)">{{item.fullName}}<span ng-if="item.continuePeriod">到期续投{{item.continuePeriod}}天标</span><i class="updown"></i></div>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span class="t">投资日期：</span>
+                            <span class="c">{{item.investTime | date:'yyyy-MM-dd'}}</span>
+                        </li>
+                        <li>
+                            <span class="t">投资金额：</span>
+                            <span ng-if="item.couponType!=3" class="c">{{item.amount | currency:''}}元</span>
+                            <span ng-if="item.couponType==3" class="c">{{item.couponAmount | currency:''}}元（体验金）</span>
+                        </li>
+                        <li>
+                            <span class="t">投资期限：</span>
+                            <span class="c">{{item.deadline}}天</span>
+                        </li>
+                        <li>
+                            <span class="t">历史年化收益率：</span>
+                            <span class="c">{{item.rate}}%
+                                <span ng-if="item.activityRate>0 || item.specialRate>0" style="font-size: 1rem;">
+                                    +{{item.activityRate+item.specialRate}}%
+                                </span></span>
+
+                        </li>
+                        <li>
+                            <span class="t">还款方式：</span>
+                            <span class="c" ng-if="item.repayType == 1">到期一次还本付息</span>
+                            <span class="c" ng-if="item.repayType == 2">按月付息到期还本</span>
+                            <span class="c" ng-if="item.repayType == 3">等本等息 按周回款</span>
+                            <span class="c" ng-if="item.repayType == 4">等本等息 按月回款</span>
+                            <span class="c" ng-if="item.repayType == 5">其他</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">回款日期：</span>&lt;!&ndash; -(60*60*24) &ndash;&gt;
+                            <span class="c">{{item.expireDate | date:'yyyy-MM-dd'}}</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">回款期数：</span>
+                            <span class="c">{{item.repayPeriod}}期</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">应收本金：</span>
+                            <span class="c">{{item.factAmount | currency:''}}元</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">每期回款本金：</span>
+                            <span class="c">{{item.shouldPrincipalPeriod | number:2}}元</span>
+                        </li>
+                        <li ng-if="item.repayType != 3 && item.repayType != 4">
+                            <span class="t">应收利息：</span>
+                            <span class="c">{{item.factInterest | currency:''}}元</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">每期利息：</span>
+                            <span class="c">{{item.shouldInterestPeriod}}元</span>
+                        </li>
+                        <li ng-if="item.couponType == 1 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">返现{{item.couponAmount}}元</span>
+                        </li>
+                        <li ng-if="item.couponType == 3 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">未使用</span>
+                        </li>
+                        <li ng-if="item.couponType == 2 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">加息{{item.couponRate | currency:''}}%</span>
+                        </li>
+                        <li ng-if="item.couponType == 4 && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">基础利率翻{{item.multiple}}倍</span>
+                        </li>
+                        <li ng-if="item.couponType == undefined && item.repayType != 3 && item.repayType != 4">
+                            <span class="t">优惠券：</span>
+                            <span class="c">未使用</span>
+                        </li>
+                        <li ng-if="item.repayType == 3 || item.repayType == 4">
+                            <span class="t">下次回款日：</span>
+                            <span class="c">{{item.nextShouldTime | date:'yyyy-MM-dd'}}元</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

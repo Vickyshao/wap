@@ -1,0 +1,31 @@
+<!--优惠券列表-->
+<div class="bankList couponList">
+	<div class="bankList-title">
+		<h2>优惠券 <a ng-click="toRender()">?</a></h2>
+		<div class="ngdialog-close"></div>
+	</div>
+	<div class="bankList-desc">按照当前收益由高到低排列</div>
+	<div class="bankList-content">
+		<ul class="list">
+			<li class="coupon-list" ng-class="{1:'fx-coupon',2:'jx-coupon',4:'fb-coupon'}[item.type]" ng-repeat="item in cop | orderBy:['-status','-profitAmount','-expireDate']"  ng-click="choosenTicket($event, item, $index)">
+				<div class="left" ng-class="{1:'fx-coupon',2:'jx-coupon',4:'fb-coupon'}[item.type]">
+					<p class="money" ng-if="item.type==1">¥<span>{{item.amount}}</span></p>
+					<p class="money" ng-if="item.type==2"><span>{{item.raisedRates}}</span>%</p>
+					<p class="money" ng-if="item.type==4"><span>{{item.multiple}}</span>倍</p>
+					<p class="name" ng-bind="{1:'红包',2:'加息券',3:'体验金',4:'翻倍券'}[item.type]"></p>
+				</div>
+				<div class="middle" ng-class="{1:'fx-coupon',2:'jx-coupon',4:'fb-coupon'}[item.type]">
+					<p>单笔满{{item.enableAmount}}元</p>
+					<p>期限满{{item.productDeadline}}天（活动标除外）</p>
+					<p class="time">有效期至：{{item.expireDate | date:'yyyy-MM-dd'}}</p>
+				</div>
+				<div class="right" ng-class="{1:'fx-coupon',2:'jx-coupon',4:'fb-coupon'}[item.type]">
+					<p ng-class="{ '1':'checked','0':''}[item.status]"></p>
+					立即使用
+				</div>
+			</li>
+
+		</ul>
+	</div>
+</div>
+

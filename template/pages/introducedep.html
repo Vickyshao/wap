@@ -1,0 +1,46 @@
+<div class="introducedep">
+    <div class="common-head" ng-if="wap" ng-click="toback()"><i></i><p>{{title}}</p></div>
+    <img src="images/more/introducedep/banner.jpg" alt="" class="banner">
+    <div class="content parta">
+        <header><img src="images/more/introducedep/title-left-a.png" alt="">为什么要银行存管 ？<img src="images/more/introducedep/title-right-a.png" alt=""></header>
+        <p>依据银监会、工信部、公安部、网信办联合公布的《网络借贷信息中介机构业务活动管理暂行办法》要求，需要互联网金融平台与银行业金融机构对接，对平台资金进行银行存管，具体做法是互联网金融平台在银行业金融机构开设独立账户，用于存放用户的交易资金，银行业金融机构根据用户的指令、合同内容，对用户的交易与资金流水进行划拨和簿记，以保障用户的资金安全。</p>
+        <p>自上线以来，沪深理财一直主动拥抱监管，此次与四川天府银行合作的银行存管系统正式直连，成为国内少数几家真正意义上实现资金存管的平台之一。</p>
+    </div>
+    <div class="content partb">
+        <img src="images/more/introducedep/partb-top.png" alt="" class="top">
+        <header><img src="images/more/introducedep/title-left-a.png" alt="">一张图了解银行存管模式<img src="images/more/introducedep/title-right-a.png" alt=""></header>
+        <h2>存管模式，为投资人资金安全保驾护航</h2>
+        <main><img src="images/more/introducedep/partb-content.png" alt=""></main>
+    </div>
+    <div class="content partc">
+        <img src="images/more/introducedep/partc-bg.jpg" alt="" class="bg">
+        <img src="images/more/introducedep/partc-top.png" alt="" class="top">
+        <div>
+            <header><img src="images/more/introducedep/title-left-b.png" alt="">接入银行存管对用户有什么好处 ？<img src="images/more/introducedep/title-right-b.png" alt=""></header>
+            <main>
+                <img src="images/more/introducedep/partc-content-a.png" alt="">
+                <img src="images/more/introducedep/partc-content-b.png" alt="">
+                <img src="images/more/introducedep/partc-content-c.png" alt="">
+            </main>
+        </div>
+    </div>
+    <div class="content partd">
+        <header><img src="images/more/introducedep/title-left-a.png" alt="">为什么选择四川天府银行 ？<img src="images/more/introducedep/title-right-a.png" alt=""></header>
+        <img src="images/more/introducedep/partd-content.png" alt="">
+    </div>
+    <!--icp备案号-->
+    <div class="icpba">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司 v1.2.3</div>
+    <div class="footer-bar">
+        <div class="left">
+            <h3>开通银行存管账户，资金安全系数更高</h3>
+            <!--<a href="jsmp://page=4?" ng-if="!wap"><p>银行存管常见问题></p></a>-->
+        </div>
+        <div class="button" ng-if="wap && isLog==false" ui-sref="dl({returnurl:'introducedep'})">马上开通</div>
+        <div class="button" ng-if="wap && isLog==true && isFuiou==0" ui-sref="setDepository({wap:true})">马上开通</div>
+        <div class="button" ng-if="wap && isLog==true && isFuiou==1" ui-sref="main.myaccountHome">马上开通</div>
+        <a ng-if="!wap && isLog==false" href="jsmp://page=4?"><div class="button">马上开通</div></a>
+        <a ng-if="!wap && isLog==true && isFuiou==0" href="jsmp://page=400?"><div class="button">马上开通</div></a>
+        <a ng-if="!wap && isLog==true && isFuiou==1" href="jsmp://page=11?"><div class="button">马上开通</div></a>
+        <img ng-click="closeBar()" src="images/more/introducedep/close-icon.png" alt="">
+    </div>
+</div>

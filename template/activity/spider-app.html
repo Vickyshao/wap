@@ -1,0 +1,58 @@
+<div class="spider-wrapper" ng-controller="spiderCtrl">
+	<div class="banner"><img src="../../images/spider/banner.png"></div>
+	<div class="step"></div>
+	<div class="login">
+		<div class="titlebg">注册投资领电影票</div>
+		<input placeholder="请输入手机号" ng-model="myphone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" minlength="11" maxlength="11">
+		<a href="" ui-sref="zhuce({myPhone:myphone,myToFrom:toFrom})">立即注册</a>
+	</div>
+	<div class="rules mode">
+		<div class="modebg">活动规则</div>
+		<ul>
+			<li><i>1、</i>本次活动仅限通过本页面注册的新用户</li>
+			<li><i>2、</i>凡通过本页面注册的用户，即可免费获得十万元新手体验金</li>
+			<li><i>3、</i>新用户注册并绑卡后，投资30天及以上期限的产品，且单笔投资大于等于2000元，可免费获得蜘蛛网两张2D/3D通兑电影票</li>
+			<li><i>4、</i>投资成功后，电影票兑换码将会在第二个工作日通过手机短信发送到您的手机；</li>
+			<li><i>5、</i>活动时间：即日起-2016年9月30日</li>
+			<li><i>6、</i>电影票兑换码使用规则以蜘蛛网现有规则为准</li>
+			<li><i>7、</i>本次活动最终解释权归沪深理财和蜘蛛网所有</li>
+		</ul>
+	</div>
+	<div class="mode gift">
+		<div class="modebg">新人礼包二重奏</div>
+		<div class="title"><span>第<b>1</b>重</span></div>
+		<div class="giftbox">
+			<div class="t"><span>完成<br>注册</span></div>
+			<div class="con"><p>赠送<span>100,000</span>元新手理财金</p></div>
+		</div>
+		<div class="title"><span>第<b>2</b>重</span></div>
+		<div class="giftbox">
+			<div class="t"><span>投资<br>福利</span></div>
+			<div class="con"><div>收益翻倍<p>投一万送一万，投百万送百万</p></div></div>
+		</div>
+	</div>
+	<div class="whybg">
+		<div class="content">
+			<div class="iconmode">
+				<i class="gqkg"></i>
+				<div>大型国企控股</div>
+			</div>
+			<div class="iconmode">
+				<i class="pjlc"></i>
+				<div>专业票据理财</div>
+			</div>
+			<div class="iconmode">
+				<i class="ygfk"></i>
+				<div>严格风控、零逾期</div>
+			</div>
+			<div class="iconmode">
+				<i class="zyfl"></i>
+				<div>专业律所提供法律支持</div>
+			</div>
+			<div class="iconmode">
+				<i class="gjzc"></i>
+				<div>合规紧跟国家政策</div>
+			</div>
+		</div>
+	</div>
+</div>

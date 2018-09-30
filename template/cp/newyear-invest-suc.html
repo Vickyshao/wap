@@ -1,0 +1,25 @@
+<div class="newhand-wrapper cp-wrapper tyjSuccess headerTop" style="padding:0;margin-bottom:1rem;">
+    <div class="common-head" ng-if="!fromNative"><p></p><span class="right" ui-sref="main.myaccountHome">关闭</span></div>
+    <div class="investSuccess" style="margin-top: 0;">
+        <div class="investSuccess-info" style="padding-bottom: 0;border-top: 1px solid #ededed;">
+            <img src="/images/newhand/newy-suc-icon.png" />
+            <h2 class="ny-icon1">恭喜您成功投资{{investAmount | number:0}}元</h2>
+            <div class="ny-txt"><span>春节活动火热进行中</span></div>
+            <p class="ny-tet">累计可领<span>2000元</span>以上现金及奖励，</p>
+            <p class="ny-tet">还有<span>TOP10加奖</span>等你夺！</p>
+            <div class="img">
+                <img src="/images/newhand/newy-suc-rewards.png" alt="">
+            </div>
+        </div>
+        <div class="btn ny-btn">
+            <button class="first" ng-click="toMyInvest()">查看我的投资</button>
+            <button ng-click="toChunJieAct()">新年礼</button>
+        </div>
+        <!--<img ng-if="data.realverify==0" ui-sref="certification" class="bottom-btn" src="images/activity/tyj/success-lingqu.png">-->
+    </div>
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>

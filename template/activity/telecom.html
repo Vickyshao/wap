@@ -1,0 +1,106 @@
+<div class="triplegift-wrapper telecom-wrapper" ng-controller='controllerH5Register' ng-init='isShowRecomm=false;'>
+	<div class="banner">
+		<img src="../../images/telecom/banner.png">
+	</div>
+	
+	<div class="duorong">
+		<div class="box"><p>沪深理财注册资本1亿元，是商业网点建设开发中心（隶属于国务院国资委）全资子公司中商投旗下互联网票据投资平台。平台背靠大型国有企业，以银行承兑汇票、知名国企商票为主营业务，所有业务流程均有专业律所提供法律合规性支持。</p></div>
+	</div>
+
+	<div class="bg"><img src="../../images/telecom/bg.png"></div>
+
+	<div class="login-wrap">
+	<div class="login">
+		<div class="title">注册投资--领取壕礼</div>
+		<form   name="myForm" novalidate>
+			<!-- 手机号 -->
+			<div>
+			   	<!-- <label>
+                    <i class="icon-mobile"></i>
+                </label> -->
+				<input placeholder="请输入手机号" name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" minlength="11" maxlength="11" required class="mobilephone">
+			</div>
+			<!-- 短信 -->
+			<div class="login-msm-box">
+				<table>
+					<tr>
+						<td><input name="smsCode" ng-disabled="!myForm.mobilephone.$valid"  ng-model="login.smsCode" class="fl" type="text"  placeholder="请输入短信验证码" maxlength="4" required></td>
+						<td><span  ng-click="getyzm(myForm)" class="fr">{{nowTimer}}</span></td>
+					</tr>
+				</table>
+	        </div>
+	        <!-- 密码 -->
+	        <div >
+	            <!-- <label  ng-click="showPassword(passwordText)" ><i ng-class="{true:'icon icon-eye huang',false:'icon icon-eye'}[passwordText]"  ></i></label> -->
+	            <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/" ng-model="login.passWord" name="passWord" required />
+	        </div>
+	        <div class="login-recomm-box" ng-click="isShowRecomm=true" >
+		        <p ng-if="!isShowRecomm" >► 推荐人（选填）</p>
+	        </div>
+	        <div class="login-recomm-box" ng-click="isShowRecomm=false" >
+		        <p ng-if="isShowRecomm">▼ 推荐人（选填）</p>
+	        </div>
+	        <!-- 推荐 -->
+	        <div ng-if='isShowRecomm'>
+	            <input type="text" ng-model="login.recommPhone" placeholder="推荐人手机号（可不填）" ng-disabled="webFormPath.recommCodes != undefined">
+	        </div>
+			<a href=""  ng-click="zuce(myForm)">立即领取1G流量</a>
+			<!-- <a href="" style="background: #efd960;" ng-if="!myForm.$valid" >立即领取100,000元</a> -->
+	    </form>
+	</div>
+	</div>
+	<div class="bg"><img src="../../images/telecom/bg.png"></div>
+	
+	<div class="mode-wrap">
+	<div class="mode">
+		<div class="modebg">活动流程</div>
+		<ul>
+			<li><i></i>在活动页面中输入手机号等信息后，点击“立刻领取1G流量”；</li>
+			<li><i></i>通过本页面注册的用户，即可免费获得十万元新手体验金，体验金仅限新手标使用，投资新手标后可继续参加此活动；</li>
+			<li><i></i>新用户注册并绑卡后，首次投资30天及以上期限的产品，且单笔投资金额大于或等于1000元，该手机号可得1G免费流量；</li>
+			<li><i></i>用户投资成功后，流量充值将会在第二个工作日之内到账，立即生效且当月有效。</li>
+		</ul>
+		<a href="" class="tbtn" ng-click="focusMobilePhone()">立即领取1G流量</a>
+		<div class="detail-box">
+		<a href="" class="detail" ng-click="showRules=true">查看活动规则</a>
+		</div>
+	</div>
+	<div class="mode-bg">
+	<div class="mode gift">
+		<div class="modebg">新人礼包三重奏</div>
+		<div class="title"><span>第<b>1</b>重</span></div>
+		<div class="giftbox">
+			<div class="t"><span>完成<br>注册</span></div>
+			<div class="con"><p class="sendyibai">赠送<span class="yibai">100,000</span>元新手理财金</p></div>
+		</div>
+		<div class="title"><span>第<b>2</b>重</span></div>
+		<div class="giftbox">
+			<div class="t"><span>投资<br>福利</span></div>
+			<div class="con"><div>收益翻倍<p>投一万送一万，投百万送百万</p></div></div>
+	   </div>
+		<div class="title"><span>第<b>3</b>重</span></div>
+		<div class="giftbox">
+			<div class="t"><span>首投<br>高息</span></div>
+			<div class="con"><div class="qx">新手第一次投资（体验标除外）<br>收益翻倍，最高<span><b>14</b>%</span></div></div>
+	   </div>
+	</div>
+	</div>
+	</div>
+
+	<div class="bg"><img src="../../images/telecom/bg.png"></div>
+
+	<div class="download-box"><div class="download" ng-click="focusMobilePhone()"><img src="../../images/telecom/get.png"></div></div>
+
+	<div class="rules-bg" ng-show="showRules==true" ng-click="showRules=false"></div>
+	<div class="rules-wrap" ng-show="showRules==true" ng-click="showRules=false">
+		<div class="title"></div>
+		<ul>
+			<li><i></i>本次活动仅限通过本页面注册的新用户；</li>
+			<li><i></i>本活动奖励与沪深理财官方福利同时享有。</li>
+			<li><i></i>若用户存在恶意刷奖行为，沪深理财有权取消其获奖资格，并保留相关法律权利；</li>
+			<li><i></i>如有任何疑问，请咨询客服热线：4006-293-993；</li>
+			<!--<li><i></i>本活动最终解释权归沪深理财所有。</li>-->
+		</ul>
+		<div class="bot"></div>
+	</div>
+</div>

@@ -1,0 +1,150 @@
+<div class="tjs" ng-controller="tjsController">
+    <div class="banner">
+        <img src="images/activity/tjs/index-banner.png">
+        <img class="share-button" ng-if="wap" ng-click="share()" src="images/activity/tjs/share-icon.png">
+        <a ng-if="!wap" href="jsmp://page=200?"><img class="share-button" src="images/activity/tjs/share-icon.png"></a>
+        <p>已有 <span>{{investCount}}</span> 人免费领取</p>
+    </div>
+
+    <main>
+        <div class="main-banner">
+            <h1>礼品专区</h1>
+            <p>单笔投资满一定金额即可坐享收益，并免费获得活动好礼！</p>
+            <img ng-click="showRule()" class="rule-icon" src="images/activity/tjs/rule-icon.png">
+        </div>
+        <div class="big-box">
+            <div ng-repeat="item in prizeList | limitTo:8:0" class="gift-box">
+                <div>
+                    <header>
+                        <img src="images/activity/tjs/left-icon.png">
+                        <h3>{{item.name}}</h3>
+                        <p>￥{{item.price | number:2}}</p>
+                    </header>
+                    <img class="prize" src="{{item.h5ImgUrlV}}">
+                    <footer>
+                        仅投￥{{item.amount | number:0}}
+                        <span ui-sref="tjsdetail({wap:true,pid:item.pid})" ng-if="item.isNot == 0 && wap">免费领取</span>
+                        <span ui-sref="giftyy({wap:true,id:item.id})" ng-if="item.isNot == 1 && wap" class="finish-button">立即预约</span>
+                        <a ng-if="item.isNot == 0 && !wap" href="jsmp://page=35?pid={{item.pid}}&ptype=2"><span>免费领取</span></a>
+                        <a ng-if="item.isNot == 1 && !wap" href="jsmp://page=36?ppid={{item.id}}"><span class="finish-button">立即预约</span></a>
+                    </footer>
+                </div>
+            </div>
+            <div ng-if="prizeList.length<8" class="gift-box" style="background-color:#EAEAEA;height:16rem;">
+                <img src="images/activity/tjs/jqqd.png" style="position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:50%;height:auto;">
+            </div>
+            <div ng-if="prizeList.length<7" class="gift-box" style="background-color:#EAEAEA;height:16rem;">
+                <img src="images/activity/tjs/jqqd.png" style="position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:50%;height:auto;">
+            </div>
+            <div ng-if="prizeList.length<6" class="gift-box" style="background-color:#EAEAEA;height:16rem;">
+                <img src="images/activity/tjs/jqqd.png" style="position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:50%;height:auto;">
+            </div>
+            <div ng-if="prizeList.length<5" class="gift-box" style="background-color:#EAEAEA;height:16rem;">
+                <img src="images/activity/tjs/jqqd.png" style="position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:50%;height:auto;">
+            </div>
+            <div ng-if="prizeList.length<4" class="gift-box" style="background-color:#EAEAEA;height:16rem;">
+                <img src="images/activity/tjs/jqqd.png" style="position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:50%;height:auto;">
+            </div>
+            <div ng-if="prizeList.length<3" class="gift-box" style="background-color:#EAEAEA;height:16rem;">
+                <img src="images/activity/tjs/jqqd.png" style="position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:50%;height:auto;">
+            </div>
+            <div ng-if="prizeList.length<2" class="gift-box" style="background-color:#EAEAEA;height:16rem;">
+                <img src="images/activity/tjs/jqqd.png" style="position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:50%;height:auto;">
+            </div>
+            <div ng-if="prizeList.length<1" class="gift-box" style="background-color:#EAEAEA;height:16rem;">
+                <img src="images/activity/tjs/jqqd.png" style="position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:50%;height:auto;">
+            </div>
+            <div class="footer"></div>
+        </div>
+    </main>
+    <div class="list-box">
+        <header>
+            [ <span>投资领取记录</span> ]
+        </header>
+        <div class="code-list">
+            <div class="title-list">
+                <table>
+                    <tr>
+                        <th width="30%">用户名</th>
+                        <th width="30%">投资时间</th>
+                        <th width="40%">获得礼品</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="data-list">
+                <table class="data-table">
+                    <tr ng-if="investList.length > 0" ng-repeat="item in investList">
+                        <td width="30%">{{item.mobilePhone}}</td>
+                        <td width="30%">{{item.investTime}}</td>
+                        <td class="special" width="40%">{{item.name}}</td>
+                    </tr>
+                    <tr ng-if="investList.length == 0">
+                        <td width="30%">-</td>
+                        <td width="30%">-</td>
+                        <td width="40%">-</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="user-img">
+        <h1><img src="images/activity/tjs/user-img-title.png"></h1>
+        <div class="slider-box">
+            <div class="img-box swiper-container">
+                <div class="swiper-wrapper">
+                    <div ng-repeat="item in orderShareList" class="swiper-slide">
+                        <img src="{{item.h5ImgUrl}}">
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-h"></div>
+            </div>
+        </div>
+        <img ng-if="wap" ui-sref="tjswish({wap:true})" src="images/activity/tjs/submit-wish.png" class="submit-wish">
+        <img ng-if="!wap" ui-sref="tjswish({uid:uid})" src="images/activity/tjs/submit-wish.png" class="submit-wish">
+    </div>
+
+    <img class="totop" ng-click="gotop()" src="images/activity/newhandreg/top.png">
+    <div class="rule-box">
+        <div class="content">
+            <div>
+                <h1>活动规则<img ng-click="closeRule()" src="images/activity/tjs/close-icon.png"></h1>
+                <ol>
+                    <li>本活动专属标为“好礼钜献专享标”。投资本标的单笔满足礼品对应的金额即可免费领取该礼品，同时还额外获得投资收益；</li><br>
+                    <li>投资本活动标不享受红包等平台其他任何福利；</li><br>
+                    <li>礼品领取方式：投资成功后，请务必填写正确的收货人姓名、地址及联系方式，平台将按您填写的收货信息寄出礼品，预计投资后15个工作日内可到货。</li><br>
+                    <p>*本活动由沪深理财发起并就活动内容作出解释和说明，任何疑问请咨询沪深理财客服：400-031-9909</p>
+                </ol><br>
+                <h2>常见问题</h2>
+                <h3>1.关于活动礼品</h3>
+                <p class="answer">平台精选多种品质商品作为活动好礼，供用户投资领取。根据活动情况，礼品可能会进行上下架调整，具体请以活动页展示为准。</p>
+                <br>
+                <h3>2.礼品是否可以选择尺寸及颜色？</h3>
+                <p class="answer">活动送出的奖品为固定型号固定尺寸，不可选择。礼品颜色一般默认为平台展示的颜色，具体将以实际库存颜色随机发货，如有特别要求请在投资后1日内联系客服400-671-7711告知，我们将尽力满足您的颜色要求，逾期则无法受理。</p>
+                <br>
+                <h3>3.礼品售后保障怎么办？</h3>
+                <p class="answer">本活动礼品不提供发票，凡活动获得的实物类礼品，若有质量问题，可联系商家进行售后退换或维修，售后服务以商家为准，沪深客服可配合您完成售后咨询。</p>
+                <br>
+                <h3>4.未及时收到礼品是什么原因？</h3>
+                <p class="answer">如您投资后未填写收货信息或收货信息不全，礼品会在客服致电确认收货信息后，按流程处理订单及发货，此类情况可能导致礼品延期发货；部分礼品因库存因素等无法保证具体发货时间，如未能及时到货请您耐心等待，我们承诺会按照下单顺序，尽快发货！</p>
+                <br>
+                <h3>5.礼品价格与市场价不一样，为什么？</h3>
+                <p class="answer">因礼品为沪深平台批量采购，采购价格在市场价格上下浮动，如礼品采购价高于市场价则您无需补价，如采购价低于市场价则平台不另作补偿。</p>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="activity-tjs-boxh5" ng-click="closeshare()">
+        <div class="h5share" ng-click="default($event)">
+            <p>复制以下网址，发送给您的好友注册并投资</p>
+            <textarea id="shareurl" class="shareurl">https://hushenlc.cn/tjs?wap=true</textarea>
+            <a ng-click="copyShare()" ng-show="!isCopy">复制链接</a>
+            <a ng-show="isCopy" style="color:#999;">{{isCopytext}}</a>
+        </div>
+    </div>
+    <div class="activity-tjs-boxweixin" ng-click="closeshareweixin()">
+        <img src="images/activity/firend/sharetext.png" class="sharetext" />
+    </div>
+</div>
+<!--icp备案号-->
+<div class="icpba">沪ICP备15011372号-1 Copyright Reserved © 上海沪深理财管理有限公司 v1.2.3</div>

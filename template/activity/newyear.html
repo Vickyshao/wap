@@ -1,0 +1,21 @@
+<div class="newyear">
+    <img src="images/activity/newyear/index-header.png">
+    <div class="maina">
+        <img src="images/activity/newyear/index-maina.png">
+        <span ng-if="wap" ui-sref="newyearact1({wap:true})"></span>
+        <span ng-if="!wap && uid" ui-sref="newyearact1({uid:uid})"></span>
+        <span ng-if="!wap && !uid" ui-sref="newyearact1"></span>
+    </div>
+    <div class="mainb">
+        <img src="images/activity/newyear/index-mainb.png">
+        <span ng-if="wap" ng-click="downloadclick()"></span>
+        <a href="jsmp://page=38?" ng-if="!wap"></a>
+    </div>
+    <div class="mainc">
+        <img src="images/activity/newyear/index-mainc.png">
+        <!--<span ng-if="wap"></span>
+        <a ng-if="!wap" href=""></a>-->
+    </div>
+</div>
+<div class="share-ios"><img ng-click="closethis()" src="images/share-ios.png" /></div>
+<div class="share-android"><img ng-click="closethis()" src="images/share-android.png" /></div>

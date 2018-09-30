@@ -1,0 +1,82 @@
+<div class="pullNewWrap" ng-controller="pullNewCtrl">
+    <main>
+        <img ng-if="!zhihu" style="width: 100%;display: inline-block;vertical-align: top;" src="/images/activity/promote/pullnew_01.png">
+        <img ng-if="zhihu" style="width: 100%;display: inline-block;vertical-align: top;" src="/images/activity/promote/zhihu_01.png">
+        <a href="/main/home" class="logo"></a>
+        <div class="register-box">
+            <div class="promote-box">
+                <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                    <div class="step1" ng-show="form">
+                        <div class="input-item">
+                            <img src="/images/activity/tyj/ico-1.png" style="left:0.7rem;" />
+                            <div class="input-box">
+                                <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号码" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required class="input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step2" ng-show="!form">
+                        <div class="input-item" ng-show="isShowPicCode">
+                            <img src="/images/activity/tyj/ico-2.png" style="left:0.6rem;"/>
+                            <div class="input-box" style="width:57%;margin-right:3%;float:left;">
+                                <input id="imgcode" class="input" type="text" placeholder="请输入图形验证码" ng-model="login.picCode" name="picCode" minlength="4" maxlength="4" autocomplete="off" />
+                            </div>
+                            <div style="width:40%;float:right;">
+                                <span class="img-box"><img ng-click="clickInput($event)" src="login/validateCode2.dos"></span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/tyj/ico-3.png" />
+                            <div class="input-box" style="width:57%;margin-right:3%;float:left;">
+                                <input name="smsCode" ng-model="login.smsCode"  type="text"  placeholder="请输入短信验证码" maxlength="4" required class="input">
+                            </div>
+                            <div class="input-box" style="width:40%;float:left;border:1px solid #f3634e;color:#fff;box-sizing:border-box;background:#f3634e;">
+                                <span ng-click="getyzm(myForm)" style="color:#fff;">{{nowTimer}}</span>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <img src="/images/activity/tyj/ico-4.png" />
+                            <div class="input-box">
+                                <input autocomplete="off" type="{{(passwordText|isShowPw).type}}"  placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/" maxlength="16" ng-model="login.passWord" name="passWord" required class="input" />
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <p><i class="checkbox" ng-click="agree=!agree" ng-class="{checked:agree}" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc">《沪深理财注册协议》</a></p>
+                        </div>
+                    </div>
+                    <div class="input-item" ng-if="!zhihu">
+                        <button class="btn"  ng-show="form" ng-click="next(myForm)" ng-disabled="!agree">立即领取288元红包</button>
+                        <button class="btn"  ng-show="!form" ng-click="zuce(myForm)" ng-disabled="!agree">完成注册，领取288元红包</button>
+                         <p class="toLogin" style="text-align: center;color: #89424a;padding-top: 20px"><a style="color: #333;">已有账号？<span ng-click="toLogin()" style="text-decoration:underline;color:#E70000;">立即登录</span></a></p>
+                    </div>
+                    <div class="input-item" ng-if="zhihu">
+                        <button class="btn"  ng-show="form" ng-click="next(myForm)" ng-disabled="!agree">立即领取理财红包</button>
+                        <button class="btn"  ng-show="!form" ng-click="zuce(myForm)" ng-disabled="!agree">完成注册，领取理财红包</button>
+                        <p class="toLogin" style="text-align: center;color: #89424a;padding-top: 20px"><a style="color: #333;">已有账号？<span ng-click="toLogin()" style="text-decoration:underline;color:#E70000;">立即登录</span></a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <div class="img-wrap">
+        <img ng-if="!zhihu" src="/images/activity/promote/pullNew_021.png" alt="">
+        <img ng-if="zhihu" src="/images/activity/promote/zhihu_021.png" alt="">
+        <div class="list list1">
+            <a class="btn" ng-click="gotop()">立即领取</a>
+        </div>
+        <img src="/images/activity/promote/pullNew_023.png" alt="">
+        <div class="list list2">
+            <a class="btn " ng-click="gotop()"></a>
+        </div>
+        <img ng-if="!zhihu" class="" src="/images/activity/promote/pullnew_04.png">
+        <img ng-if="zhihu" class="" src="/images/activity/promote/zhihu_04.png">
+        <img ng-if="!zhihu" class="" src="/images/activity/promote/pullnew_05.png">
+        <img ng-if="zhihu" class="" src="/images/activity/promote/zhuhu_05.png">
+        <div class="list list3" ng-if="!zhihu">
+            <a class="btn " ng-click="gotop()"></a>
+        </div>
+        <div class="list zhihu" ng-if="zhihu">
+            <a class="btn " ng-click="gotop()"></a>
+        </div>
+        <img class="" src="/images/activity/promote/pullnew_07.png">
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="tjswish">
+    <div class="common-head" ng-click="toback()" ng-if="wap"><i></i><p>礼品心愿</p></div>
+    <ul>
+        <li>
+            <p>请粘贴天猫、京东商城的商品链接如：</p>
+            <!--<input type="text" placeholder="http://item.jd.com/2341892.html" ng-model="url">-->
+            <textarea placeholder="http://item.jd.com/2341892.html" ng-model="url" rows="2" maxlength="255"></textarea>
+        </li>
+        <li>
+            <p>商品备注：</p>
+            <textarea placeholder="型号、颜色、内存等如64G、玫瑰金" ng-model="remarks" rows="2" maxlength="255"></textarea>
+            <!--<input type="text" placeholder="型号、颜色、内存等如64G、玫瑰金" ng-model="remarks">-->
+        </li>
+    </ul>
+    <h4>如上所示，许下您的礼品心愿，详细填写您想要的礼品及型号颜色等，我们将竭力为您实现！</h4>
+    <div class="button" ng-click="submitWish()">确认提交</div>
+</div>

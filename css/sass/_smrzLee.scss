@@ -1,0 +1,810 @@
+.wap-smrz-box{
+	padding-top: rem-calc(40 0 120);
+	font-size: rem-calc(48);
+	&.authRecharge {
+		.block {
+			padding: rem-calc(0);
+			.item {
+				font-size: rem-calc(24px,640);
+				padding: rem-calc(20 40);
+				&:last-child {
+					border-bottom: 1px solid #f2f2f2;
+				}
+				.title {
+					width: rem-calc(300);
+					text-align: left;
+					font-size: rem-calc(24px,640);
+				}
+				.content {
+					flex: 1;
+					text-align: right;
+					padding-left: rem-calc(40);
+					height:rem-calc(100);
+					line-height:rem-calc(100);
+					span {
+						color: $common-red;
+					}
+				}
+				input,.msg-btn {
+					font-size: rem-calc(24px,640);
+				}
+			}
+		}
+		.friendTip {
+			width: 100%;
+			color: #999;
+			padding: rem-calc(0 0 30px,640);
+			font-size: rem-calc(20px,640);
+			text-align: center;
+		}
+	}
+	.text1{
+		line-height: rem-calc(66px,750);
+		background: #f2f2f2;
+		text-align: center;
+		font-size: rem-calc(20px,750);
+		color: #999;
+	}
+	.block {
+		padding: rem-calc(10 40);
+		margin-bottom: rem-calc(40);
+		background: #fff;
+		.item {
+			position: relative;
+			padding: rem-calc(20 0);
+			display: flex;
+			align-items: flex-start;
+			align-content: space-around;
+			border-bottom: 1px solid #f2f2f2;
+			font-size: rem-calc(48);
+			&:last-child {
+				border-bottom: none;
+			}
+			.title {
+				@include inline-block(top);
+				width: rem-calc(200);
+				height:rem-calc(100);
+				line-height:rem-calc(100);
+				text-align: right;
+			}
+			input {
+				flex: 1;
+				padding-left: rem-calc(40);
+				height:rem-calc(100);
+				&.checked{
+					text-indent: 1.7rem;
+				}
+			}
+			.bankimg{
+				position: absolute;
+				left: 9.5rem;
+				top: 1.1rem;
+				width: 1rem;
+				img{
+					width: 100%;
+				}
+			}
+			.msg-btn {
+				position: absolute;
+				top: 0;
+				right: rem-calc(20);
+				z-index: 8;
+				width: 90px;
+				padding-left: rem-calc(30);
+				margin: rem-calc(20 0);
+				height:rem-calc(92);
+				line-height:rem-calc(92);
+				color: $common-blue;
+				font-size: rem-calc(48);
+				text-align: center;
+				&.red{
+					color: $common-red;
+				}
+			}
+			.caret {
+				width: rem-calc(60);
+				height:rem-calc(50);
+				margin: rem-calc(30 0 0 40);
+				background: url("/images/common/caret-right.png") no-repeat center/cover;
+			}
+
+		}
+
+	}
+
+	form {
+		input{
+			padding-left: rem-calc(56);
+			font-size: rem-calc(48);
+			height:rem-calc(100);
+			background: #fff;
+			box-sizing: border-box;
+		}
+	}
+	.list-wrap{
+		li{
+			padding: 0 0.98765rem;
+			color: #333;
+			.left{
+				font-size: 1rem;
+			}
+			.right{
+				i{
+					color: #fc3701;
+				}
+				color: #333;
+			}
+		}
+	}
+	.pay-money{
+		width: 100%;
+		height: rem-calc(103px,750);
+		line-height: rem-calc(103px,750);
+		background: #fff;
+		text-align: center;
+		font-size: rem-calc(26px,750);
+		color: #252525;
+		.red{
+			font-size: rem-calc(32px,750);
+			color: #fc3701;
+		}
+	}
+	.submit-btn{
+		width: 100%;
+		height: auto;
+		background: #fff;
+		padding-top: rem-calc(52px,750);
+		padding-bottom: rem-calc(30px,750);
+		text-align: center;
+		.btn{
+			display: block;
+			width: 90%;
+			height: rem-calc(92px,750);
+			line-height: rem-calc(92px,750);
+			text-align: center;
+			border-radius: 5px;
+			background: #0095e5;
+			color: #fff;
+			font-size: 0.99556rem;
+			margin: 0 auto;
+			box-shadow: 0 1px 3px 2px #cfcecd;
+		}
+		p{
+			font-size: rem-calc(21px,750);
+			color: #858585;
+			margin-top: rem-calc(24px,750);
+			a{
+				color: #0095e5;
+			}
+		}
+	}
+	.wap-sub-btn{
+		display: block;
+		width: 23.90123rem;
+		height: 2.76543rem;
+		line-height: 2.76543rem;
+		text-align: center;
+		border-radius: 0.39506rem;
+		background: #048eed;
+		color: #fff;
+		font-size: 1.28395rem;
+		margin: 2.34568rem auto 0;
+	}
+	.wap-smrz-help{
+		margin: rem-calc(144 56 0);
+		ul{
+			font-size: rem-calc(40);
+		}
+		li{
+			font-size: rem-calc(32);
+			color:#787878
+		}
+	}
+
+}
+//银行卡列表
+.bankListDialog {
+	.bankList {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		z-index: 99;
+		width: 100%;
+		height: rem-calc(1280);
+		background: #fff;
+		&.bankList-list{
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			top: 0;
+			margin: auto;
+			z-index: 99;
+			width: 90%;
+			height: 75%;
+			border-radius: 5px;
+			overflow: hidden;
+			border-bottom: rem-calc(13,750) solid #f4f4f4;
+			opacity: 1;
+			.bankList-title {
+				display: flex;
+				align-items: flex-start;
+				justify-items: center;
+				padding: rem-calc(60 0 10 0);
+				font-size: 1.2rem;
+				text-align: right;
+				border-bottom: 1px solid #e2e2e2;
+				background: #f4f4f4;
+				.ngdialog-close {
+					font-weight: lighter;
+					text-align: center;
+					position: absolute;
+					left: auto;
+					right: 0;
+					top: 0;
+					padding: rem-calc(0 30 0 40);
+					font-size: 2.4rem;
+					color: #999;
+					&:before{
+						content: "";
+					}
+					img{
+						width: rem-calc(30px,750);
+						height: rem-calc(30px,750);
+						vertical-align: top;
+						margin-top: 0.5rem;
+					}
+				}
+				h3 {
+					display: flex;
+					width: 90%;
+					justify-content: space-between;
+					margin: 0 auto;
+					span{
+						color: #9e9e9e;
+						padding: 0;
+						font-size: rem-calc(26px,750);
+					}
+				}
+				span {
+					@include inline-block(top);
+					flex: 1;
+					padding-right: rem-calc(40);
+					color: $common-blue;
+				}
+
+			}
+			.bankList-content {
+				padding: 0;
+				height: 100%;
+				overflow-x: hidden;
+				.list {
+					height: auto;
+					padding-bottom:	rem-calc(120,750);
+					li {
+						display: flex;
+						justify-items: center;
+						align-items: flex-start;
+						padding: rem-calc(0) rem-calc(30,750);
+						line-height: rem-calc(100px,750);
+						font-size: 1.2rem;
+						border-bottom: 1px solid #e2e2e2;
+						box-sizing: border-box;
+						&:last-child {
+							border-bottom: none;
+						}
+						&.selected {
+							.checked {
+								display: inline-block;
+							}
+						}
+						span {
+							width: rem-calc(50,750);
+							height: rem-calc(50,750);
+							margin-top: rem-calc(33,750);
+							img {
+								width: 100%;
+								vertical-align: top;
+							}
+						}
+						h2{
+							flex: 1;
+							font-size: rem-calc(24,750);
+							color: #333;
+							padding-left: rem-calc(30,750);
+							&.yuan{
+								text-align: center;
+							}
+						}
+						.checked {
+							display: none;
+							width: rem-calc(33,750);
+							height: rem-calc(33,750);
+							margin-top: rem-calc(30,750);
+							margin-left: rem-calc(30,750);
+							background: url("/images/common/check_new_t.png") no-repeat center/contain;
+						}
+					}
+
+				}
+			}
+		}
+		&-title {
+			display: flex;
+			align-items: flex-start;
+			justify-items: center;
+			padding: rem-calc(40 0);
+			font-size: 1.2rem;
+			text-align: right;
+			border-bottom: 1px solid #e2e2e2;
+			.ngdialog-close {
+				font-weight: lighter;
+				text-align: center;
+				position: absolute;
+				left: 0;
+				top: -1px;
+				padding: rem-calc(0 50 0 40);
+				font-size: 2.4rem;
+				color: #999;
+				opacity: 0.6;
+			}
+			h2 {
+				flex: 2;
+				color: #333;
+			}
+			span {
+				@include inline-block(top);
+				flex: 1;
+				padding-right: rem-calc(40);
+				color: $common-blue;
+			}
+		}
+		&-content {
+			padding: rem-calc(0 40);
+			height: rem-calc(1260);
+			overflow-x: hidden;
+			.list {
+				height: auto;
+				padding-bottom:	rem-calc(120);
+				li {
+					display: flex;
+					justify-items: center;
+					align-items: flex-start;
+					padding: rem-calc(40);
+					line-height: rem-calc(105);
+					font-size: 1.2rem;
+					border-bottom: 1px solid #e2e2e2;
+					&:last-child {
+						border-bottom: none;
+					}
+					&.selected {
+						.checked {
+							display: block;
+						}
+					}
+					span {
+						width: rem-calc(100);
+						height: rem-calc(100);
+						img {
+							width: 100%;
+						}
+					}
+					h2{
+						flex: 1;
+						font-size: 1.2rem;
+						color: #333;
+						padding-left: rem-calc(60);
+					}
+					.checked {
+						display: none;
+						width: rem-calc(60);
+						height: rem-calc(60);
+						margin-top: rem-calc(20);
+						background: url("/images/common/checked.png") no-repeat center/cover;
+					}
+				}
+
+			}
+		}
+
+
+		&.couponList {
+			height: auto;
+			.bankList-title {
+				border-bottom-color: transparent;
+				.ngdialog-close {
+					width: rem-calc(96px,640);
+					height: rem-calc(72px,640);
+					right: 0;
+					left: auto;
+					text-align: right;
+				}
+				h2 {
+					text-align: center;
+					color: #666;
+					a {
+						@include inline-block(0);
+						width: rem-calc(38px,750);
+						height: rem-calc(38px,750);
+						border: 1px solid $common-blue;
+						border-radius: rem-calc(38px,750);
+						-webkit-border-radius: rem-calc(38px,750);
+						color: $common-blue;
+						text-align: center;
+						font-size: rem-calc(24px,750);
+					}
+				}
+			}
+			.bankList-desc {
+				text-align: center;
+				font-size: rem-calc(24px,750);
+				width: 100%;
+				margin-top: rem-calc(-20px,750);
+				color: #666;
+			}
+			.bankList-content {
+				padding: rem-calc(0 32px,750);
+				height: rem-calc(600px,750);
+				overflow-y: scroll;
+				.list {
+					li {
+						width: 100%;
+						height: 100%;
+						background-size: 100% 100%;
+						background-repeat: no-repeat;
+						color: #a0a0a0;
+						padding: 0;
+						&.checked {
+							background: #000;
+						}
+						&.coupon-list{
+							position: relative;
+							padding: rem-calc(20px 0,750);
+							box-sizing: border-box;
+							display: flex;
+							height: rem-calc(213px,750);
+							background-position: center;
+							background-size: 100% 100%;
+							background-repeat: no-repeat;
+							margin-top: rem-calc(30px,750);
+							p{
+								display: block;
+								width: 100%;
+							}
+							&:last-child{
+								margin-bottom: rem-calc(46px,750);
+							}
+							&:first-child{
+								//margin-top: rem-calc(46px,750);
+							}
+							&.fx-coupon{
+								background-image: url("/images/coupon/fx-coupon-bg.png");
+							}
+							&.fb-coupon{
+								background-image: url("/images/coupon/fb-coupon-bg.png");
+							}
+							&.jx-coupon{
+								background-image: url("/images/coupon/jx-coupon-bg.png");
+							}
+							&.status1{
+								background-image: url("/images/coupon/used-coupon.png");
+							}
+							&.status2{
+								background-image: url("/images/coupon/mycoupon-nouse.png");
+							}
+							.left{
+								box-sizing: border-box;
+								width: rem-calc(180px,750);
+								color: #e5464a;
+								text-align: center;
+								padding-top: 0.6rem;
+								&.fx-coupon{
+									color: #e5464a;
+								}
+								&.fb-coupon{
+									color: #ffb629;
+								}
+								&.jx-coupon{
+									color: #3890e2;
+								}
+								&.status1{
+									color: #c6c6c6;
+								}
+								&.status2{
+									color: #c6c6c6;
+								}
+								.money{
+									@include inline-block(-5px);
+									font-size: rem-calc(32px,750);
+									-ms-text-overflow: ellipsis;
+									text-overflow: ellipsis;
+									overflow: hidden;
+									white-space: nowrap;
+									span{
+										font-size: rem-calc(41px,640);
+									}
+								}
+								.name{
+									@include inline-block(top);
+									line-height: 100%;
+									font-size: rem-calc(26px,750);
+								}
+							}
+							.middle{
+								flex: 1;
+								color: #000;
+								font-size: rem-calc(28px,750);
+								box-sizing: border-box;
+								padding-top: rem-calc(18px,750);
+								line-height: 1.8rem;
+								.time{
+									font-size: rem-calc(24px,750);
+									color: #bbb;
+								}
+								&.status1{
+									color: #c6c6c6;
+								}
+								&.status2{
+									color: #c6c6c6;
+								}
+							}
+							.right{
+								position: relative;
+								box-sizing: border-box;
+								width: rem-calc(90px,750);
+								font-size: rem-calc(24px,750);
+								color: #e5464a;
+								padding: rem-calc(30px 30px 0,750);
+								text-align: center;
+								line-height: rem-calc(30px,750);
+								p {
+									position: absolute;
+									bottom: 0;
+									right: rem-calc(80px,750);
+									z-index: 8;
+									display: none;
+									width: rem-calc(40px,750);
+									height: rem-calc(40px,750);
+									&.checked {
+										display: block;
+										background: url("/images/coupon/icon_selected.png") no-repeat center/contain;
+									}
+								}
+								&.fx-coupon{
+									color: #e5464a;
+								}
+								&.fb-coupon{
+									color: #ffb629;
+								}
+								&.jx-coupon{
+									color: #3890e2;
+								}
+								&.status1{
+									color: #c6c6c6;
+								}
+								&.status2{
+									color: #c6c6c6;
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+		&.zhifu {
+			height: auto;
+			.bankList-title {
+				.ngdialog-close {
+					right: 0;
+					text-align: right;
+				}
+				h2 {
+					text-align: center;
+					color: #666;
+				}
+			}
+			.bankList-content {
+				padding: rem-calc(20px 40px 40px,750);
+				height: auto;
+				.xl-text {
+					font-size: rem-calc(36px,750);
+					color: #333;
+					padding: rem-calc(10px 0,750);
+				}
+				.sm-text {
+					font-size: rem-calc(26px,750);
+					color: #666;
+					padding: rem-calc(10px 0 30px,750);
+				}
+				.xy-text {
+					font-size: rem-calc(20px,750);
+					color: #c4c4c4;
+					padding: rem-calc(0 0 50px,750);
+					a{
+						color: #c4c4c4;
+					}
+				}
+				&.trade-content {
+					text-align: center;
+					.sm-text {
+						padding: rem-calc(10px 0,750);
+					}
+					.xl-text {
+						padding: rem-calc(0 0 30px,750);
+					}
+					.tradePwd {
+						position: relative;
+						width: 85%;
+						height: rem-calc(84px,640);
+						margin: 0 auto;
+						background: url("/images/common/input-box.png") no-repeat top center/contain;
+						input {
+							position: absolute;
+							top: 0;
+							left: 0;
+							z-index: 7;
+							width: 100%;
+							height: 100%;
+							color: transparent;
+							text-shadow: 0 0 0 transparent;
+						}
+						.pwd {
+							position: absolute;
+							top: 0;
+							left: 0;
+							z-index: 6;
+							width: 100%;
+							height: 100%;
+							display: flex;
+							display: -webkit-flex;
+							align-items: flex-start;
+							justify-items: center;
+							align-content: center;
+							li {
+								width: rem-calc(85.44px,640);
+								height: 100%;
+								i {
+									display: none;
+									width: 100%;
+									height: 100%;
+									text-align: center;
+									line-height: rem-calc(80px,640);
+									font-size: rem-calc(24px,640);
+								}
+								&.active {
+									i {
+										display: block;
+									}
+								}
+
+							}
+						}
+					}
+					.restPwd {
+						padding: rem-calc(20px 40px,750);
+						text-align: right;
+						font-size: rem-calc(24px,640);
+						color: $common-blue;
+					}
+					.setPwdIcon {
+						position: relative;
+						width: 70%;
+						margin: rem-calc(30px auto 40px,750);
+						display: flex;
+						justify-items: center;
+						align-items: flex-start;
+						justify-content: space-between;
+						.line {
+							position: absolute;
+							top: rem-calc(26px,750);
+							left: rem-calc(93px,640);
+							z-index: 2;
+							width: rem-calc(216px,640);
+							height: rem-calc(4px,750);
+							background-color: #999;
+							&.active {
+								background-color: $common-blue;
+							}
+						}
+						li {
+							width: rem-calc(144px,640);
+							text-align: center;
+							i {
+								@include inline-block(top);
+								width: rem-calc(50px,750);
+								height: rem-calc(50px,750);
+								line-height: rem-calc(55px,750);
+								border-radius: rem-calc(80px,750);
+								background: #999;
+								font-size: rem-calc(28px,750);
+								color: #fff;
+							}
+							p {
+								font-size: rem-calc(24px,750);
+								color: #666;
+								padding: rem-calc(10px,750);
+							}
+							&.active {
+								i {
+									background: $common-blue;
+								}
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+
+
+
+
+	}
+}
+//实名认证帮主页面
+.helpDesc {
+	.main {
+		padding: rem-calc(20px 0,750);
+		.title {
+			padding: rem-calc(20px 40px 0 0,750);
+			font-size: rem-calc(30px,750);
+			color: #333;
+		}
+		.bgfff {
+			padding: rem-calc(30px 0 0 30px,750);
+			background: #fff;
+			.block {
+				padding: rem-calc(40px 40px 40px 0,750);
+				border-bottom: 1px solid $global-border;
+				&:last-child {
+					border-bottom-color: transparent;
+				}
+				.ask {
+					font-size: rem-calc(30px,750);
+					padding-bottom: rem-calc(20px,750);
+					color: #666;
+					i{
+						display: inline-block;
+						vertical-align: top;
+						width: rem-calc(70px,750);
+						height: rem-calc(48px,750);
+						color: #fff;
+						text-align: center;
+						font-size: rem-calc(18px,640);
+						background-size: contain;
+						background-repeat: no-repeat;
+						background-position: center;
+						&.ask1 {
+							background-image: url("/images/common/icon1.png");
+						}
+					}
+				}
+				.answer {
+					padding-left: rem-calc(60px,750);
+					p {
+						font-size: rem-calc(26px,750);
+						color: #999;
+						text-align: justify;
+						a {
+							color: $common-blue;
+							word-break: break-all;
+						}
+					}
+				}
+			}
+		}
+		.tips {
+			width: 100%;
+			text-align: center;
+			padding: rem-calc(50px 0,750);
+			font-size: rem-calc(30px,750);
+			color: #666;
+			span {
+				color: $common-blue;
+			}
+		}
+	}
+
+}

@@ -1,0 +1,27 @@
+<div class="abouths headerTop" ng-controller="mediasCtrl"  ng-init="tapsub=1">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <!-- 媒体动态 -->
+    <div class="mode" >
+        <ul class="media-news">
+            <li ng-repeat="item in ggList" ng-click="goto(item.artiId)" infinite-scroll='loadMore(item)' infinite-scroll-distance='1' infinite-scroll-immediate-check = false>
+            <div class="left">
+                <h3>{{item.title}}</h3>
+                <!--<p>{{item.createTime | date:'yyyy-MM-dd'}}</p>-->
+                <!--<p><span>查看详情</span><img src="images/find/icon_rightto.png"  class="right-icon"></p>-->
+                <p  ng-click="goto(item.artiId)" >
+                    <!--<img src="images/find/db-right-arrows.png" >-->
+                    查看详情>>
+                </p>
+            </div>
+            <!--<div class="right"><img src="images/find/icon_rightto.png"  class="right-icon"></div>-->
+            <div class="right">
+                <!--<img src="images/find/abouths/honor1.png"  class="right-icon">-->
+                <img ng-src="{{item.litpic}}"  class="right-icon">
+            </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

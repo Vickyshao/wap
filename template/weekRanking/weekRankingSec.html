@@ -1,0 +1,153 @@
+<div class="week-ringking headerTop" ng-controller="weekRankingSecCtrl">
+    <div class="common-head" ng-if="!fromNative">
+        <i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="banner">
+        <img src="/images/weekRanking/banner.png" alt="" class="img">
+        <!--期数-->
+        <div class="num">
+            <img src="/images/weekRanking/term-num2.png" alt="">
+        </div>
+        <!--时间-->
+        <div class="time">
+            活动时间：3月23日-3月29日
+        </div>
+    </div>
+    <!--年华计算器-->
+    <div class="calculator" ng-click="calculator()">
+        <img src="/images/weekRanking/calculator.png" alt="">
+    </div>
+    <div class="islogin-wrap">
+        <!--未登录-->
+        <div class="common-login-box no-login">
+            <div ng-if="!isLogin">
+                <p class="desc">我的累计年化投资金额</p>
+                <h2 ng-click="toInvestIng()" class="num login-text">请登录后查看</h2>
+            </div>
+
+            <div ng-if="isLogin">
+                <!--在50名以后-->
+                <div ng-if="!myInfo.isInTop50">
+                    <p class="desc-login desc">我的累计年化投资金额： <i class="red">{{myInfo.myAnnualizedAmount}}元</i></p>
+                    <p class="tip">距离第{{weekRankList.length}}名：年化投资额仅差{{distence}}元</p>
+                </div>
+                <!--在第一名-->
+                <div ng-if="myInfo.isInTop50 && myInfo.myRanking == 1">
+                    <div class="crown"><img src="/images/weekRanking/crown.png" alt=""></div>
+                    <h2 class="num">第 <i class="red">{{myInfo.myRanking}}</i> 名</h2>
+                    <p class="desc-login desc">我的累计年化投资金额： <i class="red">{{myInfo.myAnnualizedAmount}}元</i></p>
+                </div>
+                <!--1-50名-->
+                <div ng-if="myInfo.isInTop50 && myInfo.myRanking != 1">
+                    <div class="crown"><img src="/images/weekRanking/crown.png" alt=""></div>
+                    <h2 class="num">第 <i class="red">{{myInfo.myRanking}}</i> 名</h2>
+                    <p class="desc-login desc">我的累计年化投资金额： <i class="red">{{myInfo.myAnnualizedAmount}}元</i></p>
+                    <p class="tip">距离第{{myInfo.myRanking-1}}名：年化投资额仅差{{distence}}元</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="title">
+            <img src="/images/weekRanking/title1.png" alt="">
+        </div>
+        <div class="header-info">前 <i>50</i> 都有奖哦~</div>
+        <div class="ring-list first-list">
+            <div class="box first-list">
+                <ul class="top-list">
+                    <li ng-class="{0:'top2',1:'top1',2:'top3'}[index]" ng-repeat="index in [1,0,2]">
+                        <div class="award">
+                            <p class="money"><i>{{threeRinking[index].awardName}}</i>元</p>
+                            <p class="txt">现金红包</p>
+                        </div>
+                        <!--已登录-->
+                        <div class="logined">
+                            <p>{{threeRinking[index].userName}}</p>
+                            <p>累计年化投资额</p>
+                            <p>{{threeRinking[index].annualizedAmount | number:0}}元</p>
+                        </div>
+                        <!--<span ng-if="rankListlist1[index].isYouSelf" class="nin" ng-class="{1:'nin1',0:'nin2',2:'nin3'}[index]">您:</span>-->
+                        <div class="top-num" ng-class="{true:'red',false:''}[threeRinking[index].isYouSelf]"><i><img
+                                src="/images/weekRanking/isyou.png" alt=""></i>Top{{index+1}}</div>
+                    </li>
+                </ul>
+                <table class="table">
+                    <tr>
+                        <th style="width: 20%;">排名</th>
+                        <th>用户</th>
+                        <th style="width: 37%;">累计年化投资额（元）</th>
+                        <th style="width: 25%;">奖品</th>
+                    </tr>
+                    <tr ng-repeat="item in weekRinkingList" ng-class="{true:'red',false:''}[item.isYouSelf]">
+                        <td ng-class="{true:'isyou',false:''}[item.isYouSelf]"><b ng-if="item.isYouSelf"><img src="/images/weekRanking/isyou.png" alt=""></b><i>{{item.rank}}</i></td>
+                        <td>{{item.userName}}</td>
+                        <td>{{item.annualizedAmount}}</td>
+                        <td>{{item.awardName}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="header-info second-headerinfo">第 <i>11-50</i> 名奖品展示</div>
+        <div class="ring-list">
+            <div class="box second-list">
+                <ul class="award-list">
+                    <li ng-repeat="item in award">
+                        <h3>{{item.num}}</h3>
+                        <div class="award-info">
+                            <div class="img">
+                                <img src="{{item.img}}" alt="">
+                            </div>
+                            <div class="award-text">{{item.name}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rule">
+            <h2>
+                <img src="/images/weekRanking/rule-title.png" alt="">
+            </h2>
+            <ul class="rule-list">
+                <li>
+                    <span>1、</span>
+                    活动时间：2018.3.23-2018.3.29；
+                </li>
+                <li>
+                    <span>2、</span>
+                    活动时间内，投资定期标（新手标，活动标除外）累计年化排名最高的前50名用户将获得对应的排名奖励，若排名相同，则以最先达到该排名的用户为先。最终排名以活动结束后排行榜和公告为准；
+                </li>
+                <li>
+                    <span>3、</span>
+                    年化投资额=单次投资额/360*投资天数。小数点会累计计算，但活动只显示整数部分，排行榜以整数进行对比；
+                </li>
+                <li>
+                    <span>4、</span>
+                    现金奖励将以投资红包形式发放至账户，仅需投资100元即可激活。京东卡以短信形式发放卡密至获奖手机，话费将直接充值到获奖的手机。所有奖励将在活动结束后的20个工作日内发放；
+                </li>
+                <li>
+                    <span>5、</span>
+                    部分合作渠道用户的首次投资不计入本次活动，以渠道活动说明为准；
+                </li>
+                <li>
+                    <span>*</span>
+                    本活动由沪深理财发起并就活动内容作出解释和说明，任何疑问请咨询沪深客服：400-031-9909。
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <img src="/images/weekRanking/bottom-img.png">
+    </div>
+    <div class="bottom-invest">
+        <div class="box" ng-click="toInvestIng()">立即投资</div>
+    </div>
+
+    <!--已下线-->
+    <div class="deline" ng-if="!isInActivityTime">
+        <div class="delineDialog">
+            <p>周冠加奖活动第二期已结束</p>
+            <p>敬请留意其他活动</p>
+        </div>
+    </div>
+</div>

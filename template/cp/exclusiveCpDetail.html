@@ -1,0 +1,321 @@
+<!-- <div class="cp-head"><span style=""><</span>{{title}}</div> -->
+<div class="wrap pb3 newhand-wrapper cp-wrapper" ng-controller='exclusiveCtrl' ng-init="!isShowRule">
+    <div class="common-head" ><i ng-click="toback()"></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="headerTop container" ng-show="mainbox">
+        <!-- 头 -->
+        <div class="handbox marT info-box">
+            <h2>
+                <p ng-if="cp.repayType!=3 && cp.repayType!=4" class="imgs">
+                    <!--<img ng-if="cp.atid" src="images/cs90/iphone7title.png" class="icon icon-activity" />-->
+                    <img class="icon icon_bb" ng-if="cp.isRepair==1" src="images/list/icon_bb.png">
+                    <img class="icon icon_raise" ng-if="cp.isInterest==1" src="images/list/icon_raise.png">
+                    <img ng-if="cp.isCash==1&&!cp.atid" class="icon icon_cash" src="images/list/icon_returncash.png">
+                    <img ng-if="cp.isDouble==1&&!cp.atid" class="icon icon_double" src="images/list/icon_double.png">
+                    <img class="icon icon_returncash" ng-if="cp.isDeductible==1" src="images/list/icon_returncash.png">
+                </p>{{cp.fullName}}
+                <!--<b ng-if="cp.activityRate>0">活动</b>-->
+            </h2>
+            <table>
+                <tr>
+                    <td width="100%" class="noleft" style="border-right:none;text-align:center;">
+                        <div class="mod">
+                            <span>历史年化收益率</span>
+                            <p><i>{{cp.rate}}%</i>
+                                <!--<span class="icon_jiaxi" ng-if="cp.activityRate>0 && !isshuangdan" style='vertical-align: top;line-height: 0.9rem;font-size: 0.4rem;'>+{{cp.activityRate}}%</span>-->
+                                <!--样式修改-->
+
+                                <i ng-if="cp.activityRate>0 && !isshuangdan">+{{cp.activityRate}}%</i>
+                                <i ng-if="isshuangdan && (specialRate>0 || cp.activityRate>0)">+{{specialRate+cp.activityRate}}%</i>
+                                <!--<span ng-if="isshuangdan && (specialRate>0 || cp.activityRate>0)" class="shuangdan" ng-if="specialRate>0">
+                                    <span class="rate-box">
+                                        <img src="images/activity/shuangdan/detail-icon.png">
+                                        <span>+{{specialRate+cp.activityRate}}%</span>
+                                    </span>
+                                    <span class="suggest">{{doubleEggrule}}</span>
+                                </span>-->
+                            </p>
+                            <p class="modinfo">{{cp.deadline}}天 | {{cp.leastaAmount| number}}元起投</p>
+                            <div class="percentage-box" style="width:100%;">
+                                <i>{{cp.pert | setProgress}}%</i>
+                                <div class="percentage" style="width:90%"><span ng-attr-style="width: {{cp.pert | setProgress}}%"></span></div>
+                            </div>
+                        </div>
+                        <div class="eggs" ng-class="{eggsx:cp.isEgg==2}" ng-if="cp.maxActivityCoupon" ng-click="cancelza($event)">
+                            <span ng-if="cp.isEgg==1">最高{{cp.maxActivityCoupon}}%加息</span>
+                            <span ng-if="cp.isEgg==2">满标后作废哦</span>
+                            <div ng-click="zaEgg($event,cp)" ng-class="{eggimg:cp.isEgg==1}">
+                                <font ng-if="cp.isEgg==2">&nbsp;+{{cp.maxActivityCoupon}}%&nbsp;</font>
+                            </div>
+                            <div class="chuizi"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bot">
+                        <div class="mod">
+                            <p class="left"><span>剩余可投（元）</span>{{cp.surplusAmount | number}}</p>
+                            <p class="right"><span>剩余期限</span>{{nowTimer}}</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-list">
+            <table class="list-table">
+                <tr>
+                    <td class="list-title">
+                        <div>计息方式<img src="images/newhand/ico_cpxq.png"></div>
+                    </td>
+                    <td class="list-con">
+                        <div>{{interestmode}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="list-title">
+                        <div>还款方式<img src="images/newhand/ico_coin_2.png"></div>
+                    </td>
+                    <td class="list-con">
+                        <div ng-bind="{1:'到期一次还本付息',2: '按月付息到期还本',3:'等本等息 按周回款',4:'等本等息 按月回款',5:'其他'}[cp.repayType]"></div>
+                    </td>
+                </tr>
+                <tr ng-if="type == 1" ui-sref="newhand({pid:cp.id,wap:true})">
+                    <td class="list-title">
+                        <div>产品描述<img src="images/newhand/ico_coin_3.png"></div>
+                    </td>
+                    <td class="list-con"><span class="icon-caret">></span></td>
+                </tr>
+                <tr ng-if="cp.atid">
+                    <td class="list-title">
+                        <a ui-sref="special({wap:true})">
+                            <div style="width: 100%;box-sizing: border-box;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"><img src="images/newhand/ico-phone.png" style="width:1rem;">{{appTitle}}</div>
+                        </a>
+                    </td>
+                    <td class="list-con">
+                        <a ui-sref="special({wap:true})"><img src="images/cs90/ico-jt.png" style="transform: rotate(-90deg);float:none;" /></a>
+                    </td>
+                </tr>
+                <tr ng-if="cp.atid" ui-sref="activityPerson({id:cp.id,wap:true})">
+                    <td class="list-title">
+                        <div>本期中奖者<img src="images/cs90/ico-activity.png"></div>
+                    </td>
+                    <td class="list-con"><img src="images/cs90/ico-jt.png" style="transform: rotate(-90deg);float:none;" /></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- tab -->
+        <ul class="nav nav-pills mb1">
+            <li role="presentation" ng-class="{0:'active'}[active]" ng-click="active=0"><a href="">项目介绍</a></li>
+            <li role="presentation" ng-class="{2:'active'}[active]" ng-click="active=2"><a href="">安全保障</a></li>
+            <li role="presentation" ng-class="{1:'active'}[active]" ng-click="active=1"><a href="">投资记录</a></li>
+        </ul>
+        <!-- tab 0 -->
+        <div class="panel panel-default" ng-if="active==0">
+            <!-- <div class="panel-heading"><div>债务人概况<i ng-click="setAction(panel1)"></i></div></div>
+            <div class="panel-body" ng-if="panel1.isAction==1">
+                <p>{{cp.borrower}}</p>
+            </div>
+            
+            <div class="panel-heading"><div>承兑方概况<i ng-click="setAction(panel2)"></i></div></div>
+            <div class="panel-body" ng-if="panel2.isAction==1"><p>{{cp.introduce}}</p></div> -->
+
+            <div class="panel-heading" ng-if="extendInfos&&extendInfos.length>0">
+                <div>产品说明</div>
+            </div>
+            <div class="panel-body" ng-if="extendInfos&&extendInfos.length>0">
+                <ul class="panel-body-list">
+                    <li ng-repeat="item in extendInfos track by $index">
+                        <h3>{{item.title}}<i ng-click="slideToggle($event)"></i></h3>
+                        <p style="padding-left:10px;">{{item.content}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-heading" ng-if="picList&&picList.length>0">
+                <div>产品资料情况</div>
+            </div>
+            <!-- List group -->
+            <ul class="list-group" ng-if="picList&&picList.length>0">
+                <li class="list-group-item" ng-repeat="pic in picList">
+                    <div>
+                        <img ng-click="showImg($event)" src="{{pic.bigUrl}}">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="panel panel-default" ng-if="active==2">
+            <div class="detail_aqbz">
+                <div class="block">
+                    <h2><span>两大顶级律师事务所合规支持</span></h2>
+                    <p>
+                        沪深理财平台聘用了国内顶级律师事务所作为公司的常年法律顾问。沪深理财平台所有业务活动以及相关合同和协议均咨询律师事务所，确保其符合相关法律法规，沪深理财平台合法守信经营，让沪深理财平台的用户权益受国家法律保护。</p>
+                </div>
+                <div class="block">
+                    <h2><span>360°严格风控体系</span></h2>
+                    <p>沪深理财平台拥有强大专业的风控团队，采用银行级的风控制度和流程。</p>
+                    <p>贷前：针对每一个借款人的资质进行线上大数据建模分析和线下实地考核相结合，评估借款人的还款能力和还款意愿，保证借款人的质量。</p>
+                    <p>贷中：采用技术手段跟踪每一笔借款的资金走向，确保资金完全用于经过贷前审核的项目，保证借款资金的专款专用。</p>
+                    <p>贷后：利用大数据平台对借款人的状态进行实时扫描和追踪，如出现风险，沪深理财平台的专业团队奖第一时间进行风险管理和资产保全。沪深理财平台所有业务活动以及相关合同和协议均咨询律师事务所，确保其符合相关法律法规，沪深理财平台合法守信经营，让沪深理财平台的用户权益受国家法律保护。</p>
+                </div>
+                <div class="block">
+                    <h2><span>合作保障机构</span></h2>
+                    <p>
+                        沪深理财平台已和业内多家专业的商业保理公司和担保公司达成合作。针对不同的项目，将有相应的合作保障机构进行担保。一旦借款人还款出现坏账，将由相应的合作保障机构对投资人的本息进行100%垫付。</p>
+                </div>
+                <div class="block">
+                    <h2><span>银行级网站技术</span></h2>
+                    <p>
+                        沪深理财平台有用强大专业的互联网技术团队，核心成员来自著名的互联网金融公司有丰富的行业经验。同时沪深理财平台的网络系统采用了阿里巴巴集团旗下的“阿里云”金融解决方案，该技术平台通过了公安部等级保护评测，达到了银行级技术水平。</p>
+                </div>
+            </div>
+        </div>
+        <!-- tab1 -->
+        <div class="panel panel-default" ng-if="active==1">
+            <table class="table cp-tab">
+                <thead>
+                    <tr>
+                        <th width="33%">投资人</th>
+                        <th width="33%">投资金额</th>
+                        <th width="34%" class="date">投资时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="invest in investList">
+                        <td>{{invest.mobilephone | limitTo:2}}******{{invest.mobilephone | limitTo:-2}}</td>
+                        <td>{{invest.amount|currency:''}}元</td>
+                        <td class="date">{{invest.investTime|date:'yyyy-MM-dd'}}<br>{{invest.investTime|date:'HH:mm:ss'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 未认证 ?pid={{cp.id}}-->
+    <!-- <div class="sign_box_bottom newhand-btn" ng-if="(a|isRegister).register && map.realVerify==0" ui-sref="certification">
+                充值
+    </div> -->
+    <div class="sign_box_bottom newhand-btn" ng-click="toInvest()" ng-if="(a|isRegister).register && cp.status==5">
+        立即投资
+    </div>
+    <div class="sign_box_bottom newhand-btn" style="z-index: 999" ng-if="!(a|isRegister).register" ng-click="gologin()">
+        立即登录
+    </div>
+
+    <div class="sign_box_bottom newhand-btn" ng-if="cp.status!=5">
+        <div style="height: 100%;" ng-class="{'newhand-btn-default':true,all:!yuebiao.isReservation}" ng-bind="{6:'募集结束',7:'募集失败',8:'待还款',9:'已还款'}[cp.status]"></div>
+        <div style="width:40%;float:left;height: 100%;cursor:pointer;" ng-click="goyuebiao()" ng-if="yuebiao.isReservation">立即预约下期</div>
+    </div>
+    <div class="mask" ng-show="showBigImg" ng-click="showBigImg = false">
+        <div class="check-img-wrap"><img src="{{bigImgSrc}}"></div>
+    </div>
+
+
+    <!-- 补标规则弹框 -->
+    <!--  <div class="bb-mask" ng-show="isShowRule">
+        <div class="bb-check-img-wrap">
+            <img src="../../images/BBRule.png">
+            <span class="btn" ui-sref="CP117({wap:true})"></span>
+            <p class="icon icon_close" ng-click="onClick('closeRule')"></p>
+        </div>
+    </div> -->
+
+
+    <!-- 补标弹框 -->
+    <!-- <div  ng-show="isShowRule" class="maskErrorBB ng-cloak" >
+        <div class="maskErrorBB-box">
+            <p>本产品目前已激活补标奖励，成功补标将获得XXXX!</p>
+            <a ng-click="isShowRule=false" class="close">关闭</a>
+            <a ui-sref="CP117({wap:true})" ng-click="isShowRule=false" class="rule">补标规则</a>
+        </div>
+    </div> -->
+    <div class="zjd">
+        <div class="zjd-box1">
+            <img src="images/activity/zjd/zjdtext.png" class="zjdtext" />
+            <img src="images/activity/zjd/zjdico1.png" class="zjdico1" />
+            <img src="images/activity/zjd/zjdico2.png" class="zjdico2" />
+            <img src="images/activity/zjd/zjdico3.png" class="zjdico3" />
+            <i class="zjdclose" ng-click="closeEgg()"></i>
+            <div class="zjd-box">
+                <div style="height:4rem;"></div>
+                <div class="quan">
+                    <div class="quanleft">
+                        <p>+
+                            <font>{{eggs.oldActivityCoupon.raisedRates}}</font>%</p>
+                        <span>{{eggs.oldActivityCoupon.fullName}}</span>
+                    </div>
+                    <div class="quanright">
+                        加<br>息<br>券
+                    </div>
+                </div>
+                <button class="zjd-btn red" ui-sref="investment" ng-click="closeEgg()">立即使用</button>
+                <button class="zjd-btn green" ng-click="share($event)">分享再砸一次</button>
+                <div class="zjdsm">
+                    <h3>────────────────────────────────────────────────────────────────<span>活动说明</span></h3>
+                    <p>1. 活动期间，指定标的可享受砸金蛋加息福利；</p>
+                    <p>2. 砸金蛋所得加息券只可用于当前标的，标的满标后，加息券即作废</p>
+                    <p>3. 砸金蛋所得加息券过期后，砸蛋机会恢复可继续参与砸蛋加息。</p>
+                </div>
+            </div>
+        </div>
+        <div class="zjd-box2" ng-click="closethis($event)"></div>
+        <div class="zjd-box3">
+            <img src="images/activity/zjd/zjdtext2.png" class="zjdtext" />
+            <div class="zjd-trans">
+                <img src="images/activity/zjd/dizuo.png" class="eggbg" />
+                <img src="images/activity/zjd/light.png" class="light" />
+                <img src="images/activity/zjd/eggbg2.png" class="eggbg2" />
+                <img src="images/activity/zjd/egg.png" class="egg" ng-click="zajindan($event)" />
+                <div class="chuizi"></div>
+            </div>
+        </div>
+        <div class="zjd-box4">
+            <img src="images/activity/zjd/zjdtext.png" class="zjdtext" />
+            <img src="images/activity/zjd/zjdico1.png" class="zjdico1" />
+            <img src="images/activity/zjd/zjdico2.png" class="zjdico2" />
+            <img src="images/activity/zjd/zjdico3.png" class="zjdico3" />
+            <i class="zjdclose" ng-click="closeEgg()"></i>
+            <div class="zjd-box">
+                <div style="height:4rem;"></div>
+                <div class="quan">
+                    <div class="quanleft">
+                        <p>+
+                            <font>{{eggs.newActivityCoupon.raisedRates}}</font>%</p>
+                        <span>{{eggs.newActivityCoupon.fullName}}</span>
+                    </div>
+                    <div class="quanright">
+                        加<br>息<br>券
+                    </div>
+                </div>
+                <p class="line">─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
+                    ─ ─ ─ ─ ─ ─ ─</p>
+                <div class="quan zuofei">
+                    <img src="images/activity/zjd/quanx.png" class="zuofeibg" />
+                    <div class="quanleft">
+                        <p>+
+                            <font>{{eggs.oldActivityCoupon.raisedRates}}</font>%</p>
+                        <span>{{eggs.oldActivityCoupon.fullName}}</span>
+                    </div>
+                    <div class="quanright">
+                        加<br>息<br>券
+                    </div>
+                </div>
+                <button class="zjd-btn red" ui-sref="investment">立即使用</button>
+                <div class="zjdsm">
+                    <h3>────────────────────────────────────────────────────────────────<span>活动说明</span></h3>
+                    <p>1. 活动期间，指定标的可享受砸金蛋加息福利；</p>
+                    <p>2. 每个标的最多砸2次金蛋，只保留收益率最高的加息券；</p>
+                    <p>3. 砸金蛋所得加息券只可用于当前标的，标的满标后，加息券即作废。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="yuebiao-success yuebiao-renzheng" ng-if="isRealverify">
+        <div class="yuebiao-success-box">
+            <img src="images/activity/yuebiao/close.png" class="close" ng-click="closeRealverify()" />
+            <img src="images/activity/yuebiao/user.png" />
+            <h2>请先实名认证<br/>即可参与预约</h2>
+            <button ui-sref="authRecharge">立即前往</button>
+        </div>
+    </div>
+</div>

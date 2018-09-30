@@ -1,0 +1,23 @@
+<div class="set-depository">
+	<div ng-if="wap" class="common-head" ng-click="toback()"><i></i><p>{{title}}</p></div>
+    <header>资金存管机构：四川天府银行股份有限公司(简称：四川天府银行)</header>
+	<main>
+        <form novalidate name="myForm">
+            <div class="input-item">
+                <label for="name">真实姓名</label>
+                <input ng-if="userData.realVerify!=1" id="name" name="name" ng-model="userForm.realName" type="text" placeholder="请输入持卡人姓名" required>
+                <input ng-if="userData.realVerify==1" id="name" name="name" type="text" placeholder="{{userData.realName}}" required disabled>
+            </div>
+            <div class="input-item">
+                <label for="idCards">证件号码</label>
+                <input ng-if="userData.realVerify!=1" id="idCards" name="idCards" ng-model="userForm.idCards" type="text" placeholder="请输入身份证号码" required>
+                <input ng-if="userData.realVerify==1" id="idCards" name="idCards" type="text" placeholder="{{userData.idCards}}" required disabled>
+            </div>
+            <div class="input-item">
+                <label for="phone">手机号码</label>
+                <input id="phone" disabled name="phone" type="text" required placeholder="{{phone}}">
+            </div>
+            <button class="btn submit" ng-click="submit(myForm)">开通存管账户</button>
+        </form>
+    </main>
+</div>

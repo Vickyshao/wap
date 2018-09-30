@@ -1,0 +1,27 @@
+<div class="serviceCenter headerTop" ng-controller="tzflPageCtrl" style="border-top: 1px solid #f4f4f4;">
+    <div ng-if="!fromNative" class="common-head" ng-click="toback()"><i></i>
+        <p>{{title}}</p>
+    </div>
+    <div class="down">
+        <ul class="list">
+            <li>
+                <h3 ng-click="slideToggle($event)">注册是否有红包？<i></i></h3>
+                <p class="one">成功送注册领288红包。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">复投是否有复投红包？<i></i></h3>
+                <p class="one">复投不定时会有红包，用户可随时关注平台及资金账户。</p>
+            </li>
+            <li>
+                <h3 ng-click="slideToggle($event)">平台是否有优惠活动？<i></i></h3>
+                <p class="one">活动专区会推出优惠活动，将用户投资的利益最大化。</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>

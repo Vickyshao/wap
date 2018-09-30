@@ -1,0 +1,90 @@
+<div class="mytjs">
+    <img ng-if="wap" ui-sref="tjs({wap:true})" class="mytjs-banner" src="images/activity/tjs/mytjs-banner.png">
+    <img ng-if="!wap" ui-sref="tjs" class="mytjs-banner" src="images/activity/tjs/mytjs-banner.png">
+    <!--<main>
+        <h1><i></i>我的收货地址</h1>
+        <div>
+            <div ng-if="logsList.length>0 && hasAddress" class="address-box-a">
+                <p><span>姓名</span><span>{{name}}</span></p>
+                <p><span>联系电话</span><span>{{phone}}</span></p>
+                <p><span>收货地址</span><span>{{address}}</span></p>
+                <div class="setAddress">
+                    <a ng-if="!wap" href="jsmp://page=37?"><p><img src="images/activity/tjs/set-icon.png">修改</p></a>
+                    <p ng-if="wap" ui-sref="tjsaddress({wap:true,uid:user.uid})"><img src="images/activity/tjs/set-icon.png">修改</p>
+                </div>
+            </div>
+            <div ng-if="logsList.length>0 && !hasAddress" class="address-box-b">
+                <h3>还未填写收货地址</h3>
+                <div ng-if="wap" ui-sref="tjsaddress({wap:true})" class="button">立即填写</div>
+                <a ng-if="!wap" href="jsmp://page=37?"><div class="button">立即填写</div></a>
+            </div>
+            <div ng-if="logsList.length==0" class="address-box-c">
+                <h3>您还没有参加活动</h3>
+                <div ng-if="wap" ui-sref="tjs({wap:true})" class="button">立即参加</div>
+                <div ng-if="!wap" ui-sref="tjs" class="button">立即参加</div>
+            </div>
+            <h5>*请务必填写以上资料！礼品将在投资后10个工作日内寄出</h5>
+        </div>
+    </main>
+    <footer>
+        <h1><i></i>投资记录</h1>
+        <div class="scroll-box">
+            <div class="code-list">
+                <div class="title-list">
+                    <table>
+                        <tr>
+                            <th width="50%">投资金额（元）</th>
+                            <th width="50%">所获礼品</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="data-list">
+                    <table class="data-table">
+                        <tr ng-repeat="item in logsList">
+                            <td width="50%">{{item.amount}}</td>
+                            <td width="50%">{{item.prizeName}}</td>
+                        </tr>
+                        <tr ng-if="logsList.length == 0">
+                            <td width="50%">-</td>
+                            <td width="50%">-</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </footer>-->
+    <div class="invest-list">
+        <h1><i></i>领取记录</h1>
+        <ul>
+            <li ng-repeat="item in logsList">
+                <p>
+                    <span>所获礼品</span>
+                    <span>{{item.prizeName}}</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>收货信息</span>
+                    <span ng-if="item.prizeType!=1 && item.address">{{item.address}}&#x3000;{{item.name}}&#x3000;{{item.phone}}</span>
+                    <span ng-if="wap && ((item.prizeType!=1 && !item.address) || (item.prizeType==1 && !item.phone))" class="set-address" ui-sref="tjsaddress({wap:true,investId:item.investId,type:item.prizeType})"><img src="images/activity/tjs/set-icon.png"> 填写地址</span>
+                    <span ng-if="!wap && ((item.prizeType!=1 && !item.address) || (item.prizeType==1 && !item.phone))" class="set-address"><a href="jsmp://page=37?investId={{item.investId}}&prizeType={{item.prizeType}}"><img src="images/activity/tjs/set-icon.png"> 填写地址</a></span>
+                    <span ng-if="item.prizeType==1 && item.phone">{{item.phone}}</span>
+                    <span></span>
+                </p>
+            </li>
+            <!--<li>
+                <p>
+                    <span>所获礼品</span>
+                    <span>Apple MacBook Pro</span>
+                    <span></span>
+                </p>
+                <p>
+                    <span>收货信息</span>
+                    <span ng-if="wap" ui-sref="tjsaddress({wap:true,uid:user.uid})" class="set-address"><img src="images/activity/tjs/set-icon.png"> 填写地址</span>
+                    <span ng-if="!wap" class="set-address"><a href="jsmp://page=37?"><img src="images/activity/tjs/set-icon.png"> 填写地址</a></span>
+                    <span></span>
+                </p>
+            </li>-->
+        </ul>
+        <h5>*请务必填写以上资料！礼品将在投资后10个工作日内寄出</h5>
+    </div>
+</div>

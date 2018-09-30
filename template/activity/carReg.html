@@ -1,0 +1,35 @@
+<div class="carReg">
+    <img src="images/carReg/carbg.png" class="bg" />
+    <img src="images/carReg/logo.png" class="logo" />
+    <div class="box">
+        <div class="container">
+            <form class="wap-login-box" ng-model="fromregister" name="myForm" novalidate>
+                <div>
+                    <input name="mobilephone" type="text" ng-pattern="/^1[3|4|5|6|9|7|8][0-9]{9}$/" placeholder="请输入手机号" ng-model="login.mobilephone" onkeyup="this.value=this.value.replace(/[\D\.]/gi,'')" ng-blur="blurID('focusMobilephone',myForm)" minlength="11" maxlength="11" required>
+                </div>
+                <div ng-disabled="true">
+                    <input ng-model="login.smsCode" class="code" type="text" placeholder="请输入短信验证码" maxlength="4" required>
+                    <span class="codebtn" ng-click="getyzm(myForm)">{{nowTimer}}</span>
+                </div>
+                <div>
+                    <input autocomplete="off" type="{{(passwordText|isShowPw).type}}" placeholder="密码为6-16位字母数字混合" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/" ng-model="login.passWord" name="passWord" required/>
+                </div>
+            </form>
+            <p class="agree"><i ng-class="{check:agree}" ng-click="agree=!agree" ng-init="agree=true"></i>我已阅读并同意<a href="https://hushenlc.cn/zc" target="_blank">《沪深理财注册协议》</a></p>
+        </div>
+        <button class="sign_box_bottom newhand-btn" ng-disabled="!agree" ng-click="zuce(myForm)">立即注册领卡</button>
+    </div>
+    <div class="footer">
+        <dl>
+            <dt>
+                <img src="images/carReg/carico.png" />温馨提示
+			</dt>
+			<dd>
+				<p>1.活动车型：仅限宝马、奔驰、奥迪等</p>
+				<p>2.投资成功后，客服将在2个工作日内与您确认邮寄地址；</p>
+				<p>3.如有疑问请致电沪深理财客服专线：400-031-9909。</p>
+			</dd>
+		</dl>
+	</div>
+	<span class="guanggao">广告</span>
+</div>
